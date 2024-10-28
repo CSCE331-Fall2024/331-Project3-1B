@@ -5,6 +5,7 @@
     border: 1px solid #e0e0e0;
     background-color: rgb(221, 218, 218);
     border-radius: 10px;
+    transition: box-shadow .2s;
 }
 
 .item-card-container:hover {

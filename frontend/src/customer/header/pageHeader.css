@@ -18,6 +18,7 @@
     width: auto;
     border-radius: 20px;
     border: none;
+    transition: box-shadow .2s;
 }
 
 #header-button:hover {
