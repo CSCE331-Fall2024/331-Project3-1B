@@ -6,7 +6,7 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/customer" element={<Customer />} />
+                <Route path="/" element={<Customer />} />
                 <Route path="/order" element={<ItemPage />} />
             </Routes>
         </Router>
