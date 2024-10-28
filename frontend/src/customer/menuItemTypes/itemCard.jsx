@@ -1,16 +1,19 @@
-import './itemCard.css';
+import "./itemCard.css";
 
-function ItemCard({type}) {
-
-    return(
+function ItemCard({ type }) {
+    const handleClick = (type) => {
+        return () => {
+            console.log(type);
+        };
+    };
+    return (
         <>
-            <button className='item-card-container'>
+            <button onClick={handleClick(type)} className="item-card-container">
                 {/* <img className='item-card-image' src="" alt="" /> */}
-                <h2 className='item-card-title'>{type}</h2>
+                <h2 className="item-card-title">{type}</h2>
             </button>
         </>
-    )
+    );
 }
-
 
 export default ItemCard;

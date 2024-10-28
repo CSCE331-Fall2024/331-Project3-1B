@@ -1,15 +1,14 @@
-import './App.css';
-import Customer from './customer/customer.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import "./App.css";
+import Customer from "./customer/customer.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
-
-  return (
-    <Router>
+    return (
+        <Router>
             <Routes>
-                <Route path="/" element={<Customer/>} />
+                <Route path="/customer" element={<Customer />} />
             </Routes>
         </Router>
-  )
+    );
 }
 
-export default App
+export default App;

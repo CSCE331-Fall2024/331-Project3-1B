@@ -1,4 +1,4 @@
-#header-container{
+#header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,24 +8,24 @@
     height: 100px;
 }
 
-#header-title{
+#header-title {
     font-size: 30px;
     color: white;
 }
 
-#header-button{
+#header-button {
     background-color: #fff;
     width: auto;
     border-radius: 20px;
     border: none;
 }
 
-#header-button:hover{
+#header-button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 black;
 }
 
-.header-button-title{
+.header-button-title {
     color: #e32d2d;
     padding: 10px 25px;
 }
