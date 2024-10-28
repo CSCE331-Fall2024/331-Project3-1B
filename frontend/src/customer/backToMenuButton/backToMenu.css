@@ -1,0 +1,19 @@
+.back-to-menu-button{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    padding: 10px;
+    background-color: #e32d2d;
+    border: 1px solid #f8f9fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.back-to-menu-button:hover{
+    border: 3px solid white;
+    text-decoration: bold;
+    box-shadow: 0 0 10px 0 black;
+}
