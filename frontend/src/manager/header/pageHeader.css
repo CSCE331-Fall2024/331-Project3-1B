@@ -1,0 +1,7 @@
+#header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e32d2d;
+    height: 100px;
+}

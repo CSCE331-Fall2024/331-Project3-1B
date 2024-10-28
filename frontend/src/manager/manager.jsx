@@ -1,7 +1,9 @@
+import PageHeader from "./header/pageHeader.jsx";
+
 function manager() {
     return (
         <>
-            <h1>Manager</h1>
+            <PageHeader />
         </>
     )
 };
