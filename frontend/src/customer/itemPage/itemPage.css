@@ -1,0 +1,15 @@
+.extra-space {
+    margin-top: 35px;
+}
+.item-page-type-container {
+    margin: 30px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-page-title{
+    font-weight: bold;
+    color: #e32d2d;
+    margin-left: 125px;
+}
