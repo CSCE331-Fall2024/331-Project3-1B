@@ -10,11 +10,11 @@
 
 #header-title {
     font-size: 30px;
-    color: white;
+    color: #ffffff;
 }
 
 #header-button {
-    background-color: #fff;
+    background-color: #ffffff;
     width: auto;
     border-radius: 20px;
     border: none;
@@ -23,7 +23,7 @@
 
 #header-button:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px 0 black;
+    box-shadow: 0 0 10px 0 #000000;
 }
 
 .header-button-title {

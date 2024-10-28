@@ -1,5 +1,21 @@
-.pick-a-meal-header{
-    font-size: larger;
-    text-decoration-color: #e32d2d;
+#board-container{
+    background-color: #dddada;
+}
+
+#pick-a-meal{
+    width: 94%;
+    height: 1000px;
+    justify-self: center;
+    border-radius: 30px;
+    background-color: #ffffff;
+    margin-top: 3%;
+}
+
+#pick-a-meal-header{
+    font-size: 100px;
+    font-weight: 100;
+    color: #e32d2d;
     font-family: sans-serif;
+    justify-self: center;
+    padding-top: 50px;
 }
