@@ -22,9 +22,10 @@
 
 #header-button:hover{
     cursor: pointer;
+    box-shadow: 0 0 10px 0 black;
 }
 
 .header-button-title{
     color: #e32d2d;
-    padding: 0px 20px;
+    padding: 10px 25px;
 }

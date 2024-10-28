@@ -1,0 +1,27 @@
+.item-card-container{
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: rgb(221, 218, 218);
+    border-radius: 10px;
+}
+
+.item-card-container:hover{
+    box-shadow: 0 0 10px 0 black;
+    cursor: pointer;
+}
+
+.item-card-image{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.item-card-title{
+    font-weight: bold;
+    color: #e32d2d;
+    text-align: center;
+    margin: 5px;
+    text-wrap: wrap;
+}
