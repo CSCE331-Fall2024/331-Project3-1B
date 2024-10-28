@@ -1,0 +1,24 @@
+.quantifier-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.quantifier{
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantifier-button{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 5px;
+}

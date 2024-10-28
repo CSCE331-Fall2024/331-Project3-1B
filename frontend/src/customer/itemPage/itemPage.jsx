@@ -1,8 +1,10 @@
 import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
 import Nav from "../header/pageHeader.jsx";
+import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 
 export default function ItemPage() {
+
     const sides = ["White Rice", "Fried Rice", "Chow Mein", "Super Greens"];
     const entrees = [
         "Orange Chicken",
@@ -18,6 +20,8 @@ export default function ItemPage() {
         "Honey Walnut Shrimp",
         "Black Pepper Sirloin Steak",
     ];
+
+    
 
     return (
         <>
@@ -36,6 +40,8 @@ export default function ItemPage() {
                     })}
                 </div>
             </div>
+            <BackToMenu/>
+            
         </>
     );
 }
