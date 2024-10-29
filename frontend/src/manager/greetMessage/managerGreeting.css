@@ -1,0 +1,5 @@
+#greeting-container {
+    display: flex;
+    justify-content: left;
+    padding: 15px;
+}
