@@ -1,0 +1,11 @@
+#employee-card-container {
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+#employee-name {
+    padding: 5px;
+}
