@@ -3,5 +3,24 @@
     justify-content: space-between;
     align-items: center;
     background-color: #e32d2d;
-    height: 100px;
+    height: 75px;
+}
+
+.nav-btn {
+    background-color: #fff;
+    width: auto;
+    border-radius: 20px;
+    border: none;
+    transition: box-shadow .2s;
+}
+
+.nav-btn-text {
+    font-size: 20px;
+    color: #e32d2d;
+    padding: 10px 25px;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #000000;
 }
