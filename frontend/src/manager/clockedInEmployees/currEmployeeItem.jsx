@@ -1,4 +1,4 @@
-import "currEmployeeItem.css";
+import "./currEmployeeItem.css";
 
 function CurrEmployeeItem({ employeeName }) {
     return (
