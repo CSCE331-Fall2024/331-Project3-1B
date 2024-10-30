@@ -4,8 +4,7 @@ import Nav from "../header/pageHeader.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import { useState } from "react";
-import './drinks.css';
-
+import "./drinks.css";
 
 // Appetizers component, displays the appetizers and includes the AddToOrder component
 export default function () {
@@ -16,7 +15,7 @@ export default function () {
         "Medium",
         "Large",
         "Bottled Water",
-        "Gatorade Lemon Lime"
+        "Gatorade Lemon Lime",
     ];
 
     return (
@@ -36,8 +35,10 @@ export default function () {
                         );
                     })}
                 </div>
-                <AddToOrder items={currOrder} />
-                <BackToMenu />
+                <footer className="item-page-footer">
+                    <AddToOrder items={currOrder} />
+                    <BackToMenu />
+                </footer>
             </CartProvider>
         </>
     );

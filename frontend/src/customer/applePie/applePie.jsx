@@ -5,21 +5,20 @@ import AddToOrder from "../addToOrder/addToOrder.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import { useState } from "react";
 
-
 // Appetizers component, displays the appetizers and includes the AddToOrder component
 export default function () {
     const [currOrder, setCurrOrder] = useState(["Test", "Test2"]);
 
-    const ApplePieRoll = [
-        "Apple Pie Roll",
-    ];
+    const ApplePieRoll = ["Apple Pie Roll"];
 
     return (
         <>
             {/* wrapping the components with CartProvider so that they have access to the CartContext component contents.  */}
             <CartProvider>
                 <Nav />
-                <h1 className="item-page-title appetizers-title">Apple Pie Roll</h1>
+                <h1 className="item-page-title appetizers-title">
+                    Apple Pie Roll
+                </h1>
                 <div className="item-page-type-container">
                     {ApplePieRoll.map((apr, index) => {
                         return (
@@ -31,8 +30,10 @@ export default function () {
                         );
                     })}
                 </div>
-                <AddToOrder items={currOrder} />
-                <BackToMenu />
+                <footer className="item-page-footer">
+                    <AddToOrder items={currOrder} />
+                    <BackToMenu />
+                </footer>
             </CartProvider>
         </>
     );

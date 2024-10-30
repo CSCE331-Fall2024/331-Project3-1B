@@ -4,8 +4,7 @@ import Nav from "../header/pageHeader.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import { useState } from "react";
-import './appetizers.css';
-
+import "./appetizers.css";
 
 // Appetizers component, displays the appetizers and includes the AddToOrder component
 export default function () {
@@ -35,8 +34,10 @@ export default function () {
                         );
                     })}
                 </div>
-                <AddToOrder items={currOrder} />
-                <BackToMenu />
+                <footer className="item-page-footer">
+                    <AddToOrder items={currOrder} />
+                    <BackToMenu />
+                </footer>
             </CartProvider>
         </>
     );
