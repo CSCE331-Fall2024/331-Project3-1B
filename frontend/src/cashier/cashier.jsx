@@ -1,6 +1,6 @@
 import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
-function CashierPageHeader(){
+export function CashierPageHeader(){
     return(
         <div className="header-bar">
                 <div className="buttons">
@@ -12,16 +12,22 @@ function CashierPageHeader(){
             </div>
     );
 }
+
+export function TotalContainer(){
+    return(
+        <div className="total-container">
+                    <div className="inner-rectangle">
+                        <h3>Total:</h3>
+                    </div>
+                </div>
+    )
+}
 function Cashier() {
     return (
         <div className="cashier">
             <CashierPageHeader />
             <div className="main-content">
-                <div className="total-container">
-                    <div className="inner-rectangle">
-                        <h3>Total:</h3>
-                    </div>
-                </div>
+                <TotalContainer />
                 <div className="cards-container">
                  <MenuItemTypes />
                 </div>

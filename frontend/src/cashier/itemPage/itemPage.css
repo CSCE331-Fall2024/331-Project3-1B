@@ -1,0 +1,15 @@
+.extra-space {
+    margin-top: 35px;
+}
+.cashier-item-page-type-container {
+    margin: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cashier-item-page-title{
+    font-weight: bold;
+    color: #e32d2d;
+    margin-left: 125px;
+}
