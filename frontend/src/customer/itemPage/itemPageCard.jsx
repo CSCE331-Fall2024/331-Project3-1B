@@ -3,7 +3,7 @@ import "./itemCardPage.css";
 import Quantifier from "../quantitySelector/quantitySelector.jsx";
 import React from "react";
 
-export default function ItemPageCard({ type, item, updateOrder }) {
+export default function ItemPageCard({ type, item, updateOrder, resetQuantities }) {
     let imagePath = "";
     if (item === "Small" || item === "Medium" || item === "Large") {
         imagePath = `../../../Images/SoftDrinks/Drinks.png`;
@@ -20,10 +20,8 @@ export default function ItemPageCard({ type, item, updateOrder }) {
             />
             <h2 className="item-page-card-title">{item}</h2>
             <Quantifier
-                onQuantityChange={(quantity) => {
-                    console.log(`ItemPageCard: ${item}, New Quantity: ${quantity}`);
-                    updateOrder(item, quantity);
-                }}
+                onQuantityChange={(quantity) => updateOrder(item, quantity)}
+                resetQuantities={resetQuantities} // Pass reset state to Quantifier
             />
         </div>
     );

@@ -1,23 +1,32 @@
 // QuantitySelector.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './quantitySelector.css';
 
-export default function QuantitySelector({ onQuantityChange }) {
+export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
     const [quantity, setQuantity] = useState(0);
 
     const handleSubtract = () => {
         const newQuantity = Math.max(0, quantity - 1);
         setQuantity(newQuantity);
-        console.log(`QuantitySelector: Subtracted, New Quantity: ${newQuantity}`);
         onQuantityChange(newQuantity);
     };
 
     const handleAdd = () => {
         const newQuantity = quantity + 1;
         setQuantity(newQuantity);
-        console.log(`QuantitySelector: Added, New Quantity: ${newQuantity}`);
         onQuantityChange(newQuantity);
     };
+
+    
+
+    // Reset quantity to 0 whenever resetQuantities changes
+    useEffect(() => {
+        console.log('Resetting quantities:', resetQuantities);
+        if (resetQuantities) {
+            setQuantity(0);
+            onQuantityChange(0);
+        }
+    }, [resetQuantities]);
 
     return (
         <div className="quantifier-container">

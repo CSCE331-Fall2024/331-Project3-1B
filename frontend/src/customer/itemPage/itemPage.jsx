@@ -5,21 +5,19 @@ import Nav from "../header/pageHeader.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
+    const [resetQuantities, setResetQuantities] = useState(false);
 
-    // Function to add or update item quantity in currOrder
     const updateOrder = (item, quantity) => {
-        console.log(`Updating item: ${item}, Quantity: ${quantity}`);
         setCurrOrder((prevOrder) => {
             const existingItem = prevOrder.find(
                 (orderItem) => orderItem.name === item
             );
             let newOrder;
             if (existingItem) {
-                // Update quantity or remove item if quantity is zero
                 newOrder =
                     quantity > 0
                         ? prevOrder.map((orderItem) =>
@@ -31,18 +29,28 @@ export default function ItemPage() {
                               (orderItem) => orderItem.name !== item
                           );
             } else if (quantity > 0) {
-                // Add new item if quantity > 0
                 newOrder = [...prevOrder, { name: item, quantity }];
             } else {
                 newOrder = prevOrder;
             }
-
-            console.log("Updated order contents:", newOrder); // Log the entire order after the change
+            // console.log("Updated order contents:", newOrder);
             return newOrder;
         });
     };
 
-    // Function to finalize order and pass it to AddToOrder component
+    // Reset quantities when "Add to Order" is clicked
+    const handleAddToOrder = () => {
+        setResetQuantities(true);
+        console.log("Reset quantities set to true"); // Check if this logs when button is clicked
+    };
+
+    // Use useEffect to listen for resetQuantities changes and reset it to false after updating
+    useEffect(() => {
+        if (resetQuantities) {
+            setResetQuantities(false); // Reset after all quantities are set to 0
+            console.log("Quantities reset to 0"); // Confirm reset
+        }
+    }, [resetQuantities]);
 
     const sides = [
         "White Steamed Rice",
@@ -77,6 +85,7 @@ export default function ItemPage() {
                                 item={side}
                                 key={index}
                                 updateOrder={updateOrder}
+                                resetQuantities={resetQuantities}
                             />
                         ))}
                     </div>
@@ -88,12 +97,12 @@ export default function ItemPage() {
                                 item={entree}
                                 key={index}
                                 updateOrder={updateOrder}
+                                resetQuantities={resetQuantities}
                             />
                         ))}
                     </div>
                 </div>
-                {/* Pass the finalized order as props to AddToOrder */}
-                <AddToOrder items={currOrder} />
+                <AddToOrder items={currOrder} onAddToOrder={handleAddToOrder} />
                 <BackToMenu />
             </CartProvider>
         </>
