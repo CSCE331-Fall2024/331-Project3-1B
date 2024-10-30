@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ItemCard from "./itemCard";
 import "./menuItemTypes.css";
 
