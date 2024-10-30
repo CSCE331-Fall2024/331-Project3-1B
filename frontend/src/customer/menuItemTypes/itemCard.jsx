@@ -1,7 +1,7 @@
 import "./itemCard.css";
 import { useNavigate } from "react-router-dom";
 
-function ItemCard({ type }) {
+export default function ItemCard({ type }) {
     const navigate = useNavigate();
     const handleClick = (type) => {
         return () => {
@@ -36,4 +36,3 @@ function ItemCard({ type }) {
     );
 }
 
-export default ItemCard;

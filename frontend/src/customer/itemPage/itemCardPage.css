@@ -1,10 +1,14 @@
 .item-page-container {
     width: 300px;
-    height: 200px;
+    height: 300px;
     margin: 10px;
     border: 1px solid #e0e0e0;
     background-color: rgb(221, 218, 218);
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .item-page-container:hover {
@@ -13,6 +17,7 @@
 }
 
 .item-page-card-image {
+
     width: 150px;
     height: 150px;
     margin: 10px;
