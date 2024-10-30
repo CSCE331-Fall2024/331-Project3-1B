@@ -5,9 +5,12 @@ import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import addToOrder from "../addToOrder/addToOrder.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
+import { useState } from "react";
 
 // ItemPage component, displays the menu items (entrees and sides) and includes the AddToOrder component
 export default function ItemPage() {
+
+    const [currOrder, setCurrOrder] = useState(["Test", "Test2"]);
 
     // List of sides and entrees
     const sides = ["White Steamed Rice", "Fried Rice", "Chow Mein", "Super Greens"];
@@ -59,7 +62,9 @@ export default function ItemPage() {
                     })}
                 </div>
             </div>
-            <AddToOrder/>
+            <AddToOrder
+                items={currOrder}
+            />
             <BackToMenu />
         </CartProvider>
         </>

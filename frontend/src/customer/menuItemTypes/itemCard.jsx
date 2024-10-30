@@ -18,7 +18,7 @@ export default function ItemCard({ type }) {
                 navigate("/panda-cub-meal");
             }
             else if (type == "Appetizers and More") {
-                navigate("/appetizers-and-more");
+                navigate("/order/appetizers");
             }
             else if (type == "Drinks") {
                 navigate("/drinks");

@@ -10,11 +10,11 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 
     // Initialize the state as an empty array
-    const [cart, setCart] = useState(["test"]);
+    const [cart, setCart] = useState(["test","test2"]);
 
     // Function to add an item to the cart
     const addItemToCart = (item) => {
-        setCart((prevCart) => [...prevCart, item]);
+        setCart((prevCart) => [...prevCart, ...item]);
     };
 
     // Function to remove an item from the cart by its index

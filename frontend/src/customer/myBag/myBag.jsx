@@ -6,12 +6,6 @@ export default function () {
 
     return (
         <>
-        {/* will map all of the items => to be displayed */}
-            {cart.map((item, index) => (
-                <li key={index}>
-                    {item}
-                </li>
-            ))}
         </>
     );
 }
