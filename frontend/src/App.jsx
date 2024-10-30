@@ -8,7 +8,9 @@ import MenuBoards from "./menuBoards/board1.jsx";
 import Cashier from "./cashier/cashier.jsx";
 function App() {
     return (
+        // The Router component is used to define the routes of the application
         <Router>
+            {/* The Routes component is used to define the routes of the application */}
             <Routes>
                 <Route path="/" element={<Customer />} />
                 <Route path="/order" element={<ItemPage />} />

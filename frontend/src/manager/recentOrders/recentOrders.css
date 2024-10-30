@@ -1,6 +1,5 @@
-#curr-employees-container {
+#recent-orders-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
 }

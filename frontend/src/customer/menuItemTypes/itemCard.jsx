@@ -1,10 +1,14 @@
 import "./itemCard.css";
 import { useNavigate } from "react-router-dom";
 
+// itemCard is the card that displays the item type
 export default function ItemCard({ type }) {
     const navigate = useNavigate();
+
+    // imagePath is the path to the image of the item
     let imagePath = `../../../Images/OrderOptions/${type}.png`;
-    console.log(imagePath);
+
+    // handleClick is a function that navigates to the correct page based on the type of item
     const handleClick = (type) => {
         return () => {
             if (type == "Bowl" || type == "Plate" || type == "A La Carte" || type == "Bigger Plate" || type == "Catering" || type == "Panda Bundle" || type == "5 Person Meal") {

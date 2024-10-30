@@ -4,8 +4,12 @@ import Nav from "../header/pageHeader.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import addToOrder from "../addToOrder/addToOrder.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
+import { CartProvider } from "../myBag/CartContext.jsx";
 
+// ItemPage component, displays the menu items (entrees and sides) and includes the AddToOrder component
 export default function ItemPage() {
+
+    // List of sides and entrees
     const sides = ["White Steamed Rice", "Fried Rice", "Chow Mein", "Super Greens"];
     const entrees = [
         "Original Orange Chicken",
@@ -24,6 +28,10 @@ export default function ItemPage() {
 
     return (
         <>
+
+        {/* wrapping the components with CartProvider so that they have access to the myBag.jsx component contents.  */}
+        {/* Utilizes useContext and createContext in the myBag.jsx component.  */}
+        <CartProvider>
             <Nav />
             <div>
                 <h1 className="item-page-title extra-space">Sides</h1>
@@ -53,6 +61,7 @@ export default function ItemPage() {
             </div>
             <AddToOrder/>
             <BackToMenu />
+        </CartProvider>
         </>
     );
 }

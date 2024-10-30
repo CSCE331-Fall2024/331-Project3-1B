@@ -1,10 +1,14 @@
 import React, { createContext, useState, useContext } from "react";
 
-// 1. Create the Context
+// will go into depth more on this file. 
+// this custom react hook will allow us to view, add, and remove items from the cart. 
+
+// create the context
 const CartContext = createContext();
 
-// 2. Create a Provider component
+// this creates the provider that will be used to wrap the components that need access to the cart
 export const CartProvider = ({ children }) => {
+
     // Initialize the state as an empty array
     const [cart, setCart] = useState(["test"]);
 
@@ -24,6 +28,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
+        // allows us to wrap other components with the CartProvider so that they have access to its components. 
         <CartContext.Provider
             value={{ cart, addItemToCart, removeItemFromCart, clearCart }}
         >
@@ -32,5 +37,5 @@ export const CartProvider = ({ children }) => {
     );
 };
 
-// 3. Custom hook to use the CartContext
+// exports the useCart hook that allows us to access the cart and its functions
 export const useCart = () => useContext(CartContext);

@@ -1,6 +1,7 @@
 import ItemCard from "./itemCard";
 import "./menuItemTypes.css";
 
+// MenuItemTypes is the component that displays all the item types
 export default function MenuItemTypes() {
     const types = [
         "Bowl",
@@ -17,6 +18,7 @@ export default function MenuItemTypes() {
         "A La Carte",
     ];
 
+    // maps all the types to the ItemCard component
     return (
         <div className="item-type-card-container">
             {types?.map((type, index) => {

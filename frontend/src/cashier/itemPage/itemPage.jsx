@@ -3,6 +3,8 @@ import ItemPageCard from "./itemPageCard.jsx";
 import {CashierPageHeader, TotalContainer} from "../cashier.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 
+
+// CashierItemPage is the component that displays the items that the user can select to add to their order
 export default function CashierItemPage() {
 
     const sides = ["White Steamed Rice", "Fried Rice", "Chow Mein", "Super Greens"];
@@ -31,6 +33,8 @@ export default function CashierItemPage() {
                 </div>
                 <div>
                 <h1 className="cashier-item-page-title extra-space">Sides</h1>
+
+                {/* The sides and entrees are displayed in the cashier item page */}
                 <div className="cashier-item-page-type-container">
                     {sides.map((side, index) => {
                         return (
