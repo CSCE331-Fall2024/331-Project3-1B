@@ -1,4 +1,3 @@
-// ItemPage.jsx
 import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
 import Nav from "../header/pageHeader.jsx";
