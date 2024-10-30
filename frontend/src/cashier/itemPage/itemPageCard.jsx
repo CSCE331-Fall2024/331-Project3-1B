@@ -1,28 +1,28 @@
 import "./itemCardPage.css";
 import { useNavigate } from "react-router-dom";
 import Quantifier from "../quantitySelector/quantitySelector.jsx";
+import React from "react";
 
-export default function itemPageCard({ type }) {
+export default function itemPageCard({ type, item }) {
 
-    const handleClick = (type) => {
-        return () => {
-            console.log(type);
-        };
-    };
 
-    
+    let imagePath = `../../../Images/${type}/${item.replace(/\s+/g, "")}.png`;
+
 
     return (
         <>
-            <button onClick={handleClick(type)} className="cashier-item-page-container">
-                    <img
-                        className="cashier-item-page-card-image"
-                        src={`images/${type}.jpg`}
-                        alt="image could not be found"
-                    />
-                <h2 className="cashier-item-page-card-title">{type}</h2>
+            <div
+                className="cashier-item-page-container"
+            >
+                <img
+                    className="cashier-item-page-card-image"
+                    src={imagePath}
+                    alt="image could not be found"
+                />
+                
+                <h2 className="cashier-item-page-card-title">{item}</h2>
                 <Quantifier />
-            </button>
+            </div>
         </>
     );
 }

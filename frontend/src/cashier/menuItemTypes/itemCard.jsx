@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function ItemCard({ type }) {
     const navigate = useNavigate();
+    let imagePath = `../../../Images/OrderOptions/${type}.png`;
     const handleClick = (type) => {
         return () => {
             console.log(type);
@@ -29,7 +30,7 @@ function ItemCard({ type }) {
     return (
         <>
             <button onClick={handleClick(type)} className="item-card-container2">
-                {/* <img className='item-card-image2' src="" alt="" /> */}
+                { <img className='item-card-image2' src={imagePath} alt="" /> }
                 <h2 className="item-card-title2">{type}</h2>
             </button>
         </>
