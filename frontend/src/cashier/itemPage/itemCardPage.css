@@ -1,28 +1,31 @@
-.item-card-container2 {
+.cashier-item-page-container {
     width: 250px;
     height: 150px;
     margin: 10px;
     background-color: #dddada;
-    border-width: 0;
     border-radius: 10px;
-    transition: box-shadow .2s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.item-card-container2:hover {
+.cashier-item-page-container:hover {
     box-shadow: 0 0 10px 0 #000000;
     cursor: pointer;
 }
 
-.item-card-image2 {
-    width: 150px;
+.cashier-item-page-card-image {
+    width: 100px;
     height: 100px;
     margin: 0px;
 }
 
-.item-card-title2 {
+.cashier-item-page-card-title {
     font-weight: bold;
+    font-size: medium;
     color: #e32d2d;
     text-align: center;
-    margin: 5px;
+    margin: 0px;
     text-wrap: wrap;
 }
