@@ -1,6 +1,7 @@
 import ManagerGreeting from "./greetMessage/managerGreeting.jsx";
 import PageHeader from "./header/pageHeader.jsx";
 import CurrEmployees from "./clockedInEmployees/currEmployees.jsx";
+import "./manager.css";
 
 
 function manager() {

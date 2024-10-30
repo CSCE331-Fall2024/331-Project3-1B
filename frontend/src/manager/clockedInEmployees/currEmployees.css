@@ -1,5 +1,7 @@
 #curr-employees-container {
     display: flex;
     flex-direction: column;
-    background-color: #808080;
+    align-items: center;
+    padding: 15px;
+    background-color: #D3D3D3;
 }

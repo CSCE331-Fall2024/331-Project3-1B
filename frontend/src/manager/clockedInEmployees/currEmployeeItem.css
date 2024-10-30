@@ -2,14 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
+    width: 150px;
     height: 30px;
-    margin: 10px;
-    background-color: #8FFFFF;
-    border-radius: 10px;
+    margin: 15px;
+    background-color: #FFFFFF;
+    border-radius: 7px;
 }
 
 #employee-name {
     padding: 5px;
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 550;
+
 }
