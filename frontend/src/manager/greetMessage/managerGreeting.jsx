@@ -1,5 +1,6 @@
 import "./managerGreeting.css";
 
+// creates a greeting message for the manager
 function ManagerGreeting() {
     return (
         <>

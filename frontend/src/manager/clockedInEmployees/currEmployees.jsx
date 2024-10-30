@@ -1,6 +1,8 @@
 import "./currEmployees.css";
 import CurrEmployeeItem from "./currEmployeeItem.jsx";
 
+
+// creates a container that holds all the employees that are currently clocked in
 function CurrEmployees() {
     return (    
         <>

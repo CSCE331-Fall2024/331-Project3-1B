@@ -1,10 +1,9 @@
 import "./currentOrderTrends.css";
 
+
+// creates a container that holds the current order trends. Shows the number of each item ordered today
+// data is temporary and will be replaced with actual data
 function OrderTrends() {
-    let pieChartData = {
-        labels: ["Bowl", "Plate", "Bigger Plate", "Cub Meal", "A La Carte Small", "A La Carte Medium", "A La Carte Large"],
-        values: [50, 45, 30, 20, 15, 10, 5]
-    };
 
     return (
         <div className="piechart-container">

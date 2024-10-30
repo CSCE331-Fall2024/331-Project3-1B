@@ -2,6 +2,8 @@ import OrderItem from "./orderItem.jsx";
 import "./recentOrders.css";
 import TotalSales from "./totalSales.jsx";
 
+// creates a container that holds all the most recent orders
+// holds temporary data for the orders
 function RecentOrders() {
     return (
         <>

@@ -1,5 +1,6 @@
 import "./currEmployeeItem.css";
 
+// creates a card for each employee that is currently clocked in
 function CurrEmployeeItem({ employeeName }) {
     return (
         <>

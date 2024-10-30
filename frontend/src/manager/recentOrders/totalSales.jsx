@@ -1,5 +1,6 @@
 import "./totalSales.css";
 
+// creates a display for the total sales today
 function TotalSales ({ totalSales }) {
     return (
         <>
