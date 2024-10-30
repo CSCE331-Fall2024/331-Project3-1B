@@ -1,9 +1,15 @@
 import "./itemCard.css";
 import { useNavigate } from "react-router-dom";
 
+
+// ItemCard is the component that displays the item card in the cashier item page
 function ItemCard({ type }) {
     const navigate = useNavigate();
+
+    //  The image path is the path to the image of the item
     let imagePath = `../../../Images/OrderOptions/${type}.png`;
+
+    //  handleClick is the function that is called when the user clicks on the item card
     const handleClick = (type) => {
         return () => {
             console.log(type);
