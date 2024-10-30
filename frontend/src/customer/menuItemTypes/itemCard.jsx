@@ -8,6 +8,10 @@ export default function ItemCard({ type }) {
     // imagePath is the path to the image of the item
     let imagePath = `../../../Images/OrderOptions/${type}.png`;
 
+    if (type === "Kids Drinks") {
+        imagePath = `../../../Images/SoftDrinks/AppleJuice.png`;
+    }
+    
     // handleClick is a function that navigates to the correct page based on the type of item
     const handleClick = (type) => {
         return () => {
@@ -21,14 +25,15 @@ export default function ItemCard({ type }) {
                 navigate("/order/appetizers");
             }
             else if (type == "Drinks") {
-                navigate("/drinks");
+                navigate("/order/drinks");
             }
-            else if (type == "Apple Pie Roll") {
-                navigate("/apple-pie-roll");
+            else if (type == "Kids Drinks") {
+                navigate("/order/kids-drinks");
             }
-            else if (type == "Gatorade Lemon Lime") {
-                navigate("/gatorade-lemon-lime");
+            else if (type == "Apple Pie") {
+                navigate("/order/apple-pie-roll");
             }
+            
         };
     };
     return (

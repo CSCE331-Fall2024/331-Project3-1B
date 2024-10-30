@@ -14,7 +14,7 @@ export default function MenuItemTypes() {
         "Drinks",
         "Apple Pie",
         "Catering",
-        "Gatorade Lemon Lime",
+        "Kids Drinks",
         "A La Carte",
     ];
 

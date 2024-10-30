@@ -7,7 +7,15 @@ import React from "react";
 export default function itemPageCard({ type, item }) {
 
     // imagePath is the path to the image of the item
-    let imagePath = `../../../Images/${type}/${item.replace(/\s+/g, "")}.png`;
+    let imagePath = ""; 
+    if (item == "Small" || item == "Medium" || item == "Large") {
+        imagePath = `../../../Images/SoftDrinks/Drinks.png`;
+    }
+    else {
+        imagePath = `../../../Images/${type}/${item.replace(/\s+/g, "")}.png`;
+    }
+    console.log(imagePath);
+
 
 
     return (
