@@ -12,7 +12,7 @@ function MenuItemTypes() {
         "5 Person Meal",
         "Appetizers and More",
         "Drinks",
-        "Apple Pie Roll",
+        "Applie Pie Roll",
         "Catering",
         "Gatorade Lemon Lime",
         "A La Carte",
