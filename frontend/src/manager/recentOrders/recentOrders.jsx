@@ -1,3 +1,4 @@
+import OrderItem from "./orderItem.jsx";
 import "./recentOrders.css";
 import TotalSales from "./totalSales.jsx";
 
@@ -5,7 +6,12 @@ function RecentOrders() {
     return (
         <>
             <div id="recent-orders-container">
-                <TotalSales totalSales= { 4829.69 } />
+                <TotalSales totalSales= { 1829.69 } />
+                <OrderItem orderTotal= { 29.69 } totalItems= { 3 } />
+                <OrderItem orderTotal= { 12.25 } totalItems= { 2 } />
+                <OrderItem orderTotal= { 27.21 } totalItems= { 4 } />
+                <OrderItem orderTotal= { 23.12 } totalItems= { 3 } />
+                <OrderItem orderTotal= { 8.95 } totalItems= { 1 } />
             </div>
         </>
     );
