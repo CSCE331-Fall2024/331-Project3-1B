@@ -1,6 +1,6 @@
 import "./pageHeader.css";
 
-function PageHeader() {
+export default function PageHeader() {
     return (
         <>
             <div id="header-container">
@@ -13,4 +13,3 @@ function PageHeader() {
     );
 }
 
-export default PageHeader;

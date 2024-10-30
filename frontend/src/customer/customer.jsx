@@ -2,7 +2,7 @@ import PageHeader from "./header/pageHeader.jsx";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 
 
-function customer() {
+export default function customer() {
     return (
         <>
             <PageHeader />
@@ -12,4 +12,3 @@ function customer() {
 }   
 
 
-export default customer;
