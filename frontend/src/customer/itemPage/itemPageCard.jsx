@@ -1,4 +1,3 @@
-// ItemPageCard.jsx
 import "./itemCardPage.css";
 import Quantifier from "../quantitySelector/quantitySelector.jsx";
 import React from "react";
