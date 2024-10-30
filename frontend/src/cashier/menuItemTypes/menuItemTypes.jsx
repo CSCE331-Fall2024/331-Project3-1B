@@ -2,6 +2,8 @@ import { useState } from "react";
 import ItemCard from "./itemCard";
 import "./menuItemTypes.css";
 
+
+// MenuItemTypes is the component that displays the different types of items that the user can select from
 function MenuItemTypes() {
     const types = [
         "Bowl",
