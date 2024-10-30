@@ -4,7 +4,7 @@
     padding: 50px;
 }
 
-#pick-a-meal{
+.board-generic{
     width: 94%;
     height: 1000px;
     align-self: center;
@@ -14,7 +14,7 @@
     margin-top: 3%;
 }
 
-#pick-a-meal-header{
+.header-generic{
     font-size: 100px;
     font-weight: 100;
     color: #e32d2d;

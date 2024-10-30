@@ -1,12 +1,17 @@
 import "./menuBoards.css";
 
+// The Board1 component represents a menu board with meal options.
+// It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
+
 export default function Board1() {
     return (
         <>
             <div id="board-container">
-                <div id="pick-a-meal">
+                <div className="board-generic">
 
-                    <h1 id="pick-a-meal-header">PICK A MEAL</h1>
+
+
+                    <h1 className="header-generic">PICK A MEAL</h1>
 
                     <div id="options-list">
 
@@ -44,6 +49,10 @@ export default function Board1() {
                         </div>
 
                     </div>
+                </div>
+
+                <div className="board-generic">
+                    <div className="header-generic">SIDE CHOICES</div>
                 </div>
             </div>
         </>
