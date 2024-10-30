@@ -1,0 +1,99 @@
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.cashier {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #D61927;
+    padding: 10px;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.submit-button {
+    background-color: #a50611;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #3700ff;
+}
+
+.delete-button {
+    background-color: #a50611;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #3700ff;
+}
+
+.clock-button {
+    background-color: #a50611;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.clock-button:hover {
+    background-color: #3700ff;
+}
+
+
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    background-color: #f0f0f0;
+}
+
+
+.total-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #ddd;
+    padding: 20px;
+    width: 20%; 
+}
+
+.inner-rectangle {
+    background-color: #bbb;
+    padding: 20px;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cards-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    width: 80%;
+}
+
+
+

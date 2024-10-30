@@ -12,15 +12,15 @@ export default function itemPageCard({ type, item }) {
     return (
         <>
             <div
-                className="item-page-container"
+                className="cashier-item-page-container"
             >
                 <img
-                    className="item-page-card-image"
+                    className="cashier-item-page-card-image"
                     src={imagePath}
                     alt="image could not be found"
                 />
                 
-                <h2 className="item-page-card-title">{item}</h2>
+                <h2 className="cashier-item-page-card-title">{item}</h2>
                 <Quantifier />
             </div>
         </>

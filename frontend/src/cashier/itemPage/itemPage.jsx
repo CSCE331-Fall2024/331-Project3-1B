@@ -1,11 +1,10 @@
 import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
-import Nav from "../header/pageHeader.jsx";
+import {CashierPageHeader, TotalContainer} from "../cashier.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
-import addToOrder from "../addToOrder/addToOrder.jsx";
-import AddToOrder from "../addToOrder/addToOrder.jsx";
 
-export default function ItemPage() {
+export default function CashierItemPage() {
+
     const sides = ["White Steamed Rice", "Fried Rice", "Chow Mein", "Super Greens"];
     const entrees = [
         "Original Orange Chicken",
@@ -22,12 +21,17 @@ export default function ItemPage() {
         "Black Pepper Sirloin Steak",
     ];
 
+    
+
     return (
         <>
-            <Nav />
-            <div>
-                <h1 className="item-page-title extra-space">Sides</h1>
-                <div className="item-page-type-container">
+            <CashierPageHeader />
+            <div className="main-content">
+                <div className="total-container2">
+                </div>
+                <div>
+                <h1 className="cashier-item-page-title extra-space">Sides</h1>
+                <div className="cashier-item-page-type-container">
                     {sides.map((side, index) => {
                         return (
                             <ItemPageCard
@@ -38,8 +42,8 @@ export default function ItemPage() {
                         );
                     })}
                 </div>
-                <h1 className="item-page-title">Entrees</h1>
-                <div className="item-page-type-container">
+                <h1 className="cashier-item-page-title">Entrees</h1>
+                <div className="cashier-item-page-type-container">
                     {entrees.map((entree, index) => {
                         return (
                             <ItemPageCard
@@ -51,8 +55,9 @@ export default function ItemPage() {
                     })}
                 </div>
             </div>
-            <AddToOrder/>
-            <BackToMenu />
+            </div>
+            <BackToMenu/>
+            
         </>
     );
 }

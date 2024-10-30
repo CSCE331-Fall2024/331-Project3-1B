@@ -1,6 +1,6 @@
-.item-card-container {
-    width: 300px;
-    height: 300px;
+.item-card-container2 {
+    width: 250px;
+    height: 150px;
     margin: 10px;
     background-color: #dddada;
     border-width: 0;
@@ -8,18 +8,18 @@
     transition: box-shadow .2s;
 }
 
-.item-card-container:hover {
+.item-card-container2:hover {
     box-shadow: 0 0 10px 0 #000000;
     cursor: pointer;
 }
 
-.item-card-image {
-    width: auto;
-    height: 150px;
-    margin: 10px;
+.item-card-image2 {
+    width: 150px;
+    height: 100px;
+    margin: 0px;
 }
 
-.item-card-title {
+.item-card-title2 {
     font-weight: bold;
     color: #e32d2d;
     text-align: center;

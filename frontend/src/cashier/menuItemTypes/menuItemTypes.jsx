@@ -1,7 +1,8 @@
+import { useState } from "react";
 import ItemCard from "./itemCard";
 import "./menuItemTypes.css";
 
-export default function MenuItemTypes() {
+function MenuItemTypes() {
     const types = [
         "Bowl",
         "Plate",
@@ -26,3 +27,4 @@ export default function MenuItemTypes() {
     );
 }
 
+export default MenuItemTypes;

@@ -1,4 +1,4 @@
-.back-to-menu-button{
+.back-to-menu-button2{
     position: fixed;
     bottom: 0;
     right: 0;
@@ -10,10 +10,9 @@
     cursor: pointer;
     transition: all 0.3s;
     color: white;
-    width: 160px;
 }
 
-.back-to-menu-button:hover{
+.back-to-menu-button2:hover{
     border: 3px solid white;
     text-decoration: bold;
     box-shadow: 0 0 10px 0 black;
