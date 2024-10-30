@@ -1,0 +1,15 @@
+#employee-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 30px;
+    margin: 10px;
+    background-color: #8FFFFF;
+    border-radius: 10px;
+}
+
+#employee-name {
+    padding: 5px;
+    font-size: 20px;
+}

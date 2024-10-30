@@ -2,31 +2,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
-    padding: 0 20px;
     background-color: #e32d2d;
-    height: 100px;
+    height: 75px;
 }
 
-#header-title {
-    font-size: 30px;
-    color: #ffffff;
-}
-
-#header-button {
-    background-color: #ffffff;
+.nav-btn {
+    background-color: #fff;
     width: auto;
     border-radius: 20px;
     border: none;
     transition: box-shadow .2s;
 }
 
-#header-button:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #000000;
-}
-
-.header-button-title {
+.nav-btn-text {
+    font-size: 20px;
     color: #e32d2d;
     padding: 10px 25px;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #000000;
 }

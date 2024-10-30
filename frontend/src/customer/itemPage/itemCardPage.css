@@ -2,8 +2,7 @@
     width: 300px;
     height: 300px;
     margin: 10px;
-    border: 1px solid #e0e0e0;
-    background-color: rgb(221, 218, 218);
+    background-color: #dddada;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -12,7 +11,7 @@
 }
 
 .item-page-container:hover {
-    box-shadow: 0 0 10px 0 black;
+    box-shadow: 0 0 10px 0 #000000;
     cursor: pointer;
 }
 
