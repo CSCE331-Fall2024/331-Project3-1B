@@ -2,6 +2,9 @@ import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
 import Nav from "../header/pageHeader.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
+import addToOrder from "../addToOrder/addToOrder.jsx";
+import AddToOrder from "../addToOrder/addToOrder.jsx";
+import { CartProvider } from "../myBag/CartContext.jsx";
 
 export default function ItemPage() {
     const sides = ["White Steamed Rice", "Fried Rice", "Chow Mein", "Super Greens"];
@@ -22,6 +25,7 @@ export default function ItemPage() {
 
     return (
         <>
+        <CartProvider>
             <Nav />
             <div>
                 <h1 className="item-page-title extra-space">Sides</h1>
@@ -49,7 +53,9 @@ export default function ItemPage() {
                     })}
                 </div>
             </div>
+            <AddToOrder/>
             <BackToMenu />
+        </CartProvider>
         </>
     );
 }
