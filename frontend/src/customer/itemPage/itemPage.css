@@ -6,10 +6,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 100px;
 }
 
 .item-page-title{
     font-weight: bold;
     color: #e32d2d;
     margin-left: 125px;
+}
+
+.item-page-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #e32d2d;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

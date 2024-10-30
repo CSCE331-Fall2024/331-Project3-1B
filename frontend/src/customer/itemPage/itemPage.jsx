@@ -101,8 +101,13 @@ export default function ItemPage() {
                         ))}
                     </div>
                 </div>
-                <AddToOrder items={currOrder} onAddToOrder={handleAddToOrder} />
-                <BackToMenu />
+                <footer className="item-page-footer">
+                    <AddToOrder
+                        items={currOrder}
+                        onAddToOrder={handleAddToOrder}
+                    />
+                    <BackToMenu />
+                </footer>
             </CartProvider>
         </>
     );
