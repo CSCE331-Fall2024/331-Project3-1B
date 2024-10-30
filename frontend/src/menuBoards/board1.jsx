@@ -53,6 +53,58 @@ export default function Board1() {
 
                 <div className="board-generic">
                     <div className="header-generic">SIDE CHOICES</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CHOW MEIN</span>
+                        <span className="calories-count">510</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">WHITE STEAMED RICE</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">FRIED RICE</span>
+                        <span className="calories-count">520</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+                </div>
+
+                <div className="board-generic">
+                    <div className="header-generic">ENTREE CHOICES</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">ORANGE CHICKEN</span>
+                        <span className="calories-count">490</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">STRING BEAN CHICKEN BREAST</span>
+                        <span className="calories-count">210</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">FRIED RICE</span>
+                        <span className="calories-count">520</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
                 </div>
             </div>
         </>
