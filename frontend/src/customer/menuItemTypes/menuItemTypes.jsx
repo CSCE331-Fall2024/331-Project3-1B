@@ -12,7 +12,7 @@ export default function MenuItemTypes() {
         "5 Person Meal",
         "Appetizers and More",
         "Drinks",
-        "Apple Pie Roll",
+        "Apple Pie",
         "Catering",
         "Gatorade Lemon Lime",
         "A La Carte",

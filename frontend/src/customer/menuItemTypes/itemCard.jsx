@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function ItemCard({ type }) {
     const navigate = useNavigate();
+    let imagePath = `../../../Images/OrderOptions/${type}.png`;
+    console.log(imagePath);
     const handleClick = (type) => {
         return () => {
-            console.log(type);
             if (type == "Bowl" || type == "Plate" || type == "A La Carte" || type == "Bigger Plate" || type == "Catering" || type == "Panda Bundle" || type == "5 Person Meal") {
                 navigate("/order");
             }
@@ -29,7 +30,7 @@ export default function ItemCard({ type }) {
     return (
         <>
             <button onClick={handleClick(type)} className="item-card-container">
-                {/* <img className='item-card-image' src="" alt="" /> */}
+                <img className='item-card-image' src={imagePath} alt="" />
                 <h2 className="item-card-title">{type}</h2>
             </button>
         </>

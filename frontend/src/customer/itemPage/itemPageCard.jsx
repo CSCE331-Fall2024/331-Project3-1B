@@ -7,7 +7,6 @@ export default function itemPageCard({ type, item }) {
 
 
     let imagePath = `../../../Images/${type}/${item.replace(/\s+/g, "")}.png`;
-    console.log("ImagePath:", imagePath);
 
 
     return (
