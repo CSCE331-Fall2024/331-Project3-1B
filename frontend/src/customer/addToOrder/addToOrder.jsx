@@ -1,4 +1,3 @@
-// AddToOrder.jsx
 import './addToOrder.css';
 import { useCart } from '../myBag/CartContext';
 

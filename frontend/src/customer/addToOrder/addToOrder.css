@@ -1,15 +1,10 @@
 .add-to-order-button{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 80px 20px;
     padding: 10px;
-    background-color: #e32d2d;
-    border: 1px solid #f8f9fa;
+    background-color: #f8f8f8;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    color: white;
+    color: #e32d2d;
     width: 160px;
 }
 

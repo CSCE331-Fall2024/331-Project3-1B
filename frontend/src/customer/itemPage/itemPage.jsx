@@ -1,4 +1,3 @@
-// ItemPage.jsx
 import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
 import Nav from "../header/pageHeader.jsx";
@@ -102,8 +101,13 @@ export default function ItemPage() {
                         ))}
                     </div>
                 </div>
-                <AddToOrder items={currOrder} onAddToOrder={handleAddToOrder} />
-                <BackToMenu />
+                <footer className="item-page-footer">
+                    <AddToOrder
+                        items={currOrder}
+                        onAddToOrder={handleAddToOrder}
+                    />
+                    <BackToMenu />
+                </footer>
             </CartProvider>
         </>
     );

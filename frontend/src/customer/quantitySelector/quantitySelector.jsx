@@ -1,4 +1,3 @@
-// QuantitySelector.jsx
 import React, { useState, useEffect } from 'react';
 import './quantitySelector.css';
 
