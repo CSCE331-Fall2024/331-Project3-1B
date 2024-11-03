@@ -10,6 +10,10 @@ function PageHeader() {
         navigate("/");
     };
 
+    const manageEmployeesClick = () => {
+        navigate("/manager/employees");
+    };
+
     return (
         <>
             <div id="header-container">
@@ -22,7 +26,7 @@ function PageHeader() {
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text">Employee Management</h1>
+                    <h1 className="nav-btn-text" onClick={ manageEmployeesClick }>Employee Management</h1>
                 </button>
 
                 <button className="nav-btn">

@@ -10,6 +10,8 @@ import Appetizers from "./customer/appetizers/appetizers.jsx";
 import Drinks from "./customer/drinks/drinks.jsx";
 import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";
 import ApplePie from "./customer/applePie/applePie.jsx";
+import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
+
 function App() {
     return (
         // The Router component is used to define the routes of the application
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
                 <Route path="/cashier" element={<Cashier />} />
+                <Route path="/manager/employees" element={ <ManageEmployees /> } />
             </Routes>
         </Router>
     );
