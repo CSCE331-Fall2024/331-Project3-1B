@@ -5,7 +5,8 @@ function ManageEmployees () {
         return (
             <>
                 <div id="manage-employees-container">
-                    <PageHeader />;
+                    <PageHeader />
+                    <h1 id="manage-employees-heading">Manage Employees:</h1>
                 </div>
             </>
 
