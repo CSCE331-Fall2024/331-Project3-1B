@@ -6,6 +6,8 @@ import CashierItemPage from "./cashier/itemPage/itemPage.jsx";
 import Manager from "./manager/manager.jsx";
 import MenuBoards from "./menuBoards/board1.jsx";
 import Cashier from "./cashier/cashier.jsx";
+import IntermediatePage from "./intermediate/intermediate.jsx";
+import Login from "./login/login.jsx"
 import Appetizers from "./customer/appetizers/appetizers.jsx";
 import Drinks from "./customer/drinks/drinks.jsx";
 import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";

@@ -5,6 +5,8 @@ body, html, #root {
     font-family: Arial, sans-serif;
 }
 
+
+
 .cashier {
     display: flex;
     flex-direction: column;
