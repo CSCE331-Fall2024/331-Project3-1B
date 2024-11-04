@@ -25,7 +25,9 @@ export const CartProvider = ({ children }) => {
 
     // Function to remove an item from the cart by its index
     const removeItemFromCart = (index) => {
-        const updatedCart = cart.filter((_, i) => i !== index);
+        let updatedCart = cart.filter((_, i) => i !== index);
+        updatedCart = updatedCart.filter((_, i) => i !== index-1);
+
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update localStorage
     };

@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
-import './myBag.css';
+import "./myBag.css";
 
-// This component will display the items in the cart, functionality not complete yet. 
+// This component will display the items in the cart, functionality not complete yet.
 export default function () {
     const navigate = useNavigate();
     const { cart } = useCart();
     const { clearCart } = useCart();
-    const {removeItemFromCart} = useCart();
+    const { removeItemFromCart } = useCart();
     console.log("Current Order Contents:", cart);
-
 
     const clearCurrCart = () => {
         clearCart();
@@ -21,7 +20,7 @@ export default function () {
     };
 
     const removeCombo = (index) => {
-        removeItemFromCart(index); 
+        removeItemFromCart(index);
     };
 
     useEffect(() => {
@@ -36,23 +35,27 @@ export default function () {
                 <div id="my-bag-contents">
                     {cart?.map((combo, index) => (
                         <div key={index}>
-                        {index%2 == 0 && (
-                            <div>
-                                <h1>{combo}</h1>
-                            </div>
-                        )}
-                        {index%2 == 1 && combo?.map((item, itemIndex) => (
-                                <div key={itemIndex} >
-                                    <h2>{item.name}</h2>
-                                    <h2>{item.quantity}</h2>
+                            {index % 2 == 0 && (
+                                <div>
+                                    <h1>{combo}</h1>
                                 </div>
-                        ))}
-                        <button onClick={() => removeCombo(index)}>Remove combo</button>
+                            )}
+                            {index % 2 == 1 &&
+                                combo?.map((item, itemIndex) => (
+                                    <div key={itemIndex}>
+                                        <h2>{item.name}</h2>
+                                        <h2>{item.quantity}</h2>
+                                    </div>
+                                ))}
+                            {index % 2 == 1 && (
+                                <button onClick={() => removeCombo(index)}>
+                                    Remove combo
+                                </button>
+                            )}
                         </div>
-
                     ))}
                 </div>
-            </div>  
+            </div>
         </>
     );
 }

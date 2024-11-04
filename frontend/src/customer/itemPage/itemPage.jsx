@@ -11,6 +11,11 @@ export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
     const { currType } = useCart();
+    const {clearCart} = useCart();
+
+    const clearCurrCart = () => {
+        clearCart();
+    };
 
     const updateOrder = (item, quantity) => {
         setCurrOrder((prevOrder) => {
@@ -108,13 +113,16 @@ export default function ItemPage() {
                         <h1 className="footer-type">{currType}</h1>
                     </div>
                     <div>
-                    <AddToOrder
-                        items={currOrder}
-                        onAddToOrder={handleAddToOrder}
-                    />
-                    <BackToMenu />
+                        <AddToOrder
+                            items={currOrder}
+                            onAddToOrder={handleAddToOrder}
+                        />
+                        <BackToMenu />
+                        <button onClick={clearCurrCart}>Clear Cart</button>
+
                     </div>
                 </footer>
+
             </CartProvider>
         </>
     );
