@@ -1,5 +1,6 @@
 import "./manageEmployees.css";
 import PageHeader from "../header/pageHeader";"../header/pageHeader.jsx";
+import EmployeeContainer from "./employeeCard/employeeContainer.jsx";
 
 function ManageEmployees () {
         return (
@@ -7,6 +8,7 @@ function ManageEmployees () {
                 <div id="manage-employees-container">
                     <PageHeader />
                     <h1 id="manage-employees-heading">Manage Employees:</h1>
+                    <EmployeeContainer />
                 </div>
             </>
 
