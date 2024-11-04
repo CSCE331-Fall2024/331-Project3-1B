@@ -25,10 +25,10 @@ function App() {
                 <Route path="/" element={<Customer />} />
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
                 <Route path='myBag' element={<CartProvider><MyBag /></CartProvider>} />
-                <Route path="/order/appetizers" element={<Appetizers />} />
-                <Route path="/order/drinks" element={<Drinks />} />
-                <Route path="/order/kids-drinks" element={<KidsDrinks />} />
-                <Route path="/order/apple-pie-roll" element={<ApplePie />} />
+                <Route path="/order/appetizers" element={<CartProvider><Appetizers/></CartProvider>} />
+                <Route path="/order/drinks" element={<CartProvider><Drinks/></CartProvider>} />
+                <Route path="/order/kids-drinks" element={<CartProvider><KidsDrinks/></CartProvider>} />
+                <Route path="/order/apple-pie-roll" element={<CartProvider><ApplePie/></CartProvider>} />
                 <Route path="/cashier/order" element={<CashierItemPage />} />
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />

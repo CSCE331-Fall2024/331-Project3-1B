@@ -36,7 +36,12 @@ export default function () {
                 <div id="my-bag-contents">
                     {cart?.map((combo, index) => (
                         <div key={index}>
-                        {combo?.map((item, itemIndex) => (
+                        {index%2 == 0 && (
+                            <div>
+                                <h1>{combo}</h1>
+                            </div>
+                        )}
+                        {index%2 == 1 && combo?.map((item, itemIndex) => (
                                 <div key={itemIndex} >
                                     <h2>{item.name}</h2>
                                     <h2>{item.quantity}</h2>
