@@ -8,10 +8,12 @@ export const CartProvider = ({ children }) => {
     // Check for saved cart data in localStorage
     const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
     const [cart, setCart] = useState(initialCart);
-    const [currType, setCurrType] = useState("");
+    const initialCurrType = localStorage.getItem("currType") || "";
+    const [currType, setCurrType] = useState(initialCurrType);
 
     const setCurrTypeFunc = (type) => {
         setCurrType(type);
+        localStorage.setItem("currType", type);
     };
 
     // Function to add an item to the cart
@@ -36,7 +38,14 @@ export const CartProvider = ({ children }) => {
 
     return (
         <CartContext.Provider
-            value={{ cart, addItemToCart, removeItemFromCart, clearCart, currType, setCurrTypeFunc }}
+            value={{
+                cart,
+                addItemToCart,
+                removeItemFromCart,
+                clearCart,
+                currType,
+                setCurrTypeFunc,
+            }}
         >
             {children}
         </CartContext.Provider>

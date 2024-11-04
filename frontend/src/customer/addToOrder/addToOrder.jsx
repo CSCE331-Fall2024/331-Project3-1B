@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 export default function ({ items = [], onAddToOrder }) {
     const { addItemToCart } = useCart();
     const { cart } = useCart();
+    const { currType } = useCart();
 
     const addToOrderTotal = () => {
         console.log("Add to Order button clicked");
         console.log(items);
-        addItemToCart([items]);
+        addItemToCart([currType, items]);
         onAddToOrder(); // Trigger reset in ItemPage
     };
     useEffect(() => {

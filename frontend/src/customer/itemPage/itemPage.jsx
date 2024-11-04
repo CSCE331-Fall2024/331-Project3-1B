@@ -10,7 +10,7 @@ import { useCart } from "../myBag/CartContext.jsx";
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
-    const { currType, setCurrTypeFunc } = useCart();
+    const { currType } = useCart();
 
     const updateOrder = (item, quantity) => {
         setCurrOrder((prevOrder) => {
@@ -104,12 +104,16 @@ export default function ItemPage() {
                     </div>
                 </div>
                 <footer className="item-page-footer">
-                    <h1>{currType}</h1>
+                    <div>
+                        <h1 className="footer-type">{currType}</h1>
+                    </div>
+                    <div>
                     <AddToOrder
                         items={currOrder}
                         onAddToOrder={handleAddToOrder}
                     />
                     <BackToMenu />
+                    </div>
                 </footer>
             </CartProvider>
         </>
