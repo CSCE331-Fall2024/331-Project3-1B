@@ -11,6 +11,13 @@ export const CartProvider = ({ children }) => {
 
     // Initialize the state as an empty array
     const [cart, setCart] = useState([]);
+    const [currType, setCurrType] = useState("");
+
+    const setCurrTypeFunc = (type) => {
+        console.log("Setting current type to:", type);
+        setCurrType(type);
+        console.log("Current type updated to:", currType);
+    };
 
     // Function to add an item to the cart
     const addItemToCart = (item) => {
@@ -30,7 +37,7 @@ export const CartProvider = ({ children }) => {
     return (
         // allows us to wrap other components with the CartProvider so that they have access to its components. 
         <CartContext.Provider
-            value={{ cart, addItemToCart, removeItemFromCart, clearCart }}
+            value={{ cart, addItemToCart, removeItemFromCart, clearCart, currType, setCurrTypeFunc }}
         >
             {children}
         </CartContext.Provider>
