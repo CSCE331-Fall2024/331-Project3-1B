@@ -28,6 +28,8 @@ function App() {
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
                 <Route path="/cashier" element={<Cashier />} />
+                <Route path="/intermediate" element={<IntermediatePage />} />
+                <Route path="/login" element={<Login />} /> 
             </Routes>
         </Router>
     );
