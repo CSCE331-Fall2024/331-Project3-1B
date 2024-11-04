@@ -10,6 +10,10 @@ import Appetizers from "./customer/appetizers/appetizers.jsx";
 import Drinks from "./customer/drinks/drinks.jsx";
 import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";
 import ApplePie from "./customer/applePie/applePie.jsx";
+import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
+import Intermediate from "./intermediate/intermediate.jsx"
+import Login from "./login/login.jsx"
+
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 function App() {
     return (
@@ -27,6 +31,9 @@ function App() {
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
                 <Route path="/cashier" element={<Cashier />} />
+                <Route path="/manager/employees" element={ <ManageEmployees /> } />
+                <Route path="/intermediate" element={<Intermediate/>}/>
+                <Route path="/login" element={<Login/>}/>
             </Routes>
         </Router>
     );
