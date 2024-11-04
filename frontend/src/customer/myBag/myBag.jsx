@@ -6,7 +6,7 @@ import "./myBag.css";
 // This component will display the items in the cart, functionality not complete yet.
 export default function () {
     const navigate = useNavigate();
-    const { cart } = useCart();
+    const { cart, setCart } = useCart();
     const { clearCart } = useCart();
     const { removeItemFromCart } = useCart();
     console.log("Current Order Contents:", cart);
@@ -22,6 +22,12 @@ export default function () {
     const removeCombo = (index) => {
         removeItemFromCart(index);
     };
+
+    useEffect(() => {
+        // Fetch the cart from localStorage to ensure it's updated on component load
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCart(savedCart);
+    }, []);
 
     useEffect(() => {
         console.log("Cart contents:", cart);

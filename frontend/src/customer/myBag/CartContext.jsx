@@ -47,6 +47,7 @@ export const CartProvider = ({ children }) => {
                 clearCart,
                 currType,
                 setCurrTypeFunc,
+                setCart,
             }}
         >
             {children}
