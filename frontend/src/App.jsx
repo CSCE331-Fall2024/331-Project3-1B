@@ -13,6 +13,7 @@ import ApplePie from "./customer/applePie/applePie.jsx";
 import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import Intermediate from "./intermediate/intermediate.jsx"
 import Login from "./login/login.jsx"
+import MyBag from "./customer/myBag/myBag.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Customer />} />
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
+                <Route path='myBag' element={<CartProvider><MyBag /></CartProvider>} />
                 <Route path="/order/appetizers" element={<Appetizers />} />
                 <Route path="/order/drinks" element={<Drinks />} />
                 <Route path="/order/kids-drinks" element={<KidsDrinks />} />
