@@ -15,14 +15,11 @@ export default function ItemCard({ type }) {
         imagePath = `../../../Images/SoftDrinks/AppleJuice.png`;
     }
 
-    useEffect(() => {
-        console.log("Current type:", currType);
-    }, [currType]);
+    
 
     // handleClick is a function that navigates to the correct page based on the type of item
     const handleClick = (type) => {
         setCurrTypeFunc(type);
-        console.log("Attempting to set type to:", type);
 
         // Navigate based on the type
         if (
