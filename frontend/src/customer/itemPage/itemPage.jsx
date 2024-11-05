@@ -115,7 +115,6 @@ export default function ItemPage() {
                             onAddToOrder={handleAddToOrder}
                         />
                         <BackToMenu />
-                        <button onClick={clearCurrCart}>Clear Cart</button>
 
                     </div>
                 </footer>
