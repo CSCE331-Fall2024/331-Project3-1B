@@ -37,7 +37,6 @@ export default function () {
             } else {
                 newOrder = prevOrder;
             }
-            // console.log("Updated order contents:", newOrder);
             return newOrder;
         });
     };
@@ -45,14 +44,12 @@ export default function () {
     // Reset quantities when "Add to Order" is clicked
     const handleAddToOrder = () => {
         setResetQuantities(true);
-        console.log("Reset quantities set to true"); // Check if this logs when button is clicked
     };
 
     // Use useEffect to listen for resetQuantities changes and reset it to false after updating
     useEffect(() => {
         if (resetQuantities) {
             setResetQuantities(false); // Reset after all quantities are set to 0
-            console.log("Quantities reset to 0"); // Confirm reset
         }
     }, [resetQuantities]);
     const drinks = [

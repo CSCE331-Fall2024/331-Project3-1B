@@ -20,7 +20,6 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
 
     // Reset quantity to 0 whenever resetQuantities changes
     useEffect(() => {
-        console.log('Resetting quantities:', resetQuantities);
         if (resetQuantities) {
             setQuantity(0);
             onQuantityChange(0);
