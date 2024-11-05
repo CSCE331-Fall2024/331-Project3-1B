@@ -95,16 +95,71 @@ export default function Board1() {
                     </div>
 
                     <div className="option-generic">
-                        <span className="option-titles">FRIED RICE</span>
-                        <span className="calories-count">520</span>
+                        <span className="option-titles">HOT ONES BLAZING BOURBON CHICKEN</span>
+                        <span className="calories-count">400</span>
                         <span className="cal">cal</span>
                     </div>
 
                     <div className="option-generic">
-                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="option-titles">BLACK PEPPER SIRLOIN STEAK</span>
+                        <span className="calories-count">180</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">HONEY WALNUT SHRIMP</span>
+                        <span className="calories-count">430</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">GRILLED TERIYAKI CHICKEN</span>
+                        <span className="calories-count">250</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">BROCCOLI BEEF</span>
+                        <span className="calories-count">150</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">KUNG PAO CHICKEN</span>
+                        <span className="calories-count">320</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">HONEY SESAME CHICKEN BREAST</span>
+                        <span className="calories-count">340</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">BEIJING BEEF</span>
+                        <span className="calories-count">480</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">MUSHROOM CHICKEN</span>
+                        <span className="calories-count">220</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">SWEETFIRE CHICKEN BREAST</span>
                         <span className="calories-count">380</span>
                         <span className="cal">cal</span>
                     </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">130</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
                 </div>
             </div>
         </>
