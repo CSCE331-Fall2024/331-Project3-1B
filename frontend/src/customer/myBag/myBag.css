@@ -1,0 +1,47 @@
+.place-order-button, .clear-cart-button, .remove-combo-button{
+    margin: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #e32d2d;
+    width: 160px;
+}
+
+.place-order-button:hover,.clear-cart-button:hover, .remove-combo-button:hover{ 
+    border: 3px solid white;
+    text-decoration: bold;
+    box-shadow: 0 0 10px 0 black;
+}
+
+
+.my-bag-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 100px;
+}
+
+.my-bag-title{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.items-container{
+    margin-left: 10px;
+}
+
+.order-layout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.order-container{
+    display: flex;
+    margin: 5px;
+}
