@@ -1,10 +1,8 @@
-# 331-Project3-1B
-
 <!-----
 
 
 
-Conversion time: 0.645 seconds.
+Conversion time: 0.813 seconds.
 
 
 Using this Markdown file:
@@ -17,7 +15,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β40
-* Mon Oct 28 2024 17:15:51 GMT-0700 (PDT)
+* Mon Nov 04 2024 16:36:37 GMT-0800 (PST)
 * Source doc: scrum meeting all sprints
 * Tables are currently converted to HTML tables.
 ----->
@@ -116,3 +114,314 @@ Task Assignments:
   </tr>
 </table>
 
+
+SCRUM Meeting 2 for Team 1B
+
+Prepared by: Kaiqi Yang
+
+Meeting Date: 10/30/2024
+
+
+## Meeting Attendees
+
+
+
+5.  Nathan
+6.  Nick	
+7.  zachary
+8.  jason
+
+
+## Meeting Agenda Items
+
+
+
+*  How close are we to completing the basic frontend layout
+*  Which backend aspects need to be completed first
+* Are there any elements we need to add to our front end
+* What needs to be done under manager layout
+* What needs to be completed for customer/cashier ordering subpages
+
+
+## Minutes
+
+	Front end is mostly done except for a few sub menus
+
+	Setup backend connection
+
+	Add static footer better quantity selection 
+
+	Change color scheme
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+*  Partially completed manager view
+* Partially completed customer/cashier view
+* Partially completed menu boards 
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Creating menu boards
+   </td>
+   <td>Nathan
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Create manager home page
+   </td>
+   <td>Jason
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>Customer view no functionality
+   </td>
+   <td>Nick
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Cashier view no functionality
+   </td>
+   <td>zachary/kaiqi
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Update databases
+   </td>
+   <td>Kaiqi
+   </td>
+   <td>no
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+*  Figure out a way to navigate between views 
+* Finish the existing views
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>View change page/login page
+   </td>
+   <td>Zachary
+   </td>
+  </tr>
+  <tr>
+   <td>Complete Customer view and reuse for cashier
+   </td>
+   <td>Nick
+   </td>
+  </tr>
+  <tr>
+   <td>Continue working on menu boards
+   </td>
+   <td>Nathan
+   </td>
+  </tr>
+  <tr>
+   <td>Complete Team meeting presentation
+   </td>
+   <td>Jason+Kaiqi
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+Last meeting, we planned out and decided on which section of the frontend user interfaces each member will complete the framework/layout for as well as discussed the completion of the planning phase of the project. During the previous meeting, We also discussed when and where we will be meeting for future scrum meetings. Lastly, we set up React/Node.js development environments for everyone in the team.
+
+
+
+SCRUM Meeting 3 for Team 1B 
+
+Prepared by:Kaiqi
+
+Meeting Date:11/4/2024
+
+
+## Meeting Attendees
+
+
+
+9.  Zach	
+10.  Nathan
+11.  Nick
+12. Jason 
+
+
+## Meeting Agenda Items
+
+
+
+* What needs to be done, if anything before sprint 2
+* Discuss sprint 2 backlog
+* Add any items to product backlog
+* What sprint 2 tasks have already been complete
+
+
+## Minutes
+
+     Receipt of cashier needs to be finished
+
+     Sprint 2 backlog created
+
+     Product backlog adjusted
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+*  Backend architecture update is done
+*  Login + interview navigation page complete
+* My bag has functionality 
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>View change page/login page
+   </td>
+   <td>zachary
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Update database
+   </td>
+   <td>kaiqi
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Team meeting presentation
+   </td>
+   <td>jason+kaiqi
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Menu board
+   </td>
+   <td>nathan
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Customer view
+   </td>
+   <td>nick
+   </td>
+   <td>yes
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+* Total container/receipt complete
+* Start backend
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Seed database 
+   </td>
+   <td>Kaiqi
+   </td>
+  </tr>
+  <tr>
+   <td>Total container/receipt 
+   </td>
+   <td>Zach
+   </td>
+  </tr>
+  <tr>
+   <td>Start manager api calls
+   </td>
+   <td>jason
+   </td>
+  </tr>
+  <tr>
+   <td>Start Customer api calls
+   </td>
+   <td>nathan
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+In the last meeting, we discussed what tasks are completed and what isn't for sprint 1 and decide if any tasks are behind schedule. We also went over user study responses and discussed what improvements could be made to the product as a response to the user study. Next, we planned out tasks for the last stretch of sprint 1. Finally, we organized and planned who was working on the team meeting presentation and when we would meet in order to record said team meeting presentation.
