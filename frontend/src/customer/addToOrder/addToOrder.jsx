@@ -8,14 +8,11 @@ export default function ({ items = [], onAddToOrder }) {
     const { currType } = useCart();
 
     const addToOrderTotal = () => {
-        console.log("Add to Order button clicked");
-        console.log(items);
+        
         addItemToCart([currType, items]);
         onAddToOrder(); // Trigger reset in ItemPage
     };
-    useEffect(() => {
-        console.log("Updated cart:", cart);
-    }, [cart]);
+    
 
     return (
         <button onClick={addToOrderTotal} className="add-to-order-button">

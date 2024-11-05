@@ -23,15 +23,18 @@ export default function () {
         removeItemFromCart(index);
     };
 
+    const placeOrder = () => {
+        console.log("Placing order:\n:", cart);
+        clearCart();
+    };
+
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
     }, []);
 
-    useEffect(() => {
-        console.log("Cart contents:", cart);
-    }, [cart]);
+    
     return (
         <>
             <button onClick={clearCurrCart}>Clear Cart</button>
@@ -39,6 +42,7 @@ export default function () {
             <div id="my-bag-container">
                 <h1 id="my-bag-title">My Bag</h1>
                 <div id="my-bag-contents">
+                    {cart.length == 0 && <h3>Your cart is empty</h3>}
                     {cart?.map((combo, index) => (
                         <div key={index}>
                             {index % 2 == 0 && (
@@ -62,6 +66,11 @@ export default function () {
                     ))}
                 </div>
             </div>
+            {cart.length > 0 && (
+                <button onClick={placeOrder}>
+                    <h2>Checkout</h2>
+                </button>
+            )}
         </>
     );
 }
