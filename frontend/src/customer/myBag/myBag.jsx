@@ -63,11 +63,14 @@ export default function () {
                                             <h1>Entrees:</h1>
                                         </div>
                                     )}
-                                    {index % 2 == 1 && 
+                                    {index % 2 == 1 &&
                                         combo?.map(
                                             (item, itemIndex) =>
                                                 item.type == "Entrees" && (
-                                                    <div key={itemIndex} className="order-items">
+                                                    <div
+                                                        key={itemIndex}
+                                                        className="order-items"
+                                                    >
                                                         <h2>
                                                             {item.name} (
                                                             {item.quantity}) (
@@ -81,11 +84,14 @@ export default function () {
                                             <h1>Sides:</h1>
                                         </div>
                                     )}
-                                    {index % 2 == 1 && 
+                                    {index % 2 == 1 &&
                                         combo?.map(
                                             (item, itemIndex) =>
                                                 item.type == "Sides" && (
-                                                    <div key={itemIndex} className="order-items">
+                                                    <div
+                                                        key={itemIndex}
+                                                        className="order-items"
+                                                    >
                                                         <h2>
                                                             {item.name} (
                                                             {item.quantity}) (
@@ -94,6 +100,52 @@ export default function () {
                                                     </div>
                                                 )
                                         )}
+
+                                    {index % 2 == 1 && (
+                                        <div>
+                                            <h1>Appetizers:</h1>
+                                        </div>
+                                    )}
+                                    {index % 2 == 1 &&
+                                        combo?.map(
+                                            (item, itemIndex) =>
+                                                item.type == "Appetizers" && (
+                                                    <div
+                                                        key={itemIndex}
+                                                        className="order-items"
+                                                    >
+                                                        <h2>
+                                                            {item.name} (
+                                                            {item.quantity}) (
+                                                            {item.type})
+                                                        </h2>
+                                                    </div>
+                                                )
+                                        )}
+
+                                    {index % 2 == 1 && (
+                                        <div>
+                                            <h1>Drinks:</h1>
+                                        </div>
+                                    )}
+                                    {index % 2 == 1 &&
+                                        combo?.map(
+                                            (item, itemIndex) =>
+                                                item.type == "SoftDrinks" && (
+                                                    <div
+                                                        key={itemIndex}
+                                                        className="order-items"
+                                                    >
+                                                        <h2>
+                                                            {item.name} (
+                                                            {item.quantity}) (
+                                                            {item.type})
+                                                        </h2>
+                                                    </div>
+                                                )
+                                        )}
+
+                                    
                                 </div>
                             </div>
 

@@ -8,35 +8,36 @@ import "./kidsDrinks.css";
 import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
 
-
 // Appetizers component, displays the appetizers and includes the AddToOrder component
 export default function () {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
     const { currType } = useCart();
 
-    const updateOrder = (item, quantity) => {
+    const updateOrder = (name, type, quantity) => {
         setCurrOrder((prevOrder) => {
             const existingItem = prevOrder.find(
-                (orderItem) => orderItem.name === item
+                (orderItem) => orderItem.name === name
             );
             let newOrder;
+
             if (existingItem) {
                 newOrder =
                     quantity > 0
                         ? prevOrder.map((orderItem) =>
-                              orderItem.name === item
+                              orderItem.name === name
                                   ? { ...orderItem, quantity }
                                   : orderItem
                           )
                         : prevOrder.filter(
-                              (orderItem) => orderItem.name !== item
+                              (orderItem) => orderItem.name !== name
                           );
             } else if (quantity > 0) {
-                newOrder = [...prevOrder, { name: item, quantity }];
+                newOrder = [...prevOrder, { name, type, quantity }];
             } else {
                 newOrder = prevOrder;
             }
+
             return newOrder;
         });
     };
