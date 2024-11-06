@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
-import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import "./myBag.css";
 
 // This component will display the items in the cart, functionality not complete yet.
@@ -46,10 +45,10 @@ export default function () {
             <div className="my-bag-container">
                 <h1 className="my-bag-title">My Bag</h1>
                 <div className="my-bag-contents">
-                        {cart.length == 0 && <h3>Your cart is empty</h3>}
-                        {cart?.map((combo, index) => (
-                            <div key={index} className="order-layout">
-                                <div className="order-container">
+                    {cart.length == 0 && <h3>Your cart is empty</h3>}
+                    {cart?.map((combo, index) => (
+                        <div key={index} className="order-layout">
+                            <div className="order-container">
                                 <div className="combo-name-container">
                                     {index % 2 == 0 && (
                                         <div>
@@ -59,34 +58,61 @@ export default function () {
                                 </div>
 
                                 <div className="items-container">
-                                    {index % 2 == 1 &&
-                                        combo?.map((item, itemIndex) => (
-                                            <div key={itemIndex}>
-                                                <h2>
-                                                    {item.name} ({item.quantity}
-                                                    )
-                                                </h2>
-                                            </div>
-                                        ))}
-                                </div>
-                                </div>
-
-                                <div className="remove-button-container">
                                     {index % 2 == 1 && (
-                                        <button className="remove-combo-button"
-                                            onClick={() => removeCombo(index)}
-                                        >
-                                            <h2>Remove</h2>
-                                        </button>
+                                        <div>
+                                            <h1>Entrees:</h1>
+                                        </div>
                                     )}
+                                    {index % 2 == 1 && 
+                                        combo?.map(
+                                            (item, itemIndex) =>
+                                                item.type == "Entrees" && (
+                                                    <div key={itemIndex} className="order-items">
+                                                        <h2>
+                                                            {item.name} (
+                                                            {item.quantity}) (
+                                                            {item.type})
+                                                        </h2>
+                                                    </div>
+                                                )
+                                        )}
+                                    {index % 2 == 1 && (
+                                        <div>
+                                            <h1>Sides:</h1>
+                                        </div>
+                                    )}
+                                    {index % 2 == 1 && 
+                                        combo?.map(
+                                            (item, itemIndex) =>
+                                                item.type == "Sides" && (
+                                                    <div key={itemIndex} className="order-items">
+                                                        <h2>
+                                                            {item.name} (
+                                                            {item.quantity}) (
+                                                            {item.type})
+                                                        </h2>
+                                                    </div>
+                                                )
+                                        )}
                                 </div>
                             </div>
-                        ))}
+
+                            <div className="remove-button-container">
+                                {index % 2 == 1 && (
+                                    <button
+                                        className="remove-combo-button"
+                                        onClick={() => removeCombo(index)}
+                                    >
+                                        <h2>Remove</h2>
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
             <footer className="item-page-footer">
-                <div>{/* <h1 className="footer-type">word</h1> */}</div>
                 <div>
                     {cart.length > 0 && (
                         <>
