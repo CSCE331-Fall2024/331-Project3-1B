@@ -1,7 +1,16 @@
+#employee-table-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 550px;
+    margin-left: 15px;
+}
+
 #employee-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid #000;
+    margin-top: 20px;
     margin-left: 50px;
     margin-right: 50px;
+    gap: 10px;
+    
 }
