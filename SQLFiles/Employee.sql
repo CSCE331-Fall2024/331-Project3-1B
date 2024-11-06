@@ -1,0 +1,42 @@
+CREATE TABLE IF NOT EXISTS employees(
+        EmployeeID SERIAL NOT NULL PRIMARY KEY,
+        full_name VARCHAR(50) NOT NULL,
+        email VARCHAR(50),
+        phone_number VARCHAR(50) NOT NULL,
+        hourly_wage DECIMAL(5,2) NOT NULL,
+        position VARCHAR(20)NOT NULL,
+    );
+"""
+    Changed title to Employee.sql from employee.sql
+"""
+INSERT INTO employees (full_name,email, phone_number, hourly_wage, position, user_password) VALUES
+('Crystal Riggs', 'CrystalRiggs@hayden.org', '578-935-401',20, 'Employee' ),
+('Roger Wilson', 'RogerWilson@stone.net', '694-381-278',30, 'Manager' ),
+('Lisa Nguyen', 'LisaNguyen@miller-martinez.com', '718-281-318',20, 'Employee' ),
+('Dale Nichols','DaleNichols@olson-morris.com', '970-132-429',20, 'Employee' ),
+('Jason Williams', 'JasonWilliams@lambert-carter.com', '241-454-108',20, 'Employee' ),
+('Lisa Melendez', 'LisaMelendez@reese.info', '692-955-401',20, 'Employee' ),
+('Colton Robinson', 'ColtonRobinson@phillips.com', '833-317-869',20, 'Employee' ),
+('Johnathan Gilmore',  'JohnathanGilmore@johnson.info', '259-415-276',20, 'Employee' ),
+('Donald Hansen', 'DonaldHansen@washington.com', '419-797-187',20, 'Employee' ),
+('Todd Williams',  'ToddWilliams@short-coleman.com', '747-908-145',20, 'Employee' ),
+('Kirsten Howard',  'KirstenHoward@jenkins.com', '439-544-430',20, 'Employee' ),
+('Victoria Garcia', 'VictoriaGarcia@jones.com', '625-817-203',20, 'Employee' ),
+('Joseph Maynard',  'JosephMaynard@cantu.info', '504-677-338',20, 'Employee' ),
+('Natalie Hunt',  'NatalieHunt@smith.com', '359-588-776',20, 'Employee' ),
+('Stephanie Thompson',  'StephanieThompson@garcia.biz', '152-831-819',20, 'Employee' ),
+('Jeremy Henderson',  'JeremyHenderson@sandoval-hopkins.com', '296-774-900',20, 'Employee' ),
+('Ronald Williams', 'RonaldWilliams@pollard.com', '838-212-930',30, 'Manager' ),
+(Jeffrey Randall',  'JeffreyRandall@west-brock.com', '991-248-274',20, 'Employee' ),
+('Jennifer Webster',  'JenniferWebster@garcia.com', '886-138-164',20, 'Employee' ),
+('Natasha Gardner',  'NatashaGardner@travis.com', '264-420-937',30, 'Manager' ),
+('Madeline Johnson', 'MadelineJohnson@brewer.biz', '430-143-869',20, 'Employee' ),
+('Kayla Riley',  'KaylaRiley@valdez.com', '396-875-498',20, 'Employee' ),
+('Matthew Kemp',  'MatthewKemp@bailey.net', '798-397-880',20, 'Employee' ),
+('Jose Phillips','JosePhillips@smith.com', '191-181-798',20, 'Employee' ),
+('Amanda Brown',  'AmandaBrown@zhang.biz', '897-288-520',20, 'Employee' ),
+('Madison Grant',  'MadisonGrant@cole.net', '879-735-635',30, 'Manager' ),
+('Jennifer Harris',  'JenniferHarris@oconnor.info', '815-348-215',20, 'Employee' ),
+('Diana Clark',  'DianaClark@shaw-vasquez.info', '811-112-748',20, 'Employee' ),
+('Gerald Fox',  'GeraldFox@robinson.biz', '505-353-784',20, 'Employee' ),
+('Courtney Andrade', 'CourtneyAndrade@davis.com', '615-152-852',20, 'Employee' );

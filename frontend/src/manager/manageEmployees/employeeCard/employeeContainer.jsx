@@ -23,7 +23,11 @@ function EmployeeContainer() {
     return (
         <>
             <div id="employee-container">
-                <EmployeeCard name={"Email: "} position={"Position: "} email={"Name: "} />
+                <div id="employee-table-heading">
+                    <h2>Name:</h2>
+                    <h2>Position:</h2>
+                    <h2>Email:</h2>
+                </div>
                 {employees.map((employee, index) => {
                     return <EmployeeCard name={employee} position={positions[index]} email={emails[index]} key={index} removeEmployee = {() => removeEmployee(index)}/>
                 })}

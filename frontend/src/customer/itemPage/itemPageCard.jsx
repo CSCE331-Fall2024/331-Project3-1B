@@ -19,7 +19,7 @@ export default function ItemPageCard({ type, item, updateOrder, resetQuantities 
             />
             <h2 className="item-page-card-title">{item}</h2>
             <Quantifier
-                onQuantityChange={(quantity) => updateOrder(item, quantity)}
+                onQuantityChange={(quantity) => updateOrder(item, type, quantity)}
                 resetQuantities={resetQuantities} // Pass reset state to Quantifier
             />
         </div>
