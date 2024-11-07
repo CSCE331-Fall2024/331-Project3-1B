@@ -143,8 +143,6 @@ export default function () {
                                                     </div>
                                                 )
                                         )}
-
-                                    
                                 </div>
                             </div>
 
@@ -164,6 +162,7 @@ export default function () {
             </div>
 
             <footer className="item-page-footer">
+                <div></div>
                 <div>
                     {cart.length > 0 && (
                         <>
