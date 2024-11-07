@@ -27,7 +27,7 @@ INSERT INTO employees (full_name,email, phone_number, hourly_wage, position, use
 ('Stephanie Thompson',  'StephanieThompson@garcia.biz', '152-831-819',20, 'Employee' ),
 ('Jeremy Henderson',  'JeremyHenderson@sandoval-hopkins.com', '296-774-900',20, 'Employee' ),
 ('Ronald Williams', 'RonaldWilliams@pollard.com', '838-212-930',30, 'Manager' ),
-(Jeffrey Randall',  'JeffreyRandall@west-brock.com', '991-248-274',20, 'Employee' ),
+('Jeffrey Randall',  'JeffreyRandall@west-brock.com', '991-248-274',20, 'Employee' ),
 ('Jennifer Webster',  'JenniferWebster@garcia.com', '886-138-164',20, 'Employee' ),
 ('Natasha Gardner',  'NatashaGardner@travis.com', '264-420-937',30, 'Manager' ),
 ('Madeline Johnson', 'MadelineJohnson@brewer.biz', '430-143-869',20, 'Employee' ),
