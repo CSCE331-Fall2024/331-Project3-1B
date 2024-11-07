@@ -28,7 +28,6 @@ export default function ItemCard({ type }) {
             type === "A La Carte" ||
             type === "Bigger Plate" ||
             type === "Catering" ||
-            type === "Panda Bundle" ||
             type === "5 Person Meal"
         ) {
             navigate("/order");
@@ -38,10 +37,6 @@ export default function ItemCard({ type }) {
             navigate("/order/appetizers");
         } else if (type === "Drinks") {
             navigate("/order/drinks");
-        } else if (type === "Kids Drinks") {
-            navigate("/order/kids-drinks");
-        } else if (type === "Apple Pie") {
-            navigate("/order/apple-pie-roll");
         }
     };
 

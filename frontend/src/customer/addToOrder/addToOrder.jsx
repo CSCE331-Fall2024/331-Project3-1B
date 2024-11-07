@@ -50,10 +50,13 @@ export default function ({ items = [], onAddToOrder }) {
                 validOrder = true;
             }
         }
+        else if (currType == "Panda Cub Meal" || currType == "Appetizers and More" || currType == "Drinks" || currType == "Kids Drinks" || currType == "A La Carte" || currType == "Catering") {
+            validOrder = true;
+        }
 
 
         console.log("Valid Order:", validOrder);
-        if (validOrder == true) {
+        if (validOrder == true && items.length > 0) {
             addItemToCart([currType, items]);
             onAddToOrder(); // Trigger reset in ItemPage
         }

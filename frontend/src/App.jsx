@@ -9,7 +9,6 @@ import Cashier from "./cashier/cashier.jsx";
 import Appetizers from "./customer/appetizers/appetizers.jsx";
 import Drinks from "./customer/drinks/drinks.jsx";
 import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";
-import ApplePie from "./customer/applePie/applePie.jsx";
 import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import Intermediate from "./intermediate/intermediate.jsx"
 import Login from "./login/login.jsx"
@@ -28,7 +27,6 @@ function App() {
                 <Route path="/order/appetizers" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/order/drinks" element={<CartProvider><Drinks/></CartProvider>} />
                 <Route path="/order/kids-drinks" element={<CartProvider><KidsDrinks/></CartProvider>} />
-                <Route path="/order/apple-pie-roll" element={<CartProvider><ApplePie/></CartProvider>} />
                 <Route path="/cashier/order" element={<CashierItemPage />} />
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
