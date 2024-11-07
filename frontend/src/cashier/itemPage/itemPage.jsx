@@ -1,6 +1,6 @@
 import "./itemPage.css";
 import ItemPageCard from "./itemPageCard.jsx";
-import {CashierPageHeader, TotalContainer} from "../cashier.jsx";
+import {CashierPageHeader} from "../cashier.jsx";
 import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 
 

@@ -14,6 +14,7 @@ import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import Intermediate from "./intermediate/intermediate.jsx"
 import Login from "./login/login.jsx"
 import MyBag from "./customer/myBag/myBag.jsx";
+import Receipt from "./cashier/receipt/receipt.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />
                 <Route path="/intermediate" element={<Intermediate/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/receipt" element={<Receipt/>} />
             </Routes>
         </Router>
     );

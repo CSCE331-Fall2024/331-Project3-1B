@@ -62,7 +62,7 @@ body, html, #root {
 }
 
 .password-boxes input[type="text"]:focus {
-    border-color: #4A90E2; /* Change border color when focused */
+    border-color: #4A90E2; 
     outline: none;
 }
 
