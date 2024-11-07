@@ -16,8 +16,6 @@ export default function ItemPage() {
 
     let constEntrees = getEntrees(currType);
     let constSides = getSides(currType);
-    console.log(constEntrees);
-    console.log(constSides);
 
     const clearCurrCart = () => {
         clearCart();
