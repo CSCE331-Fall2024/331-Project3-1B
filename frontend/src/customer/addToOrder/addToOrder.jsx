@@ -31,35 +31,29 @@ export default function ({ items = [], onAddToOrder }) {
             console.log("Entrees:", entrees, "Sides:", sides);
             if (entrees == 1 && sides == 1) {
                 validOrder = true;
-                console.log("Valid Bowl Order");
             }
         }
         else if (currType == "Plate") {
             console.log("Entrees:", entrees, "Sides:", sides);
             if (entrees == 2 && sides == 1) {
                 validOrder = true;
-                console.log("Valid Plate Order");
             }
         }
         else if (currType == "Bigger Plate") {
             console.log("Entrees:", entrees, "Sides:", sides);
             if (entrees == 3 && sides == 1) {
                 validOrder = true;
-                console.log("Valid Bigger Plate Order");
             }
         }
         else if (currType == "5 Person Meal") {
-            console.log("Entrees:", entrees, "Sides:", sides);
             if (entrees == 3 && sides == 2) {
                 validOrder = true;
-                console.log("Valid 5 Person Family Meal Order");
             }
         }
 
 
         console.log("Valid Order:", validOrder);
         if (validOrder == true) {
-            console.log("Adding to order:", items);
             addItemToCart([currType, items]);
             onAddToOrder(); // Trigger reset in ItemPage
         }
