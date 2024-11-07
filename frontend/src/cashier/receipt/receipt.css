@@ -1,0 +1,16 @@
+.total-container{
+    display: flex;
+    width: 25%;
+    height: 75%;
+    background-color: #858585;
+    justify-content: center;
+    align-items: center;
+}
+
+.receipt-display{
+    display: flex;
+    width: 80%;
+    height: 90%;
+    background-color: #a2a2a2;
+    align-items: flex-end;
+}
