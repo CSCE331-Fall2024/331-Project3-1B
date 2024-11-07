@@ -9,7 +9,6 @@ export default function () {
     const { cart, setCart } = useCart();
     const { clearCart } = useCart();
     const { removeItemFromCart } = useCart();
-    console.log("Current Order Contents:", cart);
 
     const clearCurrCart = () => {
         clearCart();
@@ -60,7 +59,7 @@ export default function () {
                                 <div className="items-container">
                                     {index % 2 == 1 && (
                                         <div>
-                                            <h1>Entrees:</h1>
+                                            <h2>Entrees:</h2>
                                         </div>
                                     )}
                                     {index % 2 == 1 &&
@@ -71,17 +70,17 @@ export default function () {
                                                         key={itemIndex}
                                                         className="order-items"
                                                     >
-                                                        <h2>
+                                                        <h3>
                                                             {item.name} (
                                                             {item.quantity}) (
                                                             {item.type})
-                                                        </h2>
+                                                        </h3>
                                                     </div>
                                                 )
                                         )}
                                     {index % 2 == 1 && (
                                         <div>
-                                            <h1>Sides:</h1>
+                                            <h2>Sides:</h2>
                                         </div>
                                     )}
                                     {index % 2 == 1 &&
@@ -92,18 +91,18 @@ export default function () {
                                                         key={itemIndex}
                                                         className="order-items"
                                                     >
-                                                        <h2>
+                                                        <h3>
                                                             {item.name} (
                                                             {item.quantity}) (
                                                             {item.type})
-                                                        </h2>
+                                                        </h3>
                                                     </div>
                                                 )
                                         )}
 
                                     {index % 2 == 1 && (
                                         <div>
-                                            <h1>Appetizers:</h1>
+                                            <h2>Appetizers:</h2>
                                         </div>
                                     )}
                                     {index % 2 == 1 &&
@@ -114,18 +113,18 @@ export default function () {
                                                         key={itemIndex}
                                                         className="order-items"
                                                     >
-                                                        <h2>
+                                                        <h3>
                                                             {item.name} (
                                                             {item.quantity}) (
                                                             {item.type})
-                                                        </h2>
+                                                        </h3>
                                                     </div>
                                                 )
                                         )}
 
                                     {index % 2 == 1 && (
                                         <div>
-                                            <h1>Drinks:</h1>
+                                            <h2>Drinks:</h2>
                                         </div>
                                     )}
                                     {index % 2 == 1 &&
@@ -136,11 +135,11 @@ export default function () {
                                                         key={itemIndex}
                                                         className="order-items"
                                                     >
-                                                        <h2>
+                                                        <h3>
                                                             {item.name} (
                                                             {item.quantity}) (
                                                             {item.type})
-                                                        </h2>
+                                                        </h3>
                                                     </div>
                                                 )
                                         )}

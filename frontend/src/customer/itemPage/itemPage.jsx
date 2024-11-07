@@ -6,7 +6,7 @@ import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
 import { useState, useEffect } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
-import { getEntrees, getSides } from "../comboInfo/comboInfo.js";
+import { getEntrees, getSides } from "../customerFunctions/customer.js";
 
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
