@@ -6,12 +6,18 @@ import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
 import { useState, useEffect } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
+import { getEntrees, getSides } from "../comboInfo/comboInfo.js";
 
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
     const { currType } = useCart();
-    const {clearCart} = useCart();
+    const { clearCart } = useCart();
+
+    let constEntrees = getEntrees(currType);
+    let constSides = getSides(currType);
+    console.log(constEntrees);
+    console.log(constSides);
 
     const clearCurrCart = () => {
         clearCart();
@@ -23,7 +29,7 @@ export default function ItemPage() {
                 (orderItem) => orderItem.name === name
             );
             let newOrder;
-            
+
             if (existingItem) {
                 newOrder =
                     quantity > 0
@@ -40,11 +46,10 @@ export default function ItemPage() {
             } else {
                 newOrder = prevOrder;
             }
-            
+
             return newOrder;
         });
     };
-    
 
     // Reset quantities when "Add to Order" is clicked
     const handleAddToOrder = () => {
@@ -111,6 +116,9 @@ export default function ItemPage() {
                 <footer className="item-page-footer">
                     <div>
                         <h1 className="footer-type">{currType}</h1>
+                        {constEntrees > 0 && constSides > 0 && <>
+                            <h3 className="footer-type-info">Entrees ({constEntrees}), Sides ({constSides})</h3>
+                        </>}
                     </div>
                     <div>
                         <AddToOrder
@@ -118,10 +126,8 @@ export default function ItemPage() {
                             onAddToOrder={handleAddToOrder}
                         />
                         <BackToMenu />
-
                     </div>
                 </footer>
-
             </CartProvider>
         </>
     );
