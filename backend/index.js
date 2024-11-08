@@ -1,6 +1,6 @@
 const express = require('express');
 const { Pool } = require('pg');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 // Create express app
 const app = express();
@@ -30,23 +30,9 @@ app.get('/', (req, res) => {
     res.send('The server is running!');
 });
 
+const managerRouter = require('./routes/manager')
 
-app.get('/manager/get_all_employees', (req, res) => {
-    employees = []
-    pool
-        .query('SELECT * FROM employees;')
-        .then(query_res => {
-            for (let i = 0; i < query_res.rowCount; i++){
-                employees.push(query_res.rows[i]);
-            }
-            console.log(employees);
-            res.send(employees);
-        })
-        .catch(err => {
-            console.error('Error executing query', err.stack);
-            res.status(500).send("Error getting employees")
-        });
-});
+app.use("/manager", managerRouter);
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
