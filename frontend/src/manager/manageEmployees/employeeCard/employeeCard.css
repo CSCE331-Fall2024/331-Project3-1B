@@ -1,3 +1,7 @@
+.employee-info {
+    font-size: 18px;
+}
+
 #employee-card {
     display: flex;
     align-items: center;

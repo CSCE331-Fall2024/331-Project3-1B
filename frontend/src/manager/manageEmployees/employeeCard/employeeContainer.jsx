@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./employeeContainer.css";
 import EmployeeCard from "./employeeCard.jsx";
 
 function EmployeeContainer() {
-    
-    // temporary data
-    const initialEmployees = ["Jason", "Kaiqi", "Nick", "Zach", "Nathan"];
-    const initialId = [1, 2, 3, 4, 5];
-    const initialPositions = ["Cashier", "Manager", "Cashier", "Cashier", "Cashier"];
-    const initialEmails = initialEmployees.map(employee => `${employee.toLowerCase()}@gmail.com`);
 
-    const [employees, setEmployees] = useState(initialEmployees);
-    const [id, setId] = useState(initialId);
-    const [positions, setPositions] = useState(initialPositions);
-    const [emails, setEmails] = useState(initialEmails);
+    useEffect(() => {
+        fetch('http://localhost:3001/manager/get_all_employees')
+            .then(response => response.json())
+            .then(data => {
+                const employeeNames = data.map(employee => employee.full_name);
+                const employeeIds = data.map(employee => employee.employeeid);
+                const employeePositions = data.map(employee => employee.position);
+                const employeeEmails = data.map(employee => employee.email);
+
+                setEmployees(employeeNames);
+                setId(employeeIds);
+                setPositions(employeePositions);
+                setEmails(employeeEmails);
+            })
+            .catch(error => console.error('Error fetching employee data:', error));
+    }, []);
+
+
+    const [employees, setEmployees] = useState([]);
+    const [id, setId] = useState([]);
+    const [positions, setPositions] = useState([]);
+    const [emails, setEmails] = useState([]);
 
     function removeEmployee(index) {
         setEmployees(employees.filter((_, i) => { return i != index }));
@@ -22,11 +34,6 @@ function EmployeeContainer() {
         setEmails(emails.filter((_, i) => {return i != index }));
     };
     
-    fetch("http://localhost:3001/manager/get_all_employees")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
 
     return (
         <>
