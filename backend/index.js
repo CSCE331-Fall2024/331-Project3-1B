@@ -1,9 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const { Pool } = require('pg');
 require('dotenv').config();
 
 // Create express app
 const app = express();
+
+// middleware to allow access to frontend
+app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 

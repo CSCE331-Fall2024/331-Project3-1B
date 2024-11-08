@@ -15,14 +15,19 @@ function EmployeeContainer() {
     const [positions, setPositions] = useState(initialPositions);
     const [emails, setEmails] = useState(initialEmails);
 
-    console.log(initialEmployees);
     function removeEmployee(index) {
         setEmployees(employees.filter((_, i) => { return i != index }));
         setId(id.filter((_, i) => { return i != index }));
         setPositions(positions.filter((_, i) => { return i != index }));
         setEmails(emails.filter((_, i) => {return i != index }));
     };
-    console.log(employees);
+    
+    fetch("http://localhost:3001/manager/get_all_employees")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+
     return (
         <>
             <div id="employee-container">

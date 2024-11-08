@@ -1,6 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const { Pool } = require('pg');
 const router = express.Router();
+
+// middle ware
+router.use(cors());
 
 // Configure the PostgreSQL pool
 const pool = new Pool({
@@ -24,7 +28,7 @@ router.get('/get_all_employees', (req, res) => {
             for (let i = 0; i < query_res.rowCount; i++){
                 employees.push(query_res.rows[i]);
             }
-            res.send(employees);
+            res.json(employees);
         })
         .catch(err => {
             console.error('Error executing query', err.stack);
