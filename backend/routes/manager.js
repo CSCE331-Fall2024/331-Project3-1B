@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 // get list of all employee data
 router.get('/get_all_employees', (req, res) => {
-    employees = []
+    let employees = []
     pool
         .query('SELECT * FROM employees;')
         .then(query_res => {
@@ -37,25 +37,98 @@ router.get('/get_all_employees', (req, res) => {
         });
 });
 
-// get today's sales
-router.get('/sales_today', (req, res) => {
+
+const fetchOrdersToday = (limitOrders) => (req, res, next) => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Add leading zero
     const day = String(currentDate.getDate()).padStart(2, '0');        // Add leading zero
     const formattedDate = `${year}-${month}-${day}`;
-    const query = `SELECT * FROM sales_order_history 
+    let query = `SELECT * FROM sales_order_history 
                     WHERE date_time_ordered BETWEEN '${formattedDate} 00:00:00' AND '${formattedDate} 23:59:59'
-                    ORDER BY date_time_ordered DESC LIMIT 5;`
+                    ORDER BY date_time_ordered `
+    if (limitOrders) {
+        query += 'DESC LIMIT 5;';
+    } else {
+        query += 'ASC;'
+    };
     pool
         .query(query)
         .then(query_res => {
-            res.json(query_res.rows);
+            req.orders = query_res.rows;
+            next();
         })
         .catch(err => {
             console.error('Error getting most recent 5 orders', err.stack)
             res.status(500).send('Error getting most recent 5 orders')
         });
+};
+
+
+// get 5 most recent items
+router.get('/recent_sales_today', fetchOrdersToday(true), (req, res) => {
+    res.json(req.orders);
 });
+
+router.get('/items_today', fetchOrdersToday(false), (req, res) => {
+    let comboQuantities = {
+        'bowl' : 0,
+        'plate' : 0,
+        'bigger plate': 0,
+        'a la carte' : 0,
+        'family meal': 0,
+        'panda cub meal' : 0,
+        'party platter' : 0,
+    };
+    const ordersToday = req.orders;
+    const orderNums = ordersToday.map(order => order.order_number);
+    // array to hold all promises
+    const promises = [];
+    for (let i = 0; i < orderNums.length; ++i) {
+        const query = `SELECT item_serial_number FROM sales_order_history_details WHERE order_number = ${orderNums[i]};`
+        const promise = pool
+            .query(query)
+            .then(query_res => query_res.rows)
+            .then(serialNums => {
+                serialNums.forEach(serialNum => {
+                    switch (serialNum.item_serial_number) {
+                        case 1:
+                            comboQuantities['bowl'] += 1;
+                            break;
+                        case 2:
+                            comboQuantities['plate'] += 1;
+                            break;
+                        case 3:
+                            comboQuantities['bigger plate'] += 1;
+                            break;
+                        case 4:
+                        case 5:
+                        case 6:
+                            comboQuantities['a la carte'] += 1;
+                            break;
+                        case 7:
+                            comboQuantities['family meal'] += 1;
+                            break;
+                        case 8:
+                            comboQuantities['panda cub meal'] += 1;
+                            break;
+                        case 9:
+                        case 10:
+                        case 11:
+                        case 12:
+                            comboQuantities['party platter'] += 1;
+                            break;
+                    }
+                });
+                
+            });
+        promises.push(promise);
+    }
+
+    // wait for all promises to complete
+    Promise.all(promises)
+        .then(() => res.json(comboQuantities));
+});
+
 
 module.exports = router;
