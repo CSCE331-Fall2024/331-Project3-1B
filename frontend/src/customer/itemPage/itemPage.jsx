@@ -5,10 +5,17 @@ import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
 import { useState, useEffect } from "react";
+import { useCart } from "../myBag/CartContext.jsx";
 
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
+    const { currType } = useCart();
+    const {clearCart} = useCart();
+
+    const clearCurrCart = () => {
+        clearCart();
+    };
 
     const updateOrder = (item, quantity) => {
         setCurrOrder((prevOrder) => {
@@ -102,12 +109,20 @@ export default function ItemPage() {
                     </div>
                 </div>
                 <footer className="item-page-footer">
-                    <AddToOrder
-                        items={currOrder}
-                        onAddToOrder={handleAddToOrder}
-                    />
-                    <BackToMenu />
+                    <div>
+                        <h1 className="footer-type">{currType}</h1>
+                    </div>
+                    <div>
+                        <AddToOrder
+                            items={currOrder}
+                            onAddToOrder={handleAddToOrder}
+                        />
+                        <BackToMenu />
+                        <button onClick={clearCurrCart}>Clear Cart</button>
+
+                    </div>
                 </footer>
+
             </CartProvider>
         </>
     );

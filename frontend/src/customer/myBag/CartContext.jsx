@@ -1,36 +1,54 @@
 import React, { createContext, useState, useContext } from "react";
 
-// will go into depth more on this file. 
-// this custom react hook will allow us to view, add, and remove items from the cart. 
-
 // create the context
 const CartContext = createContext();
 
 // this creates the provider that will be used to wrap the components that need access to the cart
 export const CartProvider = ({ children }) => {
+    // Check for saved cart data in localStorage
+    const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const [cart, setCart] = useState(initialCart);
+    const initialCurrType = localStorage.getItem("currType") || "";
+    const [currType, setCurrType] = useState(initialCurrType);
 
-    // Initialize the state as an empty array
-    const [cart, setCart] = useState([]);
+    const setCurrTypeFunc = (type) => {
+        setCurrType(type);
+        localStorage.setItem("currType", type);
+    };
 
     // Function to add an item to the cart
     const addItemToCart = (item) => {
-        setCart((prevCart) => [...prevCart, ...item]);
+        const updatedCart = [...cart, ...item];
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save to localStorage
     };
 
     // Function to remove an item from the cart by its index
     const removeItemFromCart = (index) => {
-        setCart((prevCart) => prevCart.filter((_, i) => i !== index));
+        let updatedCart = cart.filter((_, i) => i !== index);
+        updatedCart = updatedCart.filter((_, i) => i !== index-1);
+
+        setCart(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update localStorage
     };
 
     // Function to clear the cart
     const clearCart = () => {
         setCart([]);
+        localStorage.removeItem("cart"); // Remove from localStorage
     };
 
     return (
-        // allows us to wrap other components with the CartProvider so that they have access to its components. 
         <CartContext.Provider
-            value={{ cart, addItemToCart, removeItemFromCart, clearCart }}
+            value={{
+                cart,
+                addItemToCart,
+                removeItemFromCart,
+                clearCart,
+                currType,
+                setCurrTypeFunc,
+                setCart,
+            }}
         >
             {children}
         </CartContext.Provider>

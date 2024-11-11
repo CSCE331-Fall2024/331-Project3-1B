@@ -22,6 +22,12 @@
     height: 70px;
     background-color: #e32d2d;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: space-between;
+}
+
+.footer-type{
+    color: white;
+    font-size: 40px;
+    margin-left: 20px;
 }
