@@ -13,7 +13,6 @@ import Drinks from "./customer/drinks/drinks.jsx";
 import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";
 import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import Intermediate from "./intermediate/intermediate.jsx"
-import Login from "./login/login.jsx"
 import MyBag from "./customer/myBag/myBag.jsx";
 import Receipt from "./cashier/receipt/receipt.jsx";
 
