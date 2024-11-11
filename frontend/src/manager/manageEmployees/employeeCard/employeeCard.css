@@ -1,5 +1,21 @@
+.employee-info {
+    font-size: 18px;
+}
+
 #employee-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #D3D3D3;
+    padding: 15px;
+}
+
+#remove-employee-button {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#remove-employee-button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #000000;
 }

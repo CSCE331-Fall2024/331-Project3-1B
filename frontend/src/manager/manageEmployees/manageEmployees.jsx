@@ -11,7 +11,6 @@ function ManageEmployees () {
                     <EmployeeContainer />
                 </div>
             </>
-
         );
 };
 

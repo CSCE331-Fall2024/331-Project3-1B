@@ -6,40 +6,45 @@ import AddToOrder from "../addToOrder/addToOrder.jsx";
 import { CartProvider } from "../myBag/CartContext.jsx";
 import { useState, useEffect } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
+import { getEntrees, getSides } from "../customerFunctions/customer.js";
 
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
     const { currType } = useCart();
-    const {clearCart} = useCart();
+    const { clearCart } = useCart();
+
+    let constEntrees = getEntrees(currType);
+    let constSides = getSides(currType);
 
     const clearCurrCart = () => {
         clearCart();
     };
 
-    const updateOrder = (item, quantity) => {
+    const updateOrder = (name, type, quantity) => {
         setCurrOrder((prevOrder) => {
             const existingItem = prevOrder.find(
-                (orderItem) => orderItem.name === item
+                (orderItem) => orderItem.name === name
             );
             let newOrder;
+
             if (existingItem) {
                 newOrder =
                     quantity > 0
                         ? prevOrder.map((orderItem) =>
-                              orderItem.name === item
+                              orderItem.name === name
                                   ? { ...orderItem, quantity }
                                   : orderItem
                           )
                         : prevOrder.filter(
-                              (orderItem) => orderItem.name !== item
+                              (orderItem) => orderItem.name !== name
                           );
             } else if (quantity > 0) {
-                newOrder = [...prevOrder, { name: item, quantity }];
+                newOrder = [...prevOrder, { name, type, quantity }];
             } else {
                 newOrder = prevOrder;
             }
-            // console.log("Updated order contents:", newOrder);
+
             return newOrder;
         });
     };
@@ -47,14 +52,12 @@ export default function ItemPage() {
     // Reset quantities when "Add to Order" is clicked
     const handleAddToOrder = () => {
         setResetQuantities(true);
-        console.log("Reset quantities set to true"); // Check if this logs when button is clicked
     };
 
     // Use useEffect to listen for resetQuantities changes and reset it to false after updating
     useEffect(() => {
         if (resetQuantities) {
             setResetQuantities(false); // Reset after all quantities are set to 0
-            console.log("Quantities reset to 0"); // Confirm reset
         }
     }, [resetQuantities]);
 
@@ -111,6 +114,9 @@ export default function ItemPage() {
                 <footer className="item-page-footer">
                     <div>
                         <h1 className="footer-type">{currType}</h1>
+                        {constEntrees > 0 && constSides > 0 && <>
+                            <h3 className="footer-type-info">Entrees ({constEntrees}), Sides ({constSides})</h3>
+                        </>}
                     </div>
                     <div>
                         <AddToOrder
@@ -118,11 +124,8 @@ export default function ItemPage() {
                             onAddToOrder={handleAddToOrder}
                         />
                         <BackToMenu />
-                        <button onClick={clearCurrCart}>Clear Cart</button>
-
                     </div>
                 </footer>
-
             </CartProvider>
         </>
     );

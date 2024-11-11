@@ -48,6 +48,14 @@ export default function Board1() {
                             <span className="starting-at">starting at*</span>
                         </div>
 
+                        <div className="option-generic">
+                            <span className="option-titles">5 PERSON FAMILY MEAL</span>
+                            <span className="calories-count">240-1990</span>
+                            <span className="cal">cal</span>
+                            <span className="price">$36.00</span>
+                            <span className="starting-at">starting at*</span>
+                        </div>
+
                     </div>
                 </div>
 
@@ -77,6 +85,45 @@ export default function Board1() {
                         <span className="calories-count">380</span>
                         <span className="cal">cal</span>
                     </div>
+
+                    <div className="header-generic">A LA CARTE BOXES</div>
+
+                    <div className="option-generic">
+
+                        <div className="option-titles">SIDES</div>
+
+                        <div className="option-generic">
+                            <span className="calories-count">Medium</span>
+                            <span className="price">$3.40</span>
+                        </div>
+
+                        <div className="option-generic">
+                            <span className="calories-count">Large</span>
+                            <span className="price">$4.40</span>
+                        </div>
+
+                        <div className="option-titles">ENTREES</div>
+
+                        <div className="option-generic">
+                            <span className="calories-count">Small</span>
+                            <span className="price">$4.40</span>
+                            <span className="starting-at">starting at*</span>
+                        </div>
+
+                        <div className="option-generic">
+                            <span className="calories-count">Medium</span>
+                            <span className="price">$7.70</span>
+                            <span className="starting-at">starting at*</span>
+                        </div>
+
+                        <div className="option-generic">
+                            <span className="calories-count">Large</span>
+                            <span className="price">$10.20</span>
+                            <span className="starting-at">starting at*</span>
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div className="board-generic">
@@ -95,16 +142,71 @@ export default function Board1() {
                     </div>
 
                     <div className="option-generic">
-                        <span className="option-titles">FRIED RICE</span>
-                        <span className="calories-count">520</span>
+                        <span className="option-titles">HOT ONES BLAZING BOURBON CHICKEN</span>
+                        <span className="calories-count">400</span>
                         <span className="cal">cal</span>
                     </div>
 
                     <div className="option-generic">
-                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="option-titles">BLACK PEPPER SIRLOIN STEAK</span>
+                        <span className="calories-count">180</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">HONEY WALNUT SHRIMP</span>
+                        <span className="calories-count">430</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">GRILLED TERIYAKI CHICKEN</span>
+                        <span className="calories-count">250</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">BROCCOLI BEEF</span>
+                        <span className="calories-count">150</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">KUNG PAO CHICKEN</span>
+                        <span className="calories-count">320</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">HONEY SESAME CHICKEN BREAST</span>
+                        <span className="calories-count">340</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">BEIJING BEEF</span>
+                        <span className="calories-count">480</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">MUSHROOM CHICKEN</span>
+                        <span className="calories-count">220</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">SWEETFIRE CHICKEN BREAST</span>
                         <span className="calories-count">380</span>
                         <span className="cal">cal</span>
                     </div>
+                    
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">130</span>
+                        <span className="cal">cal</span>
+                    </div>
+                    
                 </div>
             </div>
         </>

@@ -1,14 +1,15 @@
 import "./employeeCard.css";
 
 // creating individual employee cards
-function EmployeeCard({ name, position, email}) {
+function EmployeeCard({ name, id, position, email, removeEmployee }) {
     return (
         <>
             <div id="employee-card">
-                <h2>{name}</h2>
-                <h2>{position}</h2>
-                <h2>{email}</h2>
-                <button id="remove-employee-button">Remove Employee</button>
+                <h2 className="employee-info">{name}</h2>
+                <h2 className="employee-info">{id}</h2>
+                <h2 className="employee-info">{position}</h2>
+                <h2 className="employee-info">{email}</h2>
+                <button id="remove-employee-button" onClick={ removeEmployee }>Remove Employee</button>
             </div>
         </>
     );
