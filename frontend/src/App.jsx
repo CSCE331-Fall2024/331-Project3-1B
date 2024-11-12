@@ -14,6 +14,7 @@ import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import Intermediate from "./intermediate/intermediate.jsx"
 import MyBag from "./customer/myBag/myBag.jsx";
 import Receipt from "./cashier/receipt/receipt.jsx";
+import Login from "./login/login.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 function App() {
