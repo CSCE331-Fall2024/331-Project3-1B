@@ -1,4 +1,4 @@
-import "./cashier2.css";
+import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
 

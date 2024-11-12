@@ -5,8 +5,6 @@ body, html, #root {
     font-family: Arial, sans-serif;
 }
 
-
-
 .cashier {
     display: flex;
     flex-direction:column;
@@ -65,13 +63,19 @@ body, html, #root {
 .main-content{
     display: flex;
     flex-direction: row;
-    
 }
 
 .cards-container{
     display: flex;
+    margin-left: 400px;
 }
 
+.receipt{
+    float: left;
+    margin-bottom: -800px;
+    margin-right: 900px;
+    margin-top: 50px;
+}
 
 
 
