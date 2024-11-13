@@ -24,8 +24,8 @@ function Cashier() {
                 <CashierPageHeader />
             </div>
 
-            <div className="main-content">
-                <div className="receipt">
+            <div className="cashier-content-container">
+                <div className="cashier-receipt">
                     <Receipt />
                 </div>
                 <div className="cards-container">
