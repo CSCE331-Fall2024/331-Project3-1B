@@ -11,10 +11,16 @@ export function CashierPageHeader() {
     const clearCurrCart = () => {
         clearCart();
     };
+
+    const submitOrder = () => {
+        console.log("Order Submitted:\n", cart);
+        clearCart();
+    };
+
     return (
         <CartProvider>
             <div className="cashier-header-bar">
-                <button className="cashier-header-button">Submit</button>
+                <button onClick={submitOrder} className="cashier-header-button">Submit</button>
                 <button onClick = {clearCurrCart}className="cashier-header-button">Delete Order</button>
                 <button className="cashier-header-button">Clock In</button>
                 <button className="cashier-header-button">Clock Out</button>
