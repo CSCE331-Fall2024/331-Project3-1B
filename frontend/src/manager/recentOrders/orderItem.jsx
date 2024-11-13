@@ -1,16 +1,12 @@
 import "./orderItem.css";
-import React, { useState } from 'react';
 
-// creates a card for each of the msot recent orders
-function OrderItem ({ orderTotal, totalItems }) {
-    const [total, setTotal] = useState(orderTotal);
-    const [items, setItems] = useState(totalItems);
-
+// creates a card for each of the most recent orders
+function OrderItem ({ orderTotal, orderNumber }) {
     return (
         <>
             <div id="order-container">
                 <h4 id="order-item">
-                    Total: ${ total } - Items: { items }
+                    Total: ${ orderTotal } - Order Number: { orderNumber }
                 </h4>
             </div>
         </>

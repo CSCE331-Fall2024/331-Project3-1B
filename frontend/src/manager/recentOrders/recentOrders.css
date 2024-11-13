@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+#recent-orders-title {
+    padding: 15px;
+}

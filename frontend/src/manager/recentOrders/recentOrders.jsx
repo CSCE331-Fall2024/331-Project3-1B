@@ -1,19 +1,31 @@
+import { useEffect, useState } from "react";
 import OrderItem from "./orderItem.jsx";
 import "./recentOrders.css";
-import TotalSales from "./totalSales.jsx";
 
 // creates a container that holds all the most recent orders
 // holds temporary data for the orders
 function RecentOrders() {
+
+    const [orderTotals, setOrderTotals] = useState([]);
+    const [orderNumbers, setOrderNumbers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/manager/recent_sales_today')
+            .then(query_res => query_res.json())
+            .then(data => {
+                const orderNums = data.map(order => order.order_number);
+                const orderTotals = data.map(order => order.price);
+                setOrderNumbers(orderNums);
+                setOrderTotals(orderTotals);
+            })
+            .catch(console.error("cannot get 5 most recent orders"));
+    }, []);
+
     return (
         <>
             <div id="recent-orders-container">
-                <TotalSales totalSales= { 1829.69 } />
-                <OrderItem orderTotal= { 29.69 } totalItems= { 3 } />
-                <OrderItem orderTotal= { 12.25 } totalItems= { 2 } />
-                <OrderItem orderTotal= { 27.21 } totalItems= { 4 } />
-                <OrderItem orderTotal= { 23.12 } totalItems= { 3 } />
-                <OrderItem orderTotal= { 8.95 } totalItems= { 1 } />
+                <h2 id="recent-orders-title">Recent Orders Today</h2>
+                {orderTotals.map((total, index) => <OrderItem key={index} orderTotal={total} orderNumber={orderNumbers[index]}/>)}
             </div>
         </>
     );

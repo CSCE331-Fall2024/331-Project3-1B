@@ -7,7 +7,7 @@ function CurrEmployees() {
     return (    
         <>
             <div id="curr-employees-container">
-            <h2>Clocked In Employees:</h2>
+            <h2>Clocked In Employees</h2>
                 <CurrEmployeeItem employeeName="John Doe" />
                 <CurrEmployeeItem employeeName="Jane Doe" />
                 <CurrEmployeeItem employeeName="John Smith" />
