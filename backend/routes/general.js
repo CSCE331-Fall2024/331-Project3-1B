@@ -57,7 +57,7 @@ async function GetEnabledOrDisabled(item_name){
   } catch (err){
     console.log(`Couldn't get Enabled Or Disabled status... ${item_name}`)
   } finally {
-    if (clinet) client.release();
+    if (client) client.release();
   }
 }
   
