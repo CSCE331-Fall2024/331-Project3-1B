@@ -44,7 +44,7 @@ export default function CashierItemPage() {
                     })}
                 </div>
                 <h1 className="cashier-item-page-title">Entrees</h1>
-                <div className="cashier-item-page-type-container">
+                <div className="cashier-item-page-type-container extra-space-bottom">
                     {entrees.map((entree, index) => {
                         return (
                             <ItemPageCard
@@ -57,7 +57,23 @@ export default function CashierItemPage() {
                 </div>
             </div>
             </div>
-            <BackToMenu/>
+            <footer className="item-page-footer">
+                    <div>
+                        {/* <h1 className="footer-type">{currType}</h1>
+                        {constEntrees > 0 && constSides > 0 && (
+                            <>
+                                <h3 className="footer-type-info">
+                                    Entrees ({constEntrees}), Sides (
+                                    {constSides})
+                                </h3>
+                            </>
+                        )} */}
+                    </div>
+                    <div>
+                        
+                        <BackToMenu />
+                    </div>
+                </footer>
             
         </>
     );
