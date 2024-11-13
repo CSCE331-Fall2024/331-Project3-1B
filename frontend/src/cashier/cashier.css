@@ -1,81 +1,32 @@
-body, html, #root {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.cashier {
+.cashier-header-bar {
     display: flex;
-    flex-direction:column;
-    height: 100%;
-}
-
-.header-bar {
-    display: flex;
-    justify-content: flex-end;
+    justify-content: right;
     background-color: #D61927;
+    color: white;
+}
+
+.cashier-header-button:hover {
+    background-color: #3700ff;
+}
+
+.cashier-header-button {
+    background-color: #a50611;
+    color: white;
+    border: none;
+    margin: 10px;
     padding: 10px;
-    color: white;
+    cursor: pointer;
+    height: 40px;
 }
 
-.buttons {
+.cashier-content-container{
     display: flex;
-    gap: 10px;
-}
-
-.submit-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #3700ff;
-}
-
-.delete-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.delete-button:hover {
-    background-color: #3700ff;
-}
-
-.clock-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.clock-button:hover {
-    background-color: #3700ff;
-}
-
-.main-content{
-    display: flex;
+    justify-content: center;
     flex-direction: row;
 }
 
-.cards-container{
-    display: flex;
-    margin-left: 400px;
+.cashier-receipt{
+    margin: 40px 40px 40px 100px;
 }
-
-.receipt{
-    float: left;
-    margin-bottom: -800px;
-    margin-right: 900px;
-    margin-top: 50px;
-}
-
 
 

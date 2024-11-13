@@ -5,13 +5,11 @@ import Receipt from "./receipt/receipt.jsx";
 // CashierPageHeader is the component that cashier view.
 export function CashierPageHeader() {
     return (
-        <div className="header-bar">
-            <div className="buttons">
-                <button className="submit-button">Submit</button>
-                <button className="delete-button">Delete</button>
-                <button className="clock-button">Clock In</button>
-                <button className="clock-button">Clock Out</button>
-            </div>
+        <div className="cashier-header-bar">
+            <button className="cashier-header-button">Submit</button>
+            <button className="cashier-header-button">Delete</button>
+            <button className="cashier-header-button">Clock In</button>
+            <button className="cashier-header-button">Clock Out</button>
         </div>
     );
 }
@@ -24,15 +22,14 @@ function Cashier() {
                 <CashierPageHeader />
             </div>
 
-            <div className="main-content">
-                <div className="receipt">
+            <div className="cashier-content-container">
+                <div className="cashier-receipt">
                     <Receipt />
                 </div>
                 <div className="cards-container">
                     <MenuItemTypes />
                 </div>
             </div>
-
         </div>
     );
 }
