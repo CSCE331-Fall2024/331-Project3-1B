@@ -31,4 +31,6 @@
     cursor: pointer;
     font-size: x-large;
     color: #e32d2d;
+    outline: solid;
+    outline-width: 0;
 }
