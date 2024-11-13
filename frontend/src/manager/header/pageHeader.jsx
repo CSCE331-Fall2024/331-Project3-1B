@@ -19,6 +19,10 @@ function PageHeader() {
         navigate("/manager/employees");
     };
 
+    const managerMenuItemsClick = () => {
+        navigate("/manager/menuItems")
+    }
+
     return (
         <>
             <div id="header-container">
@@ -35,7 +39,7 @@ function PageHeader() {
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text">Menu Items</h1>
+                    <h1 className="nav-btn-text" onClick={ managerMenuItemsClick }>Menu Items</h1>
                 </button>
 
                 <button className="nav-btn">

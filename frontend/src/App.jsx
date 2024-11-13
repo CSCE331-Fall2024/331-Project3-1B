@@ -17,6 +17,7 @@ import Receipt from "./cashier/receipt/receipt.jsx";
 import Login from "./login/login.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
+import MenuItems from "./manager/menuItems/menuItems.jsx";
 function App() {
     return (
         // The Router component is used to define the routes of the application
@@ -38,6 +39,7 @@ function App() {
                 <Route path="/intermediate" element={<Intermediate/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/receipt" element={<Receipt/>} />
+                <Route path="/manager/menuItems" element={<MenuItems />} />
             </Routes>
         </Router>
     );
