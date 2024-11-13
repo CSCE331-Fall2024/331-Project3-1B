@@ -10,13 +10,10 @@ function MenuItemTypes() {
         "Plate",
         "Bigger Plate",
         "Panda Cub Meal",
-        "Panda Bundle",
         "5 Person Meal",
         "Appetizers and More",
         "Drinks",
-        "Apple Pie",
         "Catering",
-        "Gatorade Lemon Lime",
         "A La Carte",
     ];
 

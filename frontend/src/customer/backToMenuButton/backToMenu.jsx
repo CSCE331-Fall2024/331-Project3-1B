@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import './backToMenu.css';
+import "./backToMenu.css";
 
 // Back to Menu button
 export default function () {
+    const currURL = window.location.href;
 
     const navigate = useNavigate();
-    
+
     // Function to navigate back to the main menu
     const backToMenu = () => {
-        navigate("/");
+        if (currURL.includes("cashier")) navigate("/cashier");
+        else navigate("/");
     };
 
     return (
