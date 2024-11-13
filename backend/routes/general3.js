@@ -37,7 +37,13 @@ async function GetPrice(option_ID, item_ID) {
     const query = `SELECT price FROM menu_prices WHERE item_serial_number = ${item_ID} AND option_serial_number = ${option_ID};`;
     
     try{
+
         const result = await pool.query(query);
+
+        if (result.rows.length === 0){
+            return "0";
+        }
+
         return result.rows[0].price.toString();
     } catch (error) {
         console.error('Error executing query... option=' + option_ID + " item=" + item_ID);
