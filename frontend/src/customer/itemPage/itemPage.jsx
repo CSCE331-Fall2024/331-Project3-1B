@@ -81,6 +81,10 @@ export default function ItemPage() {
         "Black Pepper Sirloin Steak",
     ];
 
+    // ==============================
+    // TODO: Add kids drinks to panda cub meal item page. Drink requirement will need to be added along with listing to the footer. 
+    // ==============================
+
     return (
         <>
             <CartProvider>
@@ -99,7 +103,7 @@ export default function ItemPage() {
                         ))}
                     </div>
                     <h1 className="item-page-title">Entrees</h1>
-                    <div className="item-page-type-container">
+                    <div className="item-page-type-container extra-bottom-space">
                         {entrees.map((entree, index) => (
                             <ItemPageCard
                                 type="Entrees"
@@ -114,9 +118,14 @@ export default function ItemPage() {
                 <footer className="item-page-footer">
                     <div>
                         <h1 className="footer-type">{currType}</h1>
-                        {constEntrees > 0 && constSides > 0 && <>
-                            <h3 className="footer-type-info">Entrees ({constEntrees}), Sides ({constSides})</h3>
-                        </>}
+                        {constEntrees > 0 && constSides > 0 && (
+                            <>
+                                <h3 className="footer-type-info">
+                                    Entrees ({constEntrees}), Sides (
+                                    {constSides})
+                                </h3>
+                            </>
+                        )}
                     </div>
                     <div>
                         <AddToOrder
