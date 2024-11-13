@@ -34,7 +34,7 @@ function App() {
                 <Route path="/cashier/appetizers-and-more" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
-                <Route path="/cashier" element={<Cashier />} />
+                <Route path="/cashier" element={<Cashier/>} />
                 <Route path="/intermediate" element={<IntermediatePage />} />
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />
                 <Route path="/intermediate" element={<Intermediate/>}/>
