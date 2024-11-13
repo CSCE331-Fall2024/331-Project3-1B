@@ -39,7 +39,7 @@ export function Receipt() {
             </div>
             <div className="receipt-display">
                 <div className="my-bag-contents">
-                    {cart.length == 0 && <h3>The order is empty.</h3>}
+                    {cart.length == 0 && <h3 className="order-empty">The order is empty.</h3>}
                     {cart?.map((combo, index) => (
                         <div key={index} className="order-layout">
                             <div className="order-container">
