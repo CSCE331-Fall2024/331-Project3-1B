@@ -1,6 +1,11 @@
 .extra-space {
     margin-top: 35px;
 }
+
+.cashier-item-page{
+    margin: 20px 20px;
+}
+
 .cashier-item-page-type-container {
     margin: 10px 20px;
     display: flex;

@@ -28,13 +28,10 @@ export default function CashierItemPage() {
     return (
         <>
             <CashierPageHeader />
-            <div className="main-content">
-                <div className="total-container2">
-                </div>
+            <div className="cashier-item-page">
                 <div>
                 <h1 className="cashier-item-page-title extra-space">Sides</h1>
 
-                {/* The sides and entrees are displayed in the cashier item page */}
                 <div className="cashier-item-page-type-container">
                     {sides.map((side, index) => {
                         return (

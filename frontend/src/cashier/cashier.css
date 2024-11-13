@@ -1,50 +1,22 @@
-.header-bar {
+.cashier-header-bar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: right;
     background-color: #D61927;
+    color: white;
+}
+
+.cashier-header-button:hover {
+    background-color: #3700ff;
+}
+
+.cashier-header-button {
+    background-color: #a50611;
+    color: white;
+    border: none;
+    margin: 10px;
     padding: 10px;
-    color: white;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.submit-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
     cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #3700ff;
-}
-
-.delete-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.delete-button:hover {
-    background-color: #3700ff;
-}
-
-.clock-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.clock-button:hover {
-    background-color: #3700ff;
+    height: 40px;
 }
 
 .cashier-content-container{
