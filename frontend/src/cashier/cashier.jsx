@@ -1,3 +1,4 @@
+import { CartProvider } from "../customer/myBag/CartContext.jsx";
 import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
@@ -17,6 +18,7 @@ export function CashierPageHeader() {
 // Cashier is the component that displays the cashier view.
 function Cashier() {
     return (
+        <CartProvider>
         <div className="cashier">
             <div className="header">
                 <CashierPageHeader />
@@ -32,6 +34,7 @@ function Cashier() {
             </div>
             
         </div>
+        </CartProvider>
     );
 }
 
