@@ -17,26 +17,30 @@ function OrderTrends() {
 
     return (
         <>
-            <div id='pie-container'>
+            <div id='order-trends-container'>
                 <h2 id='trends-title'>Today's Order Trends</h2>
-                <Pie 
-                    data={{
-                        labels: Object.keys(comboData),
-                        datasets: [{
-                            data: Object.values(comboData),
-                            backgroundColor: [
-                            '#FF6384', // Red
-                            '#36A2EB', // Blue
-                            '#FFCE56', // Yellow
-                            '#4BC0C0', // Teal
-                            '#9966FF', // Purple
-                            '#FF9F40', // Orange
-                            '#FF33Fc', // Pink
-                            ]
-                        }]
-                    }}
-                />
+                <div id='pie-container'>
+                    <Pie 
+                        data={{
+                            labels: Object.keys(comboData),
+                            datasets: [{
+                                data: Object.values(comboData),
+                                backgroundColor: [
+                                '#FF6384', // Red
+                                '#36A2EB', // Blue
+                                '#FFCE56', // Yellow
+                                '#4BC0C0', // Teal
+                                '#9966FF', // Purple
+                                '#FF9F40', // Orange
+                                '#FF33Fc', // Pink
+                                ]
+                            }]
+                        }}
+                    />
+                </div>
             </div>
+
+
         </>
     );
 }

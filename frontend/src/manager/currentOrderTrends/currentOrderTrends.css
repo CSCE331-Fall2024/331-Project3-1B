@@ -1,36 +1,14 @@
-#piechart-container {
-}
-
-#piechart {
-    width: 100%;
-    height: 100%;
+#pie-container {
+    width: 400px;
 }
 
 #trends-title {
     padding: 10px;
 }
 
-#item-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 15px;
-    padding: 15px;
-
+#order-trends-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.item {
-    background-color: #FFFFFF; /* Background color for grid items */
-    padding: 20px; /* Padding inside grid items */
-    text-align: center; /* Center text inside grid items */
-    border: 1px solid #ccc; /* Border around grid items */
-    border-radius: 15px; /* Rounded corners for grid items */
-}
-
-.item-name {
-    font-weight: bold;
-}
-
-.item-value {
-    margin-top: 10px;
-}
