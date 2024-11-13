@@ -21,9 +21,9 @@
     transition: box-shadow .2s;
 }
 
-#header-button:hover {
+#header-button:hover, #header-button:focus {
     cursor: pointer;
-    box-shadow: 0 0 10px 0 #000000;
+    box-shadow: 0 0 20px 0 #000000;
 }
 
 .header-button-title {
