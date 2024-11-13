@@ -30,6 +30,7 @@ function Cashier() {
                     <MenuItemTypes />
                 </div>
             </div>
+            
         </div>
     );
 }
