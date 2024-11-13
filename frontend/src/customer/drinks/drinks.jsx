@@ -68,7 +68,7 @@ export default function () {
             <CartProvider>
                 <Nav />
                 <h1 className="item-page-title appetizers-title">Drinks</h1>
-                <div className="item-page-type-container">
+                <div className="item-page-type-container extra-bottom-space">
                     {drinks.map((drink, index) => {
                         return (
                             <ItemPageCard

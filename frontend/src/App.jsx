@@ -2,7 +2,6 @@ import "./App.css";
 import Customer from "./customer/customer.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ItemPage from "./customer/itemPage/itemPage.jsx";
-import CashierItemPage from "./cashier/itemPage/itemPage.jsx";
 import Manager from "./manager/manager.jsx";
 import MenuBoards from "./menuBoards/board1.jsx";
 import Cashier from "./cashier/cashier.jsx";
@@ -29,7 +28,9 @@ function App() {
                 <Route path="/order/appetizers" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/order/drinks" element={<CartProvider><Drinks/></CartProvider>} />
                 <Route path="/order/kids-drinks" element={<CartProvider><KidsDrinks/></CartProvider>} />
-                <Route path="/cashier/order" element={<CashierItemPage />} />
+                <Route path="/cashier/order" element={<CartProvider><ItemPage/></CartProvider>} />
+                <Route path="/cashier/drinks" element={<CartProvider><Drinks/></CartProvider>} />
+                <Route path="/cashier/appetizers-and-more" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
                 <Route path="/cashier" element={<Cashier />} />
