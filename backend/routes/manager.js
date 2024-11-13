@@ -130,5 +130,16 @@ router.get('/items_today', fetchOrdersToday(false), (req, res) => {
         .then(() => res.json(comboQuantities));
 });
 
+// get menu items (sides and entrees)
+router.get("/get_menu_items", (req, res) => {
+    const query = 'SELECT * FROM menu_items';
+    pool
+        .query(query)
+        .then(query_res => res.json(query_res.rows))
+        .catch(err => {
+            console.error("Error getting menu items");
+            res.status(500).send("Error getting menu items");
+        });
+});
 
 module.exports = router;
