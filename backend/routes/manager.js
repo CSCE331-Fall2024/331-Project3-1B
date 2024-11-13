@@ -70,7 +70,8 @@ router.get('/recent_sales_today', fetchOrdersToday(true), (req, res) => {
     res.json(req.orders);
 });
 
-router.get('/items_today', fetchOrdersToday(false), (req, res) => {
+// get all combos today (for pie chart)
+router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
     let comboQuantities = {
         'bowl' : 0,
         'plate' : 0,

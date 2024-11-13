@@ -31,15 +31,7 @@ function PageHeader() {
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text">Inventory Orders</h1>
-                </button>
-
-                <button className="nav-btn">
                     <h1 className="nav-btn-text" onClick={ manageEmployeesClick }>Employee Management</h1>
-                </button>
-
-                <button className="nav-btn">
-                    <h1 className="nav-btn-text">Sales Trends</h1>
                 </button>
 
                 <button className="nav-btn">
