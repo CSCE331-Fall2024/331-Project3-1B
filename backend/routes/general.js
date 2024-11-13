@@ -22,7 +22,6 @@ async function queryDatabase() {
     }
   }
 
-
 async function GetPrice(item_name, item_type) {
   const client = await pool.connect(); // Only declare `client` once
   try {
