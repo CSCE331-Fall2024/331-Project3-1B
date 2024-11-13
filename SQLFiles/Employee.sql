@@ -4,12 +4,10 @@ CREATE TABLE IF NOT EXISTS employees(
         email VARCHAR(50),
         phone_number VARCHAR(50) NOT NULL,
         hourly_wage DECIMAL(5,2) NOT NULL,
-        position VARCHAR(20)NOT NULL,
+        position VARCHAR(20)NOT NULL
     );
-"""
-    Changed title to Employee.sql from employee.sql
-"""
-INSERT INTO employees (full_name,email, phone_number, hourly_wage, position, user_password) VALUES
+
+INSERT INTO employees (full_name,email, phone_number, hourly_wage, position) VALUES
 ('Crystal Riggs', 'CrystalRiggs@hayden.org', '578-935-401',20, 'Employee' ),
 ('Roger Wilson', 'RogerWilson@stone.net', '694-381-278',30, 'Manager' ),
 ('Lisa Nguyen', 'LisaNguyen@miller-martinez.com', '718-281-318',20, 'Employee' ),

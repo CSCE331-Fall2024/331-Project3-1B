@@ -37,7 +37,13 @@ async function GetPrice(option_ID, item_ID) {
     const query = `SELECT price FROM menu_prices WHERE item_serial_number = ${item_ID} AND option_serial_number = ${option_ID};`;
     
     try{
+
         const result = await pool.query(query);
+
+        if (result.rows.length === 0){
+            return "0";
+        }
+
         return result.rows[0].price.toString();
     } catch (error) {
         console.error('Error executing query... option=' + option_ID + " item=" + item_ID);
@@ -81,6 +87,12 @@ async function getOrderNumber(timestamp){
     }
 }
 
+
+
+
+// Input Example:
+// types = [1,2,3] -> options 
+// items = [[1,4] ,[4, 1, 1], [4,2]] -> items asscoiated with each option
 async function SubmitOrder(types, items){
     const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
 
@@ -107,19 +119,70 @@ async function SubmitOrder(types, items){
 
     total_price = total_price.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2);
 
-    const CreateSalesOrderHistory = `INSERT INTO sales_order_history (date_time_ordered, price) VALUES ('${timestamp}', ${total_price});`;
-
-    console.log(CreateSalesOrderHistory)
-
-    // temporarily manually pass it in...
-    order_number = await getOrderNumber('2024-11-13 13:50:51');
-
+    const CreateSalesOrderHistory = `INSERT INTO sales_order_history (date_time_ordered, price) VALUES ('${timestamp}', ${total_price}) RETURNING order_number;`;
     
+    order_number = 0;
+
+    try {
+        const result = await pool.query(CreateSalesOrderHistory);
+        order_number = result.rows[0].order_number.toString();
+    } catch (error) {
+        console.error(`Failed to insert order into database... ${timestamp}, ${total_price}`);
+    }
+
+    // sales_order_history_details:
+    // order_number | item_serial_number
+
+    for (let i = 0; i < type_ids.length; ++i){
+        current_type = type_ids[i];
+
+        const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${99999}, ${current_type});`;
+
+        try {
+            await pool.query(query);
+        } catch (error) {
+            console.error('Failed to add to sales_order_history... option = ' + current_type);
+        }
+    }
+
+    for (let i = 0; i < item_ids.length; ++i){
+        current_set = item_ids[i];
+
+        for (let j = 0; j < current_set.length; ++j){
+
+            current_item = parseInt(current_set[j]);
+            
+            const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${99999}, ${current_item + 12});`;
+
+            try {
+                await pool.query(query);
+            } catch (error) {
+                console.error('Failed to add to sales_order_history... item = ' + current_item);
+            }
+        }
+    }
+
+
 }
 
 
 
-// Example usage
+
+types = ["Bowl", "Plate"];
+items = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
+
+(async function() {
+    try {
+      await SubmitOrder(types, items);
+    } finally {
+      pool.end();
+      console.log("Database pool closed.");
+    }
+  })();
+
+
+
+  // Example usage
 // getOptionSerialNumber("bigger plate")
 //      .then(data => console.log('Query Result:', data))
 //      .catch(error => console.error('Query Error:', error))
@@ -132,25 +195,3 @@ async function SubmitOrder(types, items){
 // getItemSerialNumber("mushroom chicken")
 //     .then(data => console.log('Query Result:', data))
 //     .catch(error => console.error('Query Error:', error))
-
-
-types = ["Bowl", "Plate"];
-items = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
-
-// 1 - 5
-// 1 - 6
-
-// 2 - 5
-// 2 - 6 
-// 2 - 7
-
-(async function() {
-    try {
-      await SubmitOrder(types, items);
-    } finally {
-      pool.end();
-      console.log("Database pool closed.");
-    }
-  })();
-
-

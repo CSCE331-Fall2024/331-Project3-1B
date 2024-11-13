@@ -5,7 +5,7 @@ CREATE TABLE  Menu_Items  (
    Availability  BOOLEAN
 );
 
-INSERT INTO Menu_Options (Item_Name,Availability,Item_Type) VALUES
+INSERT INTO Menu_Items (Item_Name,Availability,Item_Type) VALUES
 ('Chow Mein', '1', 'Sides'),
   ('Fried Rice', '1', 'Sides'),
   ('Steamed Rice', '1', 'Sides'),
