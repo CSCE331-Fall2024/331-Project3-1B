@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS inventory(
     Name VARCHAR(80), 
     ID SERIAL PRIMARY KEY,
@@ -6,6 +5,7 @@ CREATE TABLE IF NOT EXISTS inventory(
     Recommended_Quantity INT,
     Currently_Serving_Quantity INT
 );
+
 INSERT INTO Inventory (Name, Servings, Recommended_Quantity,Currently_Serving_Quantity) VALUES 
 ('plastic bag', 899, 951,50),
 ('paper box', 836, 610,50),

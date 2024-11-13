@@ -1,11 +1,11 @@
-CREATE TABLE  Timeshseet  (
+CREATE TABLE  Timesheet  (
    TimeSheetID SERIAL NOT NULL PRIMARY KEY,
    Date_Time TIMESTAMP,
    Hours_Worked Decimal(10,2),
    EmployeeID INT
 );
 
-ALTER TABLE Timesheet ADD FOREIGN KEY (EmployeeID) REFERENCES Employee (EmployeeID);
+ALTER TABLE Timesheet ADD FOREIGN KEY (EmployeeID) REFERENCES Employees (EmployeeID);
 
 INSERT INTO Timesheet (Date_Time, Hours_Worked, EmployeeID) VALUES 
 ('2023-11-01 19:42:13', 3, 7),

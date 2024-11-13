@@ -1,13 +1,13 @@
-CREATE TABLE  Menu_Items  (
+CREATE TABLE  Menu_Prices  (
    Item_Serial_Number  INT,
    Option_Serial_Number  INT,
    Price Decimal(10,2)
 );
 
 ALTER TABLE Menu_Prices ADD FOREIGN KEY (Option_Serial_Number) REFERENCES Menu_Options (Option_Serial_Number);
-
 ALTER TABLE Menu_Prices ADD FOREIGN KEY (Item_Serial_Number) REFERENCES Menu_Items (Item_Serial_Number);
-INSERT INTO Menu_Options (Item_Serial_Number,Option_Serial_Number,Price) VALUES
+
+INSERT INTO Menu_Prices (Item_Serial_Number,Option_Serial_Number,Price) VALUES
 (1,4,4.40),
 (1,6,5.40),
 (1,9,16.00),
@@ -48,7 +48,7 @@ INSERT INTO Menu_Options (Item_Serial_Number,Option_Serial_Number,Price) VALUES
 (7,2,12.80),
 (7,3,15.80),
 (7,4,6.70),
-{7,5,11.50},
+(7,5,11.50),
 (7,6,15.70),
 (7,7,56.50),
 (7,8,7.60),
@@ -60,7 +60,7 @@ INSERT INTO Menu_Options (Item_Serial_Number,Option_Serial_Number,Price) VALUES
 (8,2,12.80),
 (8,3,15.80),
 (8,4,6.70),
-{8,5,11.50},
+(8,5,11.50),
 (8,6,15.70),
 (8,7,56.50),
 (8,8,7.60),
@@ -198,7 +198,7 @@ INSERT INTO Menu_Options (Item_Serial_Number,Option_Serial_Number,Price) VALUES
 (21,6,8.00),
 (21,9,34.00),
 (22,4,2.00),
-(22,5,6.20)
+(22,5,6.20),
 (22,6,8.00),
 (22,9,34.00),
 (23,4,2.30),
