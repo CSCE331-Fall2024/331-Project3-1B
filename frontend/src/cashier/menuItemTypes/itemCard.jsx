@@ -13,7 +13,7 @@ function ItemCard({ type }) {
     const handleClick = (type) => {
         return () => {
             console.log(type);
-            if (type == "Bowl" || type == "Plate" || type == "A La Carte" || type == "Bigger Plate" || type == "Catering" || type == "Panda Bundle" || type == "5 Person Meal") {
+            if (type == "Bowl" || type == "Plate" || type == "A La Carte" || type == "Bigger Plate" || type == "Catering" || type == "Panda Cub Meal" || type == "5 Person Meal") {
                 navigate("/cashier/order");
             }
             else if (type == "Panda Cub Meal") {
@@ -25,12 +25,7 @@ function ItemCard({ type }) {
             else if (type == "Drinks") {
                 navigate("/cashier/drinks");
             }
-            else if (type == "Apple Pie Roll") {
-                navigate("/cashier/apple-pie-roll");
-            }
-            else if (type == "Gatorade Lemon Lime") {
-                navigate("/cashier/gatorade-lemon-lime");
-            }
+            
         };
     };
     return (
