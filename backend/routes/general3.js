@@ -87,6 +87,12 @@ async function getOrderNumber(timestamp){
     }
 }
 
+
+
+
+// Input Example:
+// types = [1,2,3] -> options 
+// items = [[1,4] ,[4, 1, 1], [4,2]] -> items asscoiated with each option
 async function SubmitOrder(types, items){
     const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
 
