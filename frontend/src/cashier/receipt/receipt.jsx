@@ -67,8 +67,8 @@ export function Receipt() {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) (
-                                                            {item.type})
+                                                            {item.quantity}) 
+                                                            {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
                                                 )
@@ -88,8 +88,8 @@ export function Receipt() {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) (
-                                                            {item.type})
+                                                            {item.quantity}) 
+                                                            {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
                                                 )
@@ -110,8 +110,8 @@ export function Receipt() {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) (
-                                                            {item.type})
+                                                            {item.quantity}) 
+                                                            {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
                                                 )
@@ -132,8 +132,8 @@ export function Receipt() {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) (
-                                                            {item.type})
+                                                            {item.quantity}) 
+                                                            {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
                                                 )
