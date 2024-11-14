@@ -16,6 +16,7 @@ export default function PageHeader() {
         navigate("/myBag");
     };
 
+    // Function to navigate back to the main menu
     const back = () => {
         navigate("/")
     };

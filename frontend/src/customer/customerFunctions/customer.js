@@ -1,3 +1,4 @@
+// functions to get the number of entrees and sides based on the type of meal
 export const getEntrees = (type) => {
     if (type == "Bowl") {
         return 1;

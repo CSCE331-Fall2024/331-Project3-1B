@@ -4,12 +4,14 @@ import './quantitySelector.css';
 export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
     const [quantity, setQuantity] = useState(0);
 
+    // Function to handle subtracting from quantity
     const handleSubtract = () => {
         const newQuantity = Math.max(0, quantity - 1);
         setQuantity(newQuantity);
         onQuantityChange(newQuantity);
     };
 
+    // Function to handle adding to quantity
     const handleAdd = () => {
         const newQuantity = quantity + 1;
         setQuantity(newQuantity);

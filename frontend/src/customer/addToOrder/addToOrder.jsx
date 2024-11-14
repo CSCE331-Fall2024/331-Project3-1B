@@ -9,7 +9,7 @@ export default function ({ items = [], onAddToOrder }) {
     const { currType } = useCart();
     let validOrder = false;
     
-
+    // Process the entrees and sides to get their quantities
     const processEntreesSides = (orderItems) => {
         let entrees = 0;
         let sides = 0;
@@ -23,6 +23,8 @@ export default function ({ items = [], onAddToOrder }) {
         return [entrees, sides];
     };
 
+
+    // Add the current order to the cart and checks if valid order. 
     const addToOrderTotal = () => {
         const entreeSides = processEntreesSides(items);
         const entrees = entreeSides[0];

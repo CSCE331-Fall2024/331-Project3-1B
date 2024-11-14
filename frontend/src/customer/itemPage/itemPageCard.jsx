@@ -4,6 +4,8 @@ import React from "react";
 
 export default function ItemPageCard({ type, item, allergens, updateOrder, resetQuantities }) {
     let imagePath = "";
+
+    // set image path based on item type
     if (item === "Small" || item === "Medium" || item === "Large") {
         imagePath = `/Images/SoftDrinks/Drinks.png`;
     } else {

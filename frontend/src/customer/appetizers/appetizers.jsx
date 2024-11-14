@@ -15,6 +15,8 @@ export default function () {
     const [resetQuantities, setResetQuantities] = useState(false);
     const { currType } = useCart();
 
+
+// The function that will update the order with the new quantity
     const updateOrder = (name, type, quantity) => {
         setCurrOrder((prevOrder) => {
             const existingItem = prevOrder.find(

@@ -11,6 +11,7 @@ export const CartProvider = ({ children }) => {
     const initialCurrType = localStorage.getItem("currType") || "";
     const [currType, setCurrType] = useState(initialCurrType);
 
+    // Function to set the current type
     const setCurrTypeFunc = (type) => {
         setCurrType(type);
         localStorage.setItem("currType", type);

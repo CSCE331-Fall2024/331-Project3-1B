@@ -9,23 +9,28 @@ export function Receipt() {
     const { removeItemFromCart } = useCart();
     const navigate = useNavigate();
 
+    // The function that will clear the current cart
     const clearCurrCart = () => {
         clearCart();
     };
 
+    // The function that will navigate back to the home page
     const orderMore = () => {
         navigate("/customer");
     };
 
+    // The function that will remove a combo from the cart
     const removeCombo = (index) => {
         removeItemFromCart(index);
     };
 
+    // The function that will submit the order once connected with backend call
     const placeOrder = () => {
         console.log("Placing order:\n:", cart);
         clearCart();
     };
 
+    
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];

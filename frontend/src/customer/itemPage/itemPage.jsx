@@ -17,10 +17,14 @@ export default function ItemPage() {
     let constEntrees = getEntrees(currType);
     let constSides = getSides(currType);
 
+
+    // The function that will clear the current cart
     const clearCurrCart = () => {
         clearCart();
     };
 
+
+    // The function that will update the order with the new quantity
     const updateOrder = (name, type, quantity) => {
         setCurrOrder((prevOrder) => {
             const existingItem = prevOrder.find(

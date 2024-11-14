@@ -12,16 +12,19 @@ export function CashierPageHeader() {
     const navigate = useNavigate();
 
     const { clearCart } = useCart();
+
+    // The function that will clear the current cart
     const clearCurrCart = () => {
         clearCart();
     };
 
+    // The function that will navigate back to the home page
     const back = () => {
         navigate('/');
     };
 
 
-
+    // The function that will submit the order once connected with backend call
     const submitOrder = () => {
         console.log("Order Submitted:\n", cart);
         clearCart();
