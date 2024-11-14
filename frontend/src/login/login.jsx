@@ -1,5 +1,7 @@
 import "./login.css"
-
+/** this function creates the login page component
+*
+*/
 export function Login(){
     return (
         <div className="login-page">
