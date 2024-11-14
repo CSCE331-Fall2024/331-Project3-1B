@@ -19,6 +19,26 @@ pool.connect((err, client, release) => {
     }
 });
 
+// Get whether an item is enabled or disabled
+async function GetEnabledOrDisabled(item_name){
+    const client = await pool.connect();
+    try{
+      const res = await client.query(`SELECT availability FROM menu_items WHERE item_name = '${item_name}';`)
+  
+      if (res.rows.length > 0){
+        return "t" === res.rows[0]['availability'];
+      }
+      else{
+        throw new Error('Could not get availability');
+      }
+  
+    } catch (err){
+      console.log(`Couldn't get Enabled Or Disabled status... ${item_name}`)
+    } finally {
+      if (client) client.release();
+    }
+  }
+
 // Function for generating timestamp in SQL database format
 function getFormattedTimestamp() {
     const now = new Date();

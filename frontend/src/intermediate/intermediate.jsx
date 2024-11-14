@@ -6,16 +6,20 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export function IntermediatePage(){
 
+    // Create navigate variable to use for navigation
     const navigate = useNavigate();
 
+    // Button function to navigate to cashier
     const navigateToPOS = () => {
         navigate('/cashier');
     };
 
+    // Button function to navigate to customer
     const navigateToCustomer = () => {
         navigate('/customer');
     };
 
+    // Button function to navigate to manager
     const navigateToManager = () => {
         navigate('/manager');
     };
