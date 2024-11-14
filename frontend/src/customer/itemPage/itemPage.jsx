@@ -62,23 +62,24 @@ export default function ItemPage() {
     }, [resetQuantities]);
 
     const sides = [
-        "White Steamed Rice",
-        "Fried Rice",
-        "Chow Mein",
-        "Super Greens",
+        ["White Steamed Rice",""],
+        ["Fried Rice","contains: egg, soy, wheat, sesame."],
+        ["Chow Mein","contains: soy, wheat, sesame."],
+        ["Super Greens","contains: soy, wheat."]
     ];
     const entrees = [
-        "Original Orange Chicken",
-        "Beijing Beef",
-        "Grilled Teriyaki Chicken",
-        "Broccoli Beef",
-        "Kung Pao Chicken",
-        "Honey Sesame Chicken Breast",
-        "Black Pepper Chicken",
-        "String Bean Chicken Breast",
-        "Mushroom Beef",
-        "Honey Walnut Shrimp",
-        "Black Pepper Sirloin Steak",
+        ["Original Orange Chicken","contains: eggs, milk, soy, wheat, sesame."],
+        ["Beijing Beef","contains: milk, soy, wheat."],
+        ["Grilled Teriyaki Chicken","contains: soy, wheat, sesame."],
+        ["Broccoli Beef","contains: soy, wheat, sesame."],
+        ["Kung Pao Chicken","contains: peanuts, soy, wheat, sesame."],
+        ["Honey Sesame Chicken Breast","contains: wheat, sesame."],
+        ["Black Pepper Chicken","contains: soy, wheat."],
+        ["String Bean Chicken Breast","contains: soy, wheat, sesame."],
+        ["Mushroom Beef","contains: soy, wheat, sesame."],
+        ["Honey Walnut Shrimp","contains: tree nuts, shellfish, eggs, milk, soy, wheat."],
+        ["Black Pepper Sirloin Steak","contains: soy, wheat."],
+        ["Sweet Fire Chicken Breast","contains: wheat."]
     ];
 
     // ==============================
@@ -95,7 +96,8 @@ export default function ItemPage() {
                         {sides.map((side, index) => (
                             <ItemPageCard
                                 type="Sides"
-                                item={side}
+                                item={side[0]}
+                                allergens={side[1]}
                                 key={index}
                                 updateOrder={updateOrder}
                                 resetQuantities={resetQuantities}
@@ -107,7 +109,8 @@ export default function ItemPage() {
                         {entrees.map((entree, index) => (
                             <ItemPageCard
                                 type="Entrees"
-                                item={entree}
+                                item={entree[0]}
+                                allergens={entree[1]}
                                 key={index}
                                 updateOrder={updateOrder}
                                 resetQuantities={resetQuantities}
