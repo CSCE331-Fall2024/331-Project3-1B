@@ -5,7 +5,8 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 import "./currentOrderTrends.css";
 
-
+// creates a container that holds the current order trends. Shows the number of each item ordered today
+// data is temporary and will be replaced with actual data
 function OrderTrends() {
     const [comboData, setComboData] = useState({});
     useEffect(() => {
