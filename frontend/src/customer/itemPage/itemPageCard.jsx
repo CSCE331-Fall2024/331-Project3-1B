@@ -5,9 +5,9 @@ import React from "react";
 export default function ItemPageCard({ type, item, updateOrder, resetQuantities }) {
     let imagePath = "";
     if (item === "Small" || item === "Medium" || item === "Large") {
-        imagePath = `../../../Images/SoftDrinks/Drinks.png`;
+        imagePath = `/Images/SoftDrinks/Drinks.png`;
     } else {
-        imagePath = `../../../Images/${type}/${item.replace(/\s+/g, "")}.png`;
+        imagePath = `/Images/${type}/${item.replace(/\s+/g, "")}.png`;
     }
 
     return (
