@@ -2,6 +2,7 @@ import "./manageEmployees.css";
 import PageHeader from "../header/pageHeader";"../header/pageHeader.jsx";
 import EmployeeContainer from "./employeeCard/employeeContainer.jsx";
 
+// manager view screen that shows all employee info
 function ManageEmployees () {
         return (
             <>

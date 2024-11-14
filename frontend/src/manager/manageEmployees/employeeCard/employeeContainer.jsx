@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./employeeContainer.css";
 import EmployeeCard from "./employeeCard.jsx";
 
+// creates a container that holds the info of each employee
 function EmployeeContainer() {
 
+    // api call to get employee information. Stores info in array.
     useEffect(() => {
         fetch('http://localhost:3001/manager/get_all_employees')
             .then(response => response.json())
@@ -27,6 +29,7 @@ function EmployeeContainer() {
     const [positions, setPositions] = useState([]);
     const [emails, setEmails] = useState([]);
 
+    // removes employees at a specified index
     function removeEmployee(index) {
         setEmployees(employees.filter((_, i) => { return i != index }));
         setId(id.filter((_, i) => { return i != index }));

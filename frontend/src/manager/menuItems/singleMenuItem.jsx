@@ -1,6 +1,6 @@
 import './singleMenuItem.css';
 
-
+// component displaying info for a individual menu item
 function SingleMenuItem({item_id, item_name, item_type, item_availability}) {
     return (
         <div id='item-container'>

@@ -3,7 +3,7 @@ import OrderItem from "./orderItem.jsx";
 import "./recentOrders.css";
 
 // creates a container that holds all the most recent orders
-// holds temporary data for the orders
+// displays the 5 most recent orders today
 function RecentOrders() {
 
     const [orderTotals, setOrderTotals] = useState([]);
