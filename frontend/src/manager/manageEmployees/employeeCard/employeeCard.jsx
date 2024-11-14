@@ -1,7 +1,7 @@
 import "./employeeCard.css";
 
 // creating individual employee cards
-function EmployeeCard({ name, id, position, email, removeEmployee }) {
+function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee }) {
     return (
         <>
             <div id="employee-card">
@@ -9,7 +9,12 @@ function EmployeeCard({ name, id, position, email, removeEmployee }) {
                 <h2 className="employee-info">{id}</h2>
                 <h2 className="employee-info">{position}</h2>
                 <h2 className="employee-info">{email}</h2>
-                <button id="remove-employee-button" onClick={ removeEmployee }>Remove Employee</button>
+                <div className="function-btn-container">
+                    <button className="function-employee-button" onClick={ removeEmployee }>Remove Employee</button>
+                </div>
+                <div className="function-btn-container">
+                <button className="function-employee-button" onClick={ editEmployee }>Edit Employee</button>
+                </div>
             </div>
         </>
     );

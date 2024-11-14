@@ -3,26 +3,26 @@
 }
 
 #employee-card {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #D3D3D3;
-    padding: 15px; */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     background-color: #D3D3D3;
     padding: 15px;
     border-radius: 5px;
 }
 
-#remove-employee-button {
+.function-employee-button {
     width: 100px;
     border-radius: 10px;
     padding: 10px;
 }
 
-#remove-employee-button:hover {
+.function-employee-button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 #000000;
+}
+
+.function-btn-container {
+    display: flex;
+    justify-content: right;
 }
