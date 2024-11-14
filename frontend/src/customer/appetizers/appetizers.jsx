@@ -55,10 +55,10 @@ export default function () {
         }
     }, [resetQuantities]);
     const appetizers = [
-        "Apple Pie Roll",
-        "Chicken Egg Roll",
-        "Cream Cheese Rangoon",
-        "Vegetable Spring Roll",
+        ["Apple Pie Roll","Contains: wheat."],
+        ["Chicken Egg Roll","Contains: egg, milk, soy, wheat, sesame."],
+        ["Cream Cheese Rangoon","Contains: egg, milk, wheat."],
+        ["Vegetable Spring Roll","Contains: soy, wheat, sesame."]
     ];
 
     return (
@@ -72,7 +72,8 @@ export default function () {
                         return (
                             <ItemPageCard
                                 type={"Appetizers"}
-                                item={appetizer}
+                                item={appetizer[0]}
+                                allergens={appetizer[1]}
                                 key={index}
                                 updateOrder={updateOrder}
                                 resetQuantities={resetQuantities}

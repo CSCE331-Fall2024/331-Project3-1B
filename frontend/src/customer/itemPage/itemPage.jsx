@@ -63,23 +63,23 @@ export default function ItemPage() {
 
     const sides = [
         ["White Steamed Rice",""],
-        ["Fried Rice","contains: egg, soy, wheat, sesame."],
-        ["Chow Mein","contains: soy, wheat, sesame."],
-        ["Super Greens","contains: soy, wheat."]
+        ["Fried Rice","Contains: egg, soy, wheat, sesame."],
+        ["Chow Mein","Contains: soy, wheat, sesame."],
+        ["Super Greens","Contains: soy, wheat."]
     ];
     const entrees = [
-        ["Original Orange Chicken","contains: eggs, milk, soy, wheat, sesame."],
-        ["Beijing Beef","contains: milk, soy, wheat."],
-        ["Grilled Teriyaki Chicken","contains: soy, wheat, sesame."],
-        ["Broccoli Beef","contains: soy, wheat, sesame."],
-        ["Kung Pao Chicken","contains: peanuts, soy, wheat, sesame."],
-        ["Honey Sesame Chicken Breast","contains: wheat, sesame."],
-        ["Black Pepper Chicken","contains: soy, wheat."],
-        ["String Bean Chicken Breast","contains: soy, wheat, sesame."],
-        ["Mushroom Beef","contains: soy, wheat, sesame."],
-        ["Honey Walnut Shrimp","contains: tree nuts, shellfish, eggs, milk, soy, wheat."],
-        ["Black Pepper Sirloin Steak","contains: soy, wheat."],
-        ["Sweet Fire Chicken Breast","contains: wheat."]
+        ["Original Orange Chicken","Contains: eggs, milk, soy, wheat, sesame."],
+        ["Beijing Beef","Contains: milk, soy, wheat."],
+        ["Grilled Teriyaki Chicken","Contains: soy, wheat, sesame."],
+        ["Broccoli Beef","Contains: soy, wheat, sesame."],
+        ["Kung Pao Chicken","Contains: peanuts, soy, wheat, sesame."],
+        ["Honey Sesame Chicken Breast","Contains: wheat, sesame."],
+        ["Black Pepper Chicken","Contains: soy, wheat."],
+        ["String Bean Chicken Breast","Contains: soy, wheat, sesame."],
+        ["Mushroom Beef","Contains: soy, wheat, sesame."],
+        ["Honey Walnut Shrimp","Contains: tree nuts, shellfish, eggs, milk, soy, wheat."],
+        ["Black Pepper Sirloin Steak","Contains: soy, wheat."],
+        ["Sweet Fire Chicken Breast","Contains: wheat."]
     ];
 
     // ==============================
