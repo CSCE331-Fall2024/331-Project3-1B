@@ -12,7 +12,7 @@ function PageHeader() {
     }
 
     const posClick = () => {
-        navigate("/");
+        navigate("/customer");
     };
 
     const manageEmployeesClick = () => {

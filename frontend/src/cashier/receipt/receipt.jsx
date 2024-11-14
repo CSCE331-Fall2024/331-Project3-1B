@@ -14,7 +14,7 @@ export function Receipt() {
     };
 
     const orderMore = () => {
-        navigate("/");
+        navigate("/customer");
     };
 
     const removeCombo = (index) => {
