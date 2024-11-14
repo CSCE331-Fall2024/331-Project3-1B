@@ -6,11 +6,12 @@ import EmployeeContainer from "./employeeCard/employeeContainer.jsx";
 function ManageEmployees () {
         return (
             <>
-                <div id="manage-employees-container">
                     <PageHeader />
-                    <h1 id="manage-employees-heading">Manage Employees:</h1>
+                    <div id="manage-employees-heading">
+                        <h1 id="manage-employees-title">Manage Employees:</h1>
+                        <button id="add-employee-btn">Add Employee</button>
+                    </div>
                     <EmployeeContainer />
-                </div>
             </>
         );
 };

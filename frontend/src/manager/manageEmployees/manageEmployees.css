@@ -1,8 +1,27 @@
-#manage-employee-container {
+#manage-employees-heading {
+    padding-top: 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 65px;
 }
 
-#manage-employees-heading {
+#manage-employees-title {
     padding: 15px;
     font-size: 30px;
 }
+
+#add-employee-btn {
+    font-weight: 600;
+    font-size: 15px;
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#add-employee-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #e32d2d;
+    background-color: #e32d2d;
+}
+
