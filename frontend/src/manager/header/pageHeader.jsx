@@ -32,7 +32,7 @@ function PageHeader() {
             <div id="header-container">
 
                 <button onClick={back} className='nav-btn'>
-                    <h1 className="nav-btn-text">Back</h1>
+                    <h1 className="nav-btn-text">Login Page</h1>
                 </button>
 
                 <button className="nav-btn" onClick={ homeClick }>

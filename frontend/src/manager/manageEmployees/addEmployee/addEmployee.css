@@ -1,0 +1,17 @@
+#add-employee-header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+#back-btn {
+    font-weight: 600;
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#back-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #000000;
+}
