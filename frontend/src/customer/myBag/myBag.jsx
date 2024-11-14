@@ -15,7 +15,7 @@ export default function () {
     };
 
     const orderMore = () => {
-        navigate("/");
+        navigate("/customer");
     };
 
     const removeCombo = (index) => {

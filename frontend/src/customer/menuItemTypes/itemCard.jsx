@@ -9,10 +9,10 @@ export default function ItemCard({ type }) {
     const { currType, setCurrTypeFunc } = useCart();
 
     // imagePath is the path to the image of the item
-    let imagePath = `../../../Images/OrderOptions/${type}.png`;
+    let imagePath = `/Images/OrderOptions/${type}.png`;
 
     if (type === "Kids Drinks") {
-        imagePath = `../../../Images/SoftDrinks/AppleJuice.png`;
+        imagePath = `/Images/SoftDrinks/AppleJuice.png`;
     }
 
     

@@ -2,7 +2,7 @@
 
 
 
-Conversion time: 0.813 seconds.
+Conversion time: 1.382 seconds.
 
 
 Using this Markdown file:
@@ -15,7 +15,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β40
-* Mon Nov 04 2024 16:36:37 GMT-0800 (PST)
+* Wed Nov 13 2024 16:12:34 GMT-0800 (PST)
 * Source doc: scrum meeting all sprints
 * Tables are currently converted to HTML tables.
 ----->
@@ -425,3 +425,252 @@ Task Assignments:
 ## Minutes from Previous Meeting
 
 In the last meeting, we discussed what tasks are completed and what isn't for sprint 1 and decide if any tasks are behind schedule. We also went over user study responses and discussed what improvements could be made to the product as a response to the user study. Next, we planned out tasks for the last stretch of sprint 1. Finally, we organized and planned who was working on the team meeting presentation and when we would meet in order to record said team meeting presentation.
+
+SCRUM Meeting 1 for team 1b 
+
+Prepared by: Kaiqi Yang
+
+Meeting Date:11/6/2024
+
+
+## Meeting Attendees
+
+
+
+1.  Nick	
+2.  nathan
+3.  jason
+4.  zach
+
+
+## Meeting Agenda Items
+
+
+
+* Discuss progress and goals on sprint 2 
+* Discuss database architecture
+
+
+## Meeting minutes
+
+	Change ingredients table
+
+	Continue working on cashier receipt
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+*  Database update
+*  Backend connected to database
+*  My bag is done
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Database seeding
+   </td>
+   <td>kaiqi
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Menu boards
+   </td>
+   <td>Nathon 
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>Customer view styling
+   </td>
+   <td>nick
+   </td>
+   <td>yes
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+*  5 api calls created
+* Cashier view with receipt done
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Api calls
+   </td>
+   <td>Jason+nathan+zach+kaiqi
+   </td>
+  </tr>
+  <tr>
+   <td>Cashier view recept
+   </td>
+   <td>Nick
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+In the previous meeting we discussed mainly finishing up sprint 1 and starting sprint 2. For starting sprint 2 we discussed what should be on the backlog for sprint 2 and if there are any new backlog items that should be added. We also discussed what tables need seeding and how they should be seeded. Lastly, we discussed how to start on the backend.
+
+
+
+SCRUM Meeting 2 for Team 1B
+
+Prepared by: Kaiqi 
+
+Meeting Date: 11/13/2024
+
+
+## Meeting Attendees
+
+
+
+5.  Zach
+6. nick
+7.  nathan
+8.  jason
+
+
+## Meeting Agenda Items
+
+
+
+* Discuss user study design changes
+* Discuss integration of existing api calls
+* Assign smaller api creation tasks
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+* Created manager view pie chart
+* Some design changes based on user feedback
+* Half of the required apis are complete
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>API calls
+   </td>
+   <td>Everyone except nick
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Cashier view receipt 
+   </td>
+   <td>Nick
+   </td>
+   <td>yes
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+* Get more API calls done
+* Maybe start on google oauth
+* Manage employee and menu items
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Add and edit employees
+   </td>
+   <td>jason
+   </td>
+  </tr>
+  <tr>
+   <td>Add and edit menu items
+   </td>
+   <td>zach
+   </td>
+  </tr>
+  <tr>
+   <td>Login google oauth api 
+   </td>
+   <td>kaiqi
+   </td>
+  </tr>
+  <tr>
+   <td>Make menu boards reflect database
+   </td>
+   <td>nathan
+   </td>
+  </tr>
+  <tr>
+   <td>Audio feedback
+   </td>
+   <td>nick
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+In the previous meeting we discussed what exactly needed to be done in regards to the backend and assigned tasks to develop said backend. We also discussed fixing a key issue in our product which is the cashier view which was bugged. Lastly, we discussed the structure of the database so that the team understands how the database works and how  it will interact with the POS system.

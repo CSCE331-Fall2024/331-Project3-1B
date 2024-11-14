@@ -9,10 +9,10 @@ function ItemCard({ type }) {
     const navigate = useNavigate();
 
     //  The image path is the path to the image of the item
-    let imagePath = `../../../Images/OrderOptions/${type}.png`;
+    let imagePath = `/Images/OrderOptions/${type}.png`;
 
     if (type === "Kids Drinks") {
-        imagePath = `../../../Images/SoftDrinks/AppleJuice.png`;
+        imagePath = `/Images/SoftDrinks/AppleJuice.png`;
     }
     //  handleClick is the function that is called when the user clicks on the item card
     const handleClick = (type) => {

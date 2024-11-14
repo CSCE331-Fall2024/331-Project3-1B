@@ -10,7 +10,7 @@ export default function () {
     // Function to navigate back to the main menu
     const backToMenu = () => {
         if (currURL.includes("cashier")) navigate("/cashier");
-        else navigate("/");
+        else navigate("/customer");
     };
 
     return (
