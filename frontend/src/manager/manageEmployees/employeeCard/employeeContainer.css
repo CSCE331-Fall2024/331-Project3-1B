@@ -1,8 +1,11 @@
 #employee-table-heading {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     margin-right: 550px;
-    margin-left: 20px;
+    margin-left: 20px; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: 280px;
 }
 
 #employee-container {
