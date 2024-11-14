@@ -16,6 +16,10 @@ export default function PageHeader() {
         navigate("/myBag");
     };
 
+    const back = () => {
+        navigate("/")
+    };
+
     return (
         <>
             <div id="header-container">
@@ -23,10 +27,21 @@ export default function PageHeader() {
                 {currURL.includes("cashier") ? (
                     <></>
                 ) : (
-                    <button onClick={goToMyBag} id="header-button">
-                        <h1 className="header-button-title">My Bag</h1>
-                    </button>
+                    <div id="buttons-header">
+
+                        <button onClick={back} id='back-button'>
+                            <h1 className="back-button-title">Back</h1>
+                        </button>
+
+                        <button onClick={goToMyBag} id="header-button">
+                            <h1 className="header-button-title">My Bag</h1>
+                        </button>
+
+                        
+                    </div>
+                    
                 )}
+
             </div>
         </>
     );

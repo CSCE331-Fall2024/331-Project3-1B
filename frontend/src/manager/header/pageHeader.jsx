@@ -23,9 +23,18 @@ function PageHeader() {
         navigate("/manager/menuItems")
     }
 
+    const back = () => {
+        navigate("/")
+    }
+
     return (
         <>
             <div id="header-container">
+
+                <button onClick={back} className='nav-btn'>
+                    <h1 className="nav-btn-text">Back</h1>
+                </button>
+
                 <button className="nav-btn" onClick={ homeClick }>
                     <h1 className="nav-btn-text">Manager Home</h1>
                 </button>

@@ -23,7 +23,7 @@ function App() {
         <Router>
             {/* The Routes component is used to define the routes of the application */}
             <Routes>
-                <Route path="/" element={<Customer />} />
+                <Route path="/" element={<Intermediate />} />
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
                 <Route path='myBag' element={<CartProvider><MyBag /></CartProvider>} />
                 <Route path="/order/appetizers" element={<CartProvider><Appetizers/></CartProvider>} />
@@ -35,7 +35,7 @@ function App() {
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoards />} />
                 <Route path="/cashier" element={<Cashier/>} />
-                <Route path="/intermediate" element={<IntermediatePage />} />
+                <Route path="/customer" element={<Customer />} />
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />
                 <Route path="/intermediate" element={<Intermediate/>}/>
                 <Route path="/login" element={<Login/>}/>

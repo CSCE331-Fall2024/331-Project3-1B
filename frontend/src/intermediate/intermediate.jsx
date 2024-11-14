@@ -1,6 +1,25 @@
 import "./intermediate.css"
 
+import { Link, useNavigate } from 'react-router-dom';
+
+
+
 export function IntermediatePage(){
+
+    const navigate = useNavigate();
+
+    const navigateToPOS = () => {
+        navigate('/cashier');
+    };
+
+    const navigateToCustomer = () => {
+        navigate('/customer');
+    };
+
+    const navigateToManager = () => {
+        navigate('/manager');
+    };
+
     return (
         <div className="IntermediatePage">
             <div className="header-bar">
@@ -15,9 +34,9 @@ export function IntermediatePage(){
                 </div>
 
                 <div className="navigate-buttons">
-                    <button className="Customer-button">POS</button>
-                    <button className="POS-button">Cashier</button>
-                    <button className="Manager-button">Manager</button>
+                    <button onClick={navigateToCustomer} className="Customer-button">POS</button>
+                    <button onClick={navigateToPOS} className="POS-button">Cashier</button>
+                    <button onClick={navigateToManager} className="Manager-button">Manager</button>
                 </div>
                 
             </div>

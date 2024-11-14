@@ -13,6 +13,11 @@
     color: #ffffff;
 }
 
+#buttons-header{
+    display: flex;
+    gap: 20px;
+}
+
 #header-button {
     background-color: #ffffff;
     width: auto;
@@ -29,6 +34,26 @@
 }
 
 .header-button-title {
+    color: #e32d2d;
+    padding: 10px 25px;
+}
+
+#back-button {
+    background-color: #ffffff;
+    width: auto;
+    border-radius: 20px;
+    border: none;
+    transition: box-shadow .2s;
+}
+
+#back-button:hover, #back-button:focus {
+    cursor: pointer;
+    box-shadow: 0 0 20px 0 #000000;
+    outline: solid;
+    outline-width: 0;
+}
+
+.back-button-title {
     color: #e32d2d;
     padding: 10px 25px;
 }
