@@ -1,10 +1,16 @@
 const { Pool } = require('pg');
+const express = require('express');
+const cors = require('cors');
+const router = express.Router();
+
+// middle ware
+router.use(cors());
 
 const pool = new Pool({
     host: 'csce-315-db.engr.tamu.edu',
     user: 'team_1b',
     database: 'team_1b_db',
-    password: 'deerling', // replace 'your_password' with the actual password
+    password: 'deerling',
 });
 
 pool.connect((err, client, release) => {
@@ -113,105 +119,78 @@ async function getOrderNumber(timestamp){
     }
 }
 
-
-
+router.get('/', (req, res) => {
+    res.send('submit home');
+});
 
 // Input Example:
 // types = ['bowl', 'plate'] -> options 
 // items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
-async function SubmitOrder(types, items){
-    const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
+router.post('/submit-order', async (req, res) => {
+    const { types, items } = req.body;
 
-    const item_ids = await Promise.all(
-        items.map(async (sub_array) => await Promise.all(
-            sub_array.map(async (item) => await getItemSerialNumber(item))
-        ))
-    );
-
-    timestamp = getFormattedTimestamp();
-
-    joint = type_ids.map(function(e, i) {
-        return [e, item_ids[i]];
-    });
-
-    const prices = await Promise.all(joint.map(async ([type, items]) => 
-        Promise.all(items.map(async (item) => await GetPrice(type, item)))
-    ));
-
-    total_price = prices.map(subArray => 
-        subArray.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2)
-    );
-
-    total_price = total_price.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2);
-
-    const CreateSalesOrderHistory = `INSERT INTO sales_order_history (date_time_ordered, price) VALUES ('${timestamp}', ${total_price}) RETURNING order_number;`;
-    
-    order_number = 0;
+    typez = ["Bowl", "Plate"];
+    itemz = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
 
     try {
+        const type_ids = await Promise.all(typez.map(type => getOptionSerialNumber(type)));
+
+        const item_ids = await Promise.all(
+            itemz.map(async (sub_array) => await Promise.all(
+                sub_array.map(async (item) => await getItemSerialNumber(item))
+            ))
+        );
+
+        const timestamp = getFormattedTimestamp();
+
+        const joint = type_ids.map((e, i) => [e, item_ids[i]]);
+
+        const prices = await Promise.all(joint.map(async ([type, items]) => 
+            Promise.all(items.map(async (item) => await GetPrice(type, item)))
+        ));
+
+        let total_price = prices.map(subArray => 
+            subArray.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2)
+        );
+
+        total_price = total_price.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2);
+
+        const CreateSalesOrderHistory = `INSERT INTO sales_order_history (date_time_ordered, price) VALUES ('${timestamp}', ${total_price}) RETURNING order_number;`;
+
         const result = await pool.query(CreateSalesOrderHistory);
-        order_number = result.rows[0].order_number.toString();
-    } catch (error) {
-        console.error(`Failed to insert order into database... ${timestamp}, ${total_price}`);
-    }
+        const order_number = result.rows[0].order_number.toString();
 
-    // sales_order_history_details:
-    // order_number | item_serial_number
-
-    for (let i = 0; i < type_ids.length; ++i){
-        current_type = type_ids[i];
-
-        const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${99999}, ${current_type});`;
-
-        try {
+        // Insert into sales_order_history_details
+        for (let i = 0; i < type_ids.length; ++i) {
+            const current_type = type_ids[i];
+            const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${order_number}, ${current_type});`;
             await pool.query(query);
-        } catch (error) {
-            console.error('Failed to add to sales_order_history... option = ' + current_type);
         }
-    }
 
-    for (let i = 0; i < item_ids.length; ++i){
-        current_set = item_ids[i];
-
-        for (let j = 0; j < current_set.length; ++j){
-
-            current_item = parseInt(current_set[j]);
-            
-            const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${99999}, ${current_item + 12});`;
-
-            try {
+        for (let i = 0; i < item_ids.length; ++i) {
+            const current_set = item_ids[i];
+            for (let j = 0; j < current_set.length; ++j) {
+                const current_item = parseInt(current_set[j]);
+                const query = `INSERT INTO sales_order_history_details (order_number, item_serial_number) VALUES (${order_number}, ${current_item + 12});`;
                 await pool.query(query);
-            } catch (error) {
-                console.error('Failed to add to sales_order_history... item = ' + current_item);
             }
         }
+
+        res.json({ message: 'Order submitted successfully', order_number });
+    } catch (err) {
+        console.error('Error submitting order:', err.stack);
+        res.status(500).send('Error submitting order');
     }
-}
-
-types = ["Bowl", "Plate"];
-items = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
-
-(async function() {
-    try {
-      await SubmitOrder(types, items);
-    } finally {
-      pool.end();
-      console.log("Database pool closed.");
-    }
-  })();
+});
 
 
+module.exports = router;
 
-  // Example usage
-// getOptionSerialNumber("bigger plate")
-//      .then(data => console.log('Query Result:', data))
-//      .catch(error => console.error('Query Error:', error))
-    
-
-// getOptionSerialNumber("bowl")
-//     .then(data => console.log('Query Result:', data))
-//     .catch(error => console.error('Query Error:', error))
-
-// getItemSerialNumber("mushroom chicken")
-//     .then(data => console.log('Query Result:', data))
-//     .catch(error => console.error('Query Error:', error))
+// (async function() {
+//     try {
+//       await SubmitOrder(types, items);
+//     } finally {
+//       pool.end();
+//       console.log("Database pool closed.");
+//     }
+//   })();
