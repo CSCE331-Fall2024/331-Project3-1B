@@ -4,6 +4,8 @@ import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
 import { useCart } from "../customer/myBag/CartContext.jsx";
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import {useState } from "react";
 
 // CashierPageHeader is the component that cashier view.
 export function CashierPageHeader() {
@@ -20,12 +22,31 @@ export function CashierPageHeader() {
 
     // The function that will navigate back to the home page
     const back = () => {
+        console.log('back');
         navigate('/');
     };
 
 
     // The function that will submit the order once connected with backend call
-    const submitOrder = () => {
+    const submitOrder = async () => {
+
+        console.log('In Submit');
+
+        // sample params until receipt can be parsed
+        types = ["Bowl", "Plate"];
+        items = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
+
+        try {
+            const response = await axios.post('http://localhost:3000/submit/submit-order', {
+                types: types,
+                items: items,
+            });
+            alert(`Order submitted successfully! Order Number: ${response.data.order_number}`);
+        } catch (error) {
+            console.error('Error submitting order:', error);
+            alert('Failed to submit the order.');
+        }
+
         console.log("Order Submitted:\n", cart);
         clearCart();
     };

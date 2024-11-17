@@ -123,20 +123,21 @@ router.get('/', (req, res) => {
     res.send('submit home');
 });
 
+router.get('/submit-order', (req, res) => {
+    res.send('Navigate to this url with post to submit an order');
+});
+
 // Input Example:
 // types = ['bowl', 'plate'] -> options 
 // items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
 router.post('/submit-order', async (req, res) => {
-    const { types, items } = req.body;
-
-    typez = ["Bowl", "Plate"];
-    itemz = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
+    const { types, items } = req.body; 
 
     try {
-        const type_ids = await Promise.all(typez.map(type => getOptionSerialNumber(type)));
+        const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
 
         const item_ids = await Promise.all(
-            itemz.map(async (sub_array) => await Promise.all(
+            items.map(async (sub_array) => await Promise.all(
                 sub_array.map(async (item) => await getItemSerialNumber(item))
             ))
         );
