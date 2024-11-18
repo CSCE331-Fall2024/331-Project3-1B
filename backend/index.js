@@ -8,6 +8,7 @@ const app = express();
 
 // middleware to allow access to frontend
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
@@ -35,8 +36,10 @@ app.get('/', (req, res) => {
 });
 
 const managerRouter = require('./routes/manager')
+const SubmitRouter = require('./routes/SubmitOrder')
 
 app.use("/manager", managerRouter);
+app.use("/submit", SubmitRouter)
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
