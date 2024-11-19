@@ -13,10 +13,39 @@ function AddEmployee() {
             <PageHeader />
             <div id='add-employee-container'>
                 <div id='add-employee-header-container'>
+                    <div></div>
                     <h2>Add Employee</h2>
                     <button id='back-btn' onClick={ backToEmployeePage }>Back</button>
                 </div>
-                
+                <div id='add-employee-form-container'>
+                    <div className='employee-form-field'>
+                        <h3>Full Name</h3>
+                        <input className='input-container'></input>
+                    </div>
+
+                    <div className='employee-form-field'>
+                        <h3>Email</h3>
+                        <input className='input-container'></input>
+                    </div>
+
+                    <div className='employee-form-field'>
+                        <h3>Phone Number</h3>
+                        <input className='input-container'></input>
+                    </div>
+
+                    <div className='employee-form-field'>
+                        <h3>Hourly Wage</h3>
+                        <input className='input-container'></input>
+                    </div>
+
+
+                    <div className='employee-form-field'>
+                        <h3>Position</h3>
+                        <input className='input-container'></input>
+                    </div>
+
+                    <button id='submit-btn'>Submit</button>
+                </div>
             </div>
         </>
     );
