@@ -3,7 +3,7 @@ import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
 import { useCart } from "../customer/myBag/CartContext.jsx";
-import { Link, useNavigate } from 'react-router-dom';
+import { json, Link, useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import {useState } from "react";
 
@@ -32,23 +32,45 @@ export function CashierPageHeader() {
 
         console.log('In Submit');
 
-        // sample params until receipt can be parsed
-        types = ["Bowl", "Plate"];
-        items = [["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"], ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]];
+        const types = ["Bowl", "Plate"];
+        const items = [
+            ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"],
+            ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]
+        ];
 
         try {
-            const response = await axios.post('http://localhost:3000/submit/submit-order', {
-                types: types,
-                items: items,
+            const response = await fetch('http://localhost:3001/submit/submit-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    types : types,
+                    items: items
+                })
             });
-            alert(`Order submitted successfully! Order Number: ${response.data.order_number}`);
+
+            // console.log('Response status:', response.status); // Log the response status
+            // console.log('Response headers:', response.headers); // Log headers for debugging
+
+            // if (!response.ok) {
+            //     const errorData = await response.json();
+            //     console.error('Server returned an error:', errorData);
+            //     throw new Error(`HTTP error! Status: ${response.status} - ${errorData.message || 'Unknown error'}`);
+            // }
+
+            //const data = await response.json();
+            //console.log('Server response:', data);
+            alert(`Order submitted successfully:`);
+            //clearCart();
         } catch (error) {
-            console.error('Error submitting order:', error);
-            alert('Failed to submit the order.');
+            console.error('Error submitting order:');
+            alert('Failed to submit the order.' + error);
         }
 
-        console.log("Order Submitted:\n", cart);
-        clearCart();
+
+        //console.log("Order Submitted:\n", cart);
+        //clearCart();
     };
 
     return (
