@@ -38,8 +38,10 @@ app.get('/', (req, res) => {
 const managerRouter = require('./routes/manager')
 const SubmitRouter = require('./routes/SubmitOrder')
 
+
 app.use("/manager", managerRouter);
 app.use("/submit", SubmitRouter)
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
