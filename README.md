@@ -2,7 +2,7 @@
 
 
 
-Conversion time: 1.382 seconds.
+Conversion time: 1.074 seconds.
 
 
 Using this Markdown file:
@@ -15,7 +15,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β40
-* Wed Nov 13 2024 16:12:34 GMT-0800 (PST)
+* Mon Nov 18 2024 15:57:05 GMT-0800 (PST)
 * Source doc: scrum meeting all sprints
 * Tables are currently converted to HTML tables.
 ----->
@@ -674,3 +674,125 @@ Task Assignments:
 ## Minutes from Previous Meeting
 
 In the previous meeting we discussed what exactly needed to be done in regards to the backend and assigned tasks to develop said backend. We also discussed fixing a key issue in our product which is the cashier view which was bugged. Lastly, we discussed the structure of the database so that the team understands how the database works and how  it will interact with the POS system.
+
+SCRUM Meeting 3 for Team 1B
+
+Prepared by: Kaiqi
+
+Meeting Date:
+
+
+## Meeting Attendees
+
+
+
+1.  Jason 
+2.  nick
+3.  zach
+4.  nathan
+
+
+## Meeting Agenda Items
+
+
+
+* Discuss last items need to be completed
+* Discuss any carry over to sprint 3
+* Discuss any new tasks to sprint 3
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+*  Add employees in progress
+*  Login api in progress
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Login api 
+   </td>
+   <td>Kaiqi + zach
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Add and manage items + employees
+   </td>
+   <td>jason
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Menu boards
+   </td>
+   <td>nathan
+   </td>
+   <td>no
+   </td>
+  </tr>
+  <tr>
+   <td>Audio feedback
+   </td>
+   <td>nick
+   </td>
+   <td>no
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+*  All api calls should be done
+* Menu boards will be dynamic
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Google translate api
+   </td>
+   <td>nick
+   </td>
+  </tr>
+  <tr>
+   <td>Login api
+   </td>
+   <td>zach
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+In the previous meeting we discussed the tasks needed to integrate the front end with the back end as well as starting on some of the third party api calls such as google oauth. We also discussed features we should implement to our product based on the user study report conducted beforehand. Lastly, we discussed how much of the backend is done and how much of it still needs to be completed.
