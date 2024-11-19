@@ -147,13 +147,11 @@ router.get('/get_menu_items', async (req, res) => {
 router.post('/add_employee', async (req, res) => {
     const { fullName, email, phoneNumber, wage, position } = req.body;
     try {
-        const query = 'INSERT INTO employees (full_name, email, phone_number, hourly_wage, position) VALUES ($1, $2, $3, $4, $5) RETURNING *;';
-        const values = [fullName, email, phoneNumber, wage, position];
-        const result = await pool.query(query, values);
+        const query = `INSERT INTO employees (full_name, email, phone_number, hourly_wage, position) VALUES ('${fullName}', '${email}', '${phoneNumber}', ${wage}, '${position}') RETURNING *;`;
+        const result = await pool.query(query);
         res.status(201).json(result.rows[0])
-
     } catch (error) {
-        console.error("Could not add employee");
+        console.error("Could not add employee", error);
         res.status(500).send("Error adding employee");
     }
 });
