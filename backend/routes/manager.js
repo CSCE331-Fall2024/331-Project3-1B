@@ -160,9 +160,8 @@ router.post('/add_employee', async (req, res) => {
 router.delete('/remove_employee/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const query = 'DELETE FROM employees WHERE id = $1 RETURNING *;'
-        const vals = [id];
-        const result = await pool.query(query, vals);
+        const query = `DELETE FROM employees WHERE employeeid = '${id}' RETURNING *;`
+        const result = await pool.query(query);
         if (result.rowCount === 0) {
             return res.status(404).send("Employee not found");
         }
