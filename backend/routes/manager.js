@@ -132,15 +132,30 @@ router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
 });
 
 // get menu items (sides and entrees)
-router.get("/get_menu_items", (req, res) => {
+router.get('/get_menu_items', async (req, res) => {
     const query = 'SELECT * FROM menu_items';
-    pool
-        .query(query)
-        .then(query_res => res.json(query_res.rows))
-        .catch(err => {
-            console.error("Error getting menu items");
-            res.status(500).send("Error getting menu items");
-        });
+    try {
+        const query_res = await pool.query(query);
+        res.json(query_res.rows);
+    } catch (error) {
+        console.error("Error getting menu items");
+        res.status(500).send("Error getting menu items");
+    }
+});
+
+// ADD(post) employee
+router.post('/add_employee', async (req, res) => {
+    const { fullName, email, phoneNumber, wage, position } = req.body;
+    try {
+        const query = 'INSERT INTO employees (full_name, email, phone_number, hourly_wage, position) VALUES ($1, $2, $3, $4, $5) RETURNING *;';
+        const values = [fullName, email, phoneNumber, wage, position];
+        const result = await pool.query(query, values);
+        res.status(201).json(result.rows[0])
+
+    } catch (error) {
+        console.error("Could not add employee");
+        res.status(500).send("Error adding employee");
+    }
 });
 
 
