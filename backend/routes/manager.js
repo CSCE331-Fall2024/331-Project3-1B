@@ -158,4 +158,22 @@ router.post('/add_employee', async (req, res) => {
     }
 });
 
+// remove employee
+router.delete('/remove_employee/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const query = 'DELETE FROM employees WHERE id = $1 RETURNING *;'
+        const vals = [id];
+        const result = await pool.query(query, vals);
+        if (result.rowCount === 0) {
+            return res.status(404).send("Employee not found");
+        }
+        res.status(200).json(result.rows[0]);
+    } catch(error) {
+        res.status(500).send("Error deleting employee");
+    }
+});
+
+
+
 module.exports = router;
