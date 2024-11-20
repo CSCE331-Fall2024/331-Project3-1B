@@ -29,6 +29,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (1,15,31,1),--Bowl
 (1,16,32,1),--Bowl
 (1,17,33,1),--Bowl
+(1,28,1,1),--utensils bag
+(1,28,1,1),--utensils box
+(1,28,16,2),--utensils cookies
+(1,28,6,1),--utensils
+(1,28,7,1),--utensils
+(1,28,8,1),--utensils
 
 (2,1,17,1),--Plate
 (2,2,18,1),--Plate
@@ -47,6 +53,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (2,15,31,1),--Plate
 (2,16,32,1),--Plate
 (2,17,33,1),--Plate
+(2,28,1,1),--utensils bag
+(2,28,3,1),--utensils box
+(2,28,16,2),--utensils cookies
+(2,28,6,1),--utensils
+(2,28,7,1),--utensils
+(2,28,8,1),--utensils
 
 (3,1,17,1),--Bigger Plate
 (3,2,18,1),--Bigger Plate
@@ -65,6 +77,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (3,15,31,1),--Bigger Plate
 (3,16,32,1),--Bigger Plate
 (3,17,33,1),--Bigger Plate
+(3,28,1,1),--utensils bag
+(3,28,5,1),--utensils box
+(3,28,16,4),--utensils cookies
+(3,28,6,2),--utensils
+(3,28,7,2),--utensils
+(3,28,8,2),--utensils
 
 (4,1,17,1),--A la carte small
 (4,2,18,1),--A la carte small
@@ -93,6 +111,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (4,25,9,1), --A la carte small (drink),
 (4,26,10,1), --A la carte small (drink),
 (4,27,11,1), --A la carte small (drink),
+(4,28,1,1),--utensils bag
+(4,28,1,1),--utensils box
+(4,28,16,1),--utensils cookies
+(4,28,6,1),--utensils
+(4,28,7,1),--utensils
+(4,28,8,1),--utensils
 
 (5,1,17,1.5),--A la carte Medium
 (5,2,18,1.5),--A la carte Medium
@@ -112,6 +136,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (5,16,32,1.5),--A la carte Medium
 (5,17,33,1.5),--A la carte Medium
 (5,21,37,1.5),--A la carte Medium (apple pie),
+(5,28,1,1),--utensils bag
+(5,28,3,1),--utensils box
+(5,28,16,1),--utensils cookies
+(5,28,6,1),--utensils
+(5,28,7,1),--utensils
+(5,28,8,1),--utensils
 
 
 (6,1,17,2),--A la carte Large
@@ -135,6 +165,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (6,19,35,2),--A la carte Large 
 (6,20,36,2),--A la carte Large
 (6,21,37,2),--A la carte Large (apple pie),
+(6,28,1,1),--utensils bag
+(6,28,5,1),--utensils box
+(6,28,16,2),--utensils cookies
+(6,28,6,2),--utensils
+(6,28,7,2),--utensils
+(6,28,8,2),--utensils
 
 (7,1,17,2),--5 person party meal
 (7,2,18,2),--5 person party meal
@@ -153,6 +189,13 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (7,15,31,2),--5 person party meal
 (7,16,32,2),--5 person party meal
 (7,17,33,2),--5 person party meal
+(7,28,1,2),--utensils bag
+(7,28,2,5),--utensils box
+(7,28,16,5),--utensils cookies
+(7,28,6,5),--utensils
+(7,28,7,5),--utensils
+(7,28,8,5),--utensils
+
 
 (8,1,17,0.5),--Panda cub meal
 (8,2,18,0.5),--Panda cub meal
@@ -173,6 +216,13 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (8,17,33,0.5),--Panda cub meal
 (8,22,12,1), --Panda cub meal drink
 (8,23,13,1), --Panda cub meal drink
+(8,28,1,1),--utensils bag
+(8,28,1,1),--utensils box
+(8,28,16,1),--utensils cookies
+(8,28,14,1),--utensils cookies
+(8,28,6,1),--utensils
+(8,28,7,1),--utensils
+(8,28,8,1),--utensils
 
 (9,1,17,12),--Party Size
 (9,2,18,12),--Party Size
@@ -195,6 +245,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (9,19,35,12),--Party Size 
 (9,20,36,12),--Party Size
 (9,21,37,12),--Party Size (apple pie),
+(9,28,1,1),--utensils bag
+(9,28,4,1),--utensils box
+(9,28,16,6),--utensils cookies
+(9,28,6,6),--utensils
+(9,28,7,6),--utensils
+(9,28,8,6),--utensils
 
 (10,1,17,12),-- Party Bundle
 (10,2,18,12),-- Party Bundle
@@ -213,6 +269,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (10,15,31,12),-- Party Bundle
 (10,16,32,12),-- Party Bundle
 (10,17,33,12),-- Party Bundle
+(10,28,1,4),--utensils bag
+(10,28,4,4),--utensils box
+(10,28,16,16),--utensils cookies
+(10,28,6,16),--utensils
+(10,28,7,16),--utensils
+(10,28,8,16),--utensils
 
 (11,1,17,12),-- Party Bundle
 (11,2,18,12),-- Party Bundle
@@ -231,6 +293,12 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (11,15,31,12),-- Party Bundle
 (11,16,32,12),-- Party Bundle
 (11,17,33,12),-- Party Bundle
+(11,28,1,6),--utensils bag
+(11,28,4,6),--utensils box
+(11,28,16,22),--utensils cookies
+(11,28,6,22),--utensils
+(11,28,7,22),--utensils
+(11,28,8,22),--utensils
 
 (12,1,17,12),-- Party Bundle
 (12,2,18,12),-- Party Bundle
@@ -248,4 +316,10 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (12,14,30,12),-- Party Bundle
 (12,15,31,12),-- Party Bundle
 (12,16,32,12),-- Party Bundle
-(12,17,33,12);-- Party Bundle
+(12,17,33,12),-- Party Bundle
+(12,28,1,8),--utensils bag
+(10,28,4,8),--utensils box
+(10,28,30,),--utensils cookies
+(10,28,6,30),--utensils
+(10,28,7,30),--utensils
+(10,28,8,30);--utensils
