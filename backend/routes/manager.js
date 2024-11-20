@@ -133,13 +133,38 @@ router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
 
 // get menu items (sides and entrees)
 router.get('/get_menu_items', async (req, res) => {
-    const query = 'SELECT * FROM menu_items';
+    const query = 'SELECT * FROM menu_items;';
     try {
         const query_res = await pool.query(query);
         res.json(query_res.rows);
     } catch (error) {
         console.error("Error getting menu items");
         res.status(500).send("Error getting menu items");
+    }
+});
+
+// Get names of menu items (sides and entrees)
+router.get('/get_menu_item_names', async (req, res) => {
+    try {
+        const query = 'SELECT item_name FROM menu_items;';
+        const result = await pool.query(query);
+        res.json(result.rows);
+    } catch (error) {
+        console.error("Error getting menu item names");
+        res.status(500).send("Error getting menu item names");
+    }
+});
+
+// Get Employee Name given ID number
+router.get('/get_employee_name/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const query = `SELECT fullName from employees WHERE employeeid = '${id}';`;
+        const result = await pool.query(query);
+        res.json(result);
+    } catch (error) {
+        console.error("Error getting employee name");
+        res.status(500).send("Error getting employee name");
     }
 });
 
