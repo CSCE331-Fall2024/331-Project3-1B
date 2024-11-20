@@ -169,6 +169,18 @@ router.get('/get_employee_name/:id', async (req, res) => {
     }
 });
 
+router.get('/get_employee_id/:name', async (req, res) => {
+    const { name } = req.params;
+    try {
+        const query = `SELECT employeeid from employees WHERE full_name = '${name}';`;
+        const result = await pool.query(query);
+        res.json(result);
+    } catch (error) {
+        console.error("Error getting employee id");
+        res.status(500).send("Error getting employee id");
+    }
+});
+
 // ADD(post) employee
 router.post('/add_employee', async (req, res) => {
     const { fullName, email, phoneNumber, wage, position } = req.body;
@@ -319,14 +331,14 @@ router.get('/get_ingredients', async (req, res) => {
             servs = rs.rows[0].servings.toString();
 
         }
-        
+
         res.send({ingredient_serial_number : ingred_serial, ingredient_servings : ingred_servings, utinsels : servs});
 
     } catch (error) {
         res.send({message : "Could not query info... *Debug information later*"});        
     }
-
 });
+
 
 
 module.exports = router;
