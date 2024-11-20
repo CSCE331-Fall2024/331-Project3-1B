@@ -132,15 +132,137 @@ router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
 });
 
 // get menu items (sides and entrees)
-router.get("/get_menu_items", (req, res) => {
+router.get('/get_menu_items', async (req, res) => {
     const query = 'SELECT * FROM menu_items';
-    pool
-        .query(query)
-        .then(query_res => res.json(query_res.rows))
-        .catch(err => {
-            console.error("Error getting menu items");
-            res.status(500).send("Error getting menu items");
-        });
+    try {
+        const query_res = await pool.query(query);
+        res.json(query_res.rows);
+    } catch (error) {
+        console.error("Error getting menu items");
+        res.status(500).send("Error getting menu items");
+    }
 });
+
+// ADD(post) employee
+router.post('/add_employee', async (req, res) => {
+    const { fullName, email, phoneNumber, wage, position } = req.body;
+    try {
+        const query = `INSERT INTO employees (full_name, email, phone_number, hourly_wage, position) VALUES ('${fullName}', '${email}', '${phoneNumber}', ${wage}, '${position}') RETURNING *;`;
+        const result = await pool.query(query);
+        res.status(201).json(result.rows[0])
+    } catch (error) {
+        console.error("Could not add employee", error);
+        res.status(500).send("Error adding employee");
+    }
+});
+
+// remove employee
+router.delete('/remove_employee/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const query = `DELETE FROM employees WHERE employeeid = '${id}' RETURNING *;`
+        const result = await pool.query(query);
+        if (result.rowCount === 0) {
+            return res.status(404).send("Employee not found");
+        }
+        res.status(200).json(result.rows[0]);
+    } catch(error) {
+        res.status(500).send("Error deleting employee");
+    }
+});
+
+// update employee name
+router.put('/update_name/:id', async (req, res) => {
+    const { id } = req.params;
+    const { fullName } = req.body;
+    try {
+        const query = `UPDATE employees SET full_name = '${fullName}' WHERE employeeid = ${id};`
+        const result = await pool.query(query);
+        if (result.rowCount == 0) {
+            res.status(404).send("Employee not found");
+            return
+        }
+        res.status(200).json(result.rows[0]);
+    } catch {
+        console.error("could not change employee name");
+        res.status(500).send("error updating employee name");
+    }
+});
+
+// update employee email
+router.put('/update_email/:id', async (req, res) => {
+    const { id } = req.params;
+    const { email } = req.body;
+    try {
+        const query = `UPDATE employees SET email = '${email}' WHERE employeeid = ${id};`
+        const result = await pool.query(query);
+        if (result.rowCount == 0) {
+            res.status(404).send("Employee not found");
+            return
+        }
+        res.status(200).json(result.rows[0]);
+    } catch {
+        console.error("could not change employee email");
+        res.status(500).send("error updating employee email");
+    }
+});
+
+
+// update employee phone number
+router.put('/update_phone_number/:id', async (req, res) => {
+    const { id } = req.params;
+    const { phoneNumber } = req.body;
+    try {
+        const query = `UPDATE employees SET phone_number = '${phoneNumber}' WHERE employeeid = ${id};`
+        const result = await pool.query(query);
+        if (result.rowCount == 0) {
+            res.status(404).send("Employee not found");
+            return
+        }
+        res.status(200).json(result.rows[0]);
+    } catch {
+        console.error("could not change employee phone number");
+        res.status(500).send("error updating employee phone number");
+    }
+});
+
+
+// update employee wage
+router.put('/update_wage/:id', async (req, res) => {
+    const { id } = req.params;
+    const { wage } = req.body;
+    try {
+        const query = `UPDATE employees SET hourly_wage = '${wage}' WHERE employeeid = ${id};`
+        const result = await pool.query(query);
+        if (result.rowCount == 0) {
+            res.status(404).send("Employee not found");
+            return
+        }
+        res.status(200).json(result.rows[0]);
+    } catch {
+        console.error("could not change employee wage");
+        res.status(500).send("error updating employee wage");
+    }
+});
+
+
+// update employee position
+router.put('/update_position/:id', async (req, res) => {
+    const { id } = req.params;
+    const { position } = req.body;
+    try {
+        const query = `UPDATE employees SET position = '${position}' WHERE employeeid = ${id};`
+        const result = await pool.query(query);
+        if (result.rowCount == 0) {
+            res.status(404).send("Employee not found");
+            return
+        }
+        res.status(200).json(result.rows[0]);
+    } catch {
+        console.error("could not change employee position");
+        res.status(500).send("error updating employee position");
+    }
+});
+
 
 module.exports = router;

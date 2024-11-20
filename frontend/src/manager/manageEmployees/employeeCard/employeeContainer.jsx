@@ -30,11 +30,25 @@ function EmployeeContainer() {
     const [emails, setEmails] = useState([]);
 
     // removes employees at a specified index
-    function removeEmployee(index) {
-        setEmployees(employees.filter((_, i) => { return i != index }));
-        setId(id.filter((_, i) => { return i != index }));
-        setPositions(positions.filter((_, i) => { return i != index }));
-        setEmails(emails.filter((_, i) => {return i != index }));
+
+    const removeEmployee = async (index) => {
+        const employeeID = id[index];
+        try {
+            const response = await fetch(`http://localhost:3001/manager/remove_employee/${employeeID}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                setEmployees(employees.filter((_, i) => { return i !== index }));
+                setId(id.filter((_, i) => { return i !== index }));
+                setPositions(positions.filter((_, i) => { return i !== index }));
+                setEmails(emails.filter((_, i) => {return i !== index }));
+                console.log("sucessfully deleted employee with id: ", employeeID);
+            } else {
+                console.error('could not remove employee with id: ', employeeID);
+            }
+        } catch (error) {
+            console.error("error deleting employee", error);
+        }
     };
     
 

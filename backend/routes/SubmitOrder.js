@@ -2,9 +2,13 @@ const { Pool } = require('pg');
 const express = require('express');
 const cors = require('cors');
 const router = express.Router();
+const app = express();
 
 // middle ware
-router.use(cors());
+app.use(cors());
+app.use(express.json());
+
+app.use(router);
 
 const pool = new Pool({
     host: 'csce-315-db.engr.tamu.edu',
@@ -123,7 +127,7 @@ router.get('/', (req, res) => {
     res.send('submit home');
 });
 
-router.get('/submit-order', (req, res) => {
+router.get('/submit-order', async (req, res) => {
     res.send('Navigate to this url with post to submit an order');
 });
 
@@ -131,7 +135,9 @@ router.get('/submit-order', (req, res) => {
 // types = ['bowl', 'plate'] -> options 
 // items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
 router.post('/submit-order', async (req, res) => {
+
     const { types, items } = req.body; 
+
 
     try {
         const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
@@ -180,7 +186,7 @@ router.post('/submit-order', async (req, res) => {
         res.json({ message: 'Order submitted successfully', order_number });
     } catch (err) {
         console.error('Error submitting order:', err.stack);
-        res.status(500).send('Error submitting order');
+        res.json({message:'Order failed to submit successfully', _er : err.stack});
     }
 });
 
