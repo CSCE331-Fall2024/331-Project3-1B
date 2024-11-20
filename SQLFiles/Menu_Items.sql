@@ -33,4 +33,5 @@ INSERT INTO Menu_Items (Item_Name,Availability,Item_Type) VALUES
   ('Gatorade Lemon Lime', '1', 'Gatorade'),
   ('Soft Drink Small', '1', 'SoftDrinks'),
   ('Soft Drink Medium', '1', 'SoftDrinks'),
-  ('Soft Drink Large', '1', 'SoftDrinks');
+  ('Soft Drink Large', '1', 'SoftDrinks'),
+  ('Utensils', '1', 'Utensils'),
