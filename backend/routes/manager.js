@@ -5,6 +5,7 @@ const router = express.Router();
 
 // middle ware
 router.use(cors());
+router.use(express.json());
 
 // Configure the PostgreSQL pool
 const pool = new Pool({
@@ -287,6 +288,44 @@ router.put('/update_position/:id', async (req, res) => {
         console.error("could not change employee position");
         res.status(500).send("error updating employee position");
     }
+});
+
+router.get('/get_ingredients', async (req, res) => {
+    const {option, item} = req.query;
+
+    try {
+        const query = `SELECT Ingredient_Serial_Number,Servings FROM Menu_ingredients WHERE Option_serial_number = ${option} AND item_serial_number = ${item};`;
+        const check_drink = `SELECT item_type FROM menu_items WHERE item_serial_number = '17';`;
+
+        const result = await pool.query(query);
+        const type = await pool.query(check_drink);
+
+        ingred_serial = result.rows[0].ingredient_serial_number.toString();
+        ingred_servings = result.rows[0].servings.toString();
+
+        _type = type.rows[0].item_type.toString();
+
+        drink = false;
+        if (_type === "KidDrinks" || _type === "Gatorade" || _type === "SoftDrinks"){
+            drink = true;
+        }
+
+        const util_query = `SELECT Servings FROM Menu_ingredients WHERE Option_serial_number = ${option} AND item_serial_number = ${28};`;
+        
+        servs = "";
+        if (drink){
+            rs = pool.query(util_query);
+
+            servs = rs.rows[0].servings.toString();
+
+        }
+        
+        res.send({ingredient_serial_number : ingred_serial, ingredient_servings : ingred_servings, utinsels : servs});
+
+    } catch (error) {
+        res.send({message : "Could not query info... *Debug information later*"});        
+    }
+
 });
 
 
