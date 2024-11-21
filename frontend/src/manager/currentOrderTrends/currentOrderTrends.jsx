@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -10,10 +9,24 @@ import "./currentOrderTrends.css";
 function OrderTrends() {
     const [comboData, setComboData] = useState({});
     useEffect(() => {
-        fetch('http://localhost:3001/manager/combos_today')
-        .then(data => data.json())
-        .then(data => setComboData(data))
-        .catch(err => console.error("cannot get combo data"));
+        const getComboData = async () => {
+            try {
+                const savedData = localStorage.getItem('comboData');
+                if (savedData != null) {
+                    console.log("saved data", savedData);
+                    setComboData(JSON.parse(savedData)); // convert a JSON to a javascript object
+                } else {
+                    console.log("fetching data");
+                    const response = await fetch('http://localhost:3001/manager/combos_today');
+                    const data = await response.json();
+                    setComboData(data);
+                    localStorage.setItem('comboData', JSON.stringify(data)); // convert javascript obj to json
+                }
+            } catch (error) {
+                console.error("cannot get combo data for pie chart", error);
+            }
+        };
+        getComboData();
     }, []);
 
     return (
