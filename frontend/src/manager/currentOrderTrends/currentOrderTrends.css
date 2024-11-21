@@ -18,3 +18,8 @@
     align-self: flex-end;
 }
 
+#refresh-chart-btn:hover {
+    cursor: pointer;
+    background-color: #e32d2d;
+}
+
