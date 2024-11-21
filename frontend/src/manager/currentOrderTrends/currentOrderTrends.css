@@ -12,3 +12,9 @@
     align-items: center;
 }
 
+#refresh-chart-btn {
+    padding: 5px;
+    margin: 10px;
+    align-self: flex-end;
+}
+

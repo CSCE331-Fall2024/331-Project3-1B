@@ -6,27 +6,28 @@ import "./currentOrderTrends.css";
 
 // creates a container that holds the current order trends. Shows the number of each item ordered today
 // creates a pie chart showing combo trends today
+
 function OrderTrends() {
     const [comboData, setComboData] = useState({});
-    useEffect(() => {
-        const getComboData = async () => {
-            try {
-                const savedData = localStorage.getItem('comboData');
-                if (savedData != null) {
-                    console.log("saved data", savedData);
-                    setComboData(JSON.parse(savedData)); // convert a JSON to a javascript object
-                } else {
-                    console.log("fetching data");
-                    const response = await fetch('http://localhost:3001/manager/combos_today');
-                    const data = await response.json();
-                    setComboData(data);
-                    localStorage.setItem('comboData', JSON.stringify(data)); // convert javascript obj to json
-                }
-            } catch (error) {
-                console.error("cannot get combo data for pie chart", error);
+
+    const getComboData = async (button) => {
+        try {
+            const savedData = localStorage.getItem('comboData');
+            if (savedData != null && button === false) {
+                setComboData(JSON.parse(savedData)); // convert a JSON to a javascript object
+            } else {
+                const response = await fetch('http://localhost:3001/manager/combos_today');
+                const data = await response.json();
+                setComboData(data);
+                localStorage.setItem('comboData', JSON.stringify(data)); // convert javascript obj to json
             }
-        };
-        getComboData();
+        } catch (error) {
+            console.error("cannot get combo data for pie chart", error);
+        }
+    };
+
+    useEffect(() => {
+        getComboData(false);
     }, []);
 
     return (
@@ -52,6 +53,7 @@ function OrderTrends() {
                         }}
                     />
                 </div>
+                <button id='refresh-chart-btn' onClick={ () => getComboData(true) }>Refresh</button>
             </div>
 
 
