@@ -16,6 +16,7 @@
     padding: 5px;
     margin: 10px;
     align-self: flex-end;
+    border-radius: 7px;
 }
 
 #refresh-chart-btn:hover {

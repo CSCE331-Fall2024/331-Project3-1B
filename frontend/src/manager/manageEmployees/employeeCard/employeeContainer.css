@@ -1,7 +1,7 @@
 #employee-table-heading {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-right: 475px;
+    margin-right: 280px;
 }
 
 #employee-container {

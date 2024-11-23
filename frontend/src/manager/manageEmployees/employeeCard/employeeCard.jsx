@@ -12,9 +12,6 @@ function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee 
                 <div className="function-btn-container">
                     <button className="function-employee-button" onClick={ removeEmployee }>Remove Employee</button>
                 </div>
-                <div className="function-btn-container">
-                <button className="function-employee-button" onClick={ editEmployee }>Edit Employee</button>
-                </div>
             </div>
         </>
     );

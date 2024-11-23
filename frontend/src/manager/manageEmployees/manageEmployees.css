@@ -11,15 +11,16 @@
     font-size: 30px;
 }
 
-#add-employee-btn {
+.employee-btn {
     font-weight: 600;
     font-size: 15px;
     width: 100px;
     border-radius: 10px;
     padding: 10px;
+    margin-left: 20px;
 }
 
-#add-employee-btn:hover {
+.employee-btn:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 #e32d2d;
     background-color: #e32d2d;

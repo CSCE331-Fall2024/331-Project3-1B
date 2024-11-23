@@ -10,13 +10,19 @@ function ManageEmployees () {
     const addEmployeeClick = () => {
         navigate('/manager/employees/add_employee');
     };
+    const editEmployeeClick = () => {
+        navigate('/manager/employees/edit_employee');
+    };
 
     return (
         <>
             <PageHeader />
             <div id="manage-employees-heading">
                 <h1 id="manage-employees-title">Manage Employees:</h1>
-                <button id="add-employee-btn" onClick={ addEmployeeClick }>Add Employee</button>
+                <div id="btn-container">
+                    <button className="employee-btn" onClick={ editEmployeeClick }>Edit Employee</button>
+                    <button className="employee-btn" onClick={ addEmployeeClick }>Add Employee</button>
+                </div>
             </div>
             <EmployeeContainer />
         </>
