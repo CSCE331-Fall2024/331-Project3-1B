@@ -17,12 +17,14 @@ import AddEmployee from "./manager/manageEmployees/addEmployee/addEmployee.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
+import Layout from "./customer/googleTranslate/layout.jsx";
 
 function App() {
     return (
         // The Router component is used to define the routes of the application
         <Router>
             {/* The Routes component is used to define the routes of the application */}
+            <Layout>
             <Routes>
                 <Route path="/" element={<IntermediatePage />} />
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
@@ -43,6 +45,7 @@ function App() {
                 <Route path="/manager/menuItems" element={<MenuItems />} />
                 <Route path="/manager/employees/add_employee" element={<AddEmployee />} />
             </Routes>
+            </Layout>
         </Router>
     );
 }

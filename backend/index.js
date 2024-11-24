@@ -37,10 +37,12 @@ app.get('/', (req, res) => {
 
 const managerRouter = require('./routes/manager')
 const SubmitRouter = require('./routes/SubmitOrder')
+const googleTranslate = require('./routes/googleTranslate')
 
 
 app.use("/manager", managerRouter);
 app.use("/submit", SubmitRouter)
+app.use("/translate", googleTranslate);
 
 
 app.listen(PORT, () => {

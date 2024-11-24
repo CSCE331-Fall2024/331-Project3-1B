@@ -1,0 +1,3 @@
+.notranslate {
+    translate: no !important; /* Prevent browser translation plugins from affecting it */
+}
