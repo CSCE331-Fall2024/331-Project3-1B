@@ -53,7 +53,7 @@ export default function () {
 
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
-                <button onClick={() => {orderMore();playSound('../../../public/Sounds/ButtonSound.WAV')}} id="header-button">
+                <button onClick={() => {orderMore();playSound('../../../public/Sounds/ButtonSound.mp3')}} id="header-button">
                     <h1 className="header-button-title">Order More</h1>
                 </button>
             </div>
@@ -167,7 +167,7 @@ export default function () {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => {removeCombo(index),playSound('../../../public/Sounds/ButtonSound.WAV')}}
+                                        onClick={() => {removeCombo(index),playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                     >
                                         <h2>Remove</h2>
                                     </button>
@@ -184,13 +184,13 @@ export default function () {
                     {cart.length > 0 && (
                         <>
                             <button
-                                onClick={() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.WAV')}}
+                                onClick={() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                 className="clear-cart-button"
                             >
                                 <h2>Clear Cart</h2>
                             </button>
                             <button
-                                onClick={() => {placeOrder();playSound('../../../public/Sounds/ButtonSound.WAV')}}
+                                onClick={() => {placeOrder();playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                 className="place-order-button"
                             >
                                 <h2>Checkout</h2>
