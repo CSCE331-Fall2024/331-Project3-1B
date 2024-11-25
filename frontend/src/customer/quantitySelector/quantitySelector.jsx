@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './quantitySelector.css';
-/** this creates the quantity selectors present on the times
- * @param {function} onQuantityChange
- * @param {function} resetQuantities
- * @returns {HTML} the QuantitySelector component
- */
+
 export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
     const [quantity, setQuantity] = useState(0);
 
@@ -23,10 +19,6 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
     };
 
     // Play Sound Effect on button click
-    const audioRef = useRef(null);
-    const playsound = () => {
-        audioRef.current.play();
-    };
     function playSound(file) {
         var audio = new Audio(file);
         audio.play();
@@ -42,9 +34,9 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
     return (
         <div className="quantifier-container">
             <div className="quantifier">
-                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('../../../public/Sounds/Decrease.mp3')}}>-</button>
+                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('../../../public/Sounds/ButtonSound.WAV')}}>-</button>
                 <span>{quantity}</span>
-                <button className="quantifier-button" onClick={() => {handleAdd();playSound('../../../public/Sounds/Increase.mp3')}}>+</button>
+                <button className="quantifier-button" onClick={() => {handleAdd();playSound('../../../public/Sounds/ButtonSound.WAV')}}>+</button>
             </div>
         </div>
     );

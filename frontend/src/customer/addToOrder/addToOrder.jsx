@@ -69,8 +69,14 @@ export default function ({ items = [], onAddToOrder }) {
         }
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (
-        <button onClick={addToOrderTotal} className="add-to-order-button">
+        <button onClick={() => {addToOrderTotal();playSound('../../../public/Sounds/ButtonSound.WAV')}} className="add-to-order-button">
             <h2>Add to Order</h2>
         </button>
     );

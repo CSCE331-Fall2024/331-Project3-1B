@@ -12,7 +12,11 @@ export default function PageHeader() {
 
     const navigate = useNavigate();
 
-
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     // Function to toggle the myBag component be displayed or not
     const goToMyBag = () => {
@@ -33,11 +37,11 @@ export default function PageHeader() {
                 ) : (
                     <div id="buttons-header">
 
-                        <button onClick={back} id='back-button'>
+                        <button onClick={() => {back();playSound('../../../public/Sounds/ButtonSound.WAV')}} id='back-button'>
                             <h1 className="back-button-title">Back</h1>
                         </button>
 
-                        <button onClick={goToMyBag} id="header-button">
+                        <button onClick={() => {goToMyBag();playSound('../../../public/Sounds/ButtonSound.WAV')}} id="header-button">
                             <h1 className="header-button-title">My Bag</h1>
                         </button>
 

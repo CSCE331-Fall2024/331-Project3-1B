@@ -11,6 +11,12 @@ export default function () {
 
     const navigate = useNavigate();
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     // Function to navigate back to the main menu
     const backToMenu = () => {
         if (currURL.includes("cashier")) navigate("/cashier");
@@ -19,7 +25,7 @@ export default function () {
 
     return (
         <>
-            <button onClick={backToMenu} className="back-to-menu-button">
+            <button onClick={() => {backToMenu();playSound('../../../public/Sounds/ButtonSound.WAV')}} className="back-to-menu-button">
                 <h2>Back to Menu</h2>
             </button>
         </>
