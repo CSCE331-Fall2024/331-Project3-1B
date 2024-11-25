@@ -4,6 +4,11 @@ import "./recentOrders.css";
 
 // creates a container that holds all the most recent orders
 // displays the 5 most recent orders today
+/**
+ * creates a container that holds all the most recent orders
+ * displays the 5 most recent orders today
+ * @return {HTML} RecentOrders container
+ */
 function RecentOrders() {
 
     const [orderTotals, setOrderTotals] = useState([]);
