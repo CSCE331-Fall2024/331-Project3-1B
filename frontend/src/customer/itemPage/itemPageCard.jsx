@@ -1,7 +1,15 @@
 import "./itemCardPage.css";
 import Quantifier from "../quantitySelector/quantitySelector.jsx";
 import React from "react";
-
+/**
+ * generates the item page card component given attributes 
+ * @param {string} type  
+ * @param {string} item
+ * @param {string} allergens
+ * @param  updateOrder 
+ * @param  resetQuantities
+ * @returns {HTML} ItemPageCard
+ */
 export default function ItemPageCard({ type, item, allergens, updateOrder, resetQuantities }) {
     let imagePath = "";
 
