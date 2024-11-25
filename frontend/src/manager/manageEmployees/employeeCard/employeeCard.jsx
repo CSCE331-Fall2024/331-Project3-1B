@@ -1,6 +1,16 @@
 import "./employeeCard.css";
 
 // creating individual employee cards
+/**
+ * creating individual employee cards with given attributes
+ * @param {string} name
+ * @param {int} id
+ * @param {string} position
+ * @param {string} email 
+ * @param {function} removeEmployee
+ * @param {function} editEmployee
+ * @returns {HTML} EmployeeCard
+ */
 function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee }) {
     return (
         <>
