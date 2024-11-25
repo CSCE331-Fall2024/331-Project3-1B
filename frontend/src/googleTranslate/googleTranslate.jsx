@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { translateText } from "./translate.js"; // The utility function created earlier
+import { languageContext } from "./languageContext.jsx";
+import { useLocation } from "react-router-dom";
 import "./googleTranslate.css";
 
 export default function googleTranslate() {
-    const [language, setLanguage] = useState("en"); // Default target language is Spanish
     const [isTranslating, setIsTranslating] = useState(false);
+    const location = useLocation();
     const top_languages = {
         English: "en",
         "Chinese (Simplified)": "zh",
@@ -16,6 +18,16 @@ export default function googleTranslate() {
         Russian: "ru",
         Japanese: "ja",
         German: "de",
+    };
+    
+
+    const { language, changeLanguage } = useContext(languageContext);
+
+    
+
+    const handleLanguageChange = (e) => {
+        const newLanguage = e.target.value;
+        changeLanguage(newLanguage); // Update the context and local storage
     };
 
     
@@ -74,21 +86,38 @@ export default function googleTranslate() {
         setIsTranslating(false);
     };
 
+
+    useEffect(() => {
+        const persistedLanguage = localStorage.getItem("selectedLanguage") || "en";
+    
+        if (persistedLanguage !== "en") {
+            changeLanguage(persistedLanguage); // Update context state to match persisted language
+            translatePage(persistedLanguage); // Translate the page
+        }
+    }, []); // Runs only once on mount
+
+    useEffect(() => {
+        if (language !== "en") {
+            translatePage(language);
+        }
+    }, [location]); // Runs whenever the location changes
+    
+
     return (
         <div  className="notranslate translate-container">
             <select
                 id="language-selector"
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e) => changeLanguage(e.target.value)}
                 className="notranslate"
             >
-                {Object.keys(top_languages).map((language) => (
+                {Object.keys(top_languages).map((lang) => (
                     <option
-                        key={top_languages[language]}
-                        value={top_languages[language]}
+                        key={top_languages[lang]}
+                        value={top_languages[lang]}
                         className="notranslate"
                     >
-                        {language}
+                        {lang}
                     </option>
                 ))}
             </select>
@@ -105,7 +134,7 @@ export default function googleTranslate() {
                     textNodes.forEach((node) => {
                         node.nodeValue = node.originalText; // Reset to original English text
                     });
-                    setLanguage("en");
+                    changeLanguage("en");
                 }}
                 className="notranslate"
             >
