@@ -2,6 +2,10 @@ import { useNavigate } from "react-router-dom";
 import "./backToMenu.css";
 
 // Back to Menu button
+/**
+ * Creates a back to menu button that navigates backwards
+ * @returns {HTML} back to menu button
+ */
 export default function () {
     const currURL = window.location.href;
 
