@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
-import GoogleTranslate from "../googleTranslate/googleTranslate.jsx";
+import GoogleTranslate from "../../googleTranslate/googleTranslate.jsx";
 import "./myBag.css";
 
 // This component will display the items in the cart, functionality not complete yet.

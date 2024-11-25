@@ -8,8 +8,7 @@ export default function PageHeader() {
 
     const navigate = useNavigate();
 
-    // State to show or hide the MyBag component
-    const [showMyBag, setShowMyBag] = useState(false);
+
 
     // Function to toggle the myBag component be displayed or not
     const goToMyBag = () => {

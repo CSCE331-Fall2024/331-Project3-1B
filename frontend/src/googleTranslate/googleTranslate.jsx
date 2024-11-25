@@ -3,12 +3,12 @@ import { translateText } from "./translate.js"; // The utility function created 
 import "./googleTranslate.css";
 
 export default function googleTranslate() {
-    const [language, setLanguage] = useState("es"); // Default target language is Spanish
+    const [language, setLanguage] = useState("en"); // Default target language is Spanish
     const [isTranslating, setIsTranslating] = useState(false);
     const top_languages = {
+        English: "en",
         "Chinese (Simplified)": "zh",
         Spanish: "es",
-        English: "en",
         Hindi: "hi",
         Arabic: "ar",
         Bengali: "bn",
@@ -75,10 +75,7 @@ export default function googleTranslate() {
     };
 
     return (
-        <div style={{ margin: "10px 0" }} className="notranslate">
-            <label htmlFor="language-selector" className="notranslate">
-                Translate to:{" "}
-            </label>
+        <div  className="notranslate translate-container">
             <select
                 id="language-selector"
                 value={language}
@@ -100,7 +97,7 @@ export default function googleTranslate() {
                 disabled={isTranslating}
                 className="notranslate"
             >
-                {isTranslating ? "Translating..." : "Translate Page"}
+                {isTranslating ? "Translating..." : "Translate"}
             </button>
             <button
                 onClick={() => {
@@ -108,10 +105,11 @@ export default function googleTranslate() {
                     textNodes.forEach((node) => {
                         node.nodeValue = node.originalText; // Reset to original English text
                     });
+                    setLanguage("en");
                 }}
                 className="notranslate"
             >
-                Reset to English
+                Reset
             </button>
         </div>
     );

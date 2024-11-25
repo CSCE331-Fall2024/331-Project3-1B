@@ -17,7 +17,7 @@ import AddEmployee from "./manager/manageEmployees/addEmployee/addEmployee.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
-import Layout from "./customer/googleTranslate/layout.jsx";
+import Layout from "./googleTranslate/layout.jsx";
 
 function App() {
     return (
