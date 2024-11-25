@@ -3,7 +3,10 @@ import "./intermediate.css"
 import { Link, useNavigate } from 'react-router-dom';
 
 
-
+/**
+ * This function generates the intermediate page where you can navigate to the different views
+ * @returns {HTML} IntermediatePage
+ */
 export function IntermediatePage(){
 
     // Create navigate variable to use for navigation
