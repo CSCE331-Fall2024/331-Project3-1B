@@ -4,6 +4,10 @@ import PageHeader from '../header/pageHeader.jsx';
 import SingleMenuItem from './singleMenuItem.jsx';
 
 // screen in manager view that lists out all menu items
+/**
+ * screen in manager view that lists out all menu items
+ * @return {HTML} the menu for manager
+ */
 function MenuItems() {
     const [itemId, setItemID] = useState([]);
     const [itemName, setItemName] = useState([]);
