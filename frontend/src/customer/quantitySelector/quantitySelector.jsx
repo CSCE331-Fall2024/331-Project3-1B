@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './quantitySelector.css';
-
+/** this creates the quantity selectors present on the times
+ * @param {function} onQuantityChange
+ * @param {function} resetQuantities
+ * @returns {HTML} the QuantitySelector component
+ */
 export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
     const [quantity, setQuantity] = useState(0);
 
