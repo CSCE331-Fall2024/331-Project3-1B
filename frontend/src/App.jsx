@@ -20,7 +20,10 @@ import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
-
+/**
+ * this is the main function of our product that controlls everything
+ * @returns {HTML} of the whole application
+ */
 function App() {
     return (
         // The Router component is used to define the routes of the application
