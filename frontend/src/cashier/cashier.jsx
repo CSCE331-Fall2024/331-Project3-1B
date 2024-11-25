@@ -8,6 +8,9 @@ import { useEffect } from "react";
 import {useState } from "react";
 
 // CashierPageHeader is the component that cashier view.
+/** CashierPageHeader is the header component of the cashier view
+ *  @return {HTML} CashierPageHeader component
+ */
 export function CashierPageHeader() {
     const { cart, setCart } = useCart();
     
@@ -87,6 +90,10 @@ export function CashierPageHeader() {
 }
 
 // Cashier is the component that displays the cashier view.
+/**
+ * Cashier is the component that displays the cashier view.
+ * @return {HTML} Cashier compenent
+ */
 function Cashier() {
     return (
         <CartProvider>
