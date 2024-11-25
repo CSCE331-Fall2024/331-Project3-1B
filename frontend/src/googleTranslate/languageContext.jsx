@@ -4,6 +4,10 @@ import React, { createContext, useState } from "react";
 export const languageContext = createContext();
 
 // Create the provider component
+/**
+ * Create the provider component
+ * @returns {HTML} the provider component
+ */
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState(() => {
         // Initialize language from local storage or default to English
