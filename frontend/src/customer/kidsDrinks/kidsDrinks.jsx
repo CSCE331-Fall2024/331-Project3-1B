@@ -8,7 +8,10 @@ import "./kidsDrinks.css";
 import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
 
-// Appetizers component, displays the appetizers and includes the AddToOrder component
+/**
+ * kidsDrinks component, displays the appetizers and includes the AddToOrder component
+ * @returns {HTML} kidsDrinks component
+ */
 export default function () {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
