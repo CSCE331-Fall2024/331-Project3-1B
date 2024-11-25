@@ -2,7 +2,10 @@ import './addEmployee.css';
 import PageHeader from '../../header/pageHeader';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+/**
+ * creates a page that allows you to add an employee to the database
+ * @returns {HTML} AddEmployee page
+ */
 function AddEmployee() {
     const navigate = useNavigate();
     const [details, setDetails] = useState({
