@@ -1,3 +1,9 @@
+/**
+ * function to call the google translate api and translate the text given a target language.
+ * @param {string[]} textArray 
+ * @param {string} targetLanguage 
+ * @returns {string[]} resulting text
+ */
 export const translateText = async (textArray, targetLanguage) => {
     const apiKey = import.meta.env.VITE_GOOGLE_TRANSLATE_API_KEY; // Store in .env for security
     const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
