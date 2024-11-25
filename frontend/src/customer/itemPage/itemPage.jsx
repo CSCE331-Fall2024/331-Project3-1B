@@ -8,6 +8,10 @@ import { useState, useEffect } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
 import { getEntrees, getSides } from "../customerFunctions/customer.js";
 
+/**
+ * Generates the item page component
+ * @returns {HTML} the ItemPage component
+ */
 export default function ItemPage() {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);
