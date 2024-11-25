@@ -5,6 +5,10 @@ import GoogleTranslate from "../../googleTranslate/googleTranslate.jsx";
 import "./myBag.css";
 
 // This component will display the items in the cart, functionality not complete yet.
+/** 
+ * This component will display the items in the cart
+ * @returns {HTML} MyBag component
+ */
 export default function () {
     const navigate = useNavigate();
     const { cart, setCart } = useCart();
