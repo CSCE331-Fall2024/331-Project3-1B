@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../customer/myBag/CartContext.jsx";
 
 // ItemCard is the component that displays the item card in the cashier item page
+/**
+ * ItemCard is the component that displays the item card in the cashier item page
+ * @param {string} type 
+ * @return {HTML} ItemCard element
+ */
+ 
 function ItemCard({ type }) {
     const { currType, setCurrTypeFunc } = useCart();
 
