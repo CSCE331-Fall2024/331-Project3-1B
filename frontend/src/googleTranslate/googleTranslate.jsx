@@ -3,7 +3,10 @@ import { translateText } from "./translate.js"; // The utility function created 
 import { languageContext } from "./languageContext.jsx";
 import { useLocation } from "react-router-dom";
 import "./googleTranslate.css";
-
+/**
+ * generates a component that handles the translation functionality of the application
+ * @returns {HTML} the translate component
+ */
 export default function googleTranslate() {
     const [isTranslating, setIsTranslating] = useState(false);
     const location = useLocation();
