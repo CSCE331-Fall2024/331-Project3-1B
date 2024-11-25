@@ -3,6 +3,10 @@ import "./employeeContainer.css";
 import EmployeeCard from "./employeeCard.jsx";
 
 // creates a container that holds the info of each employee
+/**
+ * creates a container that holds the info of each employee
+ * @returns {HTML} EmployeeContainer
+ */
 function EmployeeContainer() {
 
     // api call to get employee information. Stores info in array.
