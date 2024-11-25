@@ -20,6 +20,13 @@ function ItemCard({ type }) {
     if (type === "Kids Drinks") {
         imagePath = `/Images/SoftDrinks/AppleJuice.png`;
     }
+
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     //  handleClick is the function that is called when the user clicks on the item card
     const handleClick = (type) => {
         setCurrTypeFunc(type);
@@ -43,7 +50,7 @@ function ItemCard({ type }) {
     return (
         <>
             <button
-                onClick={() => handleClick(type)}
+                onClick={() => {handleClick(type);playSound('../../../public/Sounds/ButtonSound.mp3')}}
                 className="item-card-container2"
             >
                 {<img className="item-card-image2" src={imagePath} alt="" />}
