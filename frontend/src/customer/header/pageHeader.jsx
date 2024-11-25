@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // PageHeader component, includes myBag component => allows user to view what is in their bag.
+/**
+ * PageHeader component, includes myBag component => allows user to view what is in their bag.
+ * @returns {HTML} PageHeader component
+ */
 export default function PageHeader() {
     let currURL = window.location.href;
 
