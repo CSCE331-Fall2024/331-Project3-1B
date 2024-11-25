@@ -1,0 +1,19 @@
+.notranslate {
+    translate: no !important; /* Prevent browser translation plugins from affecting it */
+}
+
+.translate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #D61927;
+    padding: 5px;
+}
+
+
+button, select {
+    border-radius: 5px;
+    padding: 5px;
+}
+
