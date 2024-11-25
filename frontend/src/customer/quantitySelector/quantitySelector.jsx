@@ -23,6 +23,7 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
         var audio = new Audio(file);
         audio.play();
     }
+    
     // Reset quantity to 0 whenever resetQuantities changes
     useEffect(() => {
         if (resetQuantities) {

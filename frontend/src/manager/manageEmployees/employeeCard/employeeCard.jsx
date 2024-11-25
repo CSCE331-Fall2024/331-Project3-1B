@@ -20,7 +20,7 @@ function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee 
                 <h2 className="employee-info">{position}</h2>
                 <h2 className="employee-info">{email}</h2>
                 <div className="function-btn-container">
-                    <button className="function-employee-button" onClick={ removeEmployee }>Remove Employee</button>
+                    <button className="function-employee-button" onClick={removeEmployee}>Remove Employee</button>
                 </div>
             </div>
         </>
