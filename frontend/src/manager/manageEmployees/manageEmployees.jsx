@@ -4,7 +4,10 @@ import EmployeeContainer from "./employeeCard/employeeContainer.jsx";
 import { useNavigate } from "react-router-dom";
 
 // manager view screen that shows all employee info
-
+/**
+ * manager view screen that shows all employee info
+ * @returns {HTML} employee manager view screen
+ */
 function ManageEmployees () {
     const navigate = useNavigate();
     const addEmployeeClick = () => {
