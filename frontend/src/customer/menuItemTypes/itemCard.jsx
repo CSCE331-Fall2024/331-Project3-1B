@@ -4,6 +4,12 @@ import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
 
 // itemCard is the card that displays the item type
+/**
+ * ItemCard is the component that displays the item type
+ * @param {string} type 
+ * @return {HTML} ItemCard element
+ */
+ 
 export default function ItemCard({ type }) {
     const navigate = useNavigate();
     const { currType, setCurrTypeFunc } = useCart();
