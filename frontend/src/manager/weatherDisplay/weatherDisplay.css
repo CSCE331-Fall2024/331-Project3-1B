@@ -5,8 +5,20 @@
 #weather-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #weather-info-container {
     background-color: #FFFFFF;
+    margin: 10px 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+h3 {
+    padding: 5px;
+}
+
+p {
+    padding: 5px;
 }

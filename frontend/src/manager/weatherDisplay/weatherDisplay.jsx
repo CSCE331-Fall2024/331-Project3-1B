@@ -27,14 +27,22 @@ function WeatherDisplay() {
         return farenheit.toFixed(1);
     };
 
+    const getWeatherMessage = () => {
+        if (parseFloat(kelvinToFarenheit(currTemp)) < 50 || parseFloat(kelvinToFarenheit(currTemp)) > 100 || currWeatherCondition != 'Clear') {
+            return 'Extreme weather expected today. Expect less customers than usual.';
+        }
+        return 'Favorable weather conditions today! Expect the usual amount of customers.';
+    };
+
     return (    
         <div id="weather-container">
             <h2 id="weather-title">Today's Weather</h2>
             <div id="weather-info-container">
                 <h3>Current Temperature: {kelvinToFarenheit(currTemp)}°F</h3>
-                <h3>Current Weather: {currWeatherCondition}</h3>                
+                <h3>Current Weather: {currWeatherCondition}</h3>
+                <p>{getWeatherMessage()}</p>                
             </div>
-
+            
         </div>
     );
 };
