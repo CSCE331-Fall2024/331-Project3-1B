@@ -222,7 +222,7 @@ router.put('/update_name/:id', async (req, res) => {
         }
         res.status(200).json(result.rows[0]);
     } catch {
-        console.error("could not change employee name");
+        console.error("could not change employee name", error);
         res.status(500).send("error updating employee name");
     }
 });
