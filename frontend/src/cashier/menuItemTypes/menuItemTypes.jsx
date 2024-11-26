@@ -4,6 +4,10 @@ import "./menuItemTypes.css";
 
 
 // MenuItemTypes is the component that displays the different types of items that the user can select from
+/**
+ *  MenuItemTypes is the component that displays the different types of items that the user can select from
+ * @return {HTML} MenuItemTypes element
+ */
 function MenuItemTypes() {
     const types = [
         "Bowl",

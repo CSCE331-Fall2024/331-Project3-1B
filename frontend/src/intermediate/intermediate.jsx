@@ -3,7 +3,10 @@ import "./intermediate.css"
 import { Link, useNavigate } from 'react-router-dom';
 
 
-
+/**
+ * This function generates the intermediate page where you can navigate to the different views
+ * @returns {HTML} IntermediatePage
+ */
 export function IntermediatePage(){
 
     // Create navigate variable to use for navigation
@@ -24,6 +27,12 @@ export function IntermediatePage(){
         navigate('/manager');
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (
         <div className="IntermediatePage">
             <div className="header-bar">
@@ -38,9 +47,9 @@ export function IntermediatePage(){
                 </div>
 
                 <div className="navigate-buttons">
-                    <button onClick={navigateToCustomer} className="Customer-button">POS</button>
-                    <button onClick={navigateToPOS} className="POS-button">Cashier</button>
-                    <button onClick={navigateToManager} className="Manager-button">Manager</button>
+                    <button onClick={() => {navigateToCustomer();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Customer-button">POS</button>
+                    <button onClick={() => {navigateToPOS();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="POS-button">Cashier</button>
+                    <button onClick={() => {navigateToManager();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Manager-button">Manager</button>
                 </div>
                 
             </div>

@@ -8,6 +8,9 @@ import { useEffect } from "react";
 import {useState } from "react";
 
 // CashierPageHeader is the component that cashier view.
+/** CashierPageHeader is the header component of the cashier view
+ *  @return {HTML} CashierPageHeader component
+ */
 export function CashierPageHeader() {
     const { cart, setCart } = useCart();
     
@@ -26,7 +29,12 @@ export function CashierPageHeader() {
         navigate('/');
     };
 
-
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     // The function that will submit the order once connected with backend call
     const submitOrder = async () => {
 
@@ -76,9 +84,9 @@ export function CashierPageHeader() {
     return (
         <CartProvider>
             <div className="cashier-header-bar">
-                <button onClick = {back}className="cashier-header-button">Back</button>
-                <button onClick={submitOrder} className="cashier-header-button">Submit</button>
-                <button onClick = {clearCurrCart}className="cashier-header-button">Delete Order</button>
+                <button onClick = {() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Back</button>
+                <button onClick={() => {submitOrder();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="cashier-header-button">Submit</button>
+                <button onClick = {() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Delete Order</button>
                 <button className="cashier-header-button">Clock In</button>
                 <button className="cashier-header-button">Clock Out</button>
             </div>
@@ -87,6 +95,10 @@ export function CashierPageHeader() {
 }
 
 // Cashier is the component that displays the cashier view.
+/**
+ * Cashier is the component that displays the cashier view.
+ * @return {HTML} Cashier compenent
+ */
 function Cashier() {
     return (
         <CartProvider>

@@ -3,6 +3,11 @@ import { useCart } from "../myBag/CartContext";
 import { useEffect } from "react";
 import { useState } from "react";
 
+/**
+ * creates a button that adds items to the order
+ * @param the items to add to order
+ * @returns {HTML} button 
+ */
 export default function ({ items = [], onAddToOrder }) {
     const { addItemToCart } = useCart();
     const { cart } = useCart();
@@ -64,8 +69,14 @@ export default function ({ items = [], onAddToOrder }) {
         }
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (
-        <button onClick={addToOrderTotal} className="add-to-order-button">
+        <button onClick={() => {addToOrderTotal();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="add-to-order-button">
             <h2>Add to Order</h2>
         </button>
     );

@@ -2,10 +2,20 @@ import { useNavigate } from "react-router-dom";
 import "./backToMenu.css";
 
 // Back to Menu button
+/**
+ * Creates a back to menu button that navigates backwards
+ * @returns {HTML} back to menu button
+ */
 export default function () {
     const currURL = window.location.href;
 
     const navigate = useNavigate();
+
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     // Function to navigate back to the main menu
     const backToMenu = () => {
@@ -15,7 +25,7 @@ export default function () {
 
     return (
         <>
-            <button onClick={backToMenu} className="back-to-menu-button">
+            <button onClick={() => {backToMenu();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="back-to-menu-button">
                 <h2>Back to Menu</h2>
             </button>
         </>

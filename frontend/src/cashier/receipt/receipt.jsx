@@ -19,6 +19,12 @@ export function Receipt() {
         navigate("/customer");
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     // The function that will remove a combo from the cart
     const removeCombo = (index) => {
         removeItemFromCart(index);
@@ -150,7 +156,7 @@ export function Receipt() {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => removeCombo(index)}
+                                        onClick={() => {removeCombo(index);playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                     >
                                         <h2>Remove</h2>
                                     </button>

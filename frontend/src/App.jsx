@@ -18,12 +18,19 @@ import EditEmployee from "./manager/manageEmployees/editEmployee/editEmployee.js
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
-
+import Layout from "./googleTranslate/layout.jsx";
+import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
+/**
+ * this is the main function of our product that controlls everything
+ * @returns {HTML} of the whole application
+ */
 function App() {
     return (
         // The Router component is used to define the routes of the application
         <Router>
             {/* The Routes component is used to define the routes of the application */}
+            <LanguageProvider>
+            <Layout>
             <Routes>
                 <Route path="/" element={<IntermediatePage />} />
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
@@ -45,6 +52,8 @@ function App() {
                 <Route path="/manager/employees/add_employee" element={<AddEmployee />} />
                 <Route path="/manager/employees/edit_employee" element={<EditEmployee />} />
             </Routes>
+            </Layout>
+            </LanguageProvider>
         </Router>
     );
 }

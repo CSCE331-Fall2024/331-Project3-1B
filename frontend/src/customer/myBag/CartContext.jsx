@@ -4,6 +4,10 @@ import React, { createContext, useState, useContext } from "react";
 const CartContext = createContext();
 
 // this creates the provider that will be used to wrap the components that need access to the cart
+/**
+ * this creates the provider that will be used to wrap the components that need access to the cart
+ * @returns {HTML} CartProvider
+ */
 export const CartProvider = ({ children }) => {
     // Check for saved cart data in localStorage
     const initialCart = JSON.parse(localStorage.getItem("cart")) || [];

@@ -27,28 +27,34 @@ function PageHeader() {
         navigate("/")
     }
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (
         <>
             <div id="header-container">
 
-                <button onClick={back} className='nav-btn'>
+                <button onClick={() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}} className='nav-btn'>
                     <h1 className="nav-btn-text">Login Page</h1>
                 </button>
 
-                <button className="nav-btn" onClick={ homeClick }>
+                <button className="nav-btn" onClick={() => {homeClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>
                     <h1 className="nav-btn-text">Manager Home</h1>
                 </button>
 
-                <button className="nav-btn" id="pos-btn" onClick={ posClick }>
+                <button className="nav-btn" id="pos-btn" onClick={() => {posClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>
                     <h1 className="nav-btn-text">POS</h1>
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text" onClick={ manageEmployeesClick }>Employee Management</h1>
+                    <h1 className="nav-btn-text" onClick={() => {manageEmployeesClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Employee Management</h1>
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text" onClick={ managerMenuItemsClick }>Menu Items</h1>
+                    <h1 className="nav-btn-text" onClick={() => {managerMenuItemsClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Menu Items</h1>
                 </button>
 
                 <button className="nav-btn">

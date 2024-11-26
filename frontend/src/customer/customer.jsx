@@ -4,6 +4,10 @@ import { CartProvider } from "./myBag/CartContext.jsx";
 
 
 // This is the main customer component that will be rendered when the customer visits the website
+/**
+ * This is the main customer component that will be rendered when the customer visits the website
+ * @returns {HTML} customer
+ */
 export default function customer() {
     return (
 

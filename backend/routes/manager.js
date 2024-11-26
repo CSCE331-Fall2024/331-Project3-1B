@@ -16,12 +16,19 @@ const pool = new Pool({
     port: process.env.PSQL_PORT,
     ssl: { rejectUnauthorized: false }
 });
-
+/** the default response for the / route
+ *  returns the message "manager home"
+ *  @return {JSON} "manager home"
+ */
 router.get('/', (req, res) => {
     res.send('manager home');
 });
 
 // get list of all employee data
+/**
+ * gets a list all employee data when calling /get_all_employees
+ * @return {JSON} data of all employees
+ */
 router.get('/get_all_employees', (req, res) => {
     let employees = []
     pool
@@ -38,7 +45,10 @@ router.get('/get_all_employees', (req, res) => {
         });
 });
 
-
+/** 
+ * gets a list of the 5 most recent orders submitted today (according to system time)
+ * @return {JSON} the 5 most recent orders and their cost
+ */
 const fetchOrdersToday = (limitOrders) => (req, res, next) => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -67,11 +77,18 @@ const fetchOrdersToday = (limitOrders) => (req, res, next) => {
 
 
 // get 5 most recent items
+/**
+ * routes the fetchOrdersToday function to /recent_sales_today
+ */
 router.get('/recent_sales_today', fetchOrdersToday(true), (req, res) => {
     res.json(req.orders);
 });
 
 // get all combos today (for pie chart)
+/**
+ * gets a list of the number of each combo ordered today (according to system time)
+ * @return {JSON} key value pair for all the combos and the number of occurances
+ */
 router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
     let comboQuantities = {
         'bowl' : 0,
@@ -133,6 +150,10 @@ router.get('/combos_today', fetchOrdersToday(false), (req, res) => {
 });
 
 // get menu items (sides and entrees)
+/**
+ * gets a list of all menu items
+ * @return {JSON} all the menu items
+ */
 router.get('/get_menu_items', async (req, res) => {
     const query = 'SELECT * FROM menu_items;';
     try {
@@ -145,6 +166,10 @@ router.get('/get_menu_items', async (req, res) => {
 });
 
 // Get names of menu items (sides and entrees)
+/**
+ * gets a list of the names of all the menu items
+ * @return {JSON} the names of all the menu items;
+ */
 router.get('/get_menu_item_names', async (req, res) => {
     try {
         const query = 'SELECT item_name FROM menu_items;';
@@ -157,6 +182,11 @@ router.get('/get_menu_item_names', async (req, res) => {
 });
 
 // Get Employee Name given ID number
+/**
+ * gets the employee name given the ID number 
+ * @param {int} id 
+ * @return {string} name
+ */
 router.get('/get_employee_name/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -168,7 +198,11 @@ router.get('/get_employee_name/:id', async (req, res) => {
         res.status(500).send("Error getting employee name");
     }
 });
-
+/**
+ * gets the ID of the employee given the name of the employee
+ * @param {string} name 
+ * @return {int} id
+ */
 router.get('/get_employee_id/:name', async (req, res) => {
     const { name } = req.params;
     try {
@@ -182,6 +216,10 @@ router.get('/get_employee_id/:name', async (req, res) => {
 });
 
 // ADD(post) employee
+/**
+ * adds a new employee to the database
+ * @param {JSON} the attributes of the employee
+ */
 router.post('/add_employee', async (req, res) => {
     const { fullName, email, phoneNumber, wage, position } = req.body;
     try {
@@ -195,6 +233,10 @@ router.post('/add_employee', async (req, res) => {
 });
 
 // remove employee
+/**
+ * deletes an employee given the id of the employee
+ * @param {int} id
+ */
 router.delete('/remove_employee/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -210,6 +252,11 @@ router.delete('/remove_employee/:id', async (req, res) => {
 });
 
 // update employee name
+/**
+ * updates the employee's name given the id of the employee and the new name
+ * @param {int} id
+ * @param {string} name
+ */
 router.put('/update_name/:id', async (req, res) => {
     const { id } = req.params;
     const { fullName } = req.body;
@@ -228,6 +275,11 @@ router.put('/update_name/:id', async (req, res) => {
 });
 
 // update employee email
+/**
+ * updates the employee's email given the id of the employee and the new email
+ * @param {int} id
+ * @param {string} name
+ */
 router.put('/update_email/:id', async (req, res) => {
     const { id } = req.params;
     const { email } = req.body;
@@ -247,6 +299,11 @@ router.put('/update_email/:id', async (req, res) => {
 
 
 // update employee phone number
+/**
+ * updates the employee's phone number given the id of the employee and the new phone number
+ * @param {int} id
+ * @param {string} phoneNumber
+ */
 router.put('/update_phone_number/:id', async (req, res) => {
     const { id } = req.params;
     const { phoneNumber } = req.body;
@@ -266,6 +323,11 @@ router.put('/update_phone_number/:id', async (req, res) => {
 
 
 // update employee wage
+/**
+ * updates the employee's wage given the id of the employee and the new wage
+ * @param {int} id
+ * @param {string} wage
+ */
 router.put('/update_wage/:id', async (req, res) => {
     const { id } = req.params;
     const { wage } = req.body;
@@ -285,6 +347,11 @@ router.put('/update_wage/:id', async (req, res) => {
 
 
 // update employee position
+/**
+ * updates the employee's position given the id of the employee and the new position
+ * @param {int} id
+ * @param {string} position
+ */
 router.put('/update_position/:id', async (req, res) => {
     const { id } = req.params;
     const { position } = req.body;
@@ -302,6 +369,11 @@ router.put('/update_position/:id', async (req, res) => {
     }
 });
 
+/**
+ * gets all the ingredients used given the type of combo and the item ordered
+ * @param {string} option - the type of combo
+ * @param {string} item - the name of the item
+ */
 router.get('/get_ingredients', async (req, res) => {
     const {option, item} = req.query;
 
@@ -341,4 +413,5 @@ router.get('/get_ingredients', async (req, res) => {
 
 
 
+module.exports = router;
 module.exports = router;

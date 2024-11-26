@@ -2,7 +2,10 @@ import './editEmployee.css';
 import PageHeader from '../../header/pageHeader';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+/** 
+ * generates the component to edit employee attributes
+ * @return {HTML} EditEmployee
+ */
 function EditEmployee() {
     const [employeeID, setEmployeeID] = useState('');
     const [newInfo, setNewInfo] = useState(''); // new info the user wants to change to

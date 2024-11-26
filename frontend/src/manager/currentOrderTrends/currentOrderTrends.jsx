@@ -26,6 +26,12 @@ function OrderTrends() {
         }
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     useEffect(() => {
         getComboData(false);
     }, []);
@@ -53,7 +59,7 @@ function OrderTrends() {
                         }}
                     />
                 </div>
-                <button id='refresh-chart-btn' onClick={ () => getComboData(true) }>Refresh</button>
+                <button id='refresh-chart-btn' onClick={ () => {getComboData(true);playSound('../../../public/Sounds/ButtonSound.mp3')} }>Refresh</button>
             </div>
 
 
