@@ -1,0 +1,12 @@
+#weather-title {
+    padding: 10px;
+}
+
+#weather-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#weather-info-container {
+    background-color: #FFFFFF;
+}
