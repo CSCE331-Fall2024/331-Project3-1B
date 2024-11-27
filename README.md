@@ -2,7 +2,7 @@
 
 
 
-Conversion time: 1.074 seconds.
+Conversion time: 1.741 seconds.
 
 
 Using this Markdown file:
@@ -15,7 +15,7 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β40
-* Mon Nov 18 2024 15:57:05 GMT-0800 (PST)
+* Tue Nov 26 2024 18:22:10 GMT-0800 (PST)
 * Source doc: scrum meeting all sprints
 * Tables are currently converted to HTML tables.
 ----->
@@ -796,3 +796,135 @@ Task Assignments:
 ## Minutes from Previous Meeting
 
 In the previous meeting we discussed the tasks needed to integrate the front end with the back end as well as starting on some of the third party api calls such as google oauth. We also discussed features we should implement to our product based on the user study report conducted beforehand. Lastly, we discussed how much of the backend is done and how much of it still needs to be completed.
+
+SCRUM Meeting 2 for team 1b
+
+Prepared by: kaiqi
+
+Meeting Date:  11/25/2024
+
+
+## Meeting Attendees
+
+
+
+1.  nathan
+2.  zach
+3.  nick
+4.  jason
+
+
+## Meeting Agenda Items
+
+
+
+*  Accessibility features checklist
+*  Additional features
+*  Post Thanksgiving work
+*  Expert panel report
+*  Final presentation plan
+
+
+## Status Update Since Last Meeting
+
+Accomplishments:
+
+
+
+*  Translation accessibility done
+*  Documentation done
+* Edit employee is done
+* Submit order is done
+
+Tasks Completed:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+   <td><strong>Completed? (yes/no)</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Starting documentation
+   </td>
+   <td>kaiqi
+   </td>
+   <td>yes
+   </td>
+  </tr>
+  <tr>
+   <td>translate
+   </td>
+   <td>nick
+   </td>
+   <td>yes
+   </td>
+  </tr>
+</table>
+
+
+
+## Before The Next Meeting
+
+Plans:
+
+
+
+*  Chatbot done
+* Google oauth done
+* Zoom in feature
+* Dynamic menu boards
+
+Task Assignments:
+
+
+<table>
+  <tr>
+   <td><strong>Task Description</strong>
+   </td>
+   <td><strong>Assigned to</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Zoom in feature
+   </td>
+   <td>kaiqi
+   </td>
+  </tr>
+  <tr>
+   <td>Dynamic menu boards
+   </td>
+   <td>nathan
+   </td>
+  </tr>
+  <tr>
+   <td>Google o auth
+   </td>
+   <td>zach
+   </td>
+  </tr>
+  <tr>
+   <td>Manager functions
+   </td>
+   <td>jason
+   </td>
+  </tr>
+  <tr>
+   <td>Chat bot
+   </td>
+   <td>nick
+   </td>
+  </tr>
+</table>
+
+
+
+## Minutes from Previous Meeting
+
+In the last meeting we assigned tasks to implement specific features designated in sprint 3 such as the translation feature and the development of the documentation. Additionally, we discussed how to complete the expert panel document and which experts to interview. Finally, we went over what was completed in sprint 2 and discussed any additional changes that may possibly need to be made.
+
+
