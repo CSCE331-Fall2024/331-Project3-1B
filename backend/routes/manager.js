@@ -416,15 +416,23 @@ router.get('/zReport', async (req, res) => {
 
     const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
     const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-
+    const zReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
     try {
         const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
         const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
+        const result3 = await pool.query(zReportQuery3, [starttime, endtime]);
 
         const totalSales = result1.rows[0].total_sales;
         const totalOrders = result2.rows[0].total_orders;
+        const totalItems = result3.rows;
+        let itemCount = 0;
+        totalItems.map(item => {
+            if (item.item_serial_number > 12) {
+                ++itemCount;
+            }
+        })
 
-        res.json({ totalSales, totalOrders });
+        res.json({ totalSales, totalOrders, itemCount });
     } catch (error) {
         console.error("Error in zReport query", error);
         res.status(500).send("Error generating Z Report");

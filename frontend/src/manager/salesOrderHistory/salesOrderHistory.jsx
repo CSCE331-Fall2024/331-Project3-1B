@@ -1,7 +1,11 @@
 import './salesOrderHistory.css';
 import PageHeader from '../header/pageHeader.jsx';
+import { useEffect, useState } from 'react';
 
 function SalesOrderHistory() {
+    const [zTotalOrders, setZTotalOrders] = useState(null);
+    const [zTotalSales, setZTotalSales] = useState(null);
+    const [zTotalItems, setZTotalItems] = useState(null);
 
     function formatDateTime(date) {
         const year = date.getFullYear();
@@ -13,7 +17,7 @@ function SalesOrderHistory() {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
-    const createZReport = () => {
+    const createZReport = async () => {
         const now = new Date();
     
         // Set start time to 00:00:00
@@ -23,9 +27,18 @@ function SalesOrderHistory() {
         // Set end time to 23:59:59
         const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
         const endtime = formatDateTime(endOfDay);
-        const zReportQuery1 = "SELECT SUM(price) FROM sales_order_history WHERE Date_time_ordered BETWEEN " + starttime + " AND " + endtime + ";";
-        const zReportQuery2 = "SELECT COUNT(price) FROM sales_order_history WHERE Date_time_ordered BETWEEN " + starttime + " AND " + endtime + ";";
-        
+        try {
+            const result = await fetch(`http://localhost:3001/manager/zReport?starttime='${starttime}'&endtime='${endtime}'`)
+            const data = await result.json()
+            setZTotalSales(data.totalSales);
+            setZTotalOrders(data.totalOrders);
+            setZTotalItems(data.itemCount);
+        } catch (error) {
+            console.error("Could not get zReport data");
+        }
+    };
+
+    const createXReport = async () => {
         
     };
 
@@ -35,10 +48,10 @@ function SalesOrderHistory() {
             <h1 id='sales-title'>Sales Order History</h1>
             <div id='sales-info-container'>
                 <div id='left-column'>
-                    <button className='report-btn'>X Report</button>
-                    <button className='report-btn'>Z Report</button>
+                    <button className='report-btn' onClick={ createXReport }>X Report</button>
+                    <button className='report-btn' onClick={ createZReport }>Z Report</button>
                 </div>
-                <div id='right-column'>right</div>
+                <div id='right-column'>{zTotalOrders}, {zTotalSales}, {zTotalItems}</div>
             </div>
         </>
     );
