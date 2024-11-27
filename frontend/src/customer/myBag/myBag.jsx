@@ -37,6 +37,7 @@ export default function () {
         setCart(savedCart);
     }, []);
 
+
     return (
         <>
             <div id="header-container">

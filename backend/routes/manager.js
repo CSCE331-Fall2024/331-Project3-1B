@@ -318,6 +318,7 @@ router.get('/get_ingredients', async (req, res) => {
         _type = type.rows[0].item_type.toString();
 
         drink = false;
+
         if (_type === "KidDrinks" || _type === "Gatorade" || _type === "SoftDrinks"){
             drink = true;
         }

@@ -30,6 +30,9 @@ export function Receipt() {
         clearCart();
     };
 
+    const parseReceipt = () => {
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    }
     
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load

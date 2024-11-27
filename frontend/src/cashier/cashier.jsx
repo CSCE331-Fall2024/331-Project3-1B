@@ -26,17 +26,27 @@ export function CashierPageHeader() {
         navigate('/');
     };
 
-
     // The function that will submit the order once connected with backend call
     const submitOrder = async () => {
+        
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        console.log('In Submit');
+        let _types = [];
+        let _items = [];
 
-        const types = ["Bowl", "Plate"];
-        const items = [
-            ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken"],
-            ["Hot Ones Blazing Bourbon Chicken", "The Original Orange Chicken", "Black Pepper Sirloin Steak"]
-        ];
+        for(let i = 0 ; i < savedCart.length ; ++i){
+            if (i % 2 === 0){
+                _types.push(savedCart[i]);
+            }
+            else {
+                let combo_items = []; 
+                for(let j = 0; j < savedCart[i].length; ++j){
+                    console.log(savedCart[i][j].name);
+                    combo_items.push(savedCart[i][j].name);
+                }
+                _items.push(combo_items);
+            }
+        }
 
         try {
             const response = await fetch('http://localhost:3001/submit/submit-order', {
@@ -45,8 +55,8 @@ export function CashierPageHeader() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    types : types,
-                    items: items
+                    types : _types,
+                    items: _items
                 })
             });
 

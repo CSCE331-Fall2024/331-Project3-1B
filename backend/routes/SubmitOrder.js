@@ -112,6 +112,7 @@ async function getItemSerialNumber(item){
     }
 }
 
+
 async function getOrderNumber(timestamp){
     const query = `SELECT order_number FROM sales_order_history WHERE date_time_ordered = '${timestamp}';`;
     console.log(query);
@@ -121,6 +122,7 @@ async function getOrderNumber(timestamp){
     } catch (error) {
         console.error(`Could not query database for order number... timestamp = ${timestamp}`);
     }
+    
 }
 
 router.get('/', (req, res) => {
@@ -147,7 +149,7 @@ router.post('/submit-order', async (req, res) => {
                 sub_array.map(async (item) => await getItemSerialNumber(item))
             ))
         );
-
+        
         const timestamp = getFormattedTimestamp();
 
         const joint = type_ids.map((e, i) => [e, item_ids[i]]);
