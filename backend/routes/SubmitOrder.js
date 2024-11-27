@@ -153,6 +153,7 @@ async function getOrderNumber(timestamp){
     } catch (error) {
         console.error(`Could not query database for order number... timestamp = ${timestamp}`);
     }
+    
 }
 
 router.get('/', (req, res) => {
@@ -187,7 +188,7 @@ router.post('/submit-order', async (req, res) => {
                 sub_array.map(async (item) => await getItemSerialNumber(item))
             ))
         );
-
+        
         const timestamp = getFormattedTimestamp();
 
         const joint = type_ids.map((e, i) => [e, item_ids[i]]);
