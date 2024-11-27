@@ -21,7 +21,11 @@ function PageHeader() {
 
     const managerMenuItemsClick = () => {
         navigate("/manager/menuItems")
-    }
+    };
+
+    const salesOrderHistoryClick = () => {
+        navigate("/manager/sales_order_history")
+    };
 
     const back = () => {
         navigate("/")
@@ -58,7 +62,7 @@ function PageHeader() {
                 </button>
 
                 <button className="nav-btn">
-                    <h1 className="nav-btn-text">Sales Order History</h1>
+                    <h1 className="nav-btn-text" onClick={() => {salesOrderHistoryClick(); playSound('../../../public/Sounds/ButtonSound.mp3')}}>Sales Order History</h1>
                 </button>
             </div>
         </>

@@ -15,6 +15,7 @@ import Receipt from "./cashier/receipt/receipt.jsx";
 import Login from "./login/login.jsx";
 import AddEmployee from "./manager/manageEmployees/addEmployee/addEmployee.jsx";
 import EditEmployee from "./manager/manageEmployees/editEmployee/editEmployee.jsx";
+import SalesOrderHistory from "./manager/salesOrderHistory/salesOrderHistory.jsx";
 
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/manager/menuItems" element={<MenuItems />} />
                 <Route path="/manager/employees/add_employee" element={<AddEmployee />} />
                 <Route path="/manager/employees/edit_employee" element={<EditEmployee />} />
+                <Route path="/manager/sales_order_history" element={<SalesOrderHistory />} />
             </Routes>
             </Layout>
             </LanguageProvider>
