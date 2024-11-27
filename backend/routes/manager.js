@@ -412,6 +412,25 @@ router.get('/get_ingredients', async (req, res) => {
     }
 });
 
+router.get('/zReport', async (req, res) => {
+    const { starttime, endtime } = req.query;
+
+    const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+    const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+
+    try {
+        const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
+        const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
+
+        const totalSales = result1.rows[0].total_sales;
+        const totalOrders = result2.rows[0].total_orders;
+
+        res.json({ totalSales, totalOrders });
+    } catch (error) {
+        console.error("Error in zReport query", error);
+        res.status(500).send("Error generating Z Report");
+    }
+});
 /**
  * adds menu item
  * @param {string} name - name of new item
