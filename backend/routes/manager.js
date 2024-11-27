@@ -412,6 +412,40 @@ router.get('/get_ingredients', async (req, res) => {
     }
 });
 
+/**
+ * adds menu item
+ * @param {string} name - name of new item
+ * @param {string} type - type of new item
+ * @param {string} availability - true or false of availability new item
+ */
+router.get('/add_menu_item/:name/:type/:availability', async (req, res) => {
+    const {name, type, availability} = req.params;
+
+    try {
+        const query = `INSERT INTO menu_items (item_name, item_type, availability) VALUES ('${name}', '${type}', ${availability});`
+        result = pool.query(query);
+
+        res.send({message : 'Sucessfully added menu item'});
+    } catch (error) {
+        res.send({message : 'Failed to add menu item'});
+    }
+});
+
+/**
+ * adds menu item
+ * @param {string} name - name of new item
+ * @param {string} column - column to update
+ * @param {string} new_val - new value of column to update
+ */
+router.get('/edit_menu_item/:name/:column/:new_val'), async (req, res) => {
+    const {name, column, new_val} = req.params;
+
+    try {
+        
+    } catch (error) {
+        
+    }
+}
 
 
 module.exports = router;
