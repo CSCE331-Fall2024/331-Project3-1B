@@ -1,7 +1,10 @@
 import ItemCard from "./itemCard";
 import "./menuItemTypes.css";
-
-// MenuItemTypes is the component that displays all the item types
+// MenuItemTypes is the component that displays the different types of items that the user can select from
+/**
+ *  MenuItemTypes is the component that displays the different types of items that the user can select from
+ * @return {HTML} MenuItemTypes element
+ */
 export default function MenuItemTypes() {
     const types = [
         "Bowl",

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e32d2d;
+    background-color: #D61927;
     height: 75px;
 }
 
@@ -16,7 +16,7 @@
 
 .nav-btn-text {
     font-size: 20px;
-    color: #e32d2d;
+    color: #D61927;
     padding: 10px 25px;
 }
 

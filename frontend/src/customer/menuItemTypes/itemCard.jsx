@@ -4,6 +4,12 @@ import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
 
 // itemCard is the card that displays the item type
+/**
+ * ItemCard is the component that displays the item type
+ * @param {string} type 
+ * @return {HTML} ItemCard element
+ */
+ 
 export default function ItemCard({ type }) {
     const navigate = useNavigate();
     const { currType, setCurrTypeFunc } = useCart();
@@ -15,7 +21,11 @@ export default function ItemCard({ type }) {
         imagePath = `/Images/SoftDrinks/AppleJuice.png`;
     }
 
-    
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     // handleClick is a function that navigates to the correct page based on the type of item
     const handleClick = (type) => {
@@ -42,7 +52,7 @@ export default function ItemCard({ type }) {
 
     return (
         <button
-            onClick={() => handleClick(type)}
+            onClick={() => {handleClick(type),playSound('../../../public/Sounds/ButtonSound.mp3')}}
             className="item-card-container"
         >
             <img className="item-card-image" src={imagePath} alt="" />

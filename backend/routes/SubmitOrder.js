@@ -30,6 +30,12 @@ pool.connect((err, client, release) => {
 });
 
 // Get whether an item is enabled or disabled
+/**
+ * Gets whether an item is enabled or disabled
+ * @async
+ * @param {string} item_name 
+ * @returns {bool} enabled or disabled
+ */
 async function GetEnabledOrDisabled(item_name){
     const client = await pool.connect();
     try{
@@ -50,6 +56,10 @@ async function GetEnabledOrDisabled(item_name){
   }
 
 // Function for generating timestamp in SQL database format
+/**
+ * Function for generating timestamp in SQL database format
+ * @returns {string} timestamp
+ */
 function getFormattedTimestamp() {
     const now = new Date();
 
@@ -65,6 +75,13 @@ function getFormattedTimestamp() {
 }
 
 // Function to look up price in the junction table with the option type ID & the menu item type ID
+/**
+ * Function to look up price in the junction table with the option type ID & the menu item type ID
+ * @async
+ * @param {int} option_ID 
+ * @param {int} item_ID 
+ * @returns {float} price
+ */
 async function GetPrice(option_ID, item_ID) {
     const query = `SELECT price FROM menu_prices WHERE item_serial_number = ${item_ID} AND option_serial_number = ${option_ID};`;
     
@@ -84,6 +101,12 @@ async function GetPrice(option_ID, item_ID) {
 }
 
 // Get the ID of a option (bowl for example)
+/**
+ * Get the ID of a option (bowl for example)
+ * @async
+ * @param {string} type 
+ * @returns {int} id
+ */
 async function getOptionSerialNumber(type) {
     type = type.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 
@@ -99,6 +122,11 @@ async function getOptionSerialNumber(type) {
 }
 
 // Get the ID of the item 
+/**
+ * Get the ID of the item 
+ * @param {string} item 
+ * @returns {int} id
+ */
 async function getItemSerialNumber(item){
     item = item.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 
@@ -111,8 +139,11 @@ async function getItemSerialNumber(item){
         throw error;
     }
 }
-
-
+/**
+ * gets the order number give the time of submission
+ * @param {string} timestamp 
+ * @returns {int} order number
+ */
 async function getOrderNumber(timestamp){
     const query = `SELECT order_number FROM sales_order_history WHERE date_time_ordered = '${timestamp}';`;
     console.log(query);
@@ -136,6 +167,14 @@ router.get('/submit-order', async (req, res) => {
 // Input Example:
 // types = ['bowl', 'plate'] -> options 
 // items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
+/**
+ * submits the order given what is in the order
+ * @example
+ * types = ['bowl', 'plate'] -> options 
+ * items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
+ * @param {JSON} Order
+ * 
+ */
 router.post('/submit-order', async (req, res) => {
 
     const { types, items } = req.body; 

@@ -10,6 +10,10 @@ import { useEffect } from "react";
 import "./appetizers.css";
 
 // Appetizers component, displays the appetizers and includes the AddToOrder component
+/**
+ * Appetizers component, displays the appetizers and includes the AddToOrder component
+ * @returns {HTML} appetizer component
+ */
 export default function () {
     const [currOrder, setCurrOrder] = useState([]);
     const [resetQuantities, setResetQuantities] = useState(false);

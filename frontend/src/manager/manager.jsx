@@ -1,12 +1,16 @@
 import "./manager.css";
 import ManagerGreeting from "./greetMessage/managerGreeting.jsx";
 import PageHeader from "./header/pageHeader.jsx";
-import CurrEmployees from "./clockedInEmployees/currEmployees.jsx";
+import WeatherDisplay from "./weatherDisplay/weatherDisplay.jsx";
 import RecentOrders from "./recentOrders/recentOrders.jsx";
 import CurrentOrderTrends from "./currentOrderTrends/currentOrderTrends.jsx";
 
 
-// the main customer component that will be rendered when the manager visits the manager view
+// this generates the main customer component that will be rendered when the manager visits the manager view
+/**
+ * this generates the main customer component that will be rendered when the manager visits the manager view
+ * @returns {HTML} manager view
+ */
 function manager() {
     return (
         <>
@@ -21,7 +25,7 @@ function manager() {
 
                 <div className="grid-item">
                     {/* renders the current employees that are clocked in */}
-                    <CurrEmployees />
+                    <WeatherDisplay />
                 </div>
 
                 <div className="grid-item">

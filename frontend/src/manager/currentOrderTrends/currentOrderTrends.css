@@ -12,3 +12,15 @@
     align-items: center;
 }
 
+#refresh-chart-btn {
+    padding: 5px;
+    margin: 10px;
+    align-self: flex-end;
+    border-radius: 7px;
+}
+
+#refresh-chart-btn:hover {
+    cursor: pointer;
+    background-color: #e32d2d;
+}
+

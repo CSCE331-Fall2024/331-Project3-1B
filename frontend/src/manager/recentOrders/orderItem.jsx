@@ -1,6 +1,10 @@
 import "./orderItem.css";
 
 // creates a card for each of the most recent orders
+/**
+ * creates a card for each of the most recent orders
+ * @returns {HTML} the order card
+ */
 function OrderItem ({ orderTotal, orderNumber }) {
     return (
         <>

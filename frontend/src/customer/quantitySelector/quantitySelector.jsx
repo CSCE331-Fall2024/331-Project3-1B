@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './quantitySelector.css';
 
 export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
@@ -19,14 +19,11 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
     };
 
     // Play Sound Effect on button click
-    const audioRef = useRef(null);
-    const playsound = () => {
-        audioRef.current.play();
-    };
     function playSound(file) {
         var audio = new Audio(file);
         audio.play();
     }
+    
     // Reset quantity to 0 whenever resetQuantities changes
     useEffect(() => {
         if (resetQuantities) {
@@ -38,9 +35,9 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
     return (
         <div className="quantifier-container">
             <div className="quantifier">
-                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('../../../public/Sounds/Decrease.mp3')}}>-</button>
+                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('../../../public/Sounds/ButtonSound.mp3')}}>-</button>
                 <span>{quantity}</span>
-                <button className="quantifier-button" onClick={() => {handleAdd();playSound('../../../public/Sounds/Increase.mp3')}}>+</button>
+                <button className="quantifier-button" onClick={() => {handleAdd();playSound('../../../public/Sounds/ButtonSound.mp3')}}>+</button>
             </div>
         </div>
     );

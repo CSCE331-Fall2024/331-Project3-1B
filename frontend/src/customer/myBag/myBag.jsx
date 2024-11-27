@@ -1,9 +1,14 @@
 import { useEffect } from "react";
 import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
+import GoogleTranslate from "../../googleTranslate/googleTranslate.jsx";
 import "./myBag.css";
 
 // This component will display the items in the cart, functionality not complete yet.
+/** 
+ * This component will display the items in the cart
+ * @returns {HTML} MyBag component
+ */
 export default function () {
     const navigate = useNavigate();
     const { cart, setCart } = useCart();
@@ -31,6 +36,12 @@ export default function () {
         clearCart();
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -40,12 +51,14 @@ export default function () {
 
     return (
         <>
+
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
-                <button onClick={orderMore} id="header-button">
+                <button onClick={() => {orderMore();playSound('../../../public/Sounds/ButtonSound.mp3')}} id="header-button">
                     <h1 className="header-button-title">Order More</h1>
                 </button>
             </div>
+            {/* <GoogleTranslate /> */}
             <div className="my-bag-container">
                 <h1 className="my-bag-title">My Bag</h1>
                 <div className="my-bag-contents">
@@ -142,8 +155,8 @@ export default function () {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) (
-                                                            {item.type})
+                                                            {item.quantity}) 
+                                                            {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
                                                 )
@@ -155,7 +168,7 @@ export default function () {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => removeCombo(index)}
+                                        onClick={() => {removeCombo(index),playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                     >
                                         <h2>Remove</h2>
                                     </button>
@@ -172,13 +185,13 @@ export default function () {
                     {cart.length > 0 && (
                         <>
                             <button
-                                onClick={clearCurrCart}
+                                onClick={() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                 className="clear-cart-button"
                             >
                                 <h2>Clear Cart</h2>
                             </button>
                             <button
-                                onClick={placeOrder}
+                                onClick={() => {placeOrder();playSound('../../../public/Sounds/ButtonSound.mp3')}}
                                 className="place-order-button"
                             >
                                 <h2>Checkout</h2>

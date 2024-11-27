@@ -1,6 +1,16 @@
 import "./employeeCard.css";
 
 // creating individual employee cards
+/**
+ * creating individual employee cards with given attributes
+ * @param {string} name
+ * @param {int} id
+ * @param {string} position
+ * @param {string} email 
+ * @param {function} removeEmployee
+ * @param {function} editEmployee
+ * @returns {HTML} EmployeeCard
+ */
 function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee }) {
     return (
         <>
@@ -10,10 +20,7 @@ function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee 
                 <h2 className="employee-info">{position}</h2>
                 <h2 className="employee-info">{email}</h2>
                 <div className="function-btn-container">
-                    <button className="function-employee-button" onClick={ removeEmployee }>Remove Employee</button>
-                </div>
-                <div className="function-btn-container">
-                <button className="function-employee-button" onClick={ editEmployee }>Edit Employee</button>
+                    <button className="function-employee-button" onClick={removeEmployee}>Remove Employee</button>
                 </div>
             </div>
         </>
