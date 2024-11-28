@@ -6,7 +6,7 @@ function SalesOrderHistory() {
     const [zTotalOrders, setZTotalOrders] = useState(null);
     const [zTotalSales, setZTotalSales] = useState(null);
     const [zTotalItems, setZTotalItems] = useState(null);
-
+    
     function formatDateTime(date) {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed

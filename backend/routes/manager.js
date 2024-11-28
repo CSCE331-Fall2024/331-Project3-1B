@@ -439,6 +439,76 @@ router.get('/zReport', async (req, res) => {
         res.status(500).send("Error generating Z Report");
     }
 });
+
+router.get('/xReport', async (req, res) => {
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD
+
+    let xReportResults = [];
+
+    // opening hours 10am-9pm
+    for (let hour = 10; hour <= 20; ++hour) {
+        const starttime = `${formattedDate} ${String(hour).padStart(2, '0')}:00:00`;
+        const endtime = `${formattedDate} ${String(hour).padStart(2, '0')}:59:59`;
+
+        const xReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+        const xReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+        const xReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
+
+        let total_sales_count = 0;
+        let total_sales_price = 0;
+        let item_count = 0;
+
+        // get total sales
+        try {
+            const result1 = await pool.query(xReportQuery1, [starttime, endtime]);
+            if (result1.rows.length > 0) {
+                total_sales_price = result1.rows[0].total_sales;
+            }
+        } catch (error) {
+            console.error('Error in xReport query 1', error);
+            res.status(500).send("Error generating query 1 in xReport");
+            return
+        }
+
+        // get total orders
+        try {
+            const result2 = await pool.query(xReportQuery2, [starttime, endtime]);
+            if (result2.rows.length > 0) {
+                total_sales_count = result2.rows[0].total_orders;
+            }
+        } catch (error) {
+            console.error("Error in xReport query 2", error);
+            res.status(500).send("Error generating query 2 in xReport");
+            return
+        }
+
+        try {
+            const result3 = await pool.query(xReportQuery3, [starttime, endtime]);
+            if (result3.rows.length > 0) {
+                let total_items = result3.rows;
+                total_items.map(item => {
+                    if (item.item_serial_number > 12) {
+                        ++item_count;
+                    }
+                });
+            } else {
+                console.error('Could not find items sold in this one hour frame');
+                res.status(500).send('Error getting items in time frame');
+            }
+        } catch (error) {
+            console.error('Error in generating xReport query 3');
+            res.status(500).send('Error generating query 3 in xReport');
+            return;
+        }
+
+        xReportResults.push(`There were ${total_sales_count} orders totaling $${total_sales_price} between ${starttime} and ${endtime} - ${item_count} sold`);
+    };
+
+    res.json(xReportResults);
+});
+
+
 /**
  * adds menu item
  * @param {string} name - name of new item

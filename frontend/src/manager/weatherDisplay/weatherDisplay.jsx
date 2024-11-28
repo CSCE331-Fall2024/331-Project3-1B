@@ -28,7 +28,7 @@ function WeatherDisplay() {
     };
 
     const getWeatherMessage = () => {
-        if (parseFloat(kelvinToFarenheit(currTemp)) < 50 || parseFloat(kelvinToFarenheit(currTemp)) > 100 || currWeatherCondition != 'Clear') {
+        if (parseFloat(kelvinToFarenheit(currTemp)) < 50 || parseFloat(kelvinToFarenheit(currTemp)) > 100 || currWeatherCondition != 'Clear' && currWeatherCondition != 'Clouds') {
             return 'Extreme weather expected today. Expect less customers than usual.';
         }
         return 'Favorable weather conditions today! Expect the usual amount of customers.';
