@@ -1,6 +1,7 @@
 import "./intermediate.css"
 
 import { Link, useNavigate } from 'react-router-dom';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 
 /**
@@ -12,9 +13,14 @@ export function IntermediatePage(){
     // Create navigate variable to use for navigation
     const navigate = useNavigate();
 
+    // function to handle login
+    const handleLogin = () => {
+        
+    }
+
     // Button function to navigate to cashier
     const navigateToPOS = () => {
-        navigate('/cashier');
+        navigate('/intermediate/cashierintermediate');
     };
 
     // Button function to navigate to customer
@@ -24,7 +30,7 @@ export function IntermediatePage(){
 
     // Button function to navigate to manager
     const navigateToManager = () => {
-        navigate('/manager');
+        navigate('/intermediate/managerintermediate');
     };
 
     // Play Sound Effect on button click
