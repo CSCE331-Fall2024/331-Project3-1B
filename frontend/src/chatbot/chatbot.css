@@ -156,5 +156,6 @@
 
 .text-message-container{
     text-wrap: wrap;
-    font-size: 13px;
+    font-size: 14px;
+    font-family: Arial, sans-serif; 
 }
