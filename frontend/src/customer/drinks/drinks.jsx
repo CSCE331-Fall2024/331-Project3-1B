@@ -7,6 +7,7 @@ import { useState } from "react";
 import "./drinks.css";
 import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
+import Chatbot from "../../chatbot/chatbot.jsx";
 
 
 /**
@@ -89,6 +90,7 @@ export default function () {
                         <h1 className="footer-type">{currType}</h1>
                     </div>
                     <div>
+                        <Chatbot />
                         <AddToOrder
                             items={currOrder}
                             onAddToOrder={handleAddToOrder}

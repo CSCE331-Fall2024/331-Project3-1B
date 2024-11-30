@@ -52,7 +52,6 @@ export default function () {
 
     return (
         <>
-        <Chatbot/>
             
 
             <div id="header-container">
@@ -220,7 +219,11 @@ export default function () {
                             >
                                 <h2>Checkout</h2>
                             </button>
+                            <Chatbot />
                         </>
+                    )}
+                    {cart.length == 0 && (
+                        <Chatbot /> 
                     )}
                 </div>
             </footer>

@@ -7,6 +7,7 @@ import { CartProvider } from "../myBag/CartContext.jsx";
 import { useState, useEffect } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
 import { getEntrees, getSides } from "../customerFunctions/customer.js";
+import Chatbot from "../../chatbot/chatbot.jsx";
 
 /**
  * Generates the item page component
@@ -21,12 +22,10 @@ export default function ItemPage() {
     let constEntrees = getEntrees(currType);
     let constSides = getSides(currType);
 
-
     // The function that will clear the current cart
     const clearCurrCart = () => {
         clearCart();
     };
-
 
     // The function that will update the order with the new quantity
     const updateOrder = (name, type, quantity) => {
@@ -70,28 +69,34 @@ export default function ItemPage() {
     }, [resetQuantities]);
 
     const sides = [
-        ["White Steamed Rice",""],
-        ["Fried Rice","Contains: egg, soy, wheat, sesame."],
-        ["Chow Mein","Contains: soy, wheat, sesame."],
-        ["Super Greens","Contains: soy, wheat."]
+        ["White Steamed Rice", ""],
+        ["Fried Rice", "Contains: egg, soy, wheat, sesame."],
+        ["Chow Mein", "Contains: soy, wheat, sesame."],
+        ["Super Greens", "Contains: soy, wheat."],
     ];
     const entrees = [
-        ["Original Orange Chicken","Contains: eggs, milk, soy, wheat, sesame."],
-        ["Beijing Beef","Contains: milk, soy, wheat."],
-        ["Grilled Teriyaki Chicken","Contains: soy, wheat, sesame."],
-        ["Broccoli Beef","Contains: soy, wheat, sesame."],
-        ["Kung Pao Chicken","Contains: peanuts, soy, wheat, sesame."],
-        ["Honey Sesame Chicken Breast","Contains: wheat, sesame."],
-        ["Black Pepper Chicken","Contains: soy, wheat."],
-        ["String Bean Chicken Breast","Contains: soy, wheat, sesame."],
-        ["Mushroom Beef","Contains: soy, wheat, sesame."],
-        ["Honey Walnut Shrimp","Contains: tree nuts, shellfish, eggs, milk, soy, wheat."],
-        ["Black Pepper Sirloin Steak","Contains: soy, wheat."],
-        ["Sweet Fire Chicken Breast","Contains: wheat."]
+        [
+            "Original Orange Chicken",
+            "Contains: eggs, milk, soy, wheat, sesame.",
+        ],
+        ["Beijing Beef", "Contains: milk, soy, wheat."],
+        ["Grilled Teriyaki Chicken", "Contains: soy, wheat, sesame."],
+        ["Broccoli Beef", "Contains: soy, wheat, sesame."],
+        ["Kung Pao Chicken", "Contains: peanuts, soy, wheat, sesame."],
+        ["Honey Sesame Chicken Breast", "Contains: wheat, sesame."],
+        ["Black Pepper Chicken", "Contains: soy, wheat."],
+        ["String Bean Chicken Breast", "Contains: soy, wheat, sesame."],
+        ["Mushroom Beef", "Contains: soy, wheat, sesame."],
+        [
+            "Honey Walnut Shrimp",
+            "Contains: tree nuts, shellfish, eggs, milk, soy, wheat.",
+        ],
+        ["Black Pepper Sirloin Steak", "Contains: soy, wheat."],
+        ["Sweet Fire Chicken Breast", "Contains: wheat."],
     ];
 
     // ==============================
-    // TODO: Add kids drinks to panda cub meal item page. Drink requirement will need to be added along with listing to the footer. 
+    // TODO: Add kids drinks to panda cub meal item page. Drink requirement will need to be added along with listing to the footer.
     // ==============================
 
     return (
@@ -139,6 +144,8 @@ export default function ItemPage() {
                         )}
                     </div>
                     <div>
+                        <Chatbot />
+
                         <AddToOrder
                             items={currOrder}
                             onAddToOrder={handleAddToOrder}

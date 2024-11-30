@@ -8,6 +8,7 @@ import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
 
 import "./appetizers.css";
+import Chatbot from "../../chatbot/chatbot.jsx";
 
 // Appetizers component, displays the appetizers and includes the AddToOrder component
 /**
@@ -92,6 +93,7 @@ export default function () {
                         <h1 className="footer-type">{currType}</h1>
                     </div>
                     <div>
+                        <Chatbot />
                         <AddToOrder
                             items={currOrder}
                             onAddToOrder={handleAddToOrder}

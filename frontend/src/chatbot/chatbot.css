@@ -10,11 +10,11 @@
     background-color: #fefefe;
     position: fixed;
     bottom: 20px;
-    right: 20px;   
+    right: 20px;
     z-index: 1000;
 }
 
-.header-container{
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +48,7 @@
     padding: 10px;
     border-radius: 5px;
     max-width: 70%;
+    min-width: 30%;
     word-break: break-word;
 }
 
@@ -123,7 +124,8 @@
     cursor: pointer;
     transition: all 0.3s;
     color: #d61927;
-    width: 100px;
+    width: 160px;
+    height: 48px;
 }
 
 .chatbot-button:hover {
@@ -133,11 +135,11 @@
     cursor: pointer;
 }
 
-.icon-size{
-    font-size: 30px;
+.icon-size {
+    font-size: 22px;
 }
 
-.close-chatbot{
+.close-chatbot {
     border: none;
     background-color: transparent;
     font-weight: 700;
@@ -146,6 +148,6 @@
     top: -5px;
 }
 
-.close-chatbot:hover{
+.close-chatbot:hover {
     color: #d61927;
 }
