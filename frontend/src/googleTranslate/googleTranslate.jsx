@@ -3,13 +3,14 @@ import { translateText } from "./translate.js"; // The utility function created 
 import { languageContext } from "./languageContext.jsx";
 import { useLocation } from "react-router-dom";
 import "./googleTranslate.css";
+
 /**
- * generates a component that handles the translation functionality of the application
- * @returns {HTML} the translate component
+ * Generates a component that handles the translation functionality of the application.
+ * @returns {HTML} The translate component.
  */
 export default function googleTranslate() {
-    const [isTranslating, setIsTranslating] = useState(false);
-    const location = useLocation();
+    const [isTranslating, setIsTranslating] = useState(false); // State to track translation status
+    const location = useLocation(); // Tracks the current route location
     const top_languages = {
         English: "en",
         "Chinese (Simplified)": "zh",
@@ -22,18 +23,14 @@ export default function googleTranslate() {
         Japanese: "ja",
         German: "de",
     };
-    
 
-    const { language, changeLanguage } = useContext(languageContext);
+    const { language, changeLanguage } = useContext(languageContext); // Language context for translation management
 
-    
-
-    const handleLanguageChange = (e) => {
-        const newLanguage = e.target.value;
-        changeLanguage(newLanguage); // Update the context and local storage
-    };
-
-    
+    /**
+     * Collects all visible text nodes from the DOM except those inside elements
+     * with the `notranslate` class.
+     * @returns {Array<Node>} Array of text nodes to be translated.
+     */
     const collectTextNodes = () => {
         const textNodes = [];
         const walker = document.createTreeWalker(
@@ -68,8 +65,12 @@ export default function googleTranslate() {
         return textNodes;
     };
 
+    /**
+     * Translates all text nodes on the page based on the selected language.
+     * Uses the `translateText` utility function for translation.
+     */
     const translatePage = async () => {
-        setIsTranslating(true);
+        setIsTranslating(true); // Indicate that translation is in progress
 
         // Collect all text nodes
         const textNodes = collectTextNodes();
@@ -86,28 +87,36 @@ export default function googleTranslate() {
             });
         }
 
-        setIsTranslating(false);
+        setIsTranslating(false); // Indicate that translation is complete
     };
 
-
+    /**
+     * Effect hook that runs on component mount to set the language based on
+     * a persisted value in localStorage. If the persisted language is not English,
+     * it translates the page to match.
+     */
     useEffect(() => {
-        const persistedLanguage = localStorage.getItem("selectedLanguage") || "en";
-    
+        const persistedLanguage =
+            localStorage.getItem("selectedLanguage") || "en";
+
         if (persistedLanguage !== "en") {
             changeLanguage(persistedLanguage); // Update context state to match persisted language
             translatePage(persistedLanguage); // Translate the page
         }
     }, []); // Runs only once on mount
 
+    /**
+     * Effect hook that runs whenever the route location changes.
+     * Translates the page if the current language is not English.
+     */
     useEffect(() => {
         if (language !== "en") {
             translatePage(language);
         }
     }, [location]); // Runs whenever the location changes
-    
 
     return (
-        <div  className="notranslate translate-container">
+        <div className="notranslate translate-container">
             <select
                 id="language-selector"
                 value={language}
@@ -127,7 +136,7 @@ export default function googleTranslate() {
             <button
                 onClick={translatePage}
                 disabled={isTranslating}
-                className="notranslate"
+                className="notranslate translate-button"
             >
                 {isTranslating ? "Translating..." : "Translate"}
             </button>
@@ -137,9 +146,9 @@ export default function googleTranslate() {
                     textNodes.forEach((node) => {
                         node.nodeValue = node.originalText; // Reset to original English text
                     });
-                    changeLanguage("en");
+                    changeLanguage("en"); // Reset language to English
                 }}
-                className="notranslate"
+                className="notranslate translate-button"
             >
                 Reset
             </button>

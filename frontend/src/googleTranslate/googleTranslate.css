@@ -22,3 +22,13 @@ button:hover, select:hover{
 
 }
 
+.translate-button{
+    background-color: #fff;
+    border: none;
+}
+
+.translate-button:hover{
+    box-sizing: border-box;
+    outline: 2px solid black;
+}
+
