@@ -30,7 +30,6 @@ let pandaText = "";
 
 router.post("/chat", async (req, res) => {
     const query = req.body.query;
-    console.log("Received query:", query);
 
     if (!query) {
         return res.status(400).json({ reply: "Please provide a question." });
