@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@google-cloud/translate": "^8.5.0",
     "@react-oauth/google": "^0.12.1",
     "axios": "^1.7.7",

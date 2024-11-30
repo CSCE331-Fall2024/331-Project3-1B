@@ -6,12 +6,10 @@ require("dotenv").config(); // Load environment variables
 
 const { ChatGroq } = require("@langchain/groq");
 
-
 const router = express();
 router.use(cors());
 router.use(express.json());
 
-// Initialize the Groq model
 const llm = new ChatGroq({
     model: "llama-3.1-70b-versatile", // Groq model name
     temperature: 0.3, // Set temperature for deterministic responses
@@ -24,7 +22,6 @@ let pandaText = "";
     try {
         const filePath = path.join(__dirname, "context.txt");
         pandaText = await fs.readFile(filePath, "utf-8");
-        console.log(pandaText);
         console.log("File content loaded successfully!");
     } catch (error) {
         console.error("Error loading text file:", error);
@@ -35,9 +32,8 @@ router.post("/chat", async (req, res) => {
     const query = req.body.query;
     console.log("Received query:", query);
 
-
     if (!query) {
-        return res.status(400).json({ reply: "Please provide a query." });
+        return res.status(400).json({ reply: "Please provide a question." });
     }
 
     try {
@@ -46,13 +42,11 @@ router.post("/chat", async (req, res) => {
             {
                 role: "system",
                 content:
-                    "You are a helpful assistant for Panda Express customers.",
+                    "You are a helpful assistant for Panda Express customers. Do not ask follow-up questions. Only answer questions that are related to Panda Express.",
             },
             { role: "assistant", content: pandaText }, // Inject the context
             { role: "user", content: query }, // User's question
         ];
-
-
 
         // Call the Groq model using LangChain
         const response = await llm.invoke(messages);
@@ -67,9 +61,5 @@ router.post("/chat", async (req, res) => {
     }
 });
 
-// Example route to check if the server is running
-router.get("/chatbot-test", (req, res) => {
-    res.send("Chatbot backend with Groq is running.");
-});
 
 module.exports = router;
