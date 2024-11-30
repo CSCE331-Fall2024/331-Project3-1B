@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
-import GoogleTranslate from "../../googleTranslate/googleTranslate.jsx";
+import Chatbot from "../../chatbot/chatbot.jsx";
 import "./myBag.css";
 
 // This component will display the items in the cart, functionality not complete yet.
-/** 
+/**
  * This component will display the items in the cart
  * @returns {HTML} MyBag component
  */
@@ -48,13 +48,22 @@ export default function () {
         setCart(savedCart);
     }, []);
 
+    
 
     return (
         <>
+        <Chatbot/>
+            
 
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
-                <button onClick={() => {orderMore();playSound('../../../public/Sounds/ButtonSound.mp3')}} id="header-button">
+                <button
+                    onClick={() => {
+                        orderMore();
+                        playSound("../../../public/Sounds/ButtonSound.mp3");
+                    }}
+                    id="header-button"
+                >
                     <h1 className="header-button-title">Order More</h1>
                 </button>
             </div>
@@ -155,7 +164,7 @@ export default function () {
                                                     >
                                                         <h3>
                                                             {item.name} (
-                                                            {item.quantity}) 
+                                                            {item.quantity})
                                                             {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
@@ -168,7 +177,12 @@ export default function () {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => {removeCombo(index),playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                                        onClick={() => {
+                                            removeCombo(index),
+                                                playSound(
+                                                    "../../../public/Sounds/ButtonSound.mp3"
+                                                );
+                                        }}
                                     >
                                         <h2>Remove</h2>
                                     </button>
@@ -185,13 +199,23 @@ export default function () {
                     {cart.length > 0 && (
                         <>
                             <button
-                                onClick={() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                                onClick={() => {
+                                    clearCurrCart();
+                                    playSound(
+                                        "../../../public/Sounds/ButtonSound.mp3"
+                                    );
+                                }}
                                 className="clear-cart-button"
                             >
                                 <h2>Clear Cart</h2>
                             </button>
                             <button
-                                onClick={() => {placeOrder();playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                                onClick={() => {
+                                    placeOrder();
+                                    playSound(
+                                        "../../../public/Sounds/ButtonSound.mp3"
+                                    );
+                                }}
                                 className="place-order-button"
                             >
                                 <h2>Checkout</h2>

@@ -37,10 +37,12 @@ app.get('/', (req, res) => {
 
 const managerRouter = require('./routes/manager')
 const SubmitRouter = require('./routes/SubmitOrder')
+const ChatbotRouter = require('./routes/chatbot')
 
 
 app.use("/manager", managerRouter);
 app.use("/submit", SubmitRouter)
+app.use("/chat", ChatbotRouter)
 
 
 app.listen(PORT, () => {
