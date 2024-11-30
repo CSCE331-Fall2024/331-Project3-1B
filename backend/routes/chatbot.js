@@ -15,7 +15,6 @@ const llm = new ChatGroq({
     model: "llama-3.1-70b-versatile", // Specify the model to use
     temperature: 0.3, // Set the response temperature for deterministic results
     apiKey: process.env.CHATBOT_API_KEY, // Load the API key for authentication
-    maxTokens: 75, // Limit the number of tokens in the response
 });
 
 // Load the Panda Express contextual information at server startup
@@ -49,7 +48,7 @@ router.post("/chat", async (req, res) => {
             {
                 role: "system",
                 content:
-                    "You are a helpful assistant for Panda Express customers. Do not ask follow-up questions. Only answer questions that are related to Panda Express.",
+                    "You are a helpful assistant for Panda Express customers. Do not ask follow-up questions. Only answer questions that are related to Panda Express. Keep response brief and concise.",
             },
             { role: "assistant", content: pandaText }, // Inject the preloaded context
             { role: "user", content: query }, // Include the user's query

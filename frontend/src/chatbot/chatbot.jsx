@@ -86,7 +86,7 @@ const Chatbot = () => {
                                 key={index}
                                 className={`message ${msg.sender}`} // Add classes based on the sender
                             >
-                                {msg.text}
+                                <pre className="text-message-container">{msg.text}</pre>
                             </div>
                         ))}
                     </div>

@@ -152,3 +152,9 @@
 .close-chatbot:hover {
     color: #d61927;
 }
+
+
+.text-message-container{
+    text-wrap: wrap;
+    font-size: 13px;
+}
