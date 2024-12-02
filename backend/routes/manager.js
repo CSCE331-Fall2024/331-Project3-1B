@@ -670,5 +670,15 @@ const GetInventoryUsage = async (starttime, endtime) => {
     return inventory_usage;
 };
 
+router.get('/getInventoryUsage', async (req, res) => {
+    const { startTime, endTime } = req.query; // use query for get requests
+    try {
+        const result = await GetInventoryUsage(startTime, endTime);
+        res.json(result);
+    } catch (error) {
+        console.error('Error getting inventory usage');
+        res.status(500).send('Could not get inventory usage for report');
+    }
+});
 
 module.exports = router;
