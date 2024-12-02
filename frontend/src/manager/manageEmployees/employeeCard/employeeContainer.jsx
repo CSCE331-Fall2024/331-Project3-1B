@@ -11,7 +11,7 @@ function EmployeeContainer() {
 
     // api call to get employee information. Stores info in array.
     useEffect(() => {
-        fetch('http://localhost:3001/manager/get_all_employees')
+        fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_all_employees`)
             .then(response => response.json())
             .then(data => {
                 const employeeNames = data.map(employee => employee.full_name);
@@ -38,7 +38,7 @@ function EmployeeContainer() {
     const removeEmployee = async (index) => {
         const employeeID = id[index];
         try {
-            const response = await fetch(`http://localhost:3001/manager/remove_employee/${employeeID}`, {
+            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/remove_employee/${employeeID}`, {
                 method: 'DELETE',
             });
             if (response.ok) {

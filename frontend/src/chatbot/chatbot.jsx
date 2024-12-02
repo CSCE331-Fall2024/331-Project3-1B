@@ -27,7 +27,7 @@ const Chatbot = () => {
 
         try {
             // Send the user's message to the backend API
-            const response = await fetch("http://localhost:3000/chat/chat", {
+            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/chat/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query: input }),
