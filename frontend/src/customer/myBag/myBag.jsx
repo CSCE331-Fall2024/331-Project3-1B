@@ -63,7 +63,8 @@ export default function () {
                     }}
                     id="header-button"
                 >
-                    <h1 className="header-button-title">Order More</h1>
+                    <img src="../../../public/Images/Icons/Plus.png" className="header-bag-icon"/>
+                    <p className="header-button-title">Order More</p>
                 </button>
             </div>
             {/* <GoogleTranslate /> */}
@@ -183,7 +184,8 @@ export default function () {
                                                 );
                                         }}
                                     >
-                                        <h2>Remove</h2>
+                                        <img src="../../../public/Images/Icons/X.png" className="bag-icons"/>
+                                        <p className="button-text">Remove</p>
                                     </button>
                                 )}
                             </div>
@@ -206,7 +208,8 @@ export default function () {
                                 }}
                                 className="clear-cart-button"
                             >
-                                <h2>Clear Cart</h2>
+                                <img src="../../../public/Images/Icons/Trash.png" className="bag-icons"/>
+                                <p className="button-text">Clear Cart</p>
                             </button>
                             <button
                                 onClick={() => {
@@ -217,9 +220,10 @@ export default function () {
                                 }}
                                 className="place-order-button"
                             >
-                                <h2>Checkout</h2>
+                                <img src="../../../public/Images/Icons/Cart.png" className="bag-icons"/>
+                                <p className="button-text">Checkout</p>
                             </button>
-                            <Chatbot />
+                            <Chatbot /> 
                         </>
                     )}
                     {cart.length == 0 && (
