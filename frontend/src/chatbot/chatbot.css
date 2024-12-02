@@ -125,15 +125,15 @@
     cursor: pointer;
     transition: all 0.3s;
     color: #d61927;
-    width: 160px;
-    height: 48px;
+    width: 70px;
+    height: 57px;
 }
 
-.chatbot-button:hover {
-    border: 3px solid white;
+.chatbot-button:hover, .chatbot-button:focus{
     text-decoration: bold;
-    box-shadow: 0 0 10px 0 black;
-    cursor: pointer;
+    box-shadow: 0 0 20px 0 black;
+    outline: solid;
+    outline-width: 0;
 }
 
 .icon-size {
