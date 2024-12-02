@@ -59,11 +59,11 @@ export default function () {
                 <button
                     onClick={() => {
                         orderMore();
-                        playSound("../../../public/Sounds/ButtonSound.mp3");
+                        playSound("/Sounds/ButtonSound.mp3");
                     }}
                     id="header-button"
                 >
-                    <img src="../../../public/Images/Icons/Plus.png" className="header-bag-icon"/>
+                    <img src="/Images/Icons/Plus.png" className="header-bag-icon"/>
                     <p className="header-button-title">Order More</p>
                 </button>
             </div>
@@ -180,11 +180,11 @@ export default function () {
                                         onClick={() => {
                                             removeCombo(index),
                                                 playSound(
-                                                    "../../../public/Sounds/ButtonSound.mp3"
+                                                    "/Sounds/ButtonSound.mp3"
                                                 );
                                         }}
                                     >
-                                        <img src="../../../public/Images/Icons/X.png" className="bag-icons"/>
+                                        <img src="/Images/Icons/X.png" className="bag-icons"/>
                                         <p className="button-text">Remove</p>
                                     </button>
                                 )}
@@ -203,24 +203,24 @@ export default function () {
                                 onClick={() => {
                                     clearCurrCart();
                                     playSound(
-                                        "../../../public/Sounds/ButtonSound.mp3"
+                                        "/Sounds/ButtonSound.mp3"
                                     );
                                 }}
                                 className="clear-cart-button"
                             >
-                                <img src="../../../public/Images/Icons/Trash.png" className="bag-icons"/>
+                                <img src="/Images/Icons/Trash.png" className="bag-icons"/>
                                 <p className="button-text">Clear Cart</p>
                             </button>
                             <button
                                 onClick={() => {
                                     placeOrder();
                                     playSound(
-                                        "../../../public/Sounds/ButtonSound.mp3"
+                                        "/Sounds/ButtonSound.mp3"
                                     );
                                 }}
                                 className="place-order-button"
                             >
-                                <img src="../../../public/Images/Icons/Cart.png" className="bag-icons"/>
+                                <img src="/Images/Icons/Cart.png" className="bag-icons"/>
                                 <p className="button-text">Checkout</p>
                             </button>
                             <Chatbot /> 
