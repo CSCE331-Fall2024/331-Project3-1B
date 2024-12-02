@@ -411,7 +411,12 @@ router.get('/get_ingredients', async (req, res) => {
         res.send({message : "Could not query info... *Debug information later*"});        
     }
 });
-
+/**
+ * creates a zReport given the start and end times
+ * @param {Timestamp} starttime
+ * @param {Timestamp} endtime
+ * @return {JSON} zReport
+ */
 router.get('/zReport', async (req, res) => {
     const { starttime, endtime } = req.query;
 
@@ -439,7 +444,10 @@ router.get('/zReport', async (req, res) => {
         res.status(500).send("Error generating Z Report");
     }
 });
-
+/**
+ * creates a xReport for the current day
+ * @return {JSON} xReport
+ */
 router.get('/xReport', async (req, res) => {
     const today = new Date();
     const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD

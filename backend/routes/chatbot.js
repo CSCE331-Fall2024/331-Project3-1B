@@ -33,6 +33,10 @@ let pandaText = ""; // Variable to hold the preloaded context
 })();
 
 // Define the POST route for handling chat queries
+/** Define the POST route for handling chat queries
+ * @param {String} query
+ * @param {String} reply
+ */
 router.post("/chat", async (req, res) => {
     const query = req.body.query; // Extract the user's query from the request body
 

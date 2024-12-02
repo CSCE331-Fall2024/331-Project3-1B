@@ -16,7 +16,7 @@ function MenuItems() {
 
     // api call to get all menu items
     useEffect(() => {
-        fetch('http://localhost:3001/manager/get_menu_items')
+        fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_menu_items`)
             .then(response => response.json())
             .then(items => {
                 const itemIds = items.map(item => item.item_serial_number);

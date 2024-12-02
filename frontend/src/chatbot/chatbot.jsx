@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import "./chatbot.css";
-
+/**
+ * Generates the component for the chatbot
+ * @returns {HTML} chatbot component
+ */
 const Chatbot = () => {
     // State to manage the messages in the chat
     const [messages, setMessages] = useState([]);
@@ -27,7 +30,7 @@ const Chatbot = () => {
 
         try {
             // Send the user's message to the backend API
-            const response = await fetch("http://localhost:3000/chat/chat", {
+            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/chat/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query: input }),

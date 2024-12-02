@@ -35,7 +35,7 @@ function SalesOrderHistory() {
     const createZReport = async () => {
         getDate();
         try {
-            const result = await fetch(`http://localhost:3001/manager/zReport?starttime='${starttime}'&endtime='${endtime}'`);
+            const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport?starttime='${starttime}'&endtime='${endtime}'`);
             const data = await result.json()
             setZTotalSales(data.totalSales);
             setZTotalOrders(data.totalOrders);
@@ -49,7 +49,7 @@ function SalesOrderHistory() {
     const createXReport = async () => {
         getDate();
         try {
-            const result = await fetch(`http://localhost:3001/manager/xReport?starttime='${starttime}'&endtime='${endtime}'`);
+            const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/xReport?starttime='${starttime}'&endtime='${endtime}'`);
             const data = await result.json();
             setXReport(data);
         } catch (error) {
