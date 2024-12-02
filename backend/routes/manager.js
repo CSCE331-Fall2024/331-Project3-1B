@@ -411,7 +411,12 @@ router.get('/get_ingredients', async (req, res) => {
         res.send({message : "Could not query info... *Debug information later*"});        
     }
 });
-
+/**
+ * creates a zReport given the start and end times
+ * @param {Timestamp} starttime
+ * @param {Timestamp} endtime
+ * @return {JSON} zReport
+ */
 router.get('/zReport', async (req, res) => {
     const { starttime, endtime } = req.query;
 
@@ -439,7 +444,10 @@ router.get('/zReport', async (req, res) => {
         res.status(500).send("Error generating Z Report");
     }
 });
-
+/**
+ * creates a xReport for the current day
+ * @return {JSON} xReport
+ */
 router.get('/xReport', async (req, res) => {
     const today = new Date();
     const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD
@@ -544,7 +552,123 @@ router.get('/edit_menu_item/:name/:column/:new_val'), async (req, res) => {
     }
 }
 
+/**
+ * gets the number of items given combo type
+ * @param {int} item_type_number 
+ * @returns number of items in combo
+ */
+const getEntreeAndSide = async (item_type_number) => {
+    try {
+        const query = `SELECT sides,entree FROM combo_details WHERE combo_serial_number = '${item_type_number}' ;`;
+        const result = await pool.query(query);
+       // console.log(result);
+        let numSides = parseInt(result.rows[0].sides.toString());
+        let numEntrees = parseInt(result.rows[0].entree.toString());
+        return numSides + numEntrees; 
+    } catch (error) {
+        console.error(error);
+    }
 
+};
+/**
+ *  reconstructs order from database and given order number
+ * @param {int} order_number 
+ * @returns list of pair of combo type and item number
+ */
+const ReconstructOrder = async (order_number) =>{
+    let combos = [];
+    let buffer = [];
+    try {
+        const query = `SELECT item_serial_number FROM sales_order_history_details WHERE Order_Number = '${order_number}' ORDER BY insertion_order;`;
+        const result = await pool.query(query);
+        for(const row of result.rows){
+            buffer.push(parseInt(row.item_serial_number.toString()));
+        }
+    } catch (error) {
+        console.error("Error");
+    }
+    let combobuffer = [];
+    let itembuffer = [];
+    let index = 0;
+    for(const i of buffer)
+    {
+        if(i <= 12){
+            combobuffer.push(i);
+        }
+        else
+        {
+            itembuffer.push(i - 12);
+        }
+    }
+    for(const combo_type of combobuffer)
+    {
+       let numberofitems = await getEntreeAndSide(combo_type);
+       for(let i = 0; i < numberofitems; i++){
+        combos.push([combo_type,itembuffer[index]]);
+        index++;
+       }
+       combos.push([combo_type,28]);
+
+    }
+    return combos;
+
+};
+/**
+ * gets the inventory usage given a time range
+ * @param {Timestamp} starttime 
+ * @param {Timestamp} endtime 
+ * @return pair of ingredient and usage amount
+ */
+const GetInventoryUsage = async (starttime, endtime) => {
+    let inventory_usage = [];
+    let orders = [];
+    let tempcount = 0;
+    try {
+        const query = "SELECT COUNT(*) AS total_inventory FROM Inventory";
+        const result = await pool.query(query);
+        tempcount = result.rows[0].total_inventory
+    } catch (error) {
+        console.error(error);
+    }
+    for(let i = 0; i < tempcount; i++){
+        inventory_usage.push([i,0.0]);
+    }
+
+    try {
+        const query = "SELECT Order_number FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+        const result = await pool.query(query, [starttime,endtime]);
+        for(const row of result.rows){
+            orders.push(parseInt(row.order_number.toString()));
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    for(let i of orders)
+    {
+        let combos = await ReconstructOrder(i);
+        console.log(combos);
+        for(let entry of combos)
+        {
+            let option_serial_number = entry[0];
+            let item_serial_number = entry[1];
+            let resultlist = [];
+            try {
+                const query = "SELECT Ingredient_Serial_Number,Servings FROM Menu_Ingredients WHERE Option_Serial_Number = $1 AND Item_Serial_Number = $2;";
+                const result = await pool.query(query, [option_serial_number, item_serial_number]);
+                for(const row of result.rows){
+                    resultlist.push([row.ingredient_serial_number,parseFloat(row.servings)]);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+            for(let item of resultlist)
+            {
+              inventory_usage[item[0]][1] += item[1] ;
+            }
+        }
+    }
+    return inventory_usage;
+};
 
 
 module.exports = router;

@@ -1,7 +1,9 @@
 import "./weatherDisplay.css";
 import { useState, useEffect } from "react";
-
-// creates a container that holds all the employees that are currently clocked in
+/**
+ * gets the current weather from api and interprets it for managerial use
+ * @returns {HTML} weather component
+ */
 function WeatherDisplay() {
     const [currTemp, setCurrTemp] = useState(null);
     const [currWeatherCondition, setCurrWeatherCondition] = useState(null);
@@ -21,7 +23,6 @@ function WeatherDisplay() {
     
         getWeather();
     }, []);
-
     const kelvinToFarenheit = (kelvin) => {
         const farenheit = (kelvin - 273.15) * 9/5 + 32;
         return farenheit.toFixed(1);
