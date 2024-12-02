@@ -92,7 +92,7 @@ function SalesOrderHistory() {
                         {zTotalItems != null ? 
                         <div className='indiv-report'>
                             <h3>Z Report:</h3>
-                            <p>There were {zTotalOrders} totaling {zTotalSales} between {starttime} and {endtime} - {zTotalItems} items sold</p>
+                            <p>There were {zTotalOrders} totaling ${zTotalSales} between {starttime} and {endtime} - {zTotalItems} items sold</p>
                         </div>
                         : ''}
                     </div>
