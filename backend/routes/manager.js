@@ -510,7 +510,7 @@ router.get('/xReport', async (req, res) => {
             return;
         }
 
-        xReportResults.push(`There were ${total_sales_count} orders totaling $${total_sales_price} between ${starttime} and ${endtime} - ${item_count} sold`);
+        xReportResults.push(`There were ${total_sales_count} orders totaling $${total_sales_price} between ${starttime} and ${endtime} - ${item_count} items sold`);
     };
 
     res.json(xReportResults);
