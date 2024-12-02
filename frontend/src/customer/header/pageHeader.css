@@ -21,7 +21,7 @@
 
 #header-button {
     background-color: #ffffff;
-    width: auto;
+    width: 230px;
     border-radius: 8px;
     transition: box-shadow .2s;
 }

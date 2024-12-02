@@ -117,6 +117,7 @@ export default function googleTranslate() {
 
     return (
         <div className="notranslate translate-container">
+            <label htmlFor="language-selector" id="dropdown-title">Language Selector:</label>
             <select
                 id="language-selector"
                 value={language}

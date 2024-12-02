@@ -35,12 +35,18 @@ function SalesOrderHistory() {
     const createZReport = async () => {
         getDate();
         try {
-            const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport?starttime='${starttime}'&endtime='${endtime}'`);
-            const data = await result.json()
-            setZTotalSales(data.totalSales);
-            setZTotalOrders(data.totalOrders);
-            setZTotalItems(data.itemCount);
-            console.log(zTotalOrders, zTotalSales, zTotalItems);
+            if (zTotalItems) {
+                setZTotalItems(null);
+                setZTotalOrders(null);
+                setZTotalSales(null);
+            } else {
+                const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport?starttime='${starttime}'&endtime='${endtime}'`);
+                const data = await result.json()
+                setZTotalSales(data.totalSales);
+                setZTotalOrders(data.totalOrders);
+                setZTotalItems(data.itemCount);
+                console.log(zTotalOrders, zTotalSales, zTotalItems);
+            }
         } catch (error) {
             console.error("Could not get zReport data");
         }
@@ -49,9 +55,13 @@ function SalesOrderHistory() {
     const createXReport = async () => {
         getDate();
         try {
-            const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/xReport?starttime='${starttime}'&endtime='${endtime}'`);
-            const data = await result.json();
-            setXReport(data);
+            if (xReport.length !== 0) {
+                setXReport([]);
+            } else {
+                const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/xReport?starttime='${starttime}'&endtime='${endtime}'`);
+                const data = await result.json();
+                setXReport(data);
+            }
         } catch (error) {
             console.error('Error in creating X report');
         }
@@ -67,10 +77,27 @@ function SalesOrderHistory() {
                     <button className='report-btn' onClick={ createZReport }>Z Report</button>
                 </div>
                 <div id='report-container'>
-                    <p>{zTotalOrders}, {zTotalSales}, {zTotalItems}</p>
                     <div>
-                        {xReport.map((report, index) => <p key={index}>{report}</p>)}
+                        {xReport.length > 0 ? 
+                            <div className='indiv-report'>
+                                <h3>X Report: </h3>
+                                {xReport.map((report, index) => <p key={index}>{report}</p>)}
+                            </div>
+                            : ''
+                        }
+                        
                     </div>
+
+                    <div>
+                        {zTotalItems != null ? 
+                        <div className='indiv-report'>
+                            <h3>Z Report:</h3>
+                            <p>There were {zTotalOrders} totaling {zTotalSales} between {starttime} and {endtime} - {zTotalItems} items sold</p>
+                        </div>
+                        : ''}
+                    </div>
+
+
                 </div>
             </div>
         </>
