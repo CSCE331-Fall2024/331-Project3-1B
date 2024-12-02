@@ -5,19 +5,9 @@ import { useEffect } from "react";
 
 export function Receipt() {
     const { cart, setCart } = useCart();
-    const { clearCart } = useCart();
     const { removeItemFromCart } = useCart();
-    const navigate = useNavigate();
 
-    // The function that will clear the current cart
-    const clearCurrCart = () => {
-        clearCart();
-    };
-
-    // The function that will navigate back to the home page
-    const orderMore = () => {
-        navigate("/customer");
-    };
+    
 
     // Play Sound Effect on button click
     function playSound(file) {
@@ -30,15 +20,7 @@ export function Receipt() {
         removeItemFromCart(index);
     };
 
-    // The function that will submit the order once connected with backend call
-    const placeOrder = () => {
-        console.log("Placing order:\n:", cart);
-        clearCart();
-    };
-
-    const parseReceipt = () => {
-        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    }
+    
     
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load
