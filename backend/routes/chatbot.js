@@ -26,7 +26,6 @@ let pandaText = ""; // Variable to hold the preloaded context
 
         // Read the context file asynchronously and store its content
         pandaText = await fs.readFile(filePath, "utf-8");
-        console.log("File content loaded successfully!");
     } catch (error) {
         // Log an error if the file could not be read
         console.error("Error loading text file:", error);
