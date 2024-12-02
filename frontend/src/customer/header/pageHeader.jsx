@@ -38,11 +38,11 @@ export default function PageHeader() {
                     <div id="buttons-header">
 
                         <button onClick={() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}} id='back-button'>
-                            <h1 className="back-button-title">Back</h1>
+                            <p className="back-button-title"><img src="../../../public/Images/Icons/Home.png" className="header-icons"/>Login</p>
                         </button>
 
                         <button onClick={() => {goToMyBag();playSound('../../../public/Sounds/ButtonSound.mp3')}} id="header-button">
-                            <h1 className="header-button-title">My Bag</h1>
+                            <p className="header-button-title"><img src="../../../public/Images/Icons/Cart.png" className="header-icons"/>My Bag</p>
                         </button>
 
                         

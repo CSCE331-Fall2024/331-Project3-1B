@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+    margin: 0;
     padding: 0 20px;
+    padding-bottom: 5px;
     background-color: #D61927;
     height: 100px;
 }
@@ -21,8 +22,7 @@
 #header-button {
     background-color: #ffffff;
     width: auto;
-    border-radius: 20px;
-    border: none;
+    border-radius: 8px;
     transition: box-shadow .2s;
 }
 
@@ -35,14 +35,15 @@
 
 .header-button-title {
     color: #D61927;
-    padding: 10px 25px;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #back-button {
     background-color: #ffffff;
     width: auto;
-    border-radius: 20px;
-    border: none;
+    border-radius: 8px;
     transition: box-shadow .2s;
 }
 
@@ -55,13 +56,26 @@
 
 .back-button-title {
     color: #D61927;
-    padding: 10px 25px;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .icons {
     width: 20px;
     float: left;
+    align-items: center;
     /* filter tool is a shortcut to change the color of an image, in this case changing 
     the icons from black to an approximation for Panda Express brick red ($D61927) */
     filter: invert(14%) sepia(58%) saturate(5964%) hue-rotate(347deg) brightness(86%) contrast(95%);   
+}
+
+.header-icons {
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    align-items: center;
+    /* filter tool is a shortcut to change the color of an image, in this case changing 
+    the icons from black to an approximation for Panda Express brick red ($D61927) */
+    filter: invert(14%) sepia(58%) saturate(5964%) hue-rotate(347deg) brightness(86%) contrast(95%);
 }
