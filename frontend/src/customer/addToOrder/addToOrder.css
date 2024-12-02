@@ -5,7 +5,9 @@
     cursor: pointer;
     transition: all 0.3s;
     color: #D61927;
-    width: 160px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .add-to-order-button:hover, .add-to-order-button:focus{

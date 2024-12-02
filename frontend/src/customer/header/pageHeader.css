@@ -57,3 +57,10 @@
     color: #D61927;
     padding: 10px 25px;
 }
+
+.icons {
+    width: 20px;
+    margin-right: 10px;
+    filter: invert(14%) sepia(58%) saturate(5964%) hue-rotate(347deg) brightness(86%) contrast(95%);
+    float:left;
+}

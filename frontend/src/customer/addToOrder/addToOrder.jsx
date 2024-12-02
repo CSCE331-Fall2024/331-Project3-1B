@@ -77,7 +77,8 @@ export default function ({ items = [], onAddToOrder }) {
     
     return (
         <button onClick={() => {addToOrderTotal();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="add-to-order-button">
-            <h2>Add to Order</h2>
+            
+            <p><img src="../../../public/Images/Icons/Plus.png" className="icons"/>Add to Order</p>
         </button>
     );
 }

@@ -26,7 +26,7 @@ export default function () {
     return (
         <>
             <button onClick={() => {backToMenu();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="back-to-menu-button">
-                <h2>Back to Menu</h2>
+                <p><img src="../../../public/Images/Icons/Back.png" className="icons"/>Back to Menu</p>
             </button>
         </>
     );
