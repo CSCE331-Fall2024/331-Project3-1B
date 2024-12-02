@@ -60,7 +60,8 @@
 
 .icons {
     width: 20px;
-    margin-right: 10px;
-    filter: invert(14%) sepia(58%) saturate(5964%) hue-rotate(347deg) brightness(86%) contrast(95%);
-    float:left;
+    float: left;
+    /* filter tool is a shortcut to change the color of an image, in this case changing 
+    the icons from black to an approximation for Panda Express brick red ($D61927) */
+    filter: invert(14%) sepia(58%) saturate(5964%) hue-rotate(347deg) brightness(86%) contrast(95%);   
 }
