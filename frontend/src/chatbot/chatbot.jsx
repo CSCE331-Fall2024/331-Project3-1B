@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import "./chatbot.css";
-
+/**
+ * Generates the component for the chatbot
+ * @returns {HTML} chatbot component
+ */
 const Chatbot = () => {
     // State to manage the messages in the chat
     const [messages, setMessages] = useState([]);
