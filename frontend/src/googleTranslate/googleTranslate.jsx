@@ -105,6 +105,12 @@ export default function googleTranslate() {
         }
     }, []); // Runs only once on mount
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     /**
      * Effect hook that runs whenever the route location changes.
      * Translates the page if the current language is not English.
@@ -117,11 +123,11 @@ export default function googleTranslate() {
 
     return (
         <div className="notranslate translate-container">
-            <label htmlFor="language-selector" id="dropdown-title">Language Selector:</label>
+            <label htmlFor="language-selector" id="dropdown-title">Language:</label>
             <select
                 id="language-selector"
                 value={language}
-                onChange={(e) => changeLanguage(e.target.value)}
+                onChange={(e) => {changeLanguage(e.target.value);playSound('/Sounds/ButtonSound.mp3')}}
                 className="notranslate"
             >
                 {Object.keys(top_languages).map((lang) => (
@@ -135,21 +141,21 @@ export default function googleTranslate() {
                 ))}
             </select>
             <button
-                onClick={translatePage}
-                disabled={isTranslating}
-                className="notranslate translate-button"
+                onClick={() => {translatePage();playSound('/Sounds/ButtonSound.mp3')}}
+                disabled={isTranslating}    
+                className="translate-button"
             >
                 {isTranslating ? "Translating..." : "Translate"}
             </button>
             <button
-                onClick={() => {
+                onClick={() => {playSound('/Sounds/ButtonSound.mp3');
                     const textNodes = collectTextNodes();
                     textNodes.forEach((node) => {
                         node.nodeValue = node.originalText; // Reset to original English text
                     });
                     changeLanguage("en"); // Reset language to English
                 }}
-                className="notranslate translate-button"
+                className="reset-button"
             >
                 Reset
             </button>

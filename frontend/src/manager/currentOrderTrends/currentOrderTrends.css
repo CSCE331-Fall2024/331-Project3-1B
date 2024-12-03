@@ -27,9 +27,7 @@
 }
 
 #refresh-chart-btn:hover, #refresh-chart-btn:focus {
-    text-decoration: bold;
-    box-shadow: 0 0 20px 0 black;
-    outline: solid;
-    outline-width: 0;
+    box-shadow: 0 0 20px 0 #000000;
+    outline: none;
 }
 

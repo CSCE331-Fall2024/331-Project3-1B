@@ -11,6 +11,7 @@
 
 .order-more-button:hover, .place-order-button:hover, .clear-cart-button:hover, .remove-combo-button:hover, .order-more-button:focus, .place-order-button:focus, .clear-cart-button:focus, .remove-combo-button:focus { 
     box-shadow: 0 0 20px 0 #000000;
+    outline: none;
 }
 
 .my-bag-container{

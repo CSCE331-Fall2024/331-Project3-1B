@@ -11,6 +11,7 @@
 
 .item-card-container:hover, .item-card-container:focus {
     box-shadow: 0 0 10px 0 #000000;
+    outline: none;
 }
 
 .item-card-image {
