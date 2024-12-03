@@ -110,7 +110,7 @@ function AddEmployee() {
                             <input name='position' className='input-container' type='text' value={details.position} onChange={handleChange} required />
                         </div>
 
-                        <button id='submit-btn' type='submit'>Submit</button>
+                        <button id='submit-btn' type='submit' onClick={() => {playSound('/Sounds/ButtonSound.mp3')}}>Submit</button>
                     </div>
                 </form>
 
