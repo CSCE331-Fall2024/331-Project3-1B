@@ -77,6 +77,23 @@ function SalesOrderHistory() {
         }
     };
 
+    const createInventoryReport = async (startTime, endTime) => {
+        try {
+            const result = await fetch(`http://localhost:3001/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`);
+            const data = await result.json();
+            // add data to state variable
+        } catch (error) {
+            console.error('Could not create inventory report');
+        }
+    }
+    const handleInvDateChange = (e) => {
+        const { name, value } = e.target;
+        setInventoryReportTime(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     return (
         <>
             <PageHeader />
