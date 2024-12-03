@@ -3,9 +3,8 @@ import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
 import { useCart } from "../customer/myBag/CartContext.jsx";
-import { json, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
-import {useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 // CashierPageHeader is the component that cashier view.
 /** CashierPageHeader is the header component of the cashier view
@@ -69,17 +68,7 @@ export function CashierPageHeader() {
                 })
             });
 
-            // console.log('Response status:', response.status); // Log the response status
-            // console.log('Response headers:', response.headers); // Log headers for debugging
-
-            // if (!response.ok) {
-            //     const errorData = await response.json();
-            //     console.error('Server returned an error:', errorData);
-            //     throw new Error(`HTTP error! Status: ${response.status} - ${errorData.message || 'Unknown error'}`);
-            // }
-
-            //const data = await response.json();
-            //console.log('Server response:', data);
+            
             alert(`Order submitted successfully:`);
             clearCart();
         } catch (error) {
@@ -88,8 +77,6 @@ export function CashierPageHeader() {
         }
 
 
-        //console.log("Order Submitted:\n", cart);
-        //clearCart();
     };
 
     return (
