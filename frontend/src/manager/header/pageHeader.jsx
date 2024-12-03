@@ -62,7 +62,7 @@ function PageHeader() {
                 </button>
 
                 <button onClick={() => {salesOrderHistoryClick(); playSound('/Sounds/ButtonSound.mp3')}} className="nav-btn">
-                    <h1 className="nav-btn-text"><i className="fa-solid fa-clock-rotate-left icons"/>{' '}Sales Order History</h1>
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-clock-rotate-left icons"/>{' '}Sales Reports</h1>
                 </button>
             </div>
         </>

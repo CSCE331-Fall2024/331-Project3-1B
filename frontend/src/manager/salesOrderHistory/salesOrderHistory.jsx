@@ -1,16 +1,14 @@
 import './salesOrderHistory.css';
 import PageHeader from '../header/pageHeader.jsx';
 import ZReportGraph from './zReportGraph/zReportGraph.jsx';
+import InventoryGraph from './inventoryGraph/inventoryGraph.jsx';
 import { useEffect, useState } from 'react';
 
 
 function SalesOrderHistory() {
     const [displayZ, setDisplayZ] = useState(false);
     const [xReport, setXReport] = useState([]);
-    const [inventoryReport, setInventoryReport] = useState({
-        x: null,
-        y: null,
-    })
+    const [displayInventory, setDisplayInventory] = useState(false);
     const [inventoryReportTime, setInventoryReportTime] = useState({
         start: '',
         end: '',
@@ -60,15 +58,6 @@ function SalesOrderHistory() {
         }
     };
 
-    const createInventoryReport = async (startTime, endTime) => {
-        try {
-            const result = await fetch(`http://localhost:3001/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`);
-            const data = await result.json();
-            // add data to state variable
-        } catch (error) {
-            console.error('Could not create inventory report');
-        }
-    }
     const handleInvDateChange = (e) => {
         const { name, value } = e.target;
         setInventoryReportTime(prevState => ({
@@ -76,6 +65,18 @@ function SalesOrderHistory() {
             [name]: value
         }));
     };
+
+    const createInventoryReport = () => {
+        if (displayInventory) {
+            setDisplayInventory(false);
+            setInventoryReportTime({
+                start: '',
+                end: '',
+            });
+        } else if (!displayInventory && inventoryReportTime.start && inventoryReportTime.end) {
+            setDisplayInventory(true);
+        }
+    }
 
     return (
         <>
@@ -136,6 +137,10 @@ function SalesOrderHistory() {
                         : ''}
                     </div>
 
+                    <div>
+                        {displayInventory ? <InventoryGraph startTime={inventoryReportTime.start} endTime={inventoryReportTime.end} /> : ''}
+                        
+                    </div>
 
                 </div>
             </div>

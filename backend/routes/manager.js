@@ -450,32 +450,6 @@ router.get('/zReport', async (req, res) => {
     };
 
     res.json(zReportResults);
-
-    // const { starttime, endtime } = req.query;
-
-    // const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    // const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    // const zReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
-    // try {
-    //     const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
-    //     const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
-    //     const result3 = await pool.query(zReportQuery3, [starttime, endtime]);
-
-    //     const totalSales = result1.rows[0].total_sales;
-    //     const totalOrders = result2.rows[0].total_orders;
-    //     const totalItems = result3.rows;
-    //     let itemCount = 0;
-    //     totalItems.map(item => {
-    //         if (item.item_serial_number > 12) {
-    //             ++itemCount;
-    //         }
-    //     })
-
-    //     res.json({ totalSales, totalOrders, itemCount });
-    // } catch (error) {
-    //     console.error("Error in zReport query", error);
-    //     res.status(500).send("Error generating Z Report");
-    // }
 });
 /**
  * creates a xReport for the current day
@@ -688,7 +662,6 @@ const GetInventoryUsage = async (starttime, endtime) => {
     for(let i of orders)
     {
         let combos = await ReconstructOrder(i);
-        console.log(combos);
         for(let entry of combos)
         {
             let option_serial_number = entry[0];
@@ -709,8 +682,30 @@ const GetInventoryUsage = async (starttime, endtime) => {
             }
         }
     }
+
+    for (let id = 0; id < inventory_usage.length; ++id) {
+        try {
+            const query = `SELECT name FROM inventory WHERE id = ${id + 1};`;
+            const result = await pool.query(query);
+            inventory_usage[id][0] = result.rows[0].name;
+        } catch (error) {
+            console.error('Error getting name for inventory item');
+        }
+    }
+
     return inventory_usage;
 };
+
+router.get('/getInventoryUsage', async (req, res) => {
+    const { startTime, endTime } = req.query; // use query for get requests
+    try {
+        const result = await GetInventoryUsage(startTime, endTime);
+        res.json(result);
+    } catch (error) {
+        console.error('Error getting inventory usage');
+        res.status(500).send('Could not get inventory usage for report');
+    }
+});
 
 /**
  * gets the sales report list of items
@@ -742,18 +737,9 @@ const getSalesReport = async (starttime, endtime) => {
     } catch (error) {
         console.error(error);
     }
+
     return SalesReport;
 }
 
-router.get('/getInventoryUsage', async (req, res) => {
-    const { startTime, endTime } = req.query; // use query for get requests
-    try {
-        const result = await GetInventoryUsage(startTime, endTime);
-        res.json(result);
-    } catch (error) {
-        console.error('Error getting inventory usage');
-        res.status(500).send('Could not get inventory usage for report');
-    }
-});
 
 module.exports = router;
