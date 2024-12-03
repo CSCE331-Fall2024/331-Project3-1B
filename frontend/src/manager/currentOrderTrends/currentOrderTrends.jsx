@@ -59,7 +59,9 @@ function OrderTrends() {
                         }}
                     />
                 </div>
-                <button id='refresh-chart-btn' onClick={ () => {getComboData(true);playSound('../../../public/Sounds/ButtonSound.mp3')} }>Refresh</button>
+                <button id='refresh-chart-btn' onClick={ () => {getComboData(true);playSound('../../../public/Sounds/ButtonSound.mp3')} }>
+                    <p><i className="fa-solid fa-arrows-rotate icons"/> Refresh</p>
+                </button>
             </div>
 
 

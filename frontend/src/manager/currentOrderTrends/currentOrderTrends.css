@@ -13,14 +13,23 @@
 }
 
 #refresh-chart-btn {
-    padding: 5px;
-    margin: 10px;
+    padding: 3px;
+    margin: 5px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #D61927;
+    width: 110px;
+    font-size: 15px;
+    font-weight: bold;
     align-self: flex-end;
-    border-radius: 7px;
 }
 
-#refresh-chart-btn:hover {
-    cursor: pointer;
-    background-color: #e32d2d;
+#refresh-chart-btn:hover, #refresh-chart-btn:focus {
+    text-decoration: bold;
+    box-shadow: 0 0 20px 0 black;
+    outline: solid;
+    outline-width: 0;
 }
 

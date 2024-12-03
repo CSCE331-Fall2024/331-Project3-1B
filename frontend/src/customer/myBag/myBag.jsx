@@ -63,7 +63,7 @@ export default function () {
                     }}
                     className="order-more-button"
                 >
-                    <p className="button-text"><i className="fa-solid fa-circle-plus icons"/> Order More</p>
+                    <p className="button-text"><i className="fa-solid fa-cart-plus icons"/> Order More</p>
                 </button>
             </div>
             {/* <GoogleTranslate /> */}
