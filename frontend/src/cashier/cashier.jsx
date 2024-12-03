@@ -82,9 +82,15 @@ export function CashierPageHeader() {
     return (
         <CartProvider>
             <div className="cashier-header-bar">
-                <button onClick = {() => {back();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Back</button>
-                <button onClick={() => {submitOrder();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-header-button">Submit</button>
-                <button onClick = {() => {clearCurrCart();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Delete Order</button>
+                <button onClick = {() => {back();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">
+                    <p><i className="fa-solid fa-right-to-bracket icons"/> Login</p>
+                </button>
+                <button onClick={() => {submitOrder();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-header-button">
+                    <p><i className="fa-solid fa-cash-register icons"/> Submit</p>
+                </button>
+                <button onClick = {() => {clearCurrCart();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">
+                    <p><i className="fa-solid fa-trash icons"/> Delete Order</p>
+                </button>
             </div>
         </CartProvider>
     );
