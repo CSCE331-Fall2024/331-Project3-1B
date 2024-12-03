@@ -443,8 +443,8 @@ router.get('/zReport', async (req, res) => {
             return
         }
 
-        const start_time = starttime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const end_time = endtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        endtime.setSeconds(60);
+        const end_time = endtime.toLocaleTimeString([], {hour: "numeric"});
 
         zReportResults[[end_time]] = total_sales_price;
     };
