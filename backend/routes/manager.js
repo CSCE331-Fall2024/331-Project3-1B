@@ -670,6 +670,39 @@ const GetInventoryUsage = async (starttime, endtime) => {
     return inventory_usage;
 };
 
+/**
+ * gets the sales report list of items
+ * @param {Timestamp} starttime 
+ * @param {Timestamp} endtime 
+ * @returns list of items and number of times ordered
+ */
+const getSalesReport = async (starttime, endtime) => {
+    let tempcount = 0;
+    try {
+        const query = "SELECT max(item_serial_number) AS maxnumber FROM sales_order_history_details";
+        const result = await pool.query(query);
+        tempcount = result.rows[0].maxnumber
+    } catch (error) {
+        console.error(error);
+    }
+    let SalesReport = [];
+    for(let i = 0; i < tempcount - 12; i++){
+        SalesReport.push([i + 1,0]);
+    }
+    try {
+        const query = "SELECT sales_order_history_details.item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number INNER JOIN menu_items ON sales_order_history_details.item_serial_number = menu_items.item_serial_number WHERE date_time_ordered BETWEEN $1 AND $2;";
+        const result = await pool.query(query, [starttime, endtime]);
+        for(const row of result.rows){
+          if(row.item_serial_number > 12){
+          SalesReport[row.item_serial_number - 13][1]++;
+          }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    return SalesReport;
+}
+
 router.get('/getInventoryUsage', async (req, res) => {
     const { startTime, endTime } = req.query; // use query for get requests
     try {
