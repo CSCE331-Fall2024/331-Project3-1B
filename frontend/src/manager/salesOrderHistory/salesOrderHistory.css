@@ -22,6 +22,43 @@
     padding: 7px;
 }
 
+.report-btn:hover {
+    cursor: pointer;
+    background-color: #D61927;
+    box-shadow: 0 0 15px 0 #000000;
+}
+
 .indiv-report {
     padding: 10px 0px;
+}
+
+#btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-input {
+    padding: 5px;
+    margin: 5px;
+    width: 130px;
+}
+
+.data-row {
+    text-align: center;
+}
+
+.table-item {
+    padding: 7px;
+}
+
+table {
+    border: 2px solid black;
+    justify-self: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+th {
+    border-bottom: 1px solid black;
 }

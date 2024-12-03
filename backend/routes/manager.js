@@ -456,8 +456,8 @@ router.get('/xReport', async (req, res) => {
 
     // opening hours 10am-9pm
     for (let hour = 10; hour <= 20; ++hour) {
-        const starttime = `${formattedDate} ${String(hour).padStart(2, '0')}:00:00`;
-        const endtime = `${formattedDate} ${String(hour).padStart(2, '0')}:59:59`;
+        const starttime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:00:00`);
+        const endtime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:59:59`);
 
         const xReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
         const xReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
@@ -510,10 +510,19 @@ router.get('/xReport', async (req, res) => {
             return;
         }
 
-        xReportResults.push(`There were ${total_sales_count} orders totaling $${total_sales_price} between ${starttime} and ${endtime} - ${item_count} items sold`);
+        const start_time = starttime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const end_time = endtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        xReportResults.push({
+            start_time,
+            end_time,
+            total_orders: total_sales_count,
+            total_cost: total_sales_price,
+            total_items: item_count
+        });
     };
 
-    res.json(xReportResults);
+    res.send(xReportResults);
 });
 
 
