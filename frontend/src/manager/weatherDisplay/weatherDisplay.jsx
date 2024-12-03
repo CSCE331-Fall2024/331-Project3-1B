@@ -39,8 +39,8 @@ function WeatherDisplay() {
         <div id="weather-container">
             <h2 id="weather-title">Today's Weather</h2>
             <div id="weather-info-container">
-                <h3>Current Temperature: {kelvinToFarenheit(currTemp)}°F</h3>
-                <h3>Current Weather: {currWeatherCondition}</h3>
+                <h3>Current Temperature:{' '}{kelvinToFarenheit(currTemp)}°F</h3>
+                <h3>Current Weather:{' '}{currWeatherCondition}</h3>
                 <p>{getWeatherMessage()}</p>                
             </div>
             

@@ -10,7 +10,7 @@ function OrderItem ({ orderTotal, orderNumber }) {
         <>
             <div id="order-container">
                 <h4 id="order-item">
-                    Total: ${ orderTotal } - Order Number: { orderNumber }
+                    Total: ${orderTotal}{' '}- Order Number:{' '}{orderNumber}
                 </h4>
             </div>
         </>

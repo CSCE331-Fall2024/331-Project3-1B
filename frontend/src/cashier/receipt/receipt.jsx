@@ -62,7 +62,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -83,7 +83,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -105,7 +105,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -127,7 +127,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
