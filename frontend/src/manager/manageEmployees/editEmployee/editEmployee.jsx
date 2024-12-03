@@ -81,11 +81,17 @@ function EditEmployee() {
         }
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (<>
         <PageHeader />
         <div id='edit-emp-header-container'>
             <h2>Edit Employee</h2>
-            <button id='back-btn' onClick={ backButtonClick }>Back</button>
+            <button id='back-btn' onClick={() => {backButtonClick();playSound('/Sounds/ButtonSound.mp3')}}>Back</button>
         </div>
         <div id='edit-emp-container'>
             <div className='label-field'>
@@ -109,7 +115,7 @@ function EditEmployee() {
             </div>
 
 
-            <button id='submit-btn' onClick={ handleSubmit }>Submit</button>
+            <button id='submit-btn' onClick={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>Submit</button>
         </div>
     </>)
 };
