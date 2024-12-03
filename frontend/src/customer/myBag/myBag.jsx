@@ -61,10 +61,9 @@ export default function () {
                         orderMore();
                         playSound("/Sounds/ButtonSound.mp3");
                     }}
-                    id="header-button"
+                    className="order-more-button"
                 >
-                    <img src="/Images/Icons/Plus.png" className="header-bag-icon"/>
-                    <p className="header-button-title">Order More</p>
+                    <p className="button-text"><i className="fa-solid fa-circle-plus icons"/> Order More</p>
                 </button>
             </div>
             {/* <GoogleTranslate /> */}
@@ -184,8 +183,7 @@ export default function () {
                                                 );
                                         }}
                                     >
-                                        <img src="/Images/Icons/X.png" className="bag-icons"/>
-                                        <p className="button-text">Remove</p>
+                                        <p className="button-text"><i className="fa-solid fa-trash icons"/> Remove</p>
                                     </button>
                                 )}
                             </div>
@@ -208,8 +206,7 @@ export default function () {
                                 }}
                                 className="clear-cart-button"
                             >
-                                <img src="/Images/Icons/Trash.png" className="bag-icons"/>
-                                <p className="button-text">Clear Cart</p>
+                                <p className="button-text"><i className="fa-solid fa-trash icons"/> Clear Cart</p>
                             </button>
                             <button
                                 onClick={() => {
@@ -220,8 +217,7 @@ export default function () {
                                 }}
                                 className="place-order-button"
                             >
-                                <img src="/Images/Icons/Cart.png" className="bag-icons"/>
-                                <p className="button-text">Checkout</p>
+                                <p className="button-text"><i className="fa-solid fa-cash-register icons"/> Checkout</p>
                             </button>
                             <Chatbot /> 
                         </>
