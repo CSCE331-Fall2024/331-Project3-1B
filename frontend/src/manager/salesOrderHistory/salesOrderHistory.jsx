@@ -1,12 +1,11 @@
 import './salesOrderHistory.css';
 import PageHeader from '../header/pageHeader.jsx';
+import ZReportGraph from './zReportGraph/zReportGraph.jsx';
 import { useEffect, useState } from 'react';
 
 
 function SalesOrderHistory() {
-    const [zTotalOrders, setZTotalOrders] = useState(null);
-    const [zTotalSales, setZTotalSales] = useState(null);
-    const [zTotalItems, setZTotalItems] = useState(null);
+    const [displayZ, setDisplayZ] = useState(false);
     const [xReport, setXReport] = useState([]);
     const [inventoryReport, setInventoryReport] = useState({
         x: null,
@@ -42,24 +41,8 @@ function SalesOrderHistory() {
         todayEndTime = formatDateTime(endOfDay);
     }
 
-    const createZReport = async () => {
-        getDate();
-        try {
-            if (zTotalItems) {
-                setZTotalItems(null);
-                setZTotalOrders(null);
-                setZTotalSales(null);
-            } else {
-                const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport?starttime='${todayStartTime}'&endtime='${todayEndTime}'`);
-                const data = await result.json()
-                setZTotalSales(data.totalSales);
-                setZTotalOrders(data.totalOrders);
-                setZTotalItems(data.itemCount);
-                console.log(zTotalOrders, zTotalSales, zTotalItems);
-            }
-        } catch (error) {
-            console.error("Could not get zReport data");
-        }
+    const createZReport = () => {
+        setDisplayZ(!displayZ);
     };
 
     const createXReport = async () => {
@@ -118,7 +101,7 @@ function SalesOrderHistory() {
                         {xReport.length > 0 ? 
                             <div className='indiv-report'>
                                 <h3>X Report: </h3>
-                                <h5>Between Opening Hours 10am-9pm:</h5>
+                                <h5>Between Opening Hours 10am-9pm Today:</h5>
                                 <table>
                                     <tr>
                                         <th className='table-item'>Time Frame</th>
@@ -144,10 +127,11 @@ function SalesOrderHistory() {
                     </div>
 
                     <div>
-                        {zTotalItems != null ? 
+                        {displayZ ? 
                         <div className='indiv-report'>
                             <h3>Z Report:</h3>
-                            <p>There were {zTotalOrders} total orders totaling ${zTotalSales} between {todayStartTime} and {todayEndTime} - {zTotalItems} total items sold</p>
+                            <h5>Between Opening Hours 10am-9pm Today:</h5>
+                            <ZReportGraph />
                         </div>
                         : ''}
                     </div>

@@ -418,31 +418,64 @@ router.get('/get_ingredients', async (req, res) => {
  * @return {JSON} zReport
  */
 router.get('/zReport', async (req, res) => {
-    const { starttime, endtime } = req.query;
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD
 
-    const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    const zReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
-    try {
-        const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
-        const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
-        const result3 = await pool.query(zReportQuery3, [starttime, endtime]);
+    let zReportResults = {};
+    let total_sales_price = 0;
 
-        const totalSales = result1.rows[0].total_sales;
-        const totalOrders = result2.rows[0].total_orders;
-        const totalItems = result3.rows;
-        let itemCount = 0;
-        totalItems.map(item => {
-            if (item.item_serial_number > 12) {
-                ++itemCount;
+    // opening hours 10am-9pm
+    for (let hour = 10; hour <= 20; ++hour) {
+        const starttime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:00:00`);
+        const endtime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:59:59`);
+
+        const zReportQuery = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+
+        // get total sales
+        try {
+            const result = await pool.query(zReportQuery, [starttime, endtime]);
+            if (result.rows.length > 0) {
+                total_sales_price += parseFloat(result.rows[0].total_sales);
             }
-        })
+        } catch (error) {
+            console.error('Error in zReport query', error);
+            res.status(500).send("Error generating query in zReport");
+            return
+        }
 
-        res.json({ totalSales, totalOrders, itemCount });
-    } catch (error) {
-        console.error("Error in zReport query", error);
-        res.status(500).send("Error generating Z Report");
-    }
+        const start_time = starttime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const end_time = endtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        zReportResults[[end_time]] = total_sales_price;
+    };
+
+    res.json(zReportResults);
+
+    // const { starttime, endtime } = req.query;
+
+    // const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+    // const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+    // const zReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
+    // try {
+    //     const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
+    //     const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
+    //     const result3 = await pool.query(zReportQuery3, [starttime, endtime]);
+
+    //     const totalSales = result1.rows[0].total_sales;
+    //     const totalOrders = result2.rows[0].total_orders;
+    //     const totalItems = result3.rows;
+    //     let itemCount = 0;
+    //     totalItems.map(item => {
+    //         if (item.item_serial_number > 12) {
+    //             ++itemCount;
+    //         }
+    //     })
+
+    //     res.json({ totalSales, totalOrders, itemCount });
+    // } catch (error) {
+    //     console.error("Error in zReport query", error);
+    //     res.status(500).send("Error generating Z Report");
+    // }
 });
 /**
  * creates a xReport for the current day
