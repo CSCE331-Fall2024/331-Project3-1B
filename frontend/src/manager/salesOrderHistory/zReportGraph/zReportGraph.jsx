@@ -28,7 +28,7 @@ const ZReportGraph = () => {
         datasets: [
             {
                 data: Object.values(zData),
-                label: 'Hours of the Day',
+                label: 'Sales (cumulative)',
                 borderColor: 'rgba(255, 99, 132, 1)', // Line color
                 backgroundColor: 'rgba(255, 99, 132, 1)', // Fill color
                 fill: true,
