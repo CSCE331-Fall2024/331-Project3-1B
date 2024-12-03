@@ -29,8 +29,8 @@ function ManageEmployees () {
             <div id="manage-employees-heading">
                 <h1 id="manage-employees-title">Manage Employees:</h1>
                 <div id="btn-container">
-                    <button className="employee-btn" onClick={() => {editEmployeeClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Edit Employee</button>
-                    <button className="employee-btn" onClick={() => {addEmployeeClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Add Employee</button>
+                    <button className="employee-btn" onClick={() => {editEmployeeClick();playSound('/Sounds/ButtonSound.mp3')}}>Edit Employee</button>
+                    <button className="employee-btn" onClick={() => {addEmployeeClick();playSound('/Sounds/ButtonSound.mp3')}}>Add Employee</button>
                 </div>
             </div>
             <EmployeeContainer />

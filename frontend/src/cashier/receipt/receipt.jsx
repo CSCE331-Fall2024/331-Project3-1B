@@ -141,7 +141,7 @@ export function Receipt() {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => {removeCombo(index);playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                                        onClick={() => {removeCombo(index);playSound('/Sounds/ButtonSound.mp3')}}
                                     >
                                         <h2>Remove</h2>
                                     </button>
