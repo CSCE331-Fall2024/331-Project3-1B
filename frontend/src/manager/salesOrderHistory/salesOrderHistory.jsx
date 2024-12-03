@@ -67,14 +67,20 @@ function SalesOrderHistory() {
         }
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+    
     return (
         <>
             <PageHeader />
             <h1 id='sales-title'>Sales Order History</h1>
             <div id='sales-info-container'>
                 <div id='btn-container'>
-                    <button className='report-btn' onClick={ createXReport }>X Report</button>
-                    <button className='report-btn' onClick={ createZReport }>Z Report</button>
+                    <button className='report-btn' onClick={() => {createXReport();playSound('/Sounds/ButtonSound.mp3')}}>X Report</button>
+                    <button className='report-btn' onClick={() => {createZReport();playSound('/Sounds/ButtonSound.mp3')}}>Z Report</button>
                 </div>
                 <div id='report-container'>
                     <div>
