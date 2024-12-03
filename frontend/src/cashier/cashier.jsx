@@ -58,7 +58,7 @@ export function CashierPageHeader() {
         }
 
         try {
-            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}}/submit/submit-order`, {
+            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/submit-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ export function CashierPageHeader() {
             //const data = await response.json();
             //console.log('Server response:', data);
             alert(`Order submitted successfully:`);
-            //clearCart();
+            clearCart();
         } catch (error) {
             console.error('Error submitting order:');
             alert('Failed to submit the order.' + error);
@@ -98,8 +98,6 @@ export function CashierPageHeader() {
                 <button onClick = {() => {back();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Back</button>
                 <button onClick={() => {submitOrder();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-header-button">Submit</button>
                 <button onClick = {() => {clearCurrCart();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Delete Order</button>
-                <button className="cashier-header-button">Clock In</button>
-                <button className="cashier-header-button">Clock Out</button>
             </div>
         </CartProvider>
     );
