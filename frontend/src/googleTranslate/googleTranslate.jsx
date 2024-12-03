@@ -144,8 +144,8 @@ export default function googleTranslate() {
                 onClick={() => {translatePage();playSound('/Sounds/ButtonSound.mp3')}}
                 disabled={isTranslating}    
                 className="translate-button"
-            >
-                {isTranslating ? "Translating..." : "Translate"}
+            ><i className="fa-solid fa-globe icons"/>
+                {' '}{isTranslating ? "Translating..." : "Translate"}
             </button>
             <button
                 onClick={() => {playSound('/Sounds/ButtonSound.mp3');
@@ -156,8 +156,7 @@ export default function googleTranslate() {
                     changeLanguage("en"); // Reset language to English
                 }}
                 className="reset-button"
-            >
-                Reset
+            ><i className="fa-solid fa-rotate-left icons"/>{' '}Reset
             </button>
         </div>
     );

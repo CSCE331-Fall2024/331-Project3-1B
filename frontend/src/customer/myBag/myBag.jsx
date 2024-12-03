@@ -62,8 +62,8 @@ export default function () {
                         playSound("/Sounds/ButtonSound.mp3");
                     }}
                     className="order-more-button"
-                >
-                    <p className="button-text"><i className="fa-solid fa-cart-plus icons"/> Order More</p>
+                >   
+                    <p className="button-text"><i className="fa-solid fa-cart-plus icons"/>{' '}Order More</p>
                 </button>
             </div>
             {/* <GoogleTranslate /> */}
@@ -183,7 +183,7 @@ export default function () {
                                                 );
                                         }}
                                     >
-                                        <p className="button-text"><i className="fa-solid fa-trash icons"/> Remove</p>
+                                        <p className="button-text"><i className="fa-solid fa-trash icons"/>{' '}Remove</p>
                                     </button>
                                 )}
                             </div>
@@ -206,7 +206,7 @@ export default function () {
                                 }}
                                 className="clear-cart-button"
                             >
-                                <p className="button-text"><i className="fa-solid fa-trash icons"/> Clear Cart</p>
+                                <p className="button-text"><i className="fa-solid fa-trash icons"/>{' '}Clear Cart</p>
                             </button>
                             <button
                                 onClick={() => {
@@ -217,7 +217,7 @@ export default function () {
                                 }}
                                 className="place-order-button"
                             >
-                                <p className="button-text"><i className="fa-solid fa-cash-register icons"/> Checkout</p>
+                                <p className="button-text"><i className="fa-solid fa-cash-register icons"/>{' '}Checkout</p>
                             </button>
                             <Chatbot /> 
                         </>

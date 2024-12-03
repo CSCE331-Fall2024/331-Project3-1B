@@ -143,7 +143,7 @@ export function Receipt() {
                                         className="remove-combo-button"
                                         onClick={() => {removeCombo(index);playSound('/Sounds/ButtonSound.mp3')}}
                                     >
-                                        <h2><i className="fa-solid fa-trash icons"/> Remove</h2>
+                                        <h2><i className="fa-solid fa-trash icons"/>{' '}Remove</h2>
                                     </button>
                                 )}
                             </div>
