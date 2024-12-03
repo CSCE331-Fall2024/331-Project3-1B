@@ -50,7 +50,7 @@ function ItemCard({ type }) {
     return (
         <>
             <button
-                onClick={() => {handleClick(type);playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                onClick={() => {handleClick(type);playSound('/Sounds/ButtonSound.mp3')}}
                 className="item-card-container2"
             >
                 {<img className="item-card-image2" src={imagePath} alt="" />}

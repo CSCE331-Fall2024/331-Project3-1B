@@ -81,7 +81,7 @@ function AddEmployee() {
                     <div id='add-employee-header-container'>
                         <div></div>
                         <h2>Add Employee</h2>
-                        <button id='back-btn' type='button' onClick={() => {backToEmployeePage();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Back</button>
+                        <button id='back-btn' type='button' onClick={() => {backToEmployeePage();playSound('/Sounds/ButtonSound.mp3')}}>Back</button>
                     </div>
                     <div id='add-employee-form-container'>
                         <div className='employee-form-field'>
@@ -110,7 +110,7 @@ function AddEmployee() {
                             <input name='position' className='input-container' type='text' value={details.position} onChange={handleChange} required />
                         </div>
 
-                        <button id='submit-btn' type='submit'>Submit</button>
+                        <button id='submit-btn' type='submit' onClick={() => {playSound('/Sounds/ButtonSound.mp3')}}>Submit</button>
                     </div>
                 </form>
 

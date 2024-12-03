@@ -53,9 +53,9 @@ export function IntermediatePage(){
                 </div>
 
                 <div className="navigate-buttons">
-                    <button onClick={() => {navigateToCustomer();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Customer-button">POS</button>
-                    <button onClick={() => {navigateToPOS();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="POS-button">Cashier</button>
-                    <button onClick={() => {navigateToManager();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Manager-button">Manager</button>
+                    <button onClick={() => {navigateToCustomer();playSound('/Sounds/ButtonSound.mp3')}} className="Customer-button">POS</button>
+                    <button onClick={() => {navigateToPOS();playSound('/Sounds/ButtonSound.mp3')}} className="POS-button">Cashier</button>
+                    <button onClick={() => {navigateToManager();playSound('/Sounds/ButtonSound.mp3')}} className="Manager-button">Manager</button>
                 </div>
                 
             </div>
