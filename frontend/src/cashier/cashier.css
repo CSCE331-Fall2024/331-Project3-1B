@@ -6,10 +6,7 @@
 }
 
 .cashier-header-button:hover, .cashier-header-button:focus {
-    text-decoration: bold;
-    box-shadow: 0 0 20px 0 black;
-    outline: solid;
-    outline-width: 0;
+    box-shadow: 0 0 20px 0 #000000;
 }
 
 .cashier-header-button {

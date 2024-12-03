@@ -5,12 +5,12 @@
     background-color: #dddada;
     border-width: 0;
     border-radius: 10px;
-    transition: box-shadow .2s;
+    transition: .2s;
+    cursor: pointer;
 }
 
-.item-card-container:hover {
+.item-card-container:hover, .item-card-container:focus {
     box-shadow: 0 0 10px 0 #000000;
-    cursor: pointer;
 }
 
 .item-card-image {
