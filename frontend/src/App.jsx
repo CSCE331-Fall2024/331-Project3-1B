@@ -22,6 +22,7 @@ import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
 import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
+
 /**
  * this is the main function of our product that controlls everything
  * @returns {HTML} of the whole application

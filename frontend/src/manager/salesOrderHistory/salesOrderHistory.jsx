@@ -3,8 +3,7 @@ import PageHeader from '../header/pageHeader.jsx';
 import ZReportGraph from './zReportGraph/zReportGraph.jsx';
 import InventoryGraph from './inventoryGraph/inventoryGraph.jsx';
 import SalesTrendsGraph from './salesTrendsGraph/salesTrendsGraph.jsx';
-import { useEffect, useState } from 'react';
-
+import { useState } from 'react';
 
 function SalesOrderHistory() {
     const [displayZ, setDisplayZ] = useState(false);

@@ -1,7 +1,6 @@
 import "./itemCard.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../myBag/CartContext.jsx";
-import { useEffect } from "react";
 
 // itemCard is the card that displays the item type
 /**

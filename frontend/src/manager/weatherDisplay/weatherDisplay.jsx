@@ -1,5 +1,6 @@
 import "./weatherDisplay.css";
 import { useState, useEffect } from "react";
+
 /**
  * gets the current weather from api and interprets it for managerial use
  * @returns {HTML} weather component

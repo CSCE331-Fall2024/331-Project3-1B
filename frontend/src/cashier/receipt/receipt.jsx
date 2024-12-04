@@ -1,6 +1,5 @@
 import "./receipt.css";
 import { useCart } from "../../customer/myBag/CartContext";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function Receipt() {

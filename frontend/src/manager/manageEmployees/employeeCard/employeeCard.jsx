@@ -1,6 +1,5 @@
 import "./employeeCard.css";
 
-
 // Play Sound Effect on button click
 function playSound(file) {
     var audio = new Audio(file);

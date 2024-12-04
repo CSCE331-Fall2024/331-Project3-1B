@@ -1,5 +1,4 @@
 import "./pageHeader.css";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // PageHeader component, includes myBag component => allows user to view what is in their bag.

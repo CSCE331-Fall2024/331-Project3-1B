@@ -6,7 +6,6 @@ import BackToMenu from "../backToMenuButton/backToMenu.jsx";
 import { useState } from "react";
 import { useCart } from "../myBag/CartContext.jsx";
 import { useEffect } from "react";
-
 import "./appetizers.css";
 import Chatbot from "../../chatbot/chatbot.jsx";
 
