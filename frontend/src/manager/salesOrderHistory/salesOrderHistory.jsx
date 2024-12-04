@@ -22,6 +22,7 @@ function SalesOrderHistory() {
     
     let todayStartTime;
     let todayEndTime;
+    let todayExactTime;
 
     function formatDateTime(date) {
         const year = date.getFullYear();
@@ -43,6 +44,9 @@ function SalesOrderHistory() {
         // Set end time to 23:59:59
         const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
         todayEndTime = formatDateTime(endOfDay);
+
+        // Set exact time to time and date right now
+        todayExactTime = formatDateTime(new Date());
     }
 
     const createZReport = () => {
@@ -104,6 +108,52 @@ function SalesOrderHistory() {
         }
     };
 
+    const defaultOptionInventory = (e) => {
+        const { name } = e.target;
+        getDate();
+        const now = new Date();
+        let startTime;
+        switch (name) {
+            case 'minute':
+                startTime = formatDateTime(new Date(now.getTime() - 15 * 60000)); // Subtract 15 minutes
+                break;
+            case 'hour':
+                startTime = formatDateTime(new Date(now.getTime() - 60 * 60000)); // Subtract 1 hour
+                break;
+            case 'day':
+                startTime = formatDateTime(new Date(now.getTime() - 24 * 60 * 60000)); // Subtract 1 day
+                break;
+        }
+        setInventoryReportTime({
+            start: startTime,
+            end: todayExactTime
+        });
+    };
+
+    const defaultOptionSales = (e) => {
+        const { name } = e.target;
+        getDate();
+        const now = new Date();
+        let startTime;
+        switch (name) {
+            case 'minute':
+                startTime = formatDateTime(new Date(now.getTime() - 15 * 60000)); // Subtract 15 minutes
+                break;
+            case 'hour':
+                startTime = formatDateTime(new Date(now.getTime() - 60 * 60000)); // Subtract 1 hour
+                break;
+            case 'day':
+                startTime = formatDateTime(new Date(now.getTime() - 24 * 60 * 60000)); // Subtract 1 day
+                break;
+        }
+        setMenuTrendsTime({
+            start: startTime,
+            end: todayExactTime
+        });
+    };
+
+
+
     return (
         <>
             <PageHeader />
@@ -119,12 +169,18 @@ function SalesOrderHistory() {
                         <button className='report-btn' onClick={ createInventoryReport }>Inventory Usage Report</button>
                         <input className='date-input' name='start' value={ inventoryReportTime.start } type='text' placeholder='Start Time' onChange={ handleInvDateChange }/>
                         <input className='date-input' name='end' value={ inventoryReportTime.end } type='text' placeholder='End Time' onChange={ handleInvDateChange }/>
+                        <button className='default-option-btn' name='minute' onClick={ defaultOptionInventory }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={ defaultOptionInventory }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={ defaultOptionInventory }>1 Day</button>
                     </div>
 
                     <div>
                         <button className='report-btn' onClick={ createMenuTrendsReport }>Sales History Report</button>
                         <input className='date-input' name='start' value={ menuTrendsTime.start } placeholder='Start Time' onChange={handleMenuReportChange}/>
                         <input className='date-input' name='end' value={ menuTrendsTime.end } placeholder='End Time' onChange={handleMenuReportChange}/>
+                        <button className='default-option-btn' name='minute' onClick={ defaultOptionSales }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={ defaultOptionSales }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={ defaultOptionSales }>1 Day</button>
                     </div>
                     
                 </div>
