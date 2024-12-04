@@ -1,7 +1,6 @@
 import "./intermediate.css"
 
 import { Link, useNavigate } from 'react-router-dom';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 
 /**
@@ -12,11 +11,6 @@ export function IntermediatePage(){
 
     // Create navigate variable to use for navigation
     const navigate = useNavigate();
-
-    // function to handle login
-    const handleLogin = () => {
-        
-    }
 
     // Button function to navigate to cashier
     const navigateToPOS = () => {
