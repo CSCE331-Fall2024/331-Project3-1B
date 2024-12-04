@@ -122,7 +122,7 @@ export default function googleTranslate() {
     }, [location]); // Runs whenever the location changes
 
     return (
-        <div className="notranslate translate-container">
+        <div className="translate-container">
             <label htmlFor="language-selector" id="dropdown-title">Language:</label>
             <select
                 id="language-selector"

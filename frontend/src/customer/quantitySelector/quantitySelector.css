@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .quantifier-button{
@@ -25,13 +25,11 @@
     border-radius: 30px;
     font-style: bold;
     font-size: larger;
+    cursor: pointer;
+    transition: .2s;
 }
 
 .quantifier-button:hover, .quantifier-button:focus{
     box-shadow: 0 0 20px 0 #000000;
-    cursor: pointer;
-    font-size: x-large;
-    color: #D61927;
-    outline: solid;
-    outline-width: 0;
+    outline: none
 }

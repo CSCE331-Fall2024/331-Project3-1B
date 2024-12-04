@@ -12,16 +12,19 @@
 }
 
 
-.translate-button, .reset-button, select{
+.translate-button, .reset-button, .notranslate{
     padding: 10px;
     background-color: #f8f8f8;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: 0.2s;
     color: #D61927;
     width: auto;
     font-size: 15px;
     font-weight: bold;
+    border-width: 2px;
+    border-style: outset;
+    border-color: #000000;
 }
 
 .translate-button:hover, select:hover, .reset-button:hover, .translate-button:focus, select:focus, .reset-button:focus{
@@ -31,5 +34,4 @@
 
 #dropdown-title{
     color: #FFFFFF;
-        
 }
