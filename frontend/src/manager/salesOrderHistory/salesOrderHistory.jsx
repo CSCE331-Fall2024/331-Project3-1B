@@ -24,6 +24,12 @@ function SalesOrderHistory() {
     let todayEndTime;
     let todayExactTime;
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     function formatDateTime(date) {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
@@ -161,26 +167,26 @@ function SalesOrderHistory() {
             <div id='sales-info-container'>
                 <div id='btn-container'>
                     <div>
-                        <button className='report-btn' onClick={ createXReport }>X Report</button>
-                        <button className='report-btn' onClick={ createZReport }>Z Report</button>
+                        <button className='report-btn' onClick={() => {createXReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>X Report</button>
+                        <button className='report-btn' onClick={() => {createZReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>Z Report</button>
                     </div>
 
                     <div>
-                        <button className='report-btn' onClick={ createInventoryReport }>Inventory Usage Report</button>
+                        <button className='report-btn' onClick={() => {createInventoryReport; playSound('../../../public/Sounds/ButtonSound.mp3');} }>Inventory Usage Report</button>
                         <input className='date-input' name='start' value={ inventoryReportTime.start } type='text' placeholder='Start Time' onChange={ handleInvDateChange }/>
                         <input className='date-input' name='end' value={ inventoryReportTime.end } type='text' placeholder='End Time' onChange={ handleInvDateChange }/>
-                        <button className='default-option-btn' name='minute' onClick={ defaultOptionInventory }>15 Minutes</button>
-                        <button className='default-option-btn' name='hour' onClick={ defaultOptionInventory }>1 Hour</button>
-                        <button className='default-option-btn' name='day' onClick={ defaultOptionInventory }>1 Day</button>
+                        <button className='default-option-btn' name='minute' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Day</button>
                     </div>
 
                     <div>
-                        <button className='report-btn' onClick={ createMenuTrendsReport }>Sales History Report</button>
+                        <button className='report-btn' onClick={ () => {createMenuTrendsReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>Sales History Report</button>
                         <input className='date-input' name='start' value={ menuTrendsTime.start } placeholder='Start Time' onChange={handleMenuReportChange}/>
                         <input className='date-input' name='end' value={ menuTrendsTime.end } placeholder='End Time' onChange={handleMenuReportChange}/>
-                        <button className='default-option-btn' name='minute' onClick={ defaultOptionSales }>15 Minutes</button>
-                        <button className='default-option-btn' name='hour' onClick={ defaultOptionSales }>1 Hour</button>
-                        <button className='default-option-btn' name='day' onClick={ defaultOptionSales }>1 Day</button>
+                        <button className='default-option-btn' name='minute' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Day</button>
                     </div>
                     
                 </div>
@@ -191,22 +197,27 @@ function SalesOrderHistory() {
                                 <h3>X Report: </h3>
                                 <h5>Between Opening Hours 10am-9pm Today:</h5>
                                 <table>
-                                    <tr>
-                                        <th className='table-item'>Time Frame</th>
-                                        <th className='table-item'>Total Orders</th>
-                                        <th className='table-item'>Total Items</th>
-                                        <th className='table-item'>Total Sales</th>
-                                    </tr>
-                                    { xReport.map((val, index) => {
-                                        return (
-                                            <tr className='data-row' key={index}>
-                                                <td>{ val.start_time } - { val.end_time }</td>
-                                                <td>{ val.total_orders }</td>
-                                                <td>{ val.total_items }</td>
-                                                <td>${ val.total_cost }</td>
-                                            </tr>
-                                        )
-                                    }) }
+                                    <thead>
+                                        <tr>
+                                            <th className='table-item'>Time Frame</th>
+                                            <th className='table-item'>Total Orders</th>
+                                            <th className='table-item'>Total Items</th>
+                                            <th className='table-item'>Total Sales</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        { xReport.map((val, index) => {
+                                            return (
+                                                <tr className='data-row' key={index}>
+                                                    <td>{ val.start_time } - { val.end_time }</td>
+                                                    <td>{ val.total_orders }</td>
+                                                    <td>{ val.total_items }</td>
+                                                    <td>${ val.total_cost }</td>
+                                                </tr>
+                                            )
+                                        }) }
+                                    </tbody>
                                 </table>
                             </div>
                             : ''
