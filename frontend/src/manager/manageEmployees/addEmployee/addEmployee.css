@@ -18,12 +18,6 @@
     border-radius: 10px;
     padding: 10px;
     justify-self: right;
-    transition: .2s;
-}
-
-#back-btn:hover, #back-btn:focus, #submit-btn:hover, #submit-btn:focus {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #000000;
 }
 
 #add-edit-employee-form-container {
@@ -47,7 +41,6 @@
     margin-top: 15px;
     padding: 15px;
     border-radius: 10px;
-    transition: .2s;
 }
 
 .input-container {

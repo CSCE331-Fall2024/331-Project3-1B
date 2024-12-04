@@ -25,11 +25,4 @@
     border-radius: 30px;
     font-style: bold;
     font-size: larger;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.quantifier-button:hover, .quantifier-button:focus{
-    box-shadow: 0 0 20px 0 #000000;
-    outline: none
 }

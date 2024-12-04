@@ -24,13 +24,6 @@
     width: auto;
     padding: 3px 20px;
     border-radius: 8px;
-    transition: .2s;
-    cursor: pointer;
-}
-
-#header-button:hover, #header-button:focus {
-    box-shadow: 0 0 20px 0 #000000;
-    outline: none;
 }
 
 .button-title {

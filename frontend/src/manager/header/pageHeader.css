@@ -10,8 +10,6 @@
     padding: 15px 20px;
     background-color: #f8f8f8;
     border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
     color: #D61927;
     width: auto;
     font-size: 20px;
@@ -21,9 +19,4 @@
 .nav-btn-text {
     font-size: 20px;
     color: #D61927;
-}
-
-.nav-btn:hover, .nav-btn:focus {
-    box-shadow: 0 0 20px 0 #000000;
-    outline: none;
 }
