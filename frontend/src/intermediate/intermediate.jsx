@@ -50,7 +50,7 @@ export function IntermediatePage(){
 
                 <div className="navigate-buttons">
                     <button onClick={() => {navigateToCustomer();playSound('/Sounds/ButtonSound.mp3')}} className="pos-button">
-                        <i className="fa-solid fa-cart-plus icons"/>{' '}POS</button>
+                        <i className="fa-solid fa-cart-shopping icons"/>{' '}POS</button>
                     <button onClick={() => {navigateToPOS();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-button">
                         <i className="fa-solid fa-cash-register icons"/>{' '}Cashier</button>
                     <button onClick={() => {navigateToManager();playSound('/Sounds/ButtonSound.mp3')}} className="manager-button">
