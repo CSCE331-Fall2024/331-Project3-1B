@@ -22,6 +22,7 @@ import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
+import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
 /**
  * this is the main function of our product that controlls everything
  * @returns {HTML} of the whole application
@@ -31,6 +32,7 @@ function App() {
         // The Router component is used to define the routes of the application
         <Router>
             {/* The Routes component is used to define the routes of the application */}
+            <ZoomProvider>
             <LanguageProvider>
             <Layout>
             <Routes>
@@ -59,6 +61,7 @@ function App() {
             </Routes>
             </Layout>
             </LanguageProvider>
+            </ZoomProvider>
         </Router>
     );
 }

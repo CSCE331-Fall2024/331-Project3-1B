@@ -12,7 +12,7 @@
 }
 
 
-.translate-button, .reset-button, select{
+.translate-button, .reset-button, .zoom-btn, select{
     padding: 10px;
     background-color: #f8f8f8;
     border-radius: 5px;
@@ -24,7 +24,7 @@
     font-weight: bold;
 }
 
-.translate-button:hover, select:hover, .reset-button:hover, .translate-button:focus, select:focus, .reset-button:focus{
+.translate-button:hover, select:hover, .reset-button:hover, .translate-button:focus, select:focus, .reset-button:focus, .zoom-btn:hover {
     box-shadow: 0 0 10px 0 #000000;
     outline: none;
 }
@@ -32,4 +32,8 @@
 #dropdown-title{
     color: #FFFFFF;
         
+}
+
+.zoom-btn {
+    margin-left: 15px;
 }

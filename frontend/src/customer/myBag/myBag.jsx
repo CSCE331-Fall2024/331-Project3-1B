@@ -223,7 +223,7 @@ export default function () {
                         </>
                     )}
                     {cart.length == 0 && (
-                        <Chatbot /> 
+                        <Chatbot />
                     )}
                 </div>
             </footer>
