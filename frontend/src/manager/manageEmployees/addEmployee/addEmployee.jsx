@@ -77,7 +77,7 @@ function AddEmployee() {
         <>
             <PageHeader />
             <div id='add-employee-container'>
-                <form onSubmit={ handleSubmit }>
+                <form onSubmit={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>
                     <div id='add-employee-header-container'>
                         <div></div>
                         <h2>Add Employee</h2>

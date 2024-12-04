@@ -27,7 +27,8 @@ function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee 
                 <h2 className="employee-info">{position}</h2>
                 <h2 className="employee-info">{email}</h2>
                 <div className="function-btn-container">
-                    <button className="function-employee-button" onClick={() => {removeEmployee();playSound('/Sounds/ButtonSound.mp3')}}>Remove Employee</button>
+                    <button className="employee-btn" onClick={() => {removeEmployee();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <i className="fa-solid fa-user-slash icons"/>{' '}Remove Employee</button>
                 </div>
             </div>
         </>

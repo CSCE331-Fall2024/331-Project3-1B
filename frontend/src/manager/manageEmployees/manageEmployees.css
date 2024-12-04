@@ -14,15 +14,16 @@
 .employee-btn {
     font-weight: 600;
     font-size: 15px;
-    width: 100px;
+    width: auto;
     border-radius: 10px;
     padding: 10px;
     margin-left: 20px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-.employee-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #D61927;
-    background-color: #D61927;
+.employee-btn:hover, .employee-btn:focus {
+    box-shadow: 0 0 20px 0 #000000;
+    outline: none;
 }
 
