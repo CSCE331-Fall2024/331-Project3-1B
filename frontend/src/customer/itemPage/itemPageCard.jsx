@@ -1,6 +1,7 @@
 import "./itemCardPage.css";
 import Quantifier from "../quantitySelector/quantitySelector.jsx";
 import React from "react";
+
 /**
  * generates the item page card component given attributes 
  * @param {string} type  
