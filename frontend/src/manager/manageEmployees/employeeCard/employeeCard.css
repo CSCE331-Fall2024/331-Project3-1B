@@ -1,25 +1,16 @@
 .employee-info {
     font-size: 18px;
+    text-align: left;
+    width: 200px;
 }
 
 #employee-card {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
     background-color: #D3D3D3;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.function-employee-button {
-    width: 100px;
-    border-radius: 10px;
     padding: 10px;
-}
-
-.function-employee-button:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #000000;
+    border-radius: 5px;
+    align-items: center;
 }
 
 .function-btn-container {

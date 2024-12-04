@@ -3,15 +3,8 @@
     padding: 10px;
     background-color: #f8f8f8;
     border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
     color: #D61927;
     width: auto;
-}
-
-.order-more-button:hover, .place-order-button:hover, .clear-cart-button:hover, .remove-combo-button:hover, .order-more-button:focus, .place-order-button:focus, .clear-cart-button:focus, .remove-combo-button:focus { 
-    box-shadow: 0 0 20px 0 #000000;
-    outline: none;
 }
 
 .my-bag-container{

@@ -89,33 +89,40 @@ function EditEmployee() {
     
     return (<>
         <PageHeader />
-        <div id='edit-emp-header-container'>
-            <h2>Edit Employee</h2>
-            <button id='back-btn' onClick={() => {backButtonClick();playSound('/Sounds/ButtonSound.mp3')}}>Back</button>
-        </div>
-        <div id='edit-emp-container'>
-            <div className='label-field'>
-                <label htmlFor='option-select'>Select Edit Field: </label>
-                <select id='option-select' value={selectedOption} onChange={ handleOptionChange }>
-                    <option value=''>--Choose an employee attribute to edit--</option>
-                    {employeeOptions.map((option, index) => (
-                        <option key={index} value={option}>{option}</option>
-                    ))}
-                </select>
+        <div id='add-edit-employee-container'>
+            <div id='employee-header-container'>
+                <div></div>
+                <h2>Edit Employee</h2>
+                <button id='back-btn' type='button' onClick={() => {backButtonClick();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <i className="fa-solid fa-chevron-left icons"/>{' '}Back
+                </button>
             </div>
+            <div id='add-edit-employee-form-container'>
+                <div className='label-field'>
+                    <label htmlFor='option-select'>Select Edit Field: </label>
+                    <select id='option-select' value={selectedOption} onChange={ handleOptionChange }>
+                        <option value=''>--Choose an employee attribute to edit--</option>
+                        {employeeOptions.map((option, index) => (
+                            <option key={index} value={option}>{option}</option>
+                        ))}
+                    </select>
+                </div>
 
-            <div className='label-field'>
-                <label htmlFor='employee-id-field'>Employee ID:</label>
-                <input id='employee-id-field' type='number' name='id' onChange={ handleIDChange } value={ employeeID }/>
+                <div className='label-field'>
+                    <label htmlFor='employee-id-field'>Employee ID:</label>
+                    <input id='employee-id-field' type='number' name='id' onChange={ handleIDChange } value={ employeeID }/>
+                </div>
+
+                <div className='label-field'>
+                    <label htmlFor='option-field'>Updated Info:</label>
+                    <input id='option-field' type='text' name='new-info' onChange={ handleInfoChange } value={ newInfo }/>
+                </div>
+
+
+                <button id='submit-btn' onClick={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <i className="fa-solid fa-check icons"/>{' '}Submit
+                </button>
             </div>
-
-            <div className='label-field'>
-                <label htmlFor='option-field'>Updated Info:</label>
-                <input id='option-field' type='text' name='new-info' onChange={ handleInfoChange } value={ newInfo }/>
-            </div>
-
-
-            <button id='submit-btn' onClick={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>Submit</button>
         </div>
     </>)
 };

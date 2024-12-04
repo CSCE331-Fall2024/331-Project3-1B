@@ -76,14 +76,16 @@ function AddEmployee() {
     return (
         <>
             <PageHeader />
-            <div id='add-employee-container'>
-                <form onSubmit={ handleSubmit }>
-                    <div id='add-employee-header-container'>
+            <div id='add-edit-employee-container'>
+                <form onSubmit={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <div id='employee-header-container'>
                         <div></div>
                         <h2>Add Employee</h2>
-                        <button id='back-btn' type='button' onClick={() => {backToEmployeePage();playSound('/Sounds/ButtonSound.mp3')}}>Back</button>
+                        <button id='back-btn' type='button' onClick={() => {backToEmployeePage();playSound('/Sounds/ButtonSound.mp3')}}>
+                            <i className="fa-solid fa-chevron-left icons"/>{' '}Back
+                        </button>
                     </div>
-                    <div id='add-employee-form-container'>
+                    <div id='add-edit-employee-form-container'>
                         <div className='employee-form-field'>
                             <h3>Full Name</h3>
                             <input name='fullName' className='input-container' type='text' value={details.fullName} onChange={handleChange} required />
@@ -110,7 +112,9 @@ function AddEmployee() {
                             <input name='position' className='input-container' type='text' value={details.position} onChange={handleChange} required />
                         </div>
 
-                        <button id='submit-btn' type='submit' onClick={() => {playSound('/Sounds/ButtonSound.mp3')}}>Submit</button>
+                        <button id='submit-btn' type='submit' onClick={() => {playSound('/Sounds/ButtonSound.mp3')}}>
+                            <i className="fa-solid fa-check icons"/>{' '}Submit
+                        </button>
                     </div>
                 </form>
 
