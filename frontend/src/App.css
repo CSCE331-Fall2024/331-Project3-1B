@@ -12,6 +12,6 @@ button, select {
 }
 
 button:hover, button:focus, select:hover, select:focus {
-    box-shadow: 0 0 20px 0 #000000;
+    box-shadow: 0 0 12px 0 #000000;
     outline: none;
 }
