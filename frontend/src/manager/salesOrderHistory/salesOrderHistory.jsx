@@ -2,6 +2,7 @@ import './salesOrderHistory.css';
 import PageHeader from '../header/pageHeader.jsx';
 import ZReportGraph from './zReportGraph/zReportGraph.jsx';
 import InventoryGraph from './inventoryGraph/inventoryGraph.jsx';
+import SalesTrendsGraph from './salesTrendsGraph/salesTrendsGraph.jsx';
 import { useEffect, useState } from 'react';
 
 
@@ -9,10 +10,15 @@ function SalesOrderHistory() {
     const [displayZ, setDisplayZ] = useState(false);
     const [xReport, setXReport] = useState([]);
     const [displayInventory, setDisplayInventory] = useState(false);
+    const [displayMenuTrends, setDisplayMenuTrends] = useState(false);
     const [inventoryReportTime, setInventoryReportTime] = useState({
         start: '',
         end: '',
-    })
+    });
+    const [menuTrendsTime, setMenuTrendsTime] = useState({
+        start: '',
+        end: '',
+    });
     
     let todayStartTime;
     let todayEndTime;
@@ -66,6 +72,14 @@ function SalesOrderHistory() {
         }));
     };
 
+    const handleMenuReportChange = (e) => {
+        const { name, value } = e.target;
+        setMenuTrendsTime(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     const createInventoryReport = () => {
         if (displayInventory) {
             setDisplayInventory(false);
@@ -76,12 +90,24 @@ function SalesOrderHistory() {
         } else if (!displayInventory && inventoryReportTime.start && inventoryReportTime.end) {
             setDisplayInventory(true);
         }
-    }
+    };
+
+    const createMenuTrendsReport = () => {
+        if (displayMenuTrends) {
+            setDisplayMenuTrends(false);
+            setMenuTrendsTime({
+                start: '',
+                end: '',
+            });
+        } else if (!displayMenuTrends && menuTrendsTime.start && menuTrendsTime.end) {
+            setDisplayMenuTrends(true);
+        }
+    };
 
     return (
         <>
             <PageHeader />
-            <h1 id='sales-title'>Sales Order History</h1>
+            <h1 id='sales-title'>Sales Reports</h1>
             <div id='sales-info-container'>
                 <div id='btn-container'>
                     <div>
@@ -93,7 +119,12 @@ function SalesOrderHistory() {
                         <button className='report-btn' onClick={ createInventoryReport }>Inventory Usage Report</button>
                         <input className='date-input' name='start' value={ inventoryReportTime.start } type='text' placeholder='Start Time' onChange={ handleInvDateChange }/>
                         <input className='date-input' name='end' value={ inventoryReportTime.end } type='text' placeholder='End Time' onChange={ handleInvDateChange }/>
-                        
+                    </div>
+
+                    <div>
+                        <button className='report-btn' onClick={ createMenuTrendsReport }>Sales History Report</button>
+                        <input className='date-input' name='start' value={ menuTrendsTime.start } placeholder='Start Time' onChange={handleMenuReportChange}/>
+                        <input className='date-input' name='end' value={ menuTrendsTime.end } placeholder='End Time' onChange={handleMenuReportChange}/>
                     </div>
                     
                 </div>
@@ -139,7 +170,10 @@ function SalesOrderHistory() {
 
                     <div>
                         {displayInventory ? <InventoryGraph startTime={inventoryReportTime.start} endTime={inventoryReportTime.end} /> : ''}
-                        
+                    </div>
+
+                    <div>
+                        {displayMenuTrends ? <SalesTrendsGraph startTime={menuTrendsTime.start} endTime={menuTrendsTime.end} /> : '' }
                     </div>
 
                 </div>

@@ -13,12 +13,10 @@ const InventoryGraph = ({ startTime, endTime }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch(`http://localhost:3001/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`);
+                const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`);
                 const data = await result.json();
-                
                 const itemNames = data.map(item => item[0]);
                 const itemQuantities = data.map(item => item[1]);
-                console.log(itemNames, itemQuantities)
                 setItems(itemNames);
                 setQuantities(itemQuantities);
             } catch (error) {

@@ -738,8 +738,38 @@ const getSalesReport = async (starttime, endtime) => {
         console.error(error);
     }
 
-    return SalesReport;
+    for (let id = 1; id <= 25; ++ id) {
+        try {
+            const query = `SELECT item_name FROM menu_items WHERE item_serial_number = ${id};`;
+            const result = await pool.query(query);
+            SalesReport[id - 1][0] = result.rows[0].item_name;
+        } catch (error) {
+            console.error('error in getting menu item name');
+            return;
+        }
+    }
+
+    salesReportObject = {
+        item_name: null,
+        item_quantity: null,
+    };
+
+    salesReportObject.item_name = SalesReport.map(item => item[0]);
+    salesReportObject.item_quantity = SalesReport.map(item => item[1]);
+
+    return salesReportObject;
 }
+
+router.get('/get_sales_report', async (req, res) => {
+    const {startTime, endTime} = req.query;
+    try {
+        const result = await getSalesReport(startTime, endTime);
+        res.json(result);
+    } catch (error) {
+        console.error('Backend: could not get sales report data');
+        res.status(500).send('Error getting sales report data in backend');
+    }
+});
 
 
 module.exports = router;
