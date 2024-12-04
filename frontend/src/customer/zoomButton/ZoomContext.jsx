@@ -31,7 +31,7 @@ export function ZoomProvider({ children }) {
                 style={{ 
                     transform: `scale(${zoomLevel})`, 
                     transformOrigin: 'top left', 
-                    transition: 'transform 0.3s ease-in-out',
+                    transition: 'transform 0s',
                     width: `${100 / zoomLevel}%` // Prevent horizontal overflow
                 }}
             >
