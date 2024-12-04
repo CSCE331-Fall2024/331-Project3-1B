@@ -167,26 +167,26 @@ function SalesOrderHistory() {
             <div id='sales-info-container'>
                 <div id='btn-container'>
                     <div>
-                        <button className='report-btn' onClick={() => {createXReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>X Report</button>
-                        <button className='report-btn' onClick={() => {createZReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>Z Report</button>
+                        <button className='report-btn' onClick={() => {createXReport(); playSound('/Sounds/ButtonSound.mp3');} }>X Report</button>
+                        <button className='report-btn' onClick={() => {createZReport(); playSound('/Sounds/ButtonSound.mp3');} }>Z Report</button>
                     </div>
 
                     <div>
-                        <button className='report-btn' onClick={() => {createInventoryReport; playSound('../../../public/Sounds/ButtonSound.mp3');} }>Inventory Usage Report</button>
+                        <button className='report-btn' onClick={() => {createInventoryReport; playSound('/Sounds/ButtonSound.mp3');} }>Inventory Usage Report</button>
                         <input className='date-input' name='start' value={ inventoryReportTime.start } type='text' placeholder='Start Time' onChange={ handleInvDateChange }/>
                         <input className='date-input' name='end' value={ inventoryReportTime.end } type='text' placeholder='End Time' onChange={ handleInvDateChange }/>
-                        <button className='default-option-btn' name='minute' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
-                        <button className='default-option-btn' name='hour' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Hour</button>
-                        <button className='default-option-btn' name='day' onClick={(e) => {defaultOptionInventory(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Day</button>
+                        <button className='default-option-btn' name='minute' onClick={(e) => {defaultOptionInventory(e); playSound('/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={(e) => {defaultOptionInventory(e); playSound('/Sounds/ButtonSound.mp3');} }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={(e) => {defaultOptionInventory(e); playSound('/Sounds/ButtonSound.mp3');} }>1 Day</button>
                     </div>
 
                     <div>
-                        <button className='report-btn' onClick={ () => {createMenuTrendsReport(); playSound('../../../public/Sounds/ButtonSound.mp3');} }>Sales History Report</button>
+                        <button className='report-btn' onClick={ () => {createMenuTrendsReport(); playSound('/Sounds/ButtonSound.mp3');} }>Sales History Report</button>
                         <input className='date-input' name='start' value={ menuTrendsTime.start } placeholder='Start Time' onChange={handleMenuReportChange}/>
                         <input className='date-input' name='end' value={ menuTrendsTime.end } placeholder='End Time' onChange={handleMenuReportChange}/>
-                        <button className='default-option-btn' name='minute' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
-                        <button className='default-option-btn' name='hour' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Hour</button>
-                        <button className='default-option-btn' name='day' onClick={ (e) => {defaultOptionSales(e); playSound('../../../public/Sounds/ButtonSound.mp3');} }>1 Day</button>
+                        <button className='default-option-btn' name='minute' onClick={ (e) => {defaultOptionSales(e); playSound('/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
+                        <button className='default-option-btn' name='hour' onClick={ (e) => {defaultOptionSales(e); playSound('/Sounds/ButtonSound.mp3');} }>1 Hour</button>
+                        <button className='default-option-btn' name='day' onClick={ (e) => {defaultOptionSales(e); playSound('/Sounds/ButtonSound.mp3');} }>1 Day</button>
                     </div>
                     
                 </div>
