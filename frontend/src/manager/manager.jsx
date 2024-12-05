@@ -5,7 +5,6 @@ import WeatherDisplay from "./weatherDisplay/weatherDisplay.jsx";
 import RecentOrders from "./recentOrders/recentOrders.jsx";
 import CurrentOrderTrends from "./currentOrderTrends/currentOrderTrends.jsx";
 
-
 // this generates the main customer component that will be rendered when the manager visits the manager view
 /**
  * this generates the main customer component that will be rendered when the manager visits the manager view

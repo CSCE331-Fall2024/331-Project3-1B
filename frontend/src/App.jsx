@@ -3,7 +3,7 @@ import Customer from "./customer/customer.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ItemPage from "./customer/itemPage/itemPage.jsx";
 import Manager from "./manager/manager.jsx";
-import MenuBoards from "./menuBoards/board1.jsx";
+import MenuBoard from "./menuBoard/menuBoard.jsx";
 import Cashier from "./cashier/cashier.jsx";
 import IntermediatePage from "./intermediate/intermediate.jsx";
 import Appetizers from "./customer/appetizers/appetizers.jsx";
@@ -22,6 +22,7 @@ import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
 import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
+
 /**
  * this is the main function of our product that controlls everything
  * @returns {HTML} of the whole application
@@ -45,7 +46,7 @@ function App() {
                 <Route path="/cashier/drinks" element={<CartProvider><Drinks/></CartProvider>} />
                 <Route path="/cashier/appetizers-and-more" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/manager" element={<Manager/>} />
-                <Route path="/menuBoard" element={<MenuBoards />} />
+                <Route path="/menuBoard" element={<MenuBoard />} />
                 <Route path="/cashier" element={<Cashier/>} />
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />

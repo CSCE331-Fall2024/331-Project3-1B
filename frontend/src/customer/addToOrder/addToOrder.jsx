@@ -1,7 +1,5 @@
 import "./addToOrder.css";
 import { useCart } from "../myBag/CartContext";
-import { useEffect } from "react";
-import { useState } from "react";
 
 /**
  * creates a button that adds items to the order

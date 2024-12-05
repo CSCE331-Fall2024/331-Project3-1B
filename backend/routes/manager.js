@@ -181,6 +181,23 @@ router.get('/get_menu_item_names', async (req, res) => {
     }
 });
 
+// Get minimum price given menu option
+/**
+ * gets the price of the cheapest item of a given menu option
+ * @return {JSON} the cheapest price;
+ */
+router.get('/get_cheapest_option_price', async (req, res) => {
+    const { option } = req.params;
+    try {
+        const query = `SELECT MIN(price) FROM menu_prices WHERE option_serial_number = '${option}';`;
+        const result = await pool.query(query);
+        res.json(result);
+    } catch (error) {
+        console.error("Error getting price");
+        res.status(500).send("Error getting price");
+    }
+});
+
 // Get Employee Name given ID number
 /**
  * gets the employee name given the ID number 

@@ -2,6 +2,7 @@ import "./intermediate.css"
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+
 /** 
  * this function creates the login page component
  * @returns {HTML} login page
