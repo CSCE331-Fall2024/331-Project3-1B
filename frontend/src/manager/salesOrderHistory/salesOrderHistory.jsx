@@ -171,7 +171,7 @@ function SalesOrderHistory() {
                     </div>
 
                     <div>
-                        <button className='report-btn' onClick={() => {createInventoryReport; playSound('/Sounds/ButtonSound.mp3');} }>Inventory Usage Report</button>
+                        <button className='report-btn' onClick={() => {createInventoryReport(); playSound('/Sounds/ButtonSound.mp3');} }>Inventory Usage Report</button>
                         <input className='date-input' name='start' value={ inventoryReportTime.start } type='text' placeholder='Start Time' onChange={ handleInvDateChange }/>
                         <input className='date-input' name='end' value={ inventoryReportTime.end } type='text' placeholder='End Time' onChange={ handleInvDateChange }/>
                         <button className='default-option-btn' name='minute' onClick={(e) => {defaultOptionInventory(e); playSound('/Sounds/ButtonSound.mp3');} }>15 Minutes</button>
