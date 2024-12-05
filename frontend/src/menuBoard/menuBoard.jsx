@@ -1,20 +1,37 @@
-import "./menuBoards.css";
+import "./menuBoard.css";
+import { useNavigate } from "react-router-dom";
 
-// The Board1 component represents a menu board with meal options.
+// The menuBoard component represents a menu board with meal options.
 // It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
 /**
- * generates a Board1 component
- * The Board1 component represents a menu board with meal options.
+ * generates a menuBoard component
+ * The menuBoard component represents a menu board with meal options.
  * It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
- * @returns {HTML} The Board1 component
+ * @returns {HTML} The menuBoard component
  */
-export default function Board1() {
+export default function menuBoard() {
+
+    const navigate = useNavigate();
+    
+    // Function to navigate back to the main menu
+    const back = () => {
+        navigate("/")
+    };
+
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     return (
         <>
             <div id="board-container">
                 <div className="board-generic">
 
-
+                    <button onClick={() => {back();playSound('/Sounds/ButtonSound.mp3')}} id="menu-button">
+                        <i className="fa-solid fa-right-to-bracket icons"/>{' '}Login
+                    </button>   
 
                     <h1 className="header-generic">PICK A MEAL</h1>
 
