@@ -161,7 +161,7 @@ export default function googleTranslate() {
                 className="reset-button"
             ><i className="fa-solid fa-rotate-left icons"/>{' '}Reset
             </button>
-            <button className="zoom-btn" onClick={toggleZoom}>Toggle Zoom</button>
+            <button className="zoom-btn" onClick={() => {toggleZoom(); playSound('/Sounds/ButtonSound.mp3');}}>Toggle Zoom</button>
         </div>
         
     );
