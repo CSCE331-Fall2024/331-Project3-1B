@@ -29,10 +29,7 @@ export function ZoomProvider({ children }) {
         <ZoomContext.Provider value={{ zoomLevel, toggleZoom }}>
             <div 
                 style={{ 
-                    transform: `scale(${zoomLevel})`, 
-                    transformOrigin: 'top left', 
-                    transition: 'transform 0s',
-                    width: `${100 / zoomLevel}%` // Prevent horizontal overflow
+                    zoom: zoomLevel,
                 }}
             >
                 {children}
