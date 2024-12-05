@@ -41,7 +41,7 @@ export default function menuBoard() {
                             <span className="option-titles">BOWL</span>
                             <span className="calories-count">240-1010</span>
                             <span className="cal">cal</span>
-                            <span className="price">$6.70</span>
+                            <span className="price">$8.30</span>
                             <span className="starting-at">starting at*</span>
 
                         </div>
@@ -50,7 +50,7 @@ export default function menuBoard() {
                             <span className="option-titles">PLATE</span>
                             <span className="calories-count">390-1500</span>
                             <span className="cal">cal</span>
-                            <span className="price">$8.20</span>
+                            <span className="price">$9.80</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -58,7 +58,7 @@ export default function menuBoard() {
                             <span className="option-titles">BIGGER PLATE</span>
                             <span className="calories-count">540-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$9.70</span>
+                            <span className="price">$11.30</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -66,7 +66,7 @@ export default function menuBoard() {
                             <span className="option-titles">PANDA CUB MEAL</span>
                             <span className="calories-count">330-1020</span>
                             <span className="cal">cal</span>
-                            <span className="price">$5.80</span>
+                            <span className="price">$6.60</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -74,7 +74,7 @@ export default function menuBoard() {
                             <span className="option-titles">5 PERSON FAMILY MEAL</span>
                             <span className="calories-count">240-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$36.00</span>
+                            <span className="price">$43.00</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -116,31 +116,31 @@ export default function menuBoard() {
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$3.40</span>
+                            <span className="price">$4.40</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$4.40</span>
+                            <span className="price">$5.40</span>
                         </div>
 
                         <div className="option-titles">ENTREES</div>
 
                         <div className="option-generic">
                             <span className="calories-count">Small</span>
-                            <span className="price">$4.40</span>
+                            <span className="price">$5.20</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$7.70</span>
+                            <span className="price">$8.50</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$10.20</span>
+                            <span className="price">$11.20</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 

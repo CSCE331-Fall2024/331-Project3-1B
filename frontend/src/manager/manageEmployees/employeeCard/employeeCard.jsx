@@ -14,10 +14,9 @@ function playSound(file) {
  * @param {string} position
  * @param {string} email 
  * @param {function} removeEmployee
- * @param {function} editEmployee
  * @returns {HTML} EmployeeCard
  */
-function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee }) {
+function EmployeeCard({ name, id, position, email, removeEmployee }) {
     return (
         <>
             <div id="employee-card">
