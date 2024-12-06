@@ -100,7 +100,7 @@ export default function () {
     
         try {
             const response = await fetch(
-                `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/total-price?${params}`,
+                `https://three31-project3-1b-backend.onrender.com/submit/total-price?${params}`,
                 {
                     method: "GET",
                     headers: {
