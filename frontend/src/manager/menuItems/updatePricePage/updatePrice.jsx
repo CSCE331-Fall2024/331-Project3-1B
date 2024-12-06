@@ -84,7 +84,7 @@ function UpdatePricePage() {
                     </div>
 
                     <div className="buttons-group">
-                        <button className="menu-item-button" type="submit">Add Item</button>
+                        <button className="menu-item-button" type="submit">Update Price</button>
                         <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
