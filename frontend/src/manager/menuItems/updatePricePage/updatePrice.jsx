@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './updatePrice.css'; // Optional: Add your styles here
+import { useNavigate } from 'react-router-dom';
+import './updatePrice.css';
 
 function UpdatePricePage() {
     const [itemName, setItemName] = useState('');
     const [itemType, setItemType] = useState('');
     const [itemAvailability, setItemAvailability] = useState('');
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     // Function to handle form submission
     const handleSubmit = (e) => {

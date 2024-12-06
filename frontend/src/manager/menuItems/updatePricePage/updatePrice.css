@@ -31,22 +31,8 @@
     border-radius: 4px;
 }
 
-.total-container button { 
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #a50611;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.total-container button:hover {
-    background-color: #85060b;
-}
-
 .buttons-group {
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    float: right;
 }
