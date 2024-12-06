@@ -64,3 +64,33 @@
     justify-content: center;
     align-content: center;
 }
+
+.popup-total-container {
+    width: 500px;
+    height: 300px;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    border: 2px solid #D61927;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.allergy-popup{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.allergies-container-popup{
+    
+    text-align: center;
+}

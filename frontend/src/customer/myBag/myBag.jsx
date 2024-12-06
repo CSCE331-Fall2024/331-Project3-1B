@@ -15,6 +15,7 @@ export default function () {
     const { clearCart } = useCart();
     const { removeItemFromCart } = useCart();
     const [allergies, setAllergies] = useState([]);
+    const [showAllergenPopup, setShowAllergenPopup] = useState(false);
 
     const allergyList = {
         "Apple Pie Roll": ["wheat"],
@@ -112,7 +113,8 @@ export default function () {
             console.error("Error submitting order:");
             alert("Failed to submit the order." + error);
         }
-        setText("Your order has been placed successfully!")
+        setShowAllergenPopup(false);
+        setText("Your order has been placed successfully!");
     };
 
     // Play Sound Effect on button click
@@ -125,7 +127,6 @@ export default function () {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
-        
 
         const uniqueAllergies = new Set();
 
@@ -147,7 +148,11 @@ export default function () {
     useEffect(() => {
         console.log("Updated allergies:", allergies);
     }, [allergies]);
-    const [changeableText, setText] = useState('Your cart is empty');
+    const [changeableText, setText] = useState("Your cart is empty");
+
+    function setShowPopup() {
+        setShowAllergenPopup(true);
+    }
 
     return (
         <>
@@ -296,7 +301,9 @@ export default function () {
                 <div className="allergies-container">
                     {allergies.length > 0 && cart.length > 0 && (
                         <div className="allergy-container">
-                            <h1 className="allergies-title">WARNING Allergens:</h1>
+                            <h1 className="allergies-title">
+                                WARNING Allergens:
+                            </h1>
                             <div className="allergies-direction">
                                 {allergies.map((allergy, index) => (
                                     <h3 key={index}>- {allergy}</h3>
@@ -326,7 +333,8 @@ export default function () {
                             </button>
                             <button
                                 onClick={() => {
-                                    placeOrder();
+                                    // placeOrder();
+                                    setShowPopup();
                                     playSound("/Sounds/ButtonSound.mp3");
                                 }}
                                 className="place-order-button"
@@ -342,6 +350,42 @@ export default function () {
                     {cart.length == 0 && <Chatbot />}
                 </div>
             </footer>
+
+            {showAllergenPopup && (
+                <div className="popup-total-container">
+                    <div className="allergies-container-popup">
+                        {allergies.length > 0 && cart.length > 0 && (
+                            <div className="allergy-container">
+                                <h1 className="allergies-title">
+                                    WARNING Allergens:
+                                </h1>
+                                <div className="allergies-direction">
+                                    {allergies.map((allergy, index) => (
+                                        <h3 key={index}>- {allergy}</h3>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="allergy-popup">
+                        <button
+                            onClick={() => setShowAllergenPopup(false)}
+                            className="place-order-button"
+                        >
+                            <h1 className="button-text">Cancel</h1>
+                        </button>
+                        <button
+                            onClick={() => {
+                                placeOrder();
+                                playSound("/Sounds/ButtonSound.mp3");
+                            }}
+                            className="place-order-button"
+                        >
+                            <h1 className="button-text">Checkout</h1>
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
