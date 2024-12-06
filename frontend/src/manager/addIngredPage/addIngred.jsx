@@ -10,14 +10,26 @@ function AddIngred() {
 
     const navigate = useNavigate(); // Initialize useNavigate
 
+    // format string for url
+    function formatItemsForUrl(input) {
+        // Split the input by commas, trim whitespace, and turn it into a JSON array of strings
+        const items = input.split(',').map(item => item.trim());
+        return JSON.stringify(items);
+    }
+
     // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        
+        // ingredients as : spoon, fountain drink small
 
-        const url = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/add_ingredients/${encodeURIComponent(itemName)}/${encodeURIComponent(itemOption)}/${encodeURIComponent(ingredients)}/${encodeURIComponent(servings)}`;
-        console.log(url);
+        const baseUrl = "http://localhost:3001/manager/add_ingredients";
+        const name = "Jk one last test";
+        const type = "Bowl";
+        const ingredients = JSON.stringify(["spoon"]); // Properly format as JSON
+        const servings = JSON.stringify([3]); // Properly format as JSON
+
+        const url = `${baseUrl}/${encodeURIComponent(name)}/${encodeURIComponent(type)}/${encodeURIComponent(ingredients)}/${encodeURIComponent(servings)}`;
 
         fetch(url, {
             method: 'GET',

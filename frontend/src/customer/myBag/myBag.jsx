@@ -54,6 +54,7 @@ export default function () {
     // The function that will navigate back to the home page
     const orderMore = () => {
         navigate("/customer");
+        setText("Your cart is empty");
     };
 
     // The function that will remove a combo from the cart
@@ -111,6 +112,7 @@ export default function () {
             console.error("Error submitting order:");
             alert("Failed to submit the order." + error);
         }
+        setText("Your order has been placed successfully!")
     };
 
     // Play Sound Effect on button click
@@ -145,7 +147,7 @@ export default function () {
     useEffect(() => {
         console.log("Updated allergies:", allergies);
     }, [allergies]);
-    
+    const [changeableText, setText] = useState('Your cart is empty');
 
     return (
         <>
@@ -168,7 +170,7 @@ export default function () {
             <div className="my-bag-container">
                 <h1 className="my-bag-title">My Bag</h1>
                 <div className="my-bag-contents">
-                    {cart.length == 0 && <h3>Your cart is empty</h3>}
+                    {cart.length == 0 && <h3>{changeableText}</h3>}
                     {cart?.map((combo, index) => (
                         <div key={index} className="order-layout">
                             <div className="order-container">
