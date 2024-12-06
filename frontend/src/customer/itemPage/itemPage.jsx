@@ -143,7 +143,7 @@ export default function ItemPage() {
                             </>
                         )}
                     </div>
-                    <div>
+                    <div className="footer-button-container">
                         <Chatbot />
 
                         <AddToOrder

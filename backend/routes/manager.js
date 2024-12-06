@@ -682,6 +682,7 @@ router.get('/edit_price/:item/:option/:price', async (req, res) => {
     try {
         const query = `INSERT INTO menu_prices (item_serial_number, option_serial_number, price) VALUES (${itemID}, ${optionID}, ${price}) ON CONFLICT (item_serial_number, option_serial_number) DO UPDATE SET price = EXCLUDED.price;`
 
+        
         await pool.query(query);
 
         res.send({message : "Price updated"});

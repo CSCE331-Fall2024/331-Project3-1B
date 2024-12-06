@@ -89,7 +89,7 @@ export default function () {
                     <div>
                         <h1 className="footer-type">{currType}</h1>
                     </div>
-                    <div>
+                    <div className="footer-button-container">
                         <Chatbot />
                         <AddToOrder
                             items={currOrder}

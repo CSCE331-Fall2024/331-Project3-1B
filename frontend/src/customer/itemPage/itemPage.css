@@ -41,3 +41,9 @@
 .extra-bottom-space {
     padding-bottom: 120px;
 }
+
+.footer-button-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

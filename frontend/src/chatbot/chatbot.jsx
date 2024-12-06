@@ -65,7 +65,7 @@ const Chatbot = () => {
                 onClick={() => setShowChatbot(!showChatbot)}
                 className="chatbot-button"
             >
-                <i className="fa-solid fa-comments icon-size" />
+                <i className="fa-solid fa-comments icon-size" /><h1>PandaBot</h1>
             </button>
 
 
