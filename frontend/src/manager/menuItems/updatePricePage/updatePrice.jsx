@@ -78,8 +78,8 @@ function UpdatePricePage() {
                     </div>
 
                     <div className="buttons-group">
-                        <button type="submit">Add Item</button>
-                        <button type="button" className="back-button" onClick={() => navigate('/manager/menuItems')}>Back</button>
+                        <button className="menu-item-button" type="submit">Add Item</button>
+                        <button type="button" className="menu-item-button" onClick={() => navigate('/manager/menuItems')}>Back</button>
                     </div>
                 </form>
             </div>
