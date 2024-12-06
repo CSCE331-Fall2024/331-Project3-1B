@@ -659,6 +659,41 @@ router.get('/edit_menu_item/:name/:column/:new_val'), async (req, res) => {
     }
 }
 
+async function getOptionID(type) {
+
+    const query = `SELECT option_serial_number FROM menu_options WHERE option_name = '${type}';`;
+
+    try {
+        const result = await pool.query(query);
+        return result.rows[0].option_serial_number.toString(); // returns an array of rows that match the query
+    } catch (error) {
+        console.error('Error executing query', error.stack);
+        throw error;
+    }
+}
+
+router.get('/edit_price/:item/:option/:price', async (req, res) => {
+
+    const {item, option, price} = req.params;
+
+    const itemID = await getItemID(item);
+    const optionID = await getOptionID(option);
+   
+    try {
+        const query = `INSERT INTO menu_prices (item_serial_number, option_serial_number, price) VALUES (${itemID}, ${optionID}, ${price}) ON CONFLICT (item_serial_number, option_serial_number) DO UPDATE SET price = EXCLUDED.price;`
+
+        await pool.query(query);
+
+        res.send({message : "Price updated"});
+
+    } catch (error) {
+        console.error("Couldn't edit price");
+
+        res.send({message : "Price couldn't be updated"});
+    }
+    //res.send({message : "here"});
+});
+
 /**
  * gets the number of items given combo type
  * @param {int} item_type_number 
