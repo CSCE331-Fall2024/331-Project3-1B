@@ -18,6 +18,7 @@ export default function () {
     const [allergies, setAllergies] = useState([]);
     const [showAllergenPopup, setShowAllergenPopup] = useState(false);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [comboPrices, setComboPrices] = useState([]);
 
     const allergyList = {
         "Apple Pie Roll": ["wheat"],
@@ -65,13 +66,14 @@ export default function () {
         removeItemFromCart(index);
     };
 
-    const getTotalPrice = async() => {
 
+
+    const getTotalPrice = async () => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    
         let _types = [];
         let _items = [];
-
+    
         for (let i = 0; i < savedCart.length; ++i) {
             if (i % 2 === 0) {
                 if (
@@ -85,42 +87,37 @@ export default function () {
             } else {
                 let combo_items = [];
                 for (let j = 0; j < savedCart[i].length; ++j) {
-                    // console.log(savedCart[i][j].name);
                     combo_items.push(savedCart[i][j].name);
                 }
                 _items.push(combo_items);
             }
         }
-
-        console.log(_types);
-        console.log(_items);
-
+    
         const params = new URLSearchParams({
-            types: JSON.stringify(_types), // Convert _types array to a JSON string
-            items: JSON.stringify(_items), // Convert _items array to a JSON string
+            types: JSON.stringify(_types),
+            items: JSON.stringify(_items),
         });
-
-
+    
         try {
             const response = await fetch(
                 `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/total-price?${params}`,
                 {
-                    method: "GET", // Ensure this is GET
+                    method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                     },
                 }
             );
-
+    
             const data = await response.json();
-            setTotalPrice(data.price);
-
+            setTotalPrice(data.total_price);
+            setComboPrices(data.comboPrices); // Save individual combo prices
         } catch (error) {
-            console.error("Error submitting order:");
+            console.error("Error submitting order:", error);
             alert("Failed to submit the order." + error);
         }
-
-    }
+    };
+    
 
 
 
@@ -233,7 +230,6 @@ export default function () {
         <>
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
-                <button onClick={getTotalPrice}>lkjl;kjdfjvljsdb;lk</button>
                 <button
                     onClick={() => {
                         orderMore();
@@ -257,7 +253,7 @@ export default function () {
                                 <div className="combo-name-container">
                                     {index % 2 == 0 && (
                                         <div>
-                                            <h1>{combo}</h1>
+                                            <h1>{combo} - ${comboPrices[Math.floor(index/2)]}</h1>
                                         </div>
                                     )}
                                 </div>
