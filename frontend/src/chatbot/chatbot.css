@@ -125,8 +125,11 @@
     cursor: pointer;
     transition: all 0.3s;
     color: #d61927;
-    width: 70px;
+    width: 200px;
     height: 57px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .chatbot-button:hover, .chatbot-button:focus{
