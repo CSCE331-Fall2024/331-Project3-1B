@@ -41,6 +41,12 @@ function UpdatePricePage() {
         setItemAvailability('');
     };
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     return (
         <>
             <div className="total-container">
@@ -79,7 +85,7 @@ function UpdatePricePage() {
 
                     <div className="buttons-group">
                         <button className="menu-item-button" type="submit">Add Item</button>
-                        <button type="button" className="menu-item-button" onClick={() => navigate('/manager/menuItems')}>Back</button>
+                        <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
             </div>

@@ -99,7 +99,7 @@ function AddIngred() {
                     </div>
 
                     <div className="buttons-group">
-                        <button className="menu-item-button" type="submit" onClick={playSound('/Sounds/ButtonSound.mp3')}>Add Ingredients</button>
+                        <button className="menu-item-button" type="submit">Add Ingredients</button>
                         <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
