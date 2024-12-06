@@ -94,7 +94,7 @@ function EditEmployee() {
             <div id='employee-header-container'>
                 <div></div>
                 <h2>Edit Employee</h2>
-                <button id='back-btn' type='button' onClick={() => {backButtonClick();playSound('/Sounds/ButtonSound.mp3')}}>
+                <button id='back-btn' type='button' onClick={() => {backButtonClick(); playSound('/Sounds/ButtonSound.mp3');}}>
                     <i className="fa-solid fa-chevron-left icons"/>{' '}Back
                 </button>
             </div>
@@ -120,7 +120,7 @@ function EditEmployee() {
                 </div>
 
 
-                <button id='submit-btn' onClick={() => {handleSubmit();playSound('/Sounds/ButtonSound.mp3')}}>
+                <button id='submit-btn' onClick={(e) => {handleSubmit(e); playSound('/Sounds/ButtonSound.mp3');}}>
                     <i className="fa-solid fa-check icons"/>{' '}Submit
                 </button>
             </div>

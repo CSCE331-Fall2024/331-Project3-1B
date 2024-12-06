@@ -1,5 +1,7 @@
 import "./menuBoard.css";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+
 
 // The menuBoard component represents a menu board with meal options.
 // It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
@@ -24,6 +26,29 @@ export default function menuBoard() {
         audio.play();
     }
 
+    const [price, setPrice] = useState([]);
+
+    // api call to get menu prices. Stores info in array.
+    const getCheapestPrice = async () => {
+        const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_cheapest_option_prices`)
+            if (response.ok) {
+                const price_list = await response.json();
+                console.log(price_list);
+                return price_list;
+            } else {
+                console.error('Error fetching price data')
+            }
+    };
+
+    useEffect(() => {
+        const fetchPrice = async () => {
+            const price_list = await getCheapestPrice(); // Pass 'bowl' as a string
+            setPrice(price_list);
+        };
+
+        fetchPrice();
+    }, []);
+
     return (
         <>
             <div id="board-container">
@@ -42,7 +67,7 @@ export default function menuBoard() {
                             <span className="option-titles">BOWL</span>
                             <span className="calories-count">240-1010</span>
                             <span className="cal">cal</span>
-                            <span className="price">$8.30</span>
+                            <span className="price">{`$${parseFloat(price[0]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
 
                         </div>
@@ -51,7 +76,7 @@ export default function menuBoard() {
                             <span className="option-titles">PLATE</span>
                             <span className="calories-count">390-1500</span>
                             <span className="cal">cal</span>
-                            <span className="price">$9.80</span>
+                            <span className="price">{`$${parseFloat(price[1]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -59,7 +84,7 @@ export default function menuBoard() {
                             <span className="option-titles">BIGGER PLATE</span>
                             <span className="calories-count">540-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$11.30</span>
+                            <span className="price">{`$${parseFloat(price[2]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -67,7 +92,7 @@ export default function menuBoard() {
                             <span className="option-titles">PANDA CUB MEAL</span>
                             <span className="calories-count">330-1020</span>
                             <span className="cal">cal</span>
-                            <span className="price">$6.60</span>
+                            <span className="price">{`$${parseFloat(price[7]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -75,7 +100,7 @@ export default function menuBoard() {
                             <span className="option-titles">5 PERSON FAMILY MEAL</span>
                             <span className="calories-count">240-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$43.00</span>
+                            <span className="price">{`$${parseFloat(price[6]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -89,31 +114,31 @@ export default function menuBoard() {
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$4.40</span>
+                            <span className="price">{`$${parseFloat(price[12]).toFixed(2)}`}</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$5.40</span>
+                            <span className="price">{`$${parseFloat(price[13]).toFixed(2)}`}</span>
                         </div>
 
                         <div className="option-titles">ENTREES</div>
 
                         <div className="option-generic">
                             <span className="calories-count">Small</span>
-                            <span className="price">$5.20</span>
+                            <span className="price">{`$${parseFloat(price[3]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$8.50</span>
+                            <span className="price">{`$${parseFloat(price[4]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$11.20</span>
+                            <span className="price">{`$${parseFloat(price[5]).toFixed(2)}`}</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
