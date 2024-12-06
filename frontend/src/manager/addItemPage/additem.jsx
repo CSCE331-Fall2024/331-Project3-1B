@@ -53,7 +53,7 @@ function AddItemPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="itemType">Item Type:</label>
+                        <label htmlFor="itemType">Item Type (Entree, Side, Drinks, Appetizer, etc):</label>
                         <input
                             type="text"
                             id="itemType"
@@ -63,7 +63,7 @@ function AddItemPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="itemAvailability">Availability:</label>
+                        <label htmlFor="itemAvailability">Availability (true / false):</label>
                         <input
                             type="text"
                             id="itemAvailability"
