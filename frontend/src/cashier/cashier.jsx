@@ -75,8 +75,6 @@ export function CashierPageHeader() {
             console.error('Error submitting order:');
             alert('Failed to submit the order.' + error);
         }
-
-
     };
 
     return (
