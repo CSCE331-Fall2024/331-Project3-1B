@@ -1,5 +1,4 @@
 import "./pageHeader.css";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // PageHeader component, includes myBag component => allows user to view what is in their bag.
@@ -36,13 +35,12 @@ export default function PageHeader() {
                     <></>
                 ) : (
                     <div id="buttons-header">
-
-                        <button onClick={() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}} id='back-button'>
-                            <p className="back-button-title"><img src="../../../public/Images/Icons/Home.png" className="header-icons"/>Login</p>
+                        <button onClick={() => {back();playSound('/Sounds/ButtonSound.mp3')}} id='header-button'>
+                            <p className="button-title"><i className="fa-solid fa-right-to-bracket icons"/>{' '}Login</p>
                         </button>
 
-                        <button onClick={() => {goToMyBag();playSound('../../../public/Sounds/ButtonSound.mp3')}} id="header-button">
-                            <p className="header-button-title"><img src="../../../public/Images/Icons/Cart.png" className="header-icons"/>My Bag</p>
+                        <button onClick={() => {goToMyBag();playSound('/Sounds/ButtonSound.mp3')}} id="header-button">
+                            <p className="button-title"><i className="fa-solid fa-bag-shopping icons"/>{' '}My Bag</p>
                         </button>
 
                         

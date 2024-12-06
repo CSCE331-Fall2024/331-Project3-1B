@@ -3,7 +3,7 @@ import Customer from "./customer/customer.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ItemPage from "./customer/itemPage/itemPage.jsx";
 import Manager from "./manager/manager.jsx";
-import MenuBoards from "./menuBoards/board1.jsx";
+import MenuBoard from "./menuBoard/menuBoard.jsx";
 import Cashier from "./cashier/cashier.jsx";
 import IntermediatePage from "./intermediate/intermediate.jsx";
 import Appetizers from "./customer/appetizers/appetizers.jsx";
@@ -12,7 +12,6 @@ import KidsDrinks from "./customer/kidsDrinks/kidsDrinks.jsx";
 import ManageEmployees from "./manager/manageEmployees/manageEmployees.jsx";
 import MyBag from "./customer/myBag/myBag.jsx";
 import Receipt from "./cashier/receipt/receipt.jsx";
-import Login from "./login/login.jsx";
 import AddEmployee from "./manager/manageEmployees/addEmployee/addEmployee.jsx";
 import EditEmployee from "./manager/manageEmployees/editEmployee/editEmployee.jsx";
 import SalesOrderHistory from "./manager/salesOrderHistory/salesOrderHistory.jsx";
@@ -24,6 +23,8 @@ import Layout from "./googleTranslate/layout.jsx";
 import AddItemPage from "./manager/addItemPage/additem.jsx";
 import AddIngred from "./manager/addIngredPage/addIngred.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
+import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
+
 /**
  * this is the main function of our product that controlls everything
  * @returns {HTML} of the whole application
@@ -33,6 +34,7 @@ function App() {
         // The Router component is used to define the routes of the application
         <Router>
             {/* The Routes component is used to define the routes of the application */}
+            <ZoomProvider>
             <LanguageProvider>
             <Layout>
             <Routes>
@@ -46,11 +48,10 @@ function App() {
                 <Route path="/cashier/drinks" element={<CartProvider><Drinks/></CartProvider>} />
                 <Route path="/cashier/appetizers-and-more" element={<CartProvider><Appetizers/></CartProvider>} />
                 <Route path="/manager" element={<Manager/>} />
-                <Route path="/menuBoard" element={<MenuBoards />} />
+                <Route path="/menuBoard" element={<MenuBoard />} />
                 <Route path="/cashier" element={<Cashier/>} />
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />
-                <Route path="/login" element={<Login/>}/>
                 <Route path="/receipt" element={<Receipt/>} />
                 <Route path="/manager/menuItems" element={<MenuItems />} />
                 <Route path="/manager/employees/add_employee" element={<AddEmployee />} />
@@ -63,6 +64,7 @@ function App() {
             </Routes>
             </Layout>
             </LanguageProvider>
+            </ZoomProvider>
         </Router>
     );
 }

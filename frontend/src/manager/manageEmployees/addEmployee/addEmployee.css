@@ -1,16 +1,15 @@
-#add-employee-container {
+#add-edit-employee-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#add-employee-header-container {
+#employee-header-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 98%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px 0px;
     justify-items: center;
+    width: 745px;
 }
 
 #back-btn {
@@ -21,12 +20,7 @@
     justify-self: right;
 }
 
-#back-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #000000;
-}
-
-#add-employee-form-container {
+#add-edit-employee-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,14 +39,8 @@
     font-size: 15px;
     font-weight: 600;
     margin-top: 15px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
-}
-
-#submit-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0 10px 0 #D61927;
-    background-color: #D61927;
 }
 
 .input-container {

@@ -5,18 +5,21 @@
     color: white;
 }
 
-.cashier-header-button:hover {
-    background-color: #3700ff;
+.cashier-header-button:hover, .cashier-header-button:focus {
+    box-shadow: 0 0 20px 0 #000000;
+    outline: none;
 }
 
 .cashier-header-button {
-    background-color: #a50611;
-    color: white;
-    border: none;
-    margin: 10px;
-    padding: 10px;
+    margin: 8px;
+    padding: 8px 15px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
     cursor: pointer;
-    height: 40px;
+    color: #D61927;
+    width: auto;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .cashier-content-container{

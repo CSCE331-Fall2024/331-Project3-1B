@@ -15,7 +15,7 @@ export default function ManagerGreeting() {
     return (
         <>
             <div id="greeting-container">
-                <h1>Hello {name}!</h1>
+                <h1>Hello{' '}{name}!</h1>
             </div>
         </>
     );

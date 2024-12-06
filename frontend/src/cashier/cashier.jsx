@@ -3,9 +3,8 @@ import "./cashier.css";
 import MenuItemTypes from "./menuItemTypes/menuItemTypes.jsx";
 import Receipt from "./receipt/receipt.jsx";
 import { useCart } from "../customer/myBag/CartContext.jsx";
-import { json, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
-import {useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 // CashierPageHeader is the component that cashier view.
 /** CashierPageHeader is the header component of the cashier view
@@ -69,37 +68,29 @@ export function CashierPageHeader() {
                 })
             });
 
-            // console.log('Response status:', response.status); // Log the response status
-            // console.log('Response headers:', response.headers); // Log headers for debugging
-
-            // if (!response.ok) {
-            //     const errorData = await response.json();
-            //     console.error('Server returned an error:', errorData);
-            //     throw new Error(`HTTP error! Status: ${response.status} - ${errorData.message || 'Unknown error'}`);
-            // }
-
-            //const data = await response.json();
-            //console.log('Server response:', data);
+            
             alert(`Order submitted successfully:`);
-            //clearCart();
+            clearCart();
         } catch (error) {
             console.error('Error submitting order:');
             alert('Failed to submit the order.' + error);
         }
 
 
-        //console.log("Order Submitted:\n", cart);
-        //clearCart();
     };
 
     return (
         <CartProvider>
             <div className="cashier-header-bar">
-                <button onClick = {() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Back</button>
-                <button onClick={() => {submitOrder();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="cashier-header-button">Submit</button>
-                <button onClick = {() => {clearCurrCart();playSound('../../../public/Sounds/ButtonSound.mp3')}}className="cashier-header-button">Delete Order</button>
-                <button className="cashier-header-button">Clock In</button>
-                <button className="cashier-header-button">Clock Out</button>
+                <button onClick = {() => {back();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">
+                    <p><i className="fa-solid fa-right-to-bracket icons"/>{' '}Login</p>
+                </button>
+                <button onClick={() => {submitOrder();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-header-button">
+                    <p><i className="fa-solid fa-cash-register icons"/>{' '}Submit</p>
+                </button>
+                <button onClick = {() => {clearCurrCart();playSound('/Sounds/ButtonSound.mp3')}}className="cashier-header-button">
+                    <p><i className="fa-solid fa-trash icons"/>{' '}Delete Order</p>
+                </button>
             </div>
         </CartProvider>
     );

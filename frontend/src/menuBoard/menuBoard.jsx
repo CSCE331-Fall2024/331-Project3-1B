@@ -1,22 +1,40 @@
-import "./menuBoards.css";
+import "./menuBoard.css";
+import { useNavigate } from "react-router-dom";
 
-// The Board1 component represents a menu board with meal options.
+// The menuBoard component represents a menu board with meal options.
 // It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
 /**
- * generates a Board1 component
- * The Board1 component represents a menu board with meal options.
+ * generates a menuBoard component
+ * The menuBoard component represents a menu board with meal options.
  * It includes a header and a list of meal options, each displaying the meal name, calorie range, price, and a note indicating the starting price.
- * @returns {HTML} The Board1 component
+ * @returns {HTML} The menuBoard component
  */
-export default function Board1() {
+export default function menuBoard() {
+
+    const navigate = useNavigate();
+    
+    // Function to navigate back to the main menu
+    const back = () => {
+        navigate("/")
+    };
+
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     return (
         <>
             <div id="board-container">
+
                 <div className="board-generic">
 
+                    <button onClick={() => {back();playSound('/Sounds/ButtonSound.mp3')}} id="menu-button">
+                        <i className="fa-solid fa-right-to-bracket icons"/>{' '}Login
+                    </button>   
 
-
-                    <h1 className="header-generic">PICK A MEAL</h1>
+                    <div className="header-generic">PICK A MEAL</div>
 
                     <div id="options-list">
 
@@ -24,7 +42,7 @@ export default function Board1() {
                             <span className="option-titles">BOWL</span>
                             <span className="calories-count">240-1010</span>
                             <span className="cal">cal</span>
-                            <span className="price">$6.70</span>
+                            <span className="price">$8.30</span>
                             <span className="starting-at">starting at*</span>
 
                         </div>
@@ -33,7 +51,7 @@ export default function Board1() {
                             <span className="option-titles">PLATE</span>
                             <span className="calories-count">390-1500</span>
                             <span className="cal">cal</span>
-                            <span className="price">$8.20</span>
+                            <span className="price">$9.80</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -41,7 +59,7 @@ export default function Board1() {
                             <span className="option-titles">BIGGER PLATE</span>
                             <span className="calories-count">540-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$9.70</span>
+                            <span className="price">$11.30</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -49,7 +67,7 @@ export default function Board1() {
                             <span className="option-titles">PANDA CUB MEAL</span>
                             <span className="calories-count">330-1020</span>
                             <span className="cal">cal</span>
-                            <span className="price">$5.80</span>
+                            <span className="price">$6.60</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -57,41 +75,13 @@ export default function Board1() {
                             <span className="option-titles">5 PERSON FAMILY MEAL</span>
                             <span className="calories-count">240-1990</span>
                             <span className="cal">cal</span>
-                            <span className="price">$36.00</span>
+                            <span className="price">$43.00</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                     </div>
-                </div>
 
-                <div className="board-generic">
-                    <div className="header-generic">SIDE CHOICES</div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">CHOW MEIN</span>
-                        <span className="calories-count">510</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">WHITE STEAMED RICE</span>
-                        <span className="calories-count">380</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">FRIED RICE</span>
-                        <span className="calories-count">520</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">SUPER GREENS</span>
-                        <span className="calories-count">380</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="header-generic">A LA CARTE BOXES</div>
+                    <div className="header-generic" id="subheader">A LA CARTE BOXES</div>
 
                     <div className="option-generic">
 
@@ -99,31 +89,31 @@ export default function Board1() {
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$3.40</span>
+                            <span className="price">$4.40</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$4.40</span>
+                            <span className="price">$5.40</span>
                         </div>
 
                         <div className="option-titles">ENTREES</div>
 
                         <div className="option-generic">
                             <span className="calories-count">Small</span>
-                            <span className="price">$4.40</span>
+                            <span className="price">$5.20</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Medium</span>
-                            <span className="price">$7.70</span>
+                            <span className="price">$8.50</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
                         <div className="option-generic">
                             <span className="calories-count">Large</span>
-                            <span className="price">$10.20</span>
+                            <span className="price">$11.20</span>
                             <span className="starting-at">starting at*</span>
                         </div>
 
@@ -132,6 +122,7 @@ export default function Board1() {
                 </div>
 
                 <div className="board-generic">
+
                     <div className="header-generic">ENTREE CHOICES</div>
 
                     <div className="option-generic">
@@ -213,6 +204,63 @@ export default function Board1() {
                     </div>
                     
                 </div>
+
+                <div className="board-generic">
+
+                    <div className="header-generic">SIDE CHOICES</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CHOW MEIN</span>
+                        <span className="calories-count">510</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">WHITE STEAMED RICE</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">FRIED RICE</span>
+                        <span className="calories-count">520</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="header-generic" id="subheader">APPETIZERS AND MORE</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CHICKEN EGG ROLL</span>
+                        <span className="calories-count">200</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">VEGETABLE SPRING ROLL</span>
+                        <span className="calories-count">240</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CREAM CHEESE RANGOON</span>
+                        <span className="calories-count">190</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">APPLE PIE ROLL</span>
+                        <span className="calories-count">150</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                </div>
+
             </div>
         </>
     );

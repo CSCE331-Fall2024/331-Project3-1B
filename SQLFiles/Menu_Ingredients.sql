@@ -319,7 +319,7 @@ INSERT INTO Menu_Ingredients (Option_Serial_Number,Item_Serial_Number,Ingredient
 (12,17,33,12),-- Party Bundle
 (12,28,1,8),--utensils bag
 (10,28,4,8),--utensils box
-(10,28,30,),--utensils cookies
+(10,28,30,8),--utensils cookies
 (10,28,6,30),--utensils
 (10,28,7,30),--utensils
 (10,28,8,30);--utensils

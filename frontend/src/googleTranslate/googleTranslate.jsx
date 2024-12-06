@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { translateText } from "./translate.js"; // The utility function created earlier
 import { languageContext } from "./languageContext.jsx";
 import { useLocation } from "react-router-dom";
+import { UseZoom } from "../customer/zoomButton/ZoomContext.jsx";
 import "./googleTranslate.css";
 
 /**
@@ -25,6 +26,8 @@ export default function googleTranslate() {
     };
 
     const { language, changeLanguage } = useContext(languageContext); // Language context for translation management
+
+    const { toggleZoom } = UseZoom();
 
     /**
      * Collects all visible text nodes from the DOM except those inside elements
@@ -105,6 +108,12 @@ export default function googleTranslate() {
         }
     }, []); // Runs only once on mount
 
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
+
     /**
      * Effect hook that runs whenever the route location changes.
      * Translates the page if the current language is not English.
@@ -116,12 +125,12 @@ export default function googleTranslate() {
     }, [location]); // Runs whenever the location changes
 
     return (
-        <div className="notranslate translate-container">
-            <label htmlFor="language-selector" id="dropdown-title">Language Selector:</label>
+        <div className="translate-container">
+            <label htmlFor="language-selector" id="dropdown-title">Language:</label>
             <select
                 id="language-selector"
                 value={language}
-                onChange={(e) => changeLanguage(e.target.value)}
+                onChange={(e) => {changeLanguage(e.target.value);playSound('/Sounds/ButtonSound.mp3')}}
                 className="notranslate"
             >
                 {Object.keys(top_languages).map((lang) => (
@@ -135,24 +144,25 @@ export default function googleTranslate() {
                 ))}
             </select>
             <button
-                onClick={translatePage}
-                disabled={isTranslating}
-                className="notranslate translate-button"
-            >
-                {isTranslating ? "Translating..." : "Translate"}
+                onClick={() => {translatePage();playSound('/Sounds/ButtonSound.mp3')}}
+                disabled={isTranslating}    
+                className="translate-button"
+            ><i className="fa-solid fa-globe icons"/>
+                {' '}{isTranslating ? "Translating..." : "Translate"}
             </button>
             <button
-                onClick={() => {
+                onClick={() => {playSound('/Sounds/ButtonSound.mp3');
                     const textNodes = collectTextNodes();
                     textNodes.forEach((node) => {
                         node.nodeValue = node.originalText; // Reset to original English text
                     });
                     changeLanguage("en"); // Reset language to English
                 }}
-                className="notranslate translate-button"
-            >
-                Reset
+                className="reset-button"
+            ><i className="fa-solid fa-rotate-left icons"/>{' '}Reset
             </button>
+            <button className="zoom-btn" onClick={() => {toggleZoom(); playSound('/Sounds/ButtonSound.mp3');}}>Toggle Zoom</button>
         </div>
+        
     );
 }

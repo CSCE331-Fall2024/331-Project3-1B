@@ -1,6 +1,5 @@
 #board-container{
     background-color: #dddada;
-    margin-top: -41px;
     padding: 50px;
 }
 
@@ -22,6 +21,10 @@
     color: #D61927;
     font-family: sans-serif;
     justify-self: center;
+}
+
+#subheader{
+    font-size: 80px;
 }
 
 .option-generic{
@@ -65,3 +68,16 @@
     margin-right: 20px;
 }
 
+#menu-button {
+    padding: 7px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    color: #D61927;
+    width: auto;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+
+}

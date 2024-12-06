@@ -1,6 +1,18 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
+button, select {
+    transition: .2s;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: outset;
+    cursor: pointer;
+}
 
+button:hover, button:focus, select:hover, select:focus {
+    box-shadow: 0 0 12px 0 #000000;
+    outline: none;
+}

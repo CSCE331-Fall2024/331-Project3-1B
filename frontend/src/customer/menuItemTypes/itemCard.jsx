@@ -1,7 +1,6 @@
 import "./itemCard.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../myBag/CartContext.jsx";
-import { useEffect } from "react";
 
 // itemCard is the card that displays the item type
 /**
@@ -52,7 +51,7 @@ export default function ItemCard({ type }) {
 
     return (
         <button
-            onClick={() => {handleClick(type),playSound('../../../public/Sounds/ButtonSound.mp3')}}
+            onClick={() => {handleClick(type),playSound('/Sounds/ButtonSound.mp3')}}
             className="item-card-container"
         >
             <img className="item-card-image" src={imagePath} alt="" />

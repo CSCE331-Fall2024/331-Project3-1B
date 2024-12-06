@@ -181,6 +181,23 @@ router.get('/get_menu_item_names', async (req, res) => {
     }
 });
 
+// Get minimum price given menu option
+/**
+ * gets the price of the cheapest item of a given menu option
+ * @return {JSON} the cheapest price;
+ */
+router.get('/get_cheapest_option_price', async (req, res) => {
+    const { option } = req.params;
+    try {
+        const query = `SELECT MIN(price) FROM menu_prices WHERE option_serial_number = '${option}';`;
+        const result = await pool.query(query);
+        res.json(result);
+    } catch (error) {
+        console.error("Error getting price");
+        res.status(500).send("Error getting price");
+    }
+});
+
 // Get Employee Name given ID number
 /**
  * gets the employee name given the ID number 
@@ -418,31 +435,38 @@ router.get('/get_ingredients', async (req, res) => {
  * @return {JSON} zReport
  */
 router.get('/zReport', async (req, res) => {
-    const { starttime, endtime } = req.query;
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD
 
-    const zReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    const zReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
-    const zReportQuery3 = "SELECT item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number WHERE date_time_ordered BETWEEN $1 AND $2;";
-    try {
-        const result1 = await pool.query(zReportQuery1, [starttime, endtime]);
-        const result2 = await pool.query(zReportQuery2, [starttime, endtime]);
-        const result3 = await pool.query(zReportQuery3, [starttime, endtime]);
+    let zReportResults = {};
+    let total_sales_price = 0;
 
-        const totalSales = result1.rows[0].total_sales;
-        const totalOrders = result2.rows[0].total_orders;
-        const totalItems = result3.rows;
-        let itemCount = 0;
-        totalItems.map(item => {
-            if (item.item_serial_number > 12) {
-                ++itemCount;
+    // opening hours 10am-9pm
+    for (let hour = 10; hour <= 20; ++hour) {
+        const starttime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:00:00`);
+        const endtime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:59:59`);
+
+        const zReportQuery = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
+
+        // get total sales
+        try {
+            const result = await pool.query(zReportQuery, [starttime, endtime]);
+            if (result.rows.length > 0) {
+                total_sales_price += parseFloat(result.rows[0].total_sales);
             }
-        })
+        } catch (error) {
+            console.error('Error in zReport query', error);
+            res.status(500).send("Error generating query in zReport");
+            return
+        }
 
-        res.json({ totalSales, totalOrders, itemCount });
-    } catch (error) {
-        console.error("Error in zReport query", error);
-        res.status(500).send("Error generating Z Report");
-    }
+        endtime.setSeconds(60);
+        const end_time = endtime.toLocaleTimeString([], {hour: "numeric"});
+
+        zReportResults[[end_time]] = total_sales_price;
+    };
+
+    res.json(zReportResults);
 });
 /**
  * creates a xReport for the current day
@@ -456,8 +480,8 @@ router.get('/xReport', async (req, res) => {
 
     // opening hours 10am-9pm
     for (let hour = 10; hour <= 20; ++hour) {
-        const starttime = `${formattedDate} ${String(hour).padStart(2, '0')}:00:00`;
-        const endtime = `${formattedDate} ${String(hour).padStart(2, '0')}:59:59`;
+        const starttime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:00:00`);
+        const endtime = new Date(`${formattedDate}T${String(hour).padStart(2, '0')}:59:59`);
 
         const xReportQuery1 = "SELECT SUM(price) AS total_sales FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
         const xReportQuery2 = "SELECT COUNT(price) AS total_orders FROM sales_order_history WHERE Date_time_ordered BETWEEN $1 AND $2;";
@@ -510,10 +534,19 @@ router.get('/xReport', async (req, res) => {
             return;
         }
 
-        xReportResults.push(`There were ${total_sales_count} orders totaling $${total_sales_price} between ${starttime} and ${endtime} - ${item_count} items sold`);
+        const start_time = starttime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const end_time = endtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        xReportResults.push({
+            start_time,
+            end_time,
+            total_orders: total_sales_count,
+            total_cost: total_sales_price,
+            total_items: item_count
+        });
     };
 
-    res.json(xReportResults);
+    res.send(xReportResults);
 });
 
 
@@ -702,7 +735,6 @@ const GetInventoryUsage = async (starttime, endtime) => {
     for(let i of orders)
     {
         let combos = await ReconstructOrder(i);
-        console.log(combos);
         for(let entry of combos)
         {
             let option_serial_number = entry[0];
@@ -723,6 +755,17 @@ const GetInventoryUsage = async (starttime, endtime) => {
             }
         }
     }
+
+    for (let id = 0; id < inventory_usage.length; ++id) {
+        try {
+            const query = `SELECT name FROM inventory WHERE id = ${id + 1};`;
+            const result = await pool.query(query);
+            inventory_usage[id][0] = result.rows[0].name;
+        } catch (error) {
+            console.error('Error getting name for inventory item');
+        }
+    }
+
     return inventory_usage;
 };
 
@@ -736,5 +779,70 @@ router.get('/getInventoryUsage', async (req, res) => {
         res.status(500).send('Could not get inventory usage for report');
     }
 });
+
+/**
+ * gets the sales report list of items
+ * @param {Timestamp} starttime 
+ * @param {Timestamp} endtime 
+ * @returns list of items and number of times ordered
+ */
+const getSalesReport = async (starttime, endtime) => {
+    let tempcount = 0;
+    try {
+        const query = "SELECT max(item_serial_number) AS maxnumber FROM sales_order_history_details";
+        const result = await pool.query(query);
+        tempcount = result.rows[0].maxnumber
+    } catch (error) {
+        console.error(error);
+    }
+    let SalesReport = [];
+    for(let i = 0; i < tempcount - 12; i++){
+        SalesReport.push([i + 1,0]);
+    }
+    try {
+        const query = "SELECT sales_order_history_details.item_serial_number FROM sales_order_history INNER JOIN sales_order_history_details ON sales_order_history.order_number = sales_order_history_details.order_number INNER JOIN menu_items ON sales_order_history_details.item_serial_number = menu_items.item_serial_number WHERE date_time_ordered BETWEEN $1 AND $2;";
+        const result = await pool.query(query, [starttime, endtime]);
+        for(const row of result.rows){
+          if(row.item_serial_number > 12){
+          SalesReport[row.item_serial_number - 13][1]++;
+          }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+
+    for (let id = 1; id <= 25; ++ id) {
+        try {
+            const query = `SELECT item_name FROM menu_items WHERE item_serial_number = ${id};`;
+            const result = await pool.query(query);
+            SalesReport[id - 1][0] = result.rows[0].item_name;
+        } catch (error) {
+            console.error('error in getting menu item name');
+            return;
+        }
+    }
+
+    salesReportObject = {
+        item_name: null,
+        item_quantity: null,
+    };
+
+    salesReportObject.item_name = SalesReport.map(item => item[0]);
+    salesReportObject.item_quantity = SalesReport.map(item => item[1]);
+
+    return salesReportObject;
+}
+
+router.get('/get_sales_report', async (req, res) => {
+    const {startTime, endTime} = req.query;
+    try {
+        const result = await getSalesReport(startTime, endTime);
+        res.json(result);
+    } catch (error) {
+        console.error('Backend: could not get sales report data');
+        res.status(500).send('Error getting sales report data in backend');
+    }
+});
+
 
 module.exports = router;

@@ -1,7 +1,5 @@
 import "./addToOrder.css";
 import { useCart } from "../myBag/CartContext";
-import { useEffect } from "react";
-import { useState } from "react";
 
 /**
  * creates a button that adds items to the order
@@ -76,9 +74,9 @@ export default function ({ items = [], onAddToOrder }) {
     }
     
     return (
-        <button onClick={() => {addToOrderTotal();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="add-to-order-button">
+        <button onClick={() => {addToOrderTotal();playSound('/Sounds/ButtonSound.mp3')}} className="add-to-order-button">
             
-            <p><img src="../../../public/Images/Icons/Plus.png" className="icons"/>Add to Order</p>
+            <p><i className="fa-solid fa-circle-plus icons"/>{' '}Add to Order</p>
         </button>
     );
 }

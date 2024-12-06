@@ -12,27 +12,26 @@
 }
 
 
-button, select {
+.translate-button, .reset-button, .zoom-btn, .notranslate{
+    padding: 10px;
+    background-color: #f8f8f8;
     border-radius: 5px;
-    padding: 5px;
+    color: #D61927;
+    width: auto;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-button:hover, select:hover{
-    cursor: pointer;
-
-}
-
-.translate-button{
-    background-color: #fff;
-    border: none;
-}
-
-.translate-button:hover{
-    box-sizing: border-box;
-    outline: 2px solid black;
+.translate-button:hover, select:hover, .reset-button:hover, .translate-button:focus, select:focus, .reset-button:focus, .zoom-btn:hover {
+    box-shadow: 0 0 10px 0 #000000;
+    outline: none;
 }
 
 #dropdown-title{
     color: #FFFFFF;
         
+}
+
+.zoom-btn {
+    margin-left: 15px;
 }

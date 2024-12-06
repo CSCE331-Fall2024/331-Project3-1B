@@ -1,8 +1,5 @@
 import "./intermediate.css"
-
-import { Link, useNavigate } from 'react-router-dom';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-
+import { useNavigate } from 'react-router-dom';
 
 /**
  * This function generates the intermediate page where you can navigate to the different views
@@ -12,11 +9,6 @@ export function IntermediatePage(){
 
     // Create navigate variable to use for navigation
     const navigate = useNavigate();
-
-    // function to handle login
-    const handleLogin = () => {
-        
-    }
 
     // Button function to navigate to cashier
     const navigateToPOS = () => {
@@ -33,6 +25,11 @@ export function IntermediatePage(){
         navigate('/intermediate/managerintermediate');
     };
 
+    // Button function to navigate to menu board
+    const navigateToMenu = () => {
+        navigate('/menuBoard');
+    };
+
     // Play Sound Effect on button click
     function playSound(file) {
         var audio = new Audio(file);
@@ -46,16 +43,21 @@ export function IntermediatePage(){
             </div>
             <div className="main-content">
 
-                <div className="label-container">
-                    <div className="label">
-                        <h1>Select Location</h1>
-                    </div>
-                </div>
+                <p id="label">Select Location</p>
 
                 <div className="navigate-buttons">
-                    <button onClick={() => {navigateToCustomer();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Customer-button">POS</button>
-                    <button onClick={() => {navigateToPOS();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="POS-button">Cashier</button>
-                    <button onClick={() => {navigateToManager();playSound('../../../public/Sounds/ButtonSound.mp3')}} className="Manager-button">Manager</button>
+                    <button onClick={() => {navigateToCustomer();playSound('/Sounds/ButtonSound.mp3')}} className="pos-button">
+                        <i className="fa-solid fa-cart-shopping icons"/>{' '}POS
+                    </button>
+                    <button onClick={() => {navigateToPOS();playSound('/Sounds/ButtonSound.mp3')}} className="cashier-button">
+                        <i className="fa-solid fa-cash-register icons"/>{' '}Cashier
+                    </button>
+                    <button onClick={() => {navigateToManager();playSound('/Sounds/ButtonSound.mp3')}} className="manager-button">
+                        <i className="fa-solid fa-user-tie icons"/>{' '}Manager
+                    </button>
+                    <button onClick={() => {navigateToMenu();playSound('/Sounds/ButtonSound.mp3')}} className="menu-board-button">
+                        <i className="fa-solid fa-circle-info icons"/>{' '}Menu Board
+                    </button>
                 </div>
                 
             </div>

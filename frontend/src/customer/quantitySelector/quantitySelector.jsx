@@ -35,9 +35,9 @@ export default function QuantitySelector({ onQuantityChange, resetQuantities }) 
     return (
         <div className="quantifier-container">
             <div className="quantifier">
-                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('../../../public/Sounds/ButtonSound.mp3')}}>-</button>
+                <button className="quantifier-button" onClick={() => {handleSubtract();playSound('/Sounds/ButtonSound.mp3')}}>-</button>
                 <span>{quantity}</span>
-                <button className="quantifier-button" onClick={() => {handleAdd();playSound('../../../public/Sounds/ButtonSound.mp3')}}>+</button>
+                <button className="quantifier-button" onClick={() => {handleAdd();playSound('/Sounds/ButtonSound.mp3')}}>+</button>
             </div>
         </div>
     );

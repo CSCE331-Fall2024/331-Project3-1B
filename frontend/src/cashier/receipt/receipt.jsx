@@ -1,6 +1,5 @@
 import "./receipt.css";
 import { useCart } from "../../customer/myBag/CartContext";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function Receipt() {
@@ -62,7 +61,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -83,7 +82,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -105,7 +104,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -127,7 +126,7 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name} (
+                                                            {item.name}{' '} (
                                                             {item.quantity}) 
                                                             {/* ({item.type}) */}
                                                         </h3>
@@ -141,9 +140,9 @@ export function Receipt() {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => {removeCombo(index);playSound('../../../public/Sounds/ButtonSound.mp3')}}
+                                        onClick={() => {removeCombo(index);playSound('/Sounds/ButtonSound.mp3')}}
                                     >
-                                        <h2>Remove</h2>
+                                        <h2><i className="fa-solid fa-trash icons"/>{' '}Remove</h2>
                                     </button>
                                 )}
                             </div>

@@ -41,28 +41,28 @@ function PageHeader() {
         <>
             <div id="header-container">
 
-                <button onClick={() => {back();playSound('../../../public/Sounds/ButtonSound.mp3')}} className='nav-btn'>
-                    <h1 className="nav-btn-text">Login Page</h1>
+                <button onClick={() => {back();playSound('/Sounds/ButtonSound.mp3')}} className='nav-btn'>
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-right-to-bracket icons"/>{' '}Login</h1>
                 </button>
 
-                <button className="nav-btn" onClick={() => {homeClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>
-                    <h1 className="nav-btn-text">Manager Home</h1>
+                <button className="nav-btn" onClick={() => {homeClick();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-home icons"/>{' '}Manager Home</h1>
                 </button>
 
-                <button className="nav-btn" id="pos-btn" onClick={() => {posClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>
-                    <h1 className="nav-btn-text">POS</h1>
+                <button className="nav-btn" id="pos-btn" onClick={() => {posClick();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-cash-register icons"/>{' '}POS</h1>
                 </button>
 
-                <button className="nav-btn">
-                    <h1 className="nav-btn-text" onClick={() => {manageEmployeesClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Employee Management</h1>
+                <button onClick={() => {manageEmployeesClick();playSound('/Sounds/ButtonSound.mp3')}} className="nav-btn">
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-users-gear icons"/>{' '}Employee Management</h1>
                 </button>
 
-                <button className="nav-btn">
-                    <h1 className="nav-btn-text" onClick={() => {managerMenuItemsClick();playSound('../../../public/Sounds/ButtonSound.mp3')}}>Menu Items</h1>
+                <button onClick={() => {managerMenuItemsClick();playSound('/Sounds/ButtonSound.mp3')}} className="nav-btn">
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-boxes-stacked icons"/>{' '}Menu Items</h1>
                 </button>
 
-                <button className="nav-btn">
-                    <h1 className="nav-btn-text" onClick={() => {salesOrderHistoryClick(); playSound('../../../public/Sounds/ButtonSound.mp3')}}>Sales Order History</h1>
+                <button onClick={() => {salesOrderHistoryClick(); playSound('/Sounds/ButtonSound.mp3')}} className="nav-btn">
+                    <h1 className="nav-btn-text"><i className="fa-solid fa-clock-rotate-left icons"/>{' '}Sales Reports</h1>
                 </button>
             </div>
         </>

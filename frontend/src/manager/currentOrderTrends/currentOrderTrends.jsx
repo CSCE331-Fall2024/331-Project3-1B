@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-ChartJS.register(ArcElement, Tooltip, Legend);
 import "./currentOrderTrends.css";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 // creates a container that holds the current order trends. Shows the number of each item ordered today
 // creates a pie chart showing combo trends today
@@ -59,7 +60,9 @@ function OrderTrends() {
                         }}
                     />
                 </div>
-                <button id='refresh-chart-btn' onClick={ () => {getComboData(true);playSound('../../../public/Sounds/ButtonSound.mp3')} }>Refresh</button>
+                <button id='refresh-chart-btn' onClick={ () => {getComboData(true);playSound('../../../public/Sounds/ButtonSound.mp3')} }>
+                    <p><i className="fa-solid fa-arrows-rotate icons"/>{' '}Refresh</p>
+                </button>
             </div>
 
 

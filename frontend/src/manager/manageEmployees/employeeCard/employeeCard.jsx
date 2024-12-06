@@ -1,5 +1,11 @@
 import "./employeeCard.css";
 
+// Play Sound Effect on button click
+function playSound(file) {
+    var audio = new Audio(file);
+    audio.play();
+}
+
 // creating individual employee cards
 /**
  * creating individual employee cards with given attributes
@@ -8,10 +14,9 @@ import "./employeeCard.css";
  * @param {string} position
  * @param {string} email 
  * @param {function} removeEmployee
- * @param {function} editEmployee
  * @returns {HTML} EmployeeCard
  */
-function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee }) {
+function EmployeeCard({ name, id, position, email, removeEmployee }) {
     return (
         <>
             <div id="employee-card">
@@ -20,7 +25,8 @@ function EmployeeCard({ name, id, position, email, removeEmployee, editEmployee 
                 <h2 className="employee-info">{position}</h2>
                 <h2 className="employee-info">{email}</h2>
                 <div className="function-btn-container">
-                    <button className="function-employee-button" onClick={removeEmployee}>Remove Employee</button>
+                    <button className="employee-btn" onClick={() => {removeEmployee();playSound('/Sounds/ButtonSound.mp3')}}>
+                    <i className="fa-solid fa-user-slash icons"/>{' '}Remove Employee</button>
                 </div>
             </div>
         </>

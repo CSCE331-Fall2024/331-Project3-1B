@@ -7,20 +7,16 @@
 }
 
 .nav-btn {
-    background-color: #fff;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    color: #D61927;
     width: auto;
-    border-radius: 20px;
-    border: none;
-    transition: box-shadow .2s;
+    font-size: 20px;
+    font-weight: bold;
 }
-
+    
 .nav-btn-text {
     font-size: 20px;
     color: #D61927;
-    padding: 10px 25px;
-}
-
-.nav-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0 20px 0 #000000;
 }
