@@ -68,6 +68,7 @@ const Chatbot = () => {
                 <i className="fa-solid fa-comments icon-size" />
             </button>
 
+
             {/* Chatbot interface */}
             {showChatbot && (
                 <div className="chatbot-container">
