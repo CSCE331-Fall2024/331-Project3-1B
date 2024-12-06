@@ -40,7 +40,8 @@ function App() {
             <LanguageProvider>
             <Layout>
             <Routes>
-                <Route path="/" element={<IntermediatePage />} />
+                <Route path="/" element={<Customer />} />
+
                 <Route path="/order" element={<CartProvider><ItemPage /></CartProvider>} />
                 <Route path='myBag' element={<CartProvider><MyBag /></CartProvider>} />
                 <Route path="/order/appetizers" element={<CartProvider><Appetizers/></CartProvider>} />
@@ -52,7 +53,9 @@ function App() {
                 <Route path="/manager" element={<Manager/>} />
                 <Route path="/menuBoard" element={<MenuBoard />} />
                 <Route path="/cashier" element={<Cashier/>} />
-                <Route path="/customer" element={<Customer />} />
+
+                <Route path="/customer" element={<IntermediatePage/>} />
+                
                 <Route path="/manager/employees" element={ <ManageEmployees /> } />
                 <Route path="/receipt" element={<Receipt/>} />
                 <Route path="/manager/menuItems" element={<MenuItems />} />
