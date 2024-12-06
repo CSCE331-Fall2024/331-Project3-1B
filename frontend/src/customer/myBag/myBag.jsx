@@ -317,6 +317,8 @@ export default function () {
                 <div className="footer-button-container">
                     {cart.length > 0 && (
                         <>
+                                                    <Chatbot />
+
                             <button
                                 onClick={() => {
                                     clearCurrCart();
@@ -342,7 +344,6 @@ export default function () {
                                     Checkout
                                 </p>
                             </button>
-                            <Chatbot />
                         </>
                     )}
                     {cart.length == 0 && <Chatbot />}
