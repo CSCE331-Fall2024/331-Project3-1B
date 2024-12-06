@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Chatbot from "../../chatbot/chatbot.jsx";
 import "./myBag.css";
 import { use } from "react";
+import { SpinnerCircular } from "spinners-react";
 
 // This component will display the items in the cart, functionality not complete yet.
 /**
@@ -66,14 +67,12 @@ export default function () {
         removeItemFromCart(index);
     };
 
-
-
     const getTotalPrice = async () => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
         let _types = [];
         let _items = [];
-    
+
         for (let i = 0; i < savedCart.length; ++i) {
             if (i % 2 === 0) {
                 if (
@@ -92,14 +91,15 @@ export default function () {
                 _items.push(combo_items);
             }
         }
-    
+
         const params = new URLSearchParams({
             types: JSON.stringify(_types),
             items: JSON.stringify(_items),
         });
-    
+
         try {
             const response = await fetch(
+
                 `https://three31-project3-1b-backend.onrender.com/submit/total-price?${params}`,
                 {
                     method: "GET",
@@ -108,7 +108,7 @@ export default function () {
                     },
                 }
             );
-    
+
             const data = await response.json();
             setTotalPrice(data.total_price);
             setComboPrices(data.comboPrices); // Save individual combo prices
@@ -117,19 +117,14 @@ export default function () {
             alert("Failed to submit the order." + error);
         }
     };
-    
 
-
-
-    useEffect(() => {   
+    useEffect(() => {
         // console.log("Total Price: ", totalPrice);
     }, [totalPrice]);
 
     useEffect(() => {
         getTotalPrice();
     }, [cart]);
-
-
 
     // The function that will submit the order once connected with backend call
     const placeOrder = async () => {
@@ -209,10 +204,6 @@ export default function () {
 
         setAllergies([...uniqueAllergies]);
         // console.log(allergies); // Logs the old state, not the updated one.
-
-
-        
-
     }, []);
 
     useEffect(() => {
@@ -251,7 +242,29 @@ export default function () {
                                 <div className="combo-name-container">
                                     {index % 2 == 0 && (
                                         <div>
-                                            <h1>{combo} - ${comboPrices[Math.floor(index/2)]}</h1>
+                                            <h1>
+                                                {" "}
+                                                {combo}{" "}
+                                                {comboPrices &&
+                                                comboPrices[
+                                                    Math.floor(index / 2)
+                                                ] ? (
+                                                    `- $${
+                                                        comboPrices[
+                                                            Math.floor(
+                                                                index / 2
+                                                            )
+                                                        ]
+                                                    }`
+                                                ) : (
+                                                    <SpinnerCircular
+                                                        size={15}
+                                                        thickness={400}
+                                                        color="#d61927"
+                                                        secondaryColor="#fff"
+                                                    />
+                                                )}
+                                            </h1>
                                         </div>
                                     )}
                                 </div>
@@ -384,7 +397,16 @@ export default function () {
                 <div className="total-price-container">
                     {cart.length > 0 && (
                         <h1 className="total-price">
-                            Total Price: ${totalPrice}
+                            {totalPrice != 0 ? (
+                                `Total Price: $${totalPrice}`
+                            ) : (
+                                <SpinnerCircular
+                                    size={15}
+                                    thickness={400}
+                                    color="#d61927"
+                                    secondaryColor="#fff"
+                                />
+                            )}
                         </h1>
                     )}
                 </div>
