@@ -34,11 +34,11 @@ function ItemCard({ type }) {
         if (
             type == "Bowl" ||
             type == "Plate" ||
-            type == "A La Carte" ||
+            type == "A La Carte Small" ||
             type == "Bigger Plate" ||
-            type == "Catering" ||
+            type == "Party Size" ||
             type == "Panda Cub Meal" ||
-            type == "5 Person Meal"
+            type == "5 Person Family Meal"
         ) {
             navigate("/cashier/order");
         } else if (type == "Appetizers and More") {

@@ -16,10 +16,10 @@ ENTREES:
 6. Honey Sesame Chicken Breast - Contains: wheat, sesame.
 7. Black Pepper Chicken - Contains: soy, wheat.
 8. String Bean Chicken Breast - Contains: soy, wheat, sesame.
-9. Mushroom Beef - Contains: soy, wheat, sesame.
+9. Mushroom Chicken - Contains: soy, wheat, sesame.
 10. Honey Walnut Shrimp - Contains: tree nuts, shellfish, eggs, milk, soy, wheat.
 11. Black Pepper Sirloin Steak - Contains: soy, wheat.
-12. Sweet Fire Chicken Breast - Contains: wheat.
+12. SweetFire Chicken Breast - Contains: wheat.
 
 SIDES:
 1. White Steamed Rice - No allergens listed.

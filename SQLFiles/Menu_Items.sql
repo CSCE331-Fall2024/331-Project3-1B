@@ -8,10 +8,10 @@ CREATE TABLE  Menu_Items  (
 INSERT INTO Menu_Items (Item_Name,Availability,Item_Type) VALUES
 ('Chow Mein', '1', 'Sides'),
   ('Fried Rice', '1', 'Sides'),
-  ('Steamed Rice', '1', 'Sides'),
+  ('White Steamed Rice', '1', 'Sides'),
   ('Super Greens', '1', 'Sides'),
   ('Hot Ones Blazing Bourbon Chicken', '1', 'Entrees'),
-  ('The Original Orange Chicken', '1', 'Entrees'),
+  ('Original Orange Chicken', '1', 'Entrees'),
   ('Black Pepper Sirloin Steak', '1', 'Entrees'),
   ('Honey Walnut Shrimp', '1', 'Entrees' ),
   ('Grilled Teriyaki Chicken', '1', 'Entrees'),
