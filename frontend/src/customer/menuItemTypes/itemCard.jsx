@@ -34,10 +34,10 @@ export default function ItemCard({ type }) {
         if (
             type === "Bowl" ||
             type === "Plate" ||
-            type === "A La Carte" ||
+            type === "A La Carte Small" ||
             type === "Bigger Plate" ||
-            type === "Catering" ||
-            type === "5 Person Meal"
+            type === "Party Size" ||
+            type === "5 Person Family Meal"
         ) {
             navigate("/order");
         } else if (type === "Panda Cub Meal") {

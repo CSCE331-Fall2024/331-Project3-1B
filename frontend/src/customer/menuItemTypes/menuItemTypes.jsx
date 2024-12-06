@@ -13,11 +13,11 @@ export default function MenuItemTypes() {
         "Plate",
         "Bigger Plate",
         "Panda Cub Meal",
-        "5 Person Meal",
+        "5 Person Family Meal",
         "Appetizers and More",
         "Drinks",
-        "Catering",
-        "A La Carte",
+        "Party Size",
+        "A La Carte Small",
     ];
 
     // maps all the types to the ItemCard component

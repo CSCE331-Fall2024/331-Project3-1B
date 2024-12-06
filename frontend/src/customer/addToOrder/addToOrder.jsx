@@ -50,12 +50,17 @@ export default function ({ items = [], onAddToOrder }) {
                 validOrder = true;
             }
         }
-        else if (currType == "5 Person Meal") {
+        else if (currType == "5 Person Family Meal") {
             if (entrees == 3 && sides == 2) {
                 validOrder = true;
             }
         }
-        else if (currType == "Panda Cub Meal" || currType == "Appetizers and More" || currType == "Drinks" || currType == "Kids Drinks" || currType == "A La Carte" || currType == "Catering") {
+        else if (currType == "Panda Cub Meal") {
+            if (entrees == 1 && sides == 1) {
+                validOrder = true;
+            }
+        }
+        else if (currType == "Appetizers and More" || currType == "Drinks" || currType == "Kids Drinks" || currType == "A La Carte Small" || currType == "Party Size") {
             validOrder = true;
         }
 

@@ -59,9 +59,9 @@ export default function () {
         }
     }, [resetQuantities]);
     const drinks = [
-        "Small",
-        "Medium",
-        "Large",
+        "Soft Drink Small",
+        "Soft Drink Medium",
+        "Soft Drink Large",
         "Bottled Water",
         "Gatorade Lemon Lime",
     ];

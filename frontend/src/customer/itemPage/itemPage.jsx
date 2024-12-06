@@ -86,13 +86,13 @@ export default function ItemPage() {
         ["Honey Sesame Chicken Breast", "Contains: wheat, sesame."],
         ["Black Pepper Chicken", "Contains: soy, wheat."],
         ["String Bean Chicken Breast", "Contains: soy, wheat, sesame."],
-        ["Mushroom Beef", "Contains: soy, wheat, sesame."],
+        ["Mushroom Chicken", "Contains: soy, wheat, sesame."],
         [
             "Honey Walnut Shrimp",
             "Contains: tree nuts, shellfish, eggs, milk, soy, wheat.",
         ],
         ["Black Pepper Sirloin Steak", "Contains: soy, wheat."],
-        ["Sweet Fire Chicken Breast", "Contains: wheat."],
+        ["Sweet Fire Chicken Breast", "Contains: wheat."]
     ];
 
     // ==============================

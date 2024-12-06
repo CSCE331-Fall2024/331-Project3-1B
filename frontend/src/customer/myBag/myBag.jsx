@@ -31,9 +31,52 @@ export default function () {
     };
 
     // The function that will submit the order once connected with backend call
-    const placeOrder = () => {
-        console.log("Placing order:\n:", cart);
-        clearCart();
+    const placeOrder = async() => {
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let _types = [];
+        let _items = [];
+
+        for (let i = 0; i < savedCart.length; ++i) {
+            if (i % 2 === 0) {
+                if (savedCart[i] == "Drinks" || savedCart[i] == "Appetizers and More" ) {
+                    _types.push("A La Carte Small");
+                } else {
+                    _types.push(savedCart[i]);
+                }
+            } else {
+                let combo_items = [];
+                for (let j = 0; j < savedCart[i].length; ++j) {
+                    console.log(savedCart[i][j].name);
+                    combo_items.push(savedCart[i][j].name);
+                }
+                _items.push(combo_items);
+            }
+        }
+
+        try {
+            const response = await fetch(
+                `http://localhost:${
+                    import.meta.env.VITE_BACKEND_PORT
+                }/submit/submit-order`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        types: _types,
+                        items: _items,
+                    }),
+                }
+            );
+
+            alert(`Order submitted successfully:`);
+            clearCart();
+        } catch (error) {
+            console.error("Error submitting order:");
+            alert("Failed to submit the order." + error);
+        }
     };
 
     // Play Sound Effect on button click
