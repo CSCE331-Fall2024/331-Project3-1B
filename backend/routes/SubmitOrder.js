@@ -231,6 +231,51 @@ router.post('/submit-order', async (req, res) => {
     }
 });
 
+// Input Example:
+// types = ['bowl', 'plate'] -> options 
+// items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
+/**
+ * gets the total price of the order
+ * @example
+ * types = ['bowl', 'plate'] -> options 
+ * items = [['mushroom chicken','chow mein'] ,['orange chicken', 'fried rice', 'super greens']] -> items asscoiated with each option
+ * @param {JSON} total_price
+ * 
+ */
+router.get('/total-price', async (req, res) => {
+
+    const { types, items } = req.body; 
+
+    try {
+        const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
+
+        const item_ids = await Promise.all(
+            items.map(async (sub_array) => await Promise.all(
+                sub_array.map(async (item) => await getItemSerialNumber(item))
+            ))
+        );
+        
+        const timestamp = getFormattedTimestamp();
+
+        const joint = type_ids.map((e, i) => [e, item_ids[i]]);
+
+        const prices = await Promise.all(joint.map(async ([type, items]) => 
+            Promise.all(items.map(async (item) => await GetPrice(type, item)))
+        ));
+
+        let total_price = prices.map(subArray => 
+            subArray.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2)
+        );
+
+        total_price = total_price.reduce((acc, price) => acc + parseFloat(price), 0).toFixed(2);
+
+        res.json({price: total_price});
+    } catch (err) {
+        console.error('Error submitting order:', err.stack);
+        res.json({message:'Order failed to submit successfully', _er : err.stack});
+    }
+});
+
 
 module.exports = router;
 
