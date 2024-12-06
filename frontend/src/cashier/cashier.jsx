@@ -58,7 +58,7 @@ export function CashierPageHeader() {
         }
 
         try {
-            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}}/submit/submit-order`, {
+            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/submit-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
