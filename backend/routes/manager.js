@@ -186,12 +186,30 @@ router.get('/get_menu_item_names', async (req, res) => {
  * gets the price of the cheapest item of a given menu option
  * @return {JSON} the cheapest price;
  */
-router.get('/get_cheapest_option_price', async (req, res) => {
-    const { option } = req.params;
+router.get('/get_cheapest_option_prices/', async (req, res) => {
     try {
-        const query = `SELECT MIN(price) FROM menu_prices WHERE option_serial_number = '${option}';`;
+        const query = `SELECT * FROM menu_prices;`;
         const result = await pool.query(query);
-        res.json(result);
+        const data = result.rows;
+        min_list = Array(14).fill(Number.MAX_SAFE_INTEGER);
+        for (let i = 0; i < data.length; ++i){
+            if (data[i].item_serial_number < 5) {
+                if (data[i].option_serial_number == 4) {
+                    if (parseFloat(data[i].price) < min_list[12]) {
+                        min_list[12] = parseFloat(data[i].price);
+                    }
+                } if (data[i].option_serial_number == 6) {
+                    if (parseFloat(data[i].price) < min_list[13]) {
+                        min_list[13] = parseFloat(data[i].price);
+                    }
+                }
+            } else if (data[i].item_serial_number < 19) {
+                if (parseFloat(data[i].price) < min_list[parseInt(data[i].option_serial_number) - 1]) {
+                    min_list[parseInt(data[i].option_serial_number) - 1] = parseFloat(data[i].price);
+                }
+            }
+        }
+        res.json(min_list);
     } catch (error) {
         console.error("Error getting price");
         res.status(500).send("Error getting price");
