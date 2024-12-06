@@ -1,6 +1,7 @@
 import "./inventoryGraph.css";
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
+import { SpinnerCircular } from "spinners-react";
 import {
     Chart as ChartJS,
     BarElement,
@@ -96,7 +97,13 @@ const InventoryGraph = ({ startTime, endTime }) => {
             ) : (
                 <div>
                     <h3 className="loading-text">
-                        Loading Inventory Usage Report...
+                        Loading Inventory Usage Report{" "}
+                        <SpinnerCircular
+                            size={15}
+                            thickness={400}
+                            color="#d61927"
+                            secondaryColor="#fff"
+                        />
                     </h3>
                 </div>
             )}

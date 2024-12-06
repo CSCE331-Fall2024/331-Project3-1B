@@ -1,6 +1,7 @@
 import "./zReportGraph.css";
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { SpinnerCircular } from "spinners-react";
 import {
     Chart as ChartJS,
     LineElement,
@@ -81,14 +82,24 @@ const ZReportGraph = () => {
         <>
             {showGraph ? (
                 <div>
-                <h3>Z Report:</h3>
-                <h5>Between Opening Hours 10am-9pm Today:</h5>
-                <div className="linechart-container">
-                    <Line data={data} options={options} />
-                </div>
+                    <h3>Z Report:</h3>
+                    <h5>Between Opening Hours 10am-9pm Today:</h5>
+                    <div className="linechart-container">
+                        <Line data={data} options={options} />
+                    </div>
                 </div>
             ) : (
-                <div><h3 className="loading-text">Loading Z Report...</h3></div>
+                <div>
+                    <h3 className="loading-text">
+                        Loading Z Report{" "}
+                        <SpinnerCircular
+                            size={15}
+                            thickness={400}
+                            color="#d61927"
+                            secondaryColor="#fff"
+                        />
+                    </h3>
+                </div>
             )}
         </>
     );

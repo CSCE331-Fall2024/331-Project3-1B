@@ -1,6 +1,7 @@
 import "./salesTrendsGraph.css";
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
+import { SpinnerCircular } from "spinners-react";
 import {
     Chart as ChartJS,
     BarElement,
@@ -93,7 +94,13 @@ const SalesTrendsGraph = ({ startTime, endTime }) => {
             ) : (
                 <div>
                     <h3 className="loading-text">
-                        Loading Sales History Report...
+                        Loading Sales History Report{" "}
+                        <SpinnerCircular
+                            size={15}
+                            thickness={400}
+                            color="#d61927"
+                            secondaryColor="#fff"
+                        />
                     </h3>
                 </div>
             )}
