@@ -41,7 +41,7 @@ function AddEmployee() {
         };
         try {
             // send api call to post new employee data
-            const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/add_employee`, 
+            const result = await fetch(`https://three31-project3-1b-backend.onrender.com/manager/add_employee`, 
                 {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},

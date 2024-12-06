@@ -84,9 +84,7 @@ function SalesOrderHistory() {
                 setXReport([]);
             } else {
                 const result = await fetch(
-                    `http://localhost:${
-                        import.meta.env.VITE_BACKEND_PORT
-                    }/manager/xReport?starttime='${todayStartTime}'&endtime='${todayEndTime}'`
+                    `https://three31-project3-1b-backend.onrender.com/manager/xReport?starttime='${todayStartTime}'&endtime='${todayEndTime}'`
                 );
                 const data = await result.json();
                 setXReport(data);
