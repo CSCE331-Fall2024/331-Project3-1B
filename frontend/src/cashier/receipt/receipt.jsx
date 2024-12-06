@@ -1,12 +1,72 @@
 import "./receipt.css";
 import { useCart } from "../../customer/myBag/CartContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Receipt() {
     const { cart, setCart } = useCart();
     const { removeItemFromCart } = useCart();
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [comboPrices, setComboPrices] = useState([]);
 
-    
+    const getTotalPrice = async () => {
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let _types = [];
+        let _items = [];
+
+        for (let i = 0; i < savedCart.length; ++i) {
+            if (i % 2 === 0) {
+                if (
+                    savedCart[i] == "Drinks" ||
+                    savedCart[i] == "Appetizers and More"
+                ) {
+                    _types.push("A La Carte Small");
+                } else {
+                    _types.push(savedCart[i]);
+                }
+            } else {
+                let combo_items = [];
+                for (let j = 0; j < savedCart[i].length; ++j) {
+                    combo_items.push(savedCart[i][j].name);
+                }
+                _items.push(combo_items);
+            }
+        }
+
+        const params = new URLSearchParams({
+            types: JSON.stringify(_types),
+            items: JSON.stringify(_items),
+        });
+
+        try {
+            const response = await fetch(
+                `http://localhost:${
+                    import.meta.env.VITE_BACKEND_PORT
+                }/submit/total-price?${params}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            const data = await response.json();
+            setTotalPrice(data.total_price);
+            setComboPrices(data.comboPrices); // Save individual combo prices
+        } catch (error) {
+            console.error("Error submitting order:", error);
+            alert("Failed to submit the order." + error);
+        }
+    };
+
+    useEffect(() => {
+        // console.log("Total Price: ", totalPrice);
+    }, [totalPrice]);
+
+    useEffect(() => {
+        getTotalPrice();
+    }, [cart]);
 
     // Play Sound Effect on button click
     function playSound(file) {
@@ -19,8 +79,6 @@ export function Receipt() {
         removeItemFromCart(index);
     };
 
-    
-    
     useEffect(() => {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -34,14 +92,23 @@ export function Receipt() {
             </div>
             <div className="receipt-display">
                 <div className="my-bag-contents">
-                    {cart.length == 0 && <h3 className="order-empty">The order is empty.</h3>}
+                    {cart.length == 0 && (
+                        <h3 className="order-empty">The order is empty.</h3>
+                    )}
                     {cart?.map((combo, index) => (
                         <div key={index} className="order-layout">
                             <div className="order-container">
                                 <div className="combo-name-container">
                                     {index % 2 == 0 && (
                                         <div>
-                                            <h1>{combo}</h1>
+                                            <h1>
+                                                {combo} - $
+                                                {
+                                                    comboPrices[
+                                                        Math.floor(index / 2)
+                                                    ]
+                                                }
+                                            </h1>
                                         </div>
                                     )}
                                 </div>
@@ -61,8 +128,8 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name}{' '} (
-                                                            {item.quantity}) 
+                                                            {item.name} (
+                                                            {item.quantity})
                                                             {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
@@ -82,8 +149,8 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name}{' '} (
-                                                            {item.quantity}) 
+                                                            {item.name} (
+                                                            {item.quantity})
                                                             {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
@@ -104,8 +171,8 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name}{' '} (
-                                                            {item.quantity}) 
+                                                            {item.name} (
+                                                            {item.quantity})
                                                             {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
@@ -126,8 +193,8 @@ export function Receipt() {
                                                         className="order-items"
                                                     >
                                                         <h3>
-                                                            {item.name}{' '} (
-                                                            {item.quantity}) 
+                                                            {item.name} (
+                                                            {item.quantity})
                                                             {/* ({item.type}) */}
                                                         </h3>
                                                     </div>
@@ -140,9 +207,17 @@ export function Receipt() {
                                 {index % 2 == 1 && (
                                     <button
                                         className="remove-combo-button"
-                                        onClick={() => {removeCombo(index);playSound('/Sounds/ButtonSound.mp3')}}
+                                        onClick={() => {
+                                            removeCombo(index);
+                                            playSound(
+                                                "/Sounds/ButtonSound.mp3"
+                                            );
+                                        }}
                                     >
-                                        <h2><i className="fa-solid fa-trash icons"/>{' '}Remove</h2>
+                                        <h2>
+                                            <i className="fa-solid fa-trash icons" />{" "}
+                                            Remove
+                                        </h2>
                                     </button>
                                 )}
                             </div>
@@ -150,8 +225,11 @@ export function Receipt() {
                     ))}
                 </div>
             </div>
-
-            
+            <div className="total-price-container">
+                {cart.length > 0 && (
+                    <h1 className="total-price">Total Price: ${totalPrice}</h1>
+                )}
+            </div>
         </div>
     );
 }

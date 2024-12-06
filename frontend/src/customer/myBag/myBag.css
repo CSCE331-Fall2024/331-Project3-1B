@@ -94,3 +94,9 @@
     
     text-align: center;
 }
+
+
+.total-price-container{
+    display: flex;
+    padding: 10px 0px 50px 0px;
+}
