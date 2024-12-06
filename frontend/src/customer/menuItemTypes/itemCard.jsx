@@ -26,6 +26,11 @@ export default function ItemCard({ type }) {
         audio.play();
     }
 
+    // After page navigation, load new screen at top of page
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, left: 0});
+    };
+
     // handleClick is a function that navigates to the correct page based on the type of item
     const handleClick = (type) => {
         setCurrTypeFunc(type);
@@ -46,7 +51,8 @@ export default function ItemCard({ type }) {
             navigate("/order/appetizers");
         } else if (type === "Drinks") {
             navigate("/order/drinks");
-        }
+        };
+        scrollToTop()
     };
 
     return (

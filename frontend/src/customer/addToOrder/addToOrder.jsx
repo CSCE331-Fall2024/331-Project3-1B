@@ -1,5 +1,6 @@
 import "./addToOrder.css";
 import { useCart } from "../myBag/CartContext";
+import { useNavigate } from "react-router-dom";     
 
 /**
  * creates a button that adds items to the order
@@ -72,10 +73,23 @@ export default function ({ items = [], onAddToOrder }) {
         var audio = new Audio(file);
         audio.play();
     }
-    
+
+    // After page navigation, load new screen at top of page
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, left: 0});
+    };
+
+    const currURL = window.location.href;
+    const navigate = useNavigate();
+
+    // Function to navigate back to the main menu
+    const backToMenu = () => {
+        if (currURL.includes("cashier")) navigate("/cashier");
+        else navigate("/customer");
+    };
+
     return (
-        <button onClick={() => {addToOrderTotal();playSound('/Sounds/ButtonSound.mp3')}} className="add-to-order-button">
-            
+        <button onClick={() => {addToOrderTotal();playSound('/Sounds/ButtonSound.mp3');backToMenu();scrollToTop()}} className="add-to-order-button">
             <p><i className="fa-solid fa-circle-plus icons"/>{' '}Add to Order</p>
         </button>
     );
