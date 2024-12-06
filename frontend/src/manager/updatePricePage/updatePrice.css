@@ -42,7 +42,7 @@
 }
 
 .total-container button:hover {
-    background-color: #a50611;
+    background-color: #85060b;
 }
 
 .buttons-group {
@@ -50,4 +50,3 @@
     flex-direction: column;
     gap: 10px;
 }
-

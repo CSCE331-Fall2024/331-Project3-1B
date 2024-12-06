@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './additem.css'; // Optional: Add your styles here
+import './updatePrice.css'; // Optional: Add your styles here
 
-function AddItemPage() {
+function UpdatePricePage() {
     const [itemName, setItemName] = useState('');
     const [itemType, setItemType] = useState('');
     const [itemAvailability, setItemAvailability] = useState('');
@@ -13,7 +13,11 @@ function AddItemPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const url = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/add_menu_item/${encodeURIComponent(itemName)}/${encodeURIComponent(itemType)}/${encodeURIComponent(itemAvailability)}`;
+        console.log(itemName);
+        console.log(itemType);
+        console.log(itemAvailability);
+
+        const url = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/edit_price/${encodeURIComponent(itemName)}/${encodeURIComponent(itemType)}/${encodeURIComponent(itemAvailability)}`;
         console.log(url);
 
         fetch(url, {
@@ -21,15 +25,15 @@ function AddItemPage() {
         })
             .then((response) => response.json())
             .then((data) => {
-                if (data.message === 'Sucessfully added menu item') {
-                    alert('Menu item added successfully!');
+                if (data.message === 'Price updated') {
+                    alert('Price updated sucessfully!');
                 } else {
-                    alert('Failed to add the menu item.');
+                    alert('Failed to update the price.');
                 }
             })
             .catch((error) => {
-                console.error('Error adding menu item:', error);
-                alert('An error occurred while adding the menu item.');
+                console.error('Error updating price:', error);
+                alert('An error occurred while updating price.');
             });
 
         setItemName('');
@@ -40,7 +44,7 @@ function AddItemPage() {
     return (
         <>
             <div className="total-container">
-                <h1>Add New Menu Item</h1>
+                <h1>Update Price</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="itemName">Item Name:</label>
@@ -63,7 +67,7 @@ function AddItemPage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="itemAvailability">Availability:</label>
+                        <label htmlFor="itemAvailability">Price:</label>
                         <input
                             type="text"
                             id="itemAvailability"
@@ -83,5 +87,4 @@ function AddItemPage() {
     );
 }
 
-export default AddItemPage;
-
+export default UpdatePricePage;

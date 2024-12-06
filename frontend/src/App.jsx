@@ -22,6 +22,7 @@ import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import AddItemPage from "./manager/addItemPage/additem.jsx";
 import AddIngred from "./manager/addIngredPage/addIngred.jsx";
+import UpdatePricePage from "./manager/updatePricePage/updatePrice.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
 import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
 
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/intermediate/managerintermediate" element={<ManagerIntermediate />} />
                 <Route path="/manager/menuItems/additem" element={<AddItemPage />} />
                 <Route path="/manager/menuItems/addingred" element={<AddIngred />} />
+                <Route path="/manager/menuItems/updateprice" element={<UpdatePricePage />} />
             </Routes>
             </Layout>
             </LanguageProvider>

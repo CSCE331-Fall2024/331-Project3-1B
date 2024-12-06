@@ -46,3 +46,15 @@
     cursor: pointer;
     height: 40px;
 }
+
+#update-price-button button {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #a50611;
+    color: white;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+}

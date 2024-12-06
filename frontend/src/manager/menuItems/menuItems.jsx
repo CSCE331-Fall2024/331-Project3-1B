@@ -46,6 +46,10 @@ function MenuItems() {
     const AddIngredPage = () => {
         navigate('/manager/menuItems/addingred');
     };
+
+    const UpdatePricePage = () => {
+        navigate('/manager/menuItems/updateprice');
+    };
     
 
     return(
@@ -59,6 +63,9 @@ function MenuItems() {
                         </div>
                         <div id='add-ingred-button'>
                             <button onClick={AddIngredPage}>Add Ingredients</button>
+                        </div>
+                        <div id='update-price-button'>
+                            <button onClick={UpdatePricePage}>Update Price</button>
                         </div>
                     </div>
 
