@@ -179,6 +179,7 @@ router.post('/submit-order', async (req, res) => {
 
     const { types, items } = req.body; 
 
+    
 
     try {
         const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
