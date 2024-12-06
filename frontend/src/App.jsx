@@ -22,6 +22,7 @@ import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
 import AddItemPage from "./manager/menuItems/addItemPage/additem.jsx";
 import AddIngred from "./manager/menuItems/addIngredPage/addIngred.jsx";
+
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
 import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
 import UpdatePricePage from "./manager/menuItems/updatePricePage/updatePrice.jsx";

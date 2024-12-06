@@ -80,7 +80,7 @@ function AddItemPage() {
                     </div>
 
                     <div className="buttons-group">
-                        <button className="menu-item-button" type="submit" onClick={playSound('/Sounds/ButtonSound.mp3')}>Add Item</button>
+                        <button className="menu-item-button" type="submit" >Add Item</button>
                         <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
