@@ -1,6 +1,7 @@
 import "./receipt.css";
 import { useCart } from "../../customer/myBag/CartContext";
 import { useEffect, useState } from "react";
+import { SpinnerCircular } from "spinners-react";
 
 export function Receipt() {
     const { cart, setCart } = useCart();
@@ -102,12 +103,27 @@ export function Receipt() {
                                     {index % 2 == 0 && (
                                         <div>
                                             <h1>
-                                                {combo} - $
-                                                {
-                                                    comboPrices[
-                                                        Math.floor(index / 2)
-                                                    ]
-                                                }
+                                                {" "}
+                                                {combo}{" "}
+                                                {comboPrices &&
+                                                comboPrices[
+                                                    Math.floor(index / 2)
+                                                ] ? (
+                                                    `- $${
+                                                        comboPrices[
+                                                            Math.floor(
+                                                                index / 2
+                                                            )
+                                                        ]
+                                                    }`
+                                                ) : (
+                                                    <SpinnerCircular
+                                                        size={15}
+                                                        thickness={400}
+                                                        color="#d61927"
+                                                        secondaryColor="#fff"
+                                                    />
+                                                )}
                                             </h1>
                                         </div>
                                     )}
@@ -227,7 +243,18 @@ export function Receipt() {
             </div>
             <div className="total-price-container">
                 {cart.length > 0 && (
-                    <h1 className="total-price">Total Price: ${totalPrice}</h1>
+                    <h1 className="total-price">
+                        {totalPrice != 0 ? (
+                            `Total Price: $${totalPrice}`
+                        ) : (
+                            <SpinnerCircular
+                                size={15}
+                                thickness={400}
+                                color="#d61927"
+                                secondaryColor="#fff"
+                            />
+                        )}
+                    </h1>
                 )}
             </div>
         </div>
