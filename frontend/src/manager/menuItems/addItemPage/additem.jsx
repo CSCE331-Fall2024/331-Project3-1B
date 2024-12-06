@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './additem.css'; // Optional: Add your styles here
+import { useNavigate } from 'react-router-dom';
+import './additem.css';
 
 function AddItemPage() {
     const [itemName, setItemName] = useState('');
     const [itemType, setItemType] = useState('');
     const [itemAvailability, setItemAvailability] = useState('');
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     // Function to handle form submission
     const handleSubmit = (e) => {
@@ -36,6 +36,12 @@ function AddItemPage() {
         setItemType('');
         setItemAvailability('');
     };
+
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     return (
         <>
@@ -74,8 +80,8 @@ function AddItemPage() {
                     </div>
 
                     <div className="buttons-group">
-                        <button type="submit">Add Item</button>
-                        <button type="button" className="back-button" onClick={() => navigate('/manager/menuItems')}>Back</button>
+                        <button className="menu-item-button" type="submit" onClick={playSound('/Sounds/ButtonSound.mp3')}>Add Item</button>
+                        <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
             </div>

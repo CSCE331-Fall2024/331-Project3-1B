@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './addIngred.css'; // Optional: Add your styles here
+import { useNavigate } from 'react-router-dom';
+import './addIngred.css';
 
 function AddIngred() {
     const [itemName, setItemName] = useState('');
@@ -8,13 +8,12 @@ function AddIngred() {
     const [ingredients, setIngredients] = useState('');
     const [servings, setServings] = useState('');
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
-    // format string for url
-    function formatItemsForUrl(input) {
-        // Split the input by commas, trim whitespace, and turn it into a JSON array of strings
-        const items = input.split(',').map(item => item.trim());
-        return JSON.stringify(items);
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
     }
 
     // Function to handle form submission
@@ -57,7 +56,7 @@ function AddIngred() {
         <>
             <div className="total-container">
                 <h1>Add Ingredients</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={() => {handleSubmit()}}>
                     <div className="form-group">
                         <label htmlFor="itemName">Item Name:</label>
                         <input
@@ -100,8 +99,8 @@ function AddIngred() {
                     </div>
 
                     <div className="buttons-group">
-                        <button type="submit">Add Ingredients</button>
-                        <button type="button" className="back-button" onClick={() => navigate('/manager/menuItems')}>Back</button>
+                        <button className="menu-item-button" type="submit" onClick={playSound('/Sounds/ButtonSound.mp3')}>Add Ingredients</button>
+                        <button type="button" className="menu-item-button" onClick={() => {playSound('/Sounds/ButtonSound.mp3');navigate('/manager/menuItems')}}>Back</button>
                     </div>
                 </form>
             </div>
