@@ -3,6 +3,7 @@ import { useCart } from "./CartContext.jsx";
 import { useNavigate } from "react-router-dom";
 import Chatbot from "../../chatbot/chatbot.jsx";
 import "./myBag.css";
+import { use } from "react";
 
 // This component will display the items in the cart, functionality not complete yet.
 /**
@@ -16,6 +17,7 @@ export default function () {
     const { removeItemFromCart } = useCart();
     const [allergies, setAllergies] = useState([]);
     const [showAllergenPopup, setShowAllergenPopup] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const allergyList = {
         "Apple Pie Roll": ["wheat"],
@@ -63,6 +65,75 @@ export default function () {
         removeItemFromCart(index);
     };
 
+    const getTotalPrice = async() => {
+
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        let _types = [];
+        let _items = [];
+
+        for (let i = 0; i < savedCart.length; ++i) {
+            if (i % 2 === 0) {
+                if (
+                    savedCart[i] == "Drinks" ||
+                    savedCart[i] == "Appetizers and More"
+                ) {
+                    _types.push("A La Carte Small");
+                } else {
+                    _types.push(savedCart[i]);
+                }
+            } else {
+                let combo_items = [];
+                for (let j = 0; j < savedCart[i].length; ++j) {
+                    // console.log(savedCart[i][j].name);
+                    combo_items.push(savedCart[i][j].name);
+                }
+                _items.push(combo_items);
+            }
+        }
+
+        console.log(_types);
+        console.log(_items);
+
+        const params = new URLSearchParams({
+            types: JSON.stringify(_types), // Convert _types array to a JSON string
+            items: JSON.stringify(_items), // Convert _items array to a JSON string
+        });
+
+
+        try {
+            const response = await fetch(
+                `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/total-price?${params}`,
+                {
+                    method: "GET", // Ensure this is GET
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            const data = await response.json();
+            setTotalPrice(data.price);
+
+        } catch (error) {
+            console.error("Error submitting order:");
+            alert("Failed to submit the order." + error);
+        }
+
+    }
+
+
+
+    useEffect(() => {   
+        console.log("Total Price: ", totalPrice);
+    }, [totalPrice]);
+
+    useEffect(() => {
+        getTotalPrice();
+    }, [cart]);
+
+
+
     // The function that will submit the order once connected with backend call
     const placeOrder = async () => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -83,7 +154,7 @@ export default function () {
             } else {
                 let combo_items = [];
                 for (let j = 0; j < savedCart[i].length; ++j) {
-                    console.log(savedCart[i][j].name);
+                    // console.log(savedCart[i][j].name);
                     combo_items.push(savedCart[i][j].name);
                 }
                 _items.push(combo_items);
@@ -142,11 +213,15 @@ export default function () {
         }
 
         setAllergies([...uniqueAllergies]);
-        console.log(allergies); // Logs the old state, not the updated one.
+        // console.log(allergies); // Logs the old state, not the updated one.
+
+
+        
+
     }, []);
 
     useEffect(() => {
-        console.log("Updated allergies:", allergies);
+        // console.log("Updated allergies:", allergies);
     }, [allergies]);
     const [changeableText, setText] = useState("Your cart is empty");
 
@@ -158,6 +233,7 @@ export default function () {
         <>
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
+                <button onClick={getTotalPrice}>lkjl;kjdfjvljsdb;lk</button>
                 <button
                     onClick={() => {
                         orderMore();
@@ -171,7 +247,6 @@ export default function () {
                     </p>
                 </button>
             </div>
-            {/* <GoogleTranslate /> */}
             <div className="my-bag-container">
                 <h1 className="my-bag-title">My Bag</h1>
                 <div className="my-bag-contents">
@@ -310,6 +385,13 @@ export default function () {
                                 ))}
                             </div>
                         </div>
+                    )}
+                </div>
+                <div className="total-price-container">
+                    {cart.length > 0 && (
+                        <h1 className="total-price">
+                            Total Price: ${totalPrice}
+                        </h1>
                     )}
                 </div>
             </div>

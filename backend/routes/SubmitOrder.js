@@ -243,9 +243,12 @@ router.post('/submit-order', async (req, res) => {
  */
 router.get('/total-price', async (req, res) => {
 
-    const { types, items } = req.body; 
+
 
     try {
+        const types = JSON.parse(req.query.types);
+        const items = JSON.parse(req.query.items);
+
         const type_ids = await Promise.all(types.map(type => getOptionSerialNumber(type)));
 
         const item_ids = await Promise.all(
@@ -253,6 +256,9 @@ router.get('/total-price', async (req, res) => {
                 sub_array.map(async (item) => await getItemSerialNumber(item))
             ))
         );
+
+        console.log("TYPE IDs:",type_ids);
+        console.log("ITEM IDs:",item_ids);
         
         const timestamp = getFormattedTimestamp();
 
