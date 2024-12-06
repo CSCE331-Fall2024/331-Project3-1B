@@ -1,23 +1,47 @@
-import './zReportGraph.css';
-import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, scales } from 'chart.js';
+import "./zReportGraph.css";
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    Title,
+    Tooltip,
+    Legend,
+    scales,
+} from "chart.js";
 
 // Register components
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
+ChartJS.register(
+    LineElement,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 const ZReportGraph = () => {
     const [zData, setZData] = useState({});
-
+    const [showGraph, setShowGraph] = useState(false);
     // use effect for data fetching
     useEffect(() => {
+        setShowGraph(false);
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport`);
+                const response = await fetch(
+                    `http://localhost:${
+                        import.meta.env.VITE_BACKEND_PORT
+                    }/manager/zReport`
+                );
                 const result = await response.json();
                 setZData(result);
+                setShowGraph(true);
             } catch (error) {
-                console.error('Error getting data for z report graph');
+                console.error("Error getting data for z report graph");
             }
         };
         fetchData();
@@ -28,9 +52,9 @@ const ZReportGraph = () => {
         datasets: [
             {
                 data: Object.values(zData),
-                label: 'Sales (cumulative)',
-                borderColor: 'rgba(255, 99, 132, 1)', // Line color
-                backgroundColor: 'rgba(255, 99, 132, 1)', // Fill color
+                label: "Sales (cumulative)",
+                borderColor: "rgba(255, 99, 132, 1)", // Line color
+                backgroundColor: "rgba(255, 99, 132, 1)", // Fill color
                 fill: true,
             },
         ],
@@ -47,17 +71,27 @@ const ZReportGraph = () => {
             y: {
                 title: {
                     display: true,
-                    text: 'Cumulative Sales ($)',
+                    text: "Cumulative Sales ($)",
                 },
             },
         },
     };
-    
+
     return (
-        <div className='linechart-container'>
-            <Line data={data} options={options} />
-        </div>
+        <>
+            {showGraph ? (
+                <div>
+                <h3>Z Report:</h3>
+                <h5>Between Opening Hours 10am-9pm Today:</h5>
+                <div className="linechart-container">
+                    <Line data={data} options={options} />
+                </div>
+                </div>
+            ) : (
+                <div><h3 className="loading-text">Loading Z Report...</h3></div>
+            )}
+        </>
     );
-    };
+};
 
 export default ZReportGraph;

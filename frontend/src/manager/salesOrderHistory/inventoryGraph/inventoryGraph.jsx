@@ -1,26 +1,48 @@
-import './inventoryGraph.css';
-import React, { useState, useEffect } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+import "./inventoryGraph.css";
+import React, { useState, useEffect } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
 
 // Register components
-ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
+ChartJS.register(
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend
+);
 
 const InventoryGraph = ({ startTime, endTime }) => {
     const [items, setItems] = useState([]);
     const [quantities, setQuantities] = useState([]);
+    const [showGraph, setShowGraph] = useState(false);
 
     useEffect(() => {
+        setShowGraph(false);
         const fetchData = async () => {
             try {
-                const result = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`);
+                const result = await fetch(
+                    `http://localhost:${
+                        import.meta.env.VITE_BACKEND_PORT
+                    }/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`
+                );
                 const data = await result.json();
-                const itemNames = data.map(item => item[0]);
-                const itemQuantities = data.map(item => item[1]);
+                const itemNames = data.map((item) => item[0]);
+                const itemQuantities = data.map((item) => item[1]);
                 setItems(itemNames);
                 setQuantities(itemQuantities);
+                setShowGraph(true);
             } catch (error) {
-                console.error('Error fetching data for inventory graph', error);
+                console.error("Error fetching data for inventory graph", error);
             }
         };
 
@@ -31,10 +53,10 @@ const InventoryGraph = ({ startTime, endTime }) => {
         labels: items,
         datasets: [
             {
-                label: 'Quantities',
+                label: "Quantities",
                 data: quantities,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Light red color
-                borderColor: 'rgba(255, 99, 132, 1)', // Light red border color
+                backgroundColor: "rgba(255, 99, 132, 0.2)", // Light red color
+                borderColor: "rgba(255, 99, 132, 1)", // Light red border color
                 borderWidth: 1,
             },
         ],
@@ -52,23 +74,33 @@ const InventoryGraph = ({ startTime, endTime }) => {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Quantity',
+                    text: "Quantity",
                 },
             },
             x: {
                 title: {
                     display: true,
-                    text: 'Items',
+                    text: "Items",
                 },
             },
         },
     };
 
     return (
-        <div id='barchart-container'>
-            <h3>Inventory Usage Report:</h3>
-            <Bar data={data} options={options} />
-        </div>
+        <>
+            {showGraph ? (
+                <div id="barchart-container">
+                    <h3>Inventory Usage Report:</h3>
+                    <Bar data={data} options={options} />
+                </div>
+            ) : (
+                <div>
+                    <h3 className="loading-text">
+                        Loading Inventory Usage Report...
+                    </h3>
+                </div>
+            )}
+        </>
     );
 };
 
