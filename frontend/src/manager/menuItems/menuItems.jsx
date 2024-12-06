@@ -46,7 +46,16 @@ function MenuItems() {
     const AddIngredPage = () => {
         navigate('/manager/menuItems/addingred');
     };
+
+    const UpdatePricePage = () => {
+        navigate('/manager/menuItems/updateprice');
+    };
     
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     return(
         <> 
@@ -54,11 +63,10 @@ function MenuItems() {
             <div id="total-container">
                 <div id='total-content'>
                     <div id='all-buttons' >
-                        <div id='add-item-button'>
-                            <button onClick={AddMenuItemPage}>Add Menu Item</button>
-                        </div>
-                        <div id='add-ingred-button'>
-                            <button onClick={AddIngredPage}>Add Ingredients</button>
+                        <button className='menu-item-button' onClick={() => {AddMenuItemPage();playSound('/Sounds/ButtonSound.mp3')}}>Add Menu Item</button>
+                        <button className='menu-item-button' onClick={() => {AddIngredPage();playSound('/Sounds/ButtonSound.mp3')}}>Add Ingredients</button>
+                        <div id='update-price-button'>
+                            <button onClick={UpdatePricePage}>Update Price</button>
                         </div>
                     </div>
 
