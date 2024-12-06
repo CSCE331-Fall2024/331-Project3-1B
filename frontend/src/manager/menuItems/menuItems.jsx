@@ -47,6 +47,11 @@ function MenuItems() {
         navigate('/manager/menuItems/addingred');
     };
     
+    // Play Sound Effect on button click
+    function playSound(file) {
+        var audio = new Audio(file);
+        audio.play();
+    }
 
     return(
         <> 
@@ -54,12 +59,8 @@ function MenuItems() {
             <div id="total-container">
                 <div id='total-content'>
                     <div id='all-buttons' >
-                        <div id='add-item-button'>
-                            <button onClick={AddMenuItemPage}>Add Menu Item</button>
-                        </div>
-                        <div id='add-ingred-button'>
-                            <button onClick={AddIngredPage}>Add Ingredients</button>
-                        </div>
+                        <button className='menu-item-button' onClick={() => {AddMenuItemPage();playSound('/Sounds/ButtonSound.mp3')}}>Add Menu Item</button>
+                        <button className='menu-item-button' onClick={() => {AddIngredPage();playSound('/Sounds/ButtonSound.mp3')}}>Add Ingredients</button>
                     </div>
 
                     <div id='menu-item-container'>
