@@ -59,9 +59,7 @@ export function CashierPageHeader() {
 
         try {
             const response = await fetch(
-                `http://localhost:${
-                    import.meta.env.VITE_BACKEND_PORT
-                }/submit/submit-order`,
+                `https://three31-project3-1b-backend.onrender.com/submit/submit-order`,
                 {
                     method: "POST",
                     headers: {

@@ -99,9 +99,8 @@ export default function () {
 
         try {
             const response = await fetch(
-                `http://localhost:${
-                    import.meta.env.VITE_BACKEND_PORT
-                }/submit/total-price?${params}`,
+
+                `https://three31-project3-1b-backend.onrender.com/submit/total-price?${params}`,
                 {
                     method: "GET",
                     headers: {
@@ -156,9 +155,7 @@ export default function () {
 
         try {
             const response = await fetch(
-                `http://localhost:${
-                    import.meta.env.VITE_BACKEND_PORT
-                }/submit/submit-order`,
+                `https://three31-project3-1b-backend.onrender.com/submit/submit-order`,
                 {
                     method: "POST",
                     headers: {
@@ -417,9 +414,11 @@ export default function () {
 
             <footer className="item-page-footer">
                 <div></div>
-                <div>
+                <div className="footer-button-container">
                     {cart.length > 0 && (
                         <>
+                                                    <Chatbot />
+
                             <button
                                 onClick={() => {
                                     clearCurrCart();
@@ -445,7 +444,6 @@ export default function () {
                                     Checkout
                                 </p>
                             </button>
-                            <Chatbot />
                         </>
                     )}
                     {cart.length == 0 && <Chatbot />}

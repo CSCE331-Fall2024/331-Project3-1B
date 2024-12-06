@@ -682,6 +682,7 @@ router.get('/edit_price/:item/:option/:price', async (req, res) => {
     try {
         const query = `INSERT INTO menu_prices (item_serial_number, option_serial_number, price) VALUES (${itemID}, ${optionID}, ${price}) ON CONFLICT (item_serial_number, option_serial_number) DO UPDATE SET price = EXCLUDED.price;`
 
+        
         await pool.query(query);
 
         res.send({message : "Price updated"});
@@ -864,7 +865,7 @@ const getSalesReport = async (starttime, endtime) => {
         console.error(error);
     }
 
-    for (let id = 1; id <= 25; ++ id) {
+    for (let id = 1; id <= 28; ++ id) {
         try {
             const query = `SELECT item_name FROM menu_items WHERE item_serial_number = ${id};`;
             const result = await pool.query(query);

@@ -118,15 +118,20 @@
 }
 
 .chatbot-button {
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     background-color: #f8f8f8;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
     color: #d61927;
-    width: 70px;
+    width: auto;
     height: 57px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+
 }
 
 .chatbot-button:hover, .chatbot-button:focus{

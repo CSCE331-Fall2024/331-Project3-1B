@@ -17,7 +17,7 @@ function OrderTrends() {
             if (savedData != null && button === false) {
                 setComboData(JSON.parse(savedData)); // convert a JSON to a javascript object
             } else {
-                const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/combos_today`);
+                const response = await fetch(`https://three31-project3-1b-backend.onrender.com/manager/combos_today`);
                 const data = await response.json();
                 setComboData(data);
                 localStorage.setItem('comboData', JSON.stringify(data)); // convert javascript obj to json
