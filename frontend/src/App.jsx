@@ -20,6 +20,8 @@ import ManagerIntermediate from "./intermediate/managerIntermediate.jsx";
 import { CartProvider } from "./customer/myBag/CartContext.jsx";
 import MenuItems from "./manager/menuItems/menuItems.jsx";
 import Layout from "./googleTranslate/layout.jsx";
+import AddItemPage from "./manager/addItemPage/additem.jsx";
+import AddIngred from "./manager/addIngredPage/addIngred.jsx";
 import { LanguageProvider } from "./googleTranslate/languageContext.jsx";
 import { ZoomProvider } from "./customer/zoomButton/ZoomContext.jsx";
 
@@ -57,6 +59,8 @@ function App() {
                 <Route path="/manager/sales_order_history" element={<SalesOrderHistory />} />
                 <Route path="/intermediate/cashierintermediate" element={<CashierIntermediate />} />
                 <Route path="/intermediate/managerintermediate" element={<ManagerIntermediate />} />
+                <Route path="/manager/menuItems/additem" element={<AddItemPage />} />
+                <Route path="/manager/menuItems/addingred" element={<AddIngred />} />
             </Routes>
             </Layout>
             </LanguageProvider>
