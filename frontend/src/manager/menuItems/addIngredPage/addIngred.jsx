@@ -22,7 +22,7 @@ function AddIngred() {
 
         // ingredients as : spoon, fountain drink small
 
-        const baseUrl = "http://localhost:3001/manager/add_ingredients";
+        const baseUrl = "https://three31-project3-1b-backend.onrender.com/manager/add_ingredients";
         const name = "Jk one last test";
         const type = "Bowl";
         const ingredients = JSON.stringify(["spoon"]); // Properly format as JSON

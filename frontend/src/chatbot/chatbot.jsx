@@ -30,7 +30,7 @@ const Chatbot = () => {
 
         try {
             // Send the user's message to the backend API
-            const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/chat/chat`, {
+            const response = await fetch(`https://three31-project3-1b-backend.onrender.com/chat/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query: input }),

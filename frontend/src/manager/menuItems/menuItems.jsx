@@ -21,7 +21,7 @@ function MenuItems() {
 
     // api call to get all menu items
     useEffect(() => {
-        fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_menu_items`)
+        fetch(`https://three31-project3-1b-backend.onrender.com/manager/get_menu_items`)
             .then(response => response.json())
             .then(items => {
                 const itemIds = items.map(item => item.item_serial_number);
