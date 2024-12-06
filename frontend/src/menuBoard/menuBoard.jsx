@@ -27,13 +27,14 @@ export default function menuBoard() {
     return (
         <>
             <div id="board-container">
+
                 <div className="board-generic">
 
                     <button onClick={() => {back();playSound('/Sounds/ButtonSound.mp3')}} id="menu-button">
                         <i className="fa-solid fa-right-to-bracket icons"/>{' '}Login
                     </button>   
 
-                    <h1 className="header-generic">PICK A MEAL</h1>
+                    <div className="header-generic">PICK A MEAL</div>
 
                     <div id="options-list">
 
@@ -79,36 +80,8 @@ export default function menuBoard() {
                         </div>
 
                     </div>
-                </div>
 
-                <div className="board-generic">
-                    <div className="header-generic">SIDE CHOICES</div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">CHOW MEIN</span>
-                        <span className="calories-count">510</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">WHITE STEAMED RICE</span>
-                        <span className="calories-count">380</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">FRIED RICE</span>
-                        <span className="calories-count">520</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="option-generic">
-                        <span className="option-titles">SUPER GREENS</span>
-                        <span className="calories-count">380</span>
-                        <span className="cal">cal</span>
-                    </div>
-
-                    <div className="header-generic">A LA CARTE BOXES</div>
+                    <div className="header-generic" id="subheader">A LA CARTE BOXES</div>
 
                     <div className="option-generic">
 
@@ -149,6 +122,7 @@ export default function menuBoard() {
                 </div>
 
                 <div className="board-generic">
+
                     <div className="header-generic">ENTREE CHOICES</div>
 
                     <div className="option-generic">
@@ -230,6 +204,63 @@ export default function menuBoard() {
                     </div>
                     
                 </div>
+
+                <div className="board-generic">
+
+                    <div className="header-generic">SIDE CHOICES</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CHOW MEIN</span>
+                        <span className="calories-count">510</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">WHITE STEAMED RICE</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">FRIED RICE</span>
+                        <span className="calories-count">520</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">SUPER GREENS</span>
+                        <span className="calories-count">380</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="header-generic" id="subheader">APPETIZERS AND MORE</div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CHICKEN EGG ROLL</span>
+                        <span className="calories-count">200</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">VEGETABLE SPRING ROLL</span>
+                        <span className="calories-count">240</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">CREAM CHEESE RANGOON</span>
+                        <span className="calories-count">190</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                    <div className="option-generic">
+                        <span className="option-titles">APPLE PIE ROLL</span>
+                        <span className="calories-count">150</span>
+                        <span className="cal">cal</span>
+                    </div>
+
+                </div>
+
             </div>
         </>
     );

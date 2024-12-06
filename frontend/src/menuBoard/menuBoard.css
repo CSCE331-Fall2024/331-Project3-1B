@@ -23,6 +23,10 @@
     justify-self: center;
 }
 
+#subheader{
+    font-size: 80px;
+}
+
 .option-generic{
     margin-top: 40px;
     margin-left: 150px;
