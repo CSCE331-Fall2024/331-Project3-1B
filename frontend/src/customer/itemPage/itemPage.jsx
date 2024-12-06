@@ -72,7 +72,7 @@ export default function ItemPage() {
         ["White Steamed Rice", ""],
         ["Fried Rice", "Contains: egg, soy, wheat, sesame."],
         ["Chow Mein", "Contains: soy, wheat, sesame."],
-        ["Super Greens Side", "Contains: soy, wheat."],
+        ["Super Greens", "Contains: soy, wheat."],
     ];
     const entrees = [
         [
