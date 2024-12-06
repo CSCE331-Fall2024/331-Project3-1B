@@ -57,7 +57,7 @@ function UpdatePricePage() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="itemType">Item Type:</label>
+                        <label htmlFor="itemType">Item Type (Bowl, Plate):</label>
                         <input
                             type="text"
                             id="itemType"
