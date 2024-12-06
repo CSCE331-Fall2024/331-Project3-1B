@@ -68,7 +68,7 @@ function AddIngred() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="itemOption">Option:</label>
+                        <label htmlFor="itemOption">Option (Bowl, Plate):</label>
                         <input
                             type="text"
                             id="itemOption"
@@ -78,7 +78,7 @@ function AddIngred() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="ingredients">Ingredients:</label>
+                        <label htmlFor="ingredients">Ingredients (fork):</label>
                         <input
                             type="text"
                             id="ingredients"
