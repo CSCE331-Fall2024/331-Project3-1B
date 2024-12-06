@@ -122,7 +122,7 @@ export default function () {
 
 
     useEffect(() => {   
-        console.log("Total Price: ", totalPrice);
+        // console.log("Total Price: ", totalPrice);
     }, [totalPrice]);
 
     useEffect(() => {
