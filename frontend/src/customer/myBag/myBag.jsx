@@ -314,7 +314,7 @@ export default function () {
 
             <footer className="item-page-footer">
                 <div></div>
-                <div>
+                <div className="footer-button-container">
                     {cart.length > 0 && (
                         <>
                             <button
