@@ -14,6 +14,37 @@ export default function () {
     const { cart, setCart } = useCart();
     const { clearCart } = useCart();
     const { removeItemFromCart } = useCart();
+    const [allergies, setAllergies] = useState([]);
+
+    const allergyList = {
+        "Apple Pie Roll": ["wheat"],
+        "Chicken Egg Roll": ["egg", "milk", "soy", "wheat", "sesame"],
+        "Cream Cheese Rangoon": ["egg", "milk", "wheat"],
+        "Vegetable Spring Roll": ["soy", "wheat", "sesame"],
+        "White Steamed Rice": [],
+        "Fried Rice": ["egg", "soy", "wheat", "sesame"],
+        "Chow Mein": ["soy", "wheat", "sesame"],
+        "Super Greens": ["soy", "wheat"],
+        "Original Orange Chicken": ["eggs", "milk", "soy", "wheat", "sesame"],
+        "Beijing Beef": ["milk", "soy", "wheat"],
+        "Grilled Teriyaki Chicken": ["soy", "wheat", "sesame"],
+        "Broccoli Beef": ["soy", "wheat", "sesame"],
+        "Kung Pao Chicken": ["peanuts", "soy", "wheat", "sesame"],
+        "Honey Sesame Chicken Breast": ["wheat", "sesame"],
+        "Black Pepper Chicken": ["soy", "wheat"],
+        "String Bean Chicken Breast": ["soy", "wheat", "sesame"],
+        "Mushroom Chicken": ["soy", "wheat", "sesame"],
+        "Honey Walnut Shrimp": [
+            "tree nuts",
+            "shellfish",
+            "eggs",
+            "milk",
+            "soy",
+            "wheat",
+        ],
+        "Black Pepper Sirloin Steak": ["soy", "wheat"],
+        "Sweet Fire Chicken Breast": ["wheat"],
+    };
 
     // The function that will clear the current cart
     const clearCurrCart = () => {
@@ -32,7 +63,7 @@ export default function () {
     };
 
     // The function that will submit the order once connected with backend call
-    const placeOrder = async() => {
+    const placeOrder = async () => {
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
         let _types = [];
@@ -40,7 +71,10 @@ export default function () {
 
         for (let i = 0; i < savedCart.length; ++i) {
             if (i % 2 === 0) {
-                if (savedCart[i] == "Drinks" || savedCart[i] == "Appetizers and More" ) {
+                if (
+                    savedCart[i] == "Drinks" ||
+                    savedCart[i] == "Appetizers and More"
+                ) {
                     _types.push("A La Carte Small");
                 } else {
                     _types.push(savedCart[i]);
@@ -91,14 +125,32 @@ export default function () {
         // Fetch the cart from localStorage to ensure it's updated on component load
         const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(savedCart);
+        
+
+        const uniqueAllergies = new Set();
+
+        // Iterate through the cart to extract allergies
+        for (let i = 0; i < savedCart.length; ++i) {
+            for (let j = 0; j < savedCart[i].length; ++j) {
+                const itemName = savedCart[i][j].name;
+                const itemAllergies = allergyList[itemName] || []; // Get allergies for the item
+                itemAllergies.forEach((allergen) =>
+                    uniqueAllergies.add(allergen)
+                ); // Add to Set
+            }
+        }
+
+        setAllergies([...uniqueAllergies]);
+        console.log(allergies); // Logs the old state, not the updated one.
     }, []);
 
+    useEffect(() => {
+        console.log("Updated allergies:", allergies);
+    }, [allergies]);
     const [changeableText, setText] = useState('Your cart is empty');
 
     return (
         <>
-            
-
             <div id="header-container">
                 <h1 id="header-title">Panda Express</h1>
                 <button
@@ -107,8 +159,11 @@ export default function () {
                         playSound("/Sounds/ButtonSound.mp3");
                     }}
                     className="order-more-button"
-                >   
-                    <p className="button-text"><i className="fa-solid fa-circle-plus icons"/>{' '}Order More</p>
+                >
+                    <p className="button-text">
+                        <i className="fa-solid fa-circle-plus icons" /> Order
+                        More
+                    </p>
                 </button>
             </div>
             {/* <GoogleTranslate /> */}
@@ -228,12 +283,27 @@ export default function () {
                                                 );
                                         }}
                                     >
-                                        <p className="button-text"><i className="fa-solid fa-trash icons"/>{' '}Remove</p>
+                                        <p className="button-text">
+                                            <i className="fa-solid fa-trash icons" />{" "}
+                                            Remove
+                                        </p>
                                     </button>
                                 )}
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="allergies-container">
+                    {allergies.length > 0 && cart.length > 0 && (
+                        <div className="allergy-container">
+                            <h1 className="allergies-title">WARNING Allergens:</h1>
+                            <div className="allergies-direction">
+                                {allergies.map((allergy, index) => (
+                                    <h3 key={index}>- {allergy}</h3>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -245,31 +315,31 @@ export default function () {
                             <button
                                 onClick={() => {
                                     clearCurrCart();
-                                    playSound(
-                                        "/Sounds/ButtonSound.mp3"
-                                    );
+                                    playSound("/Sounds/ButtonSound.mp3");
                                 }}
                                 className="clear-cart-button"
                             >
-                                <p className="button-text"><i className="fa-solid fa-trash icons"/>{' '}Clear Cart</p>
+                                <p className="button-text">
+                                    <i className="fa-solid fa-trash icons" />{" "}
+                                    Clear Cart
+                                </p>
                             </button>
                             <button
                                 onClick={() => {
                                     placeOrder();
-                                    playSound(
-                                        "/Sounds/ButtonSound.mp3"
-                                    );
+                                    playSound("/Sounds/ButtonSound.mp3");
                                 }}
                                 className="place-order-button"
                             >
-                                <p className="button-text"><i className="fa-solid fa-cash-register icons"/>{' '}Checkout</p>
+                                <p className="button-text">
+                                    <i className="fa-solid fa-cash-register icons" />{" "}
+                                    Checkout
+                                </p>
                             </button>
-                            <Chatbot /> 
+                            <Chatbot />
                         </>
                     )}
-                    {cart.length == 0 && (
-                        <Chatbot />
-                    )}
+                    {cart.length == 0 && <Chatbot />}
                 </div>
             </footer>
         </>

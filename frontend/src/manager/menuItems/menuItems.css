@@ -16,26 +16,25 @@
 }
 
 #all-buttons{
-    display:flex;
+    display: flex;
     flex-direction: row;
     gap: 5px;
     align-items: flex-end;
-    
 }
 
-#add-item-button button {
-    display: flex;
-    justify-items: flex-end;
-    background-color: #a50611;
-    color: white;
-    border: none;
+.menu-item-button {
+    padding: 8px;
     margin: 10px;
-    padding: 10px;
-    cursor: pointer;
-    height: 40px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    color: #D61927;
+    width: auto;
+    font-size: 15px;
+    font-weight: bold;
+    align-self: flex-end;
 }
 
-#add-ingred-button button {
+#update-price-button button {
     display: flex;
     justify-content: flex-end;
     background-color: #a50611;
