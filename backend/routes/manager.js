@@ -587,6 +587,62 @@ router.get('/add_menu_item/:name/:type/:availability', async (req, res) => {
     }
 });
 
+async function getItemID(name) {
+    try {
+        const query = `SELECT item_serial_number FROM menu_items WHERE item_name = '${name}';`
+        result = await pool.query(query);
+        return result.rows[0].item_serial_number;
+    } catch (error) {
+        console.log("Could not query item ID line 546");
+    }
+}
+
+async function getTypeID(name) {
+    try {
+        const query = `SELECT option_serial_number FROM menu_options WHERE option_name = '${name}';`
+        result = await pool.query(query);
+        return result.rows[0].option_serial_number;
+    } catch (error) {
+        console.log("Could not query item ID line 556");
+    }
+}
+
+async function getIngredID(name) {
+    try {
+        const query = `SELECT id FROM inventory WHERE name = '${name}';`
+        result = await pool.query(query);
+        return result.rows[0].id;
+    } catch (error) {
+        console.log("Could not query ingredient ID line 566");
+    }
+}
+
+router.get('/add_ingredients/:name/:type/:ingredients/:servings', async (req, res) => {
+
+    try {
+        const {name, type, ingredients, servings} = req.params;
+        
+        nameID = await getItemID(name);
+        optionID = await getTypeID(type);
+        ingredList = JSON.parse(ingredients);   
+        servingList = JSON.parse(servings);
+        
+        for (let i = 0; i < ingredList.length; ++i) {
+            let ingred = await getIngredID(ingredList[i]);
+            let servings = servingList[i];
+
+            const query = `INSERT INTO menu_ingredients (item_serial_number, option_serial_number, ingredient_serial_number, servings) VALUES (${nameID}, ${optionID}, ${ingred}, ${servings});`
+            await pool.query(query);
+        }
+
+        res.send({message : "added ingredients"});
+
+    } catch (error) {
+        res.send({message : "failed to add ingredients..."});
+    }
+
+});
+
 /**
  * adds menu item
  * @param {string} name - name of new item
