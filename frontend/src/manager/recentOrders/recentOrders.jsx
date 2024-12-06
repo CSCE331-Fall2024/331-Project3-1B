@@ -15,7 +15,7 @@ function RecentOrders() {
     const [orderNumbers, setOrderNumbers] = useState([]);
 
     useEffect(() => {
-        fetch(`https://three31-project3-1b-backend.onrender.com/manager/recent_sales_today`)
+        fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/recent_sales_today`)
             .then(query_res => query_res.json())
             .then(data => {
                 const orderNums = data.map(order => order.order_number);

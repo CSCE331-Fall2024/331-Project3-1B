@@ -30,7 +30,7 @@ export default function menuBoard() {
 
     // api call to get menu prices. Stores info in array.
     const getCheapestPrice = async () => {
-        const response = await fetch(`https://three31-project3-1b-backend.onrender.com/manager/get_cheapest_option_prices`)
+        const response = await fetch(`http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_cheapest_option_prices`)
             if (response.ok) {
                 const price_list = await response.json();
                 console.log(price_list);

@@ -34,7 +34,7 @@ const ZReportGraph = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(
-                    `https://three31-project3-1b-backend.onrender.com/manager/zReport`
+                    `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/zReport`
                 );
                 const result = await response.json();
                 setZData(result);

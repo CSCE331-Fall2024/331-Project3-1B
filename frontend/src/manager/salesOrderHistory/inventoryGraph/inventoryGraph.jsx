@@ -32,7 +32,7 @@ const InventoryGraph = ({ startTime, endTime }) => {
         const fetchData = async () => {
             try {
                 const result = await fetch(
-                    `https://three31-project3-1b-backend.onrender.com/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`
+                    `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/getInventoryUsage?startTime=${startTime}&endTime=${endTime}`
                 );
                 const data = await result.json();
                 const itemNames = data.map((item) => item[0]);

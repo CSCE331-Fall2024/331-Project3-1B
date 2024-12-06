@@ -33,7 +33,7 @@ const SalesTrendsGraph = ({ startTime, endTime }) => {
         setShowGraph(false);
         const fetchData = async () => {
             const result = await fetch(
-                `https://three31-project3-1b-backend.onrender.com/manager/get_sales_report?startTime=${startTime}&endTime=${endTime}`
+                `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/get_sales_report?startTime=${startTime}&endTime=${endTime}`
             );
             const data = await result.json();
             setSalesData({

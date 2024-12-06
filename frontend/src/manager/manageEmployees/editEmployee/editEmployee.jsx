@@ -36,23 +36,23 @@ function EditEmployee() {
         let body;
         switch (selectedOption) {
             case 'name':
-                query = `https://three31-project3-1b-backend.onrender.com/manager/update_name/${employeeID}`;
+                query = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/update_name/${employeeID}`;
                 body = { fullName: newInfo };
                 break;
             case 'email':
-                query = `https://three31-project3-1b-backend.onrender.com/manager/update_email/${employeeID}`;
+                query = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/update_email/${employeeID}`;
                 body = { email: newInfo };
                 break;
             case 'phone number':
-                query = `https://three31-project3-1b-backend.onrender.com/manager/update_phone_number/${employeeID}`;
+                query = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/update_phone_number/${employeeID}`;
                 body = { phoneNumber: newInfo };
                 break;
             case 'wage':
-                query = `https://three31-project3-1b-backend.onrender.com/manager/update_wage/${employeeID}`;
+                query = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/update_wage/${employeeID}`;
                 body = { wage: newInfo };
                 break;
             case 'position':
-                query = `https://three31-project3-1b-backend.onrender.com/manager/update_position/${employeeID}`;
+                query = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/update_position/${employeeID}`;
                 body = { position: newInfo };
                 break;
             default:

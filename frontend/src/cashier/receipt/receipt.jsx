@@ -41,7 +41,7 @@ export function Receipt() {
 
         try {
             const response = await fetch(
-                `https://three31-project3-1b-backend.onrender.com/submit/total-price?${params}`,
+                `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/submit/total-price?${params}`,
                 {
                     method: "GET",
                     headers: {

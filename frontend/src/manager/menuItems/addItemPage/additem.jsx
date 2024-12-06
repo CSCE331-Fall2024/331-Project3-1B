@@ -13,7 +13,7 @@ function AddItemPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const url = `https://three31-project3-1b-backend.onrender.com/manager/add_menu_item/${encodeURIComponent(itemName)}/${encodeURIComponent(itemType)}/${encodeURIComponent(itemAvailability)}`;
+        const url = `http://localhost:${import.meta.env.VITE_BACKEND_PORT}/manager/add_menu_item/${encodeURIComponent(itemName)}/${encodeURIComponent(itemType)}/${encodeURIComponent(itemAvailability)}`;
         console.log(url);
 
         fetch(url, {
