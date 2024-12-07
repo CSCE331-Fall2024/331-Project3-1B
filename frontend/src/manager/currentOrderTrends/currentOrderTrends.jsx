@@ -5,8 +5,9 @@ import "./currentOrderTrends.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// creates a container that holds the current order trends. Shows the number of each item ordered today
-// creates a pie chart showing combo trends today
+/** creates a container that holds the current order trends. Shows the number of each item ordered today
+ * creates a pie chart showing combo trends today
+ */
 
 function OrderTrends() {
     const [comboData, setComboData] = useState({});

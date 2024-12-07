@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./pageHeader.css";
 
-// creates the navigation bar at the top of the page
+/** creates the navigation bar at the top of the page
+ */
 function PageHeader() {
 
     // function that navigates to the POS/home page

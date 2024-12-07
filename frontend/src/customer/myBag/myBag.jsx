@@ -6,7 +6,7 @@ import "./myBag.css";
 import { use } from "react";
 import { SpinnerCircular } from "spinners-react";
 
-// This component will display the items in the cart, functionality not complete yet.
+// This component will display the items in the cart
 /**
  * This component will display the items in the cart
  * @returns {HTML} MyBag component

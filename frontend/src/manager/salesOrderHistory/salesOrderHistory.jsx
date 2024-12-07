@@ -5,7 +5,10 @@ import InventoryGraph from "./inventoryGraph/inventoryGraph.jsx";
 import SalesTrendsGraph from "./salesTrendsGraph/salesTrendsGraph.jsx";
 import { SpinnerCircular } from "spinners-react";
 import { useState } from "react";
-
+/**
+ * generates a page that can create reports based on the sales order history
+ * @returns {HTML} the SalesOrderHistory page
+ */
 function SalesOrderHistory() {
     const [displayZ, setDisplayZ] = useState(false);
     const [xReport, setXReport] = useState([]);

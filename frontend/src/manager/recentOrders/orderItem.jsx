@@ -3,6 +3,8 @@ import "./orderItem.css";
 // creates a card for each of the most recent orders
 /**
  * creates a card for each of the most recent orders
+ * @param {float} orderTotal
+ * @param {int} order_number
  * @returns {HTML} the order card
  */
 function OrderItem ({ orderTotal, orderNumber }) {

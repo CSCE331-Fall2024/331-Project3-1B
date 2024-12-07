@@ -1,7 +1,8 @@
 import "./managerGreeting.css";
 import { useEffect, useState } from "react";
-
-// creates a greeting message for the manager
+/** creates a greeting message for the manager
+ * 
+ */
 export default function ManagerGreeting() {
     const [name, setName] = useState("Manager");
 

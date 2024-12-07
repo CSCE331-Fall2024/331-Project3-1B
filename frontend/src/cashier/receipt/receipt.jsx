@@ -2,7 +2,10 @@ import "./receipt.css";
 import { useCart } from "../../customer/myBag/CartContext";
 import { useEffect, useState } from "react";
 import { SpinnerCircular } from "spinners-react";
-
+/**
+ * this is the receipt that displays all items that are ordered
+ * @returns {HTML} receipt component
+ */
 export function Receipt() {
     const { cart, setCart } = useCart();
     const { removeItemFromCart } = useCart();

@@ -21,7 +21,12 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
+/**
+ * this generates a graph showing the inventory usage over a given period of time
+ * @param {Timestamp} startTime
+ * @param {Timestamp} endTime 
+ * @returns {HTML} the graph
+ */
 const InventoryGraph = ({ startTime, endTime }) => {
     const [items, setItems] = useState([]);
     const [quantities, setQuantities] = useState([]);

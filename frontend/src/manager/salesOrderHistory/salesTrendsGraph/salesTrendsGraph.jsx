@@ -21,7 +21,12 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
+/**
+ * this generates a graph showing the sales trends over a given period of time
+ * @param {Timestamp} startTime
+ * @param {Timestamp} endTime 
+ * @returns {HTML} the graph
+ */
 const SalesTrendsGraph = ({ startTime, endTime }) => {
     const [salesData, setSalesData] = useState({
         menuItem: null,

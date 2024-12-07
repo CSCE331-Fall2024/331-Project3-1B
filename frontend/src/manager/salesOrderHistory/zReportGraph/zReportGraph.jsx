@@ -24,7 +24,10 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
+/**
+ * generates a graph visualizing the z report
+ * @returns {HTML} the graph
+ */
 const ZReportGraph = () => {
     const [zData, setZData] = useState({});
     const [showGraph, setShowGraph] = useState(false);

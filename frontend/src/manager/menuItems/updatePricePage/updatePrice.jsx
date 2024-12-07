@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './updatePrice.css';
 
+/**
+ * generates a component that allows you to change the price of a menu item
+ * @returns {HTML} update price component
+ */
 function UpdatePricePage() {
     const [itemName, setItemName] = useState('');
     const [itemType, setItemType] = useState('');

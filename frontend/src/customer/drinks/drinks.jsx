@@ -11,7 +11,7 @@ import Chatbot from "../../chatbot/chatbot.jsx";
 
 
 /**
- * Drinks component, displays the appetizers and includes the AddToOrder component
+ * Drinks component, displays the drinks and includes the AddToOrder component
  * @returns {HTML} Drinks component
  */
 export default function () {

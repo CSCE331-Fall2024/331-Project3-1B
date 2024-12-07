@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './quantitySelector.css';
 
+/**
+ * creates a quantity selector component that allows for incre/decrementation and reseting
+ * @param {function} onQuantityChange
+ * @param {function} resetQuantities 
+ * @returns {HTML} the selector
+ */
 export default function QuantitySelector({ onQuantityChange, resetQuantities }) {
     const [quantity, setQuantity] = useState(0);
 

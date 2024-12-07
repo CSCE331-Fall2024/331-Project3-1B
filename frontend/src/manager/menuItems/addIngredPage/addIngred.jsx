@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './addIngred.css';
 
+/**
+ * generates a component that allows you to add ingredients to a menu item
+ * @returns {HTML} add ingredients component
+ */
 function AddIngred() {
     const [itemName, setItemName] = useState('');
     const [itemOption, setItemOption] = useState('');

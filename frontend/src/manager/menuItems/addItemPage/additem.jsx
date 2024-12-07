@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './additem.css';
-
+/**
+ * generates a component that allows you to add a menu item
+ * @returns {HTML} add menu item component
+ */
 function AddItemPage() {
     const [itemName, setItemName] = useState('');
     const [itemType, setItemType] = useState('');

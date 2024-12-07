@@ -3,6 +3,10 @@ import './singleMenuItem.css';
 // component displaying info for a individual menu item
 /**
  * component displaying info for a individual menu item
+ * @param {int} item_id
+ * @param {string} item_name
+ * @param {string} item_type
+ * @param {boolean} availability
  * @returns {HTML} SingleMenuItem
  */
 function SingleMenuItem({item_id, item_name, item_type, item_availability}) {
