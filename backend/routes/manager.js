@@ -408,6 +408,7 @@ router.put('/update_position/:id', async (req, res) => {
  * gets all the ingredients used given the type of combo and the item ordered
  * @param {string} option - the type of combo
  * @param {string} item - the name of the item
+ * @returns {JSON} the ingredients and how many are used
  */
 router.get('/get_ingredients', async (req, res) => {
     const {option, item} = req.query;
@@ -616,7 +617,13 @@ async function getIngredID(name) {
         console.log("Could not query ingredient ID line 566");
     }
 }
-
+/**
+ * adds an ingredient entry to the database
+ * @param {string} name the name of the item
+ * @param {string} type the combo type
+ * @param {string[]} ingredient the list of ingredients
+ * @param {float} servings the number of servings used 
+ */
 router.get('/add_ingredients/:name/:type/:ingredients/:servings', async (req, res) => {
 
     try {
@@ -672,6 +679,12 @@ async function getOptionID(type) {
     }
 }
 
+/**
+ * changes the price of an item given params
+ * @param {string} item the item to change
+ * @param {string} option the combo type
+ * @param {float} price the new price
+ */
 router.get('/edit_price/:item/:option/:price', async (req, res) => {
 
     const {item, option, price} = req.params;
@@ -823,6 +836,12 @@ const GetInventoryUsage = async (starttime, endtime) => {
     return inventory_usage;
 };
 
+/**
+ * gets the inventory usage given a time range
+ * @param {Timestamp} starttime 
+ * @param {Timestamp} endtime 
+ * @return {JSON} pair of ingredient and usage amount
+ */
 router.get('/getInventoryUsage', async (req, res) => {
     const { startTime, endTime } = req.query; // use query for get requests
     try {
@@ -886,7 +905,12 @@ const getSalesReport = async (starttime, endtime) => {
 
     return salesReportObject;
 }
-
+/**
+ * gets the sales report list of items
+ * @param {Timestamp} starttime 
+ * @param {Timestamp} endtime 
+ * @returns {JSON} list of items and number of times ordered
+ */
 router.get('/get_sales_report', async (req, res) => {
     const {startTime, endTime} = req.query;
     try {
