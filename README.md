@@ -22,7 +22,7 @@ Our front end ui consists of a Cashier View, Customer View, Manager View, and Me
  - All buttons pair both large text with an associated icon to ensure they are easily understood by all users.
 # Backend
 Technologies Used: Node JS, PSQL<br />
-Our backed consists of a 
+Our backed consists of a AWS based PSQL database and a Node.js javascript runtime that supports many of the features in the front end.
 ## chatbot
  - LLM based chatbot using grog.
  - Loaded with information on Panda menu options and allergen information, as well as knowledge of Panda Express business practices and history.
